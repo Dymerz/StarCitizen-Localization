@@ -20,7 +20,7 @@
 | French | ❌ |
 | French - France | ❌ |
 | German | ❌ |
-| German - Germany | ❌ |
+| German - Germany | ✅ |
 | Italian | ❌ |
 | Italian - Italy | ❌ |
 | Japanese | ❌ |

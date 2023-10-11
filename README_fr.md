@@ -17,7 +17,7 @@
 | Français | ❌ |
 | Français - France | ❌ |
 | Allemand | ❌ |
-| Allemand - Allemagne | ❌ |
+| Allemand - Allemagne | ✅ |
 | Italien | ❌ |
 | Italien - Italie | ❌ |
 | Japonais | ❌ |
