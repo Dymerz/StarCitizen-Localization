@@ -33,8 +33,7 @@
 | Espagnol - Espagne | ❌ |
 
 ## Guide d'Installation
-
-1. Rendez-vous sur [Releases](https://github.com/Dymerz/StarCitizen-Localization/releases) et téléchargez le fichier `Localization.zip`.
+1. Téléchargez le fichier [Localization.zip](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip).
 2. Extrayez le fichier téléchargé dans `\StarCitizen\LIVE\data\`.
 3. Créez ou modifiez le fichier suivant : `\StarCitizen\LIVE\user.cfg`
 4. Selon la langue que vous souhaitez utiliser, ajoutez l'une des lignes suivantes au fichier :
