@@ -45,27 +45,18 @@
 
     | Language |   |
     |---|---|
-    | Chinese |`g_language = chinese` |
-    | Chinese - Simplified |`g_language = chinese_simplified` |
-    | Chinese - Traditional |`g_language = chinese_traditional` |
-    | English |`g_language = english` |
-    | French |`g_language = french` |
-    | French - France |`g_language = french_france` |
-    | German |`g_language = german` |
-    | German - Germany |`g_language = german_germany` |
-    | Italian |`g_language = italian` |
-    | Italian - Italy |`g_language = italian_italy` |
-    | Japanese |`g_language = japanese` |
-    | Japanese - Japan |`g_language = japanese_japan` |
-    | Korean |`g_language = korean` |
-    | Korean - South Korea |`g_language = korean_south_korea` |
-    | Polish |`g_language = polish` |
-    | Polish - Poland |`g_language = polish_poland` |
-    | Portuguese |`g_language = portuguese` |
-    | Portuguese - Brazil |`g_language = portuguese_brazil` |
-    | Spanish |`g_language = spanish` |
-    | Spanish - Latin America |`g_language = spanish_latin_america` |
-    | Spanish - Spain |`g_language = spanish_spain ` |
+    | Chinese - Simplified | `g_language = chinese_(simplified)` |
+    | Chinese - Traditional | `g_language = chinese_(traditional)` |
+    | English | `g_language = english` |
+    | French - France | `g_language = french_(france)` |
+    | German - Germany | `g_language = german_(germany)` |
+    | Italian - Italy | `g_language = italian_(italy)` |
+    | Japanese - Japan | `g_language = japanese_(japan)` |
+    | Korean - South Korea | `g_language = korean_(south_korea)` |
+    | Polish - Poland | `g_language = polish_(poland)` |
+    | Portuguese - Brazil | `g_language = portuguese_(brazil)` |
+    | Spanish - Latin America | `g_language = spanish_(latin_america)` |
+    | Spanish - Spain | `g_language = spanish_(spain) ` |
 
 ---
 ## Contributing

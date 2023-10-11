@@ -40,27 +40,18 @@
 
     | Language  |   |
     |---|---|
-    | Chinois | `g_language = chinese` |
-    | Chinois simplifié | `g_language = chinese_simplified` |
-    | Chinois traditionnel | `g_language = chinese_traditional` |
+    | Chinois simplifié | `g_language = chinese_(simplified)` |
+    | Chinois traditionnel | `g_language = chinese_(traditional)` |
     | Anglais | `g_language = english` |
-    | Français | `g_language = french` |
-    | Français - France | `g_language = french_france` |
-    | Allemand | `g_language = german` |
-    | Allemand - Allemagne | `g_language = german_germany` |
-    | Italien | `g_language = italian` |
-    | Italien - Italie | `g_language = italian_italy` |
-    | Japonais | `g_language = japanese` |
-    | Japonais - Japon | `g_language = japanese_japan` |
-    | Coréen | `g_language = korean` |
-    | Coréen - Corée du Sud | `g_language = korean_south_korea` |
-    | Polonais | `g_language = polish` |
-    | Polonais - Pologne | `g_language = polish_poland` |
-    | Portugais | `g_language = portuguese` |
-    | Portugais - Brésil | `g_language = portuguese_brazil` |
-    | Espagnol | `g_language = spanish` |
-    | Espagnol - Amérique Latine | `g_language = spanish_latin_america` |
-    | Espagnol - Espagne | `g_language = spanish_spain` |
+    | Français - France | `g_language = french_(france)` |
+    | Allemand - Allemagne | `g_language = german_(germany)` |
+    | Italien - Italie | `g_language = italian_(italy)` |
+    | Japonais - Japon | `g_language = japanese_(japan)` |
+    | Coréen - Corée du Sud | `g_language = korean_(south_korea)` |
+    | Polonais - Pologne | `g_language = polish_(poland)` |
+    | Portugais - Brésil | `g_language = portuguese_(brazil)` |
+    | Espagnol - Amérique Latine | `g_language = spanish_(latin_america)` |
+    | Espagnol - Espagne | `g_language = spanish_(spain) ` |
 
 ## Contribuer
 [Voir CONTRIBUTING.md](CONTRIBUTING.md)
