@@ -39,8 +39,8 @@
 ## Installation Guide
 
 1. Download the [Localization.zip](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip) file.
-2. Extract the downloaded file to `\StarCitizen\LIVE\data\`.
-3. Create or edit the following file: `\StarCitizen\LIVE\user.cfg`
+2. Extract the downloaded file to `\StarCitizen\LIVE\data\`.  (ex: `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`)
+3. Create or edit the following file: `\StarCitizen\LIVE\user.cfg`. (ex: `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user.cfg`)
 4. Depending on the language you want to use, add one of the following lines to the file:
 
     | Language |   |
