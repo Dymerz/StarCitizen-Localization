@@ -62,7 +62,7 @@
 
 ---
 ## Mise à Jour des Fichiers de Localisation
-Pour mettre à jour les fichiers de localisation, veuillez suivre à nouveau le [Guide d'Installation](#installation-guide).
+Pour mettre à jour les fichiers de localisation, veuillez suivre à nouveau le [Guide d'Installation](#guide-dinstallation).
 
 ---
 ## Contribuer
