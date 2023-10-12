@@ -2,37 +2,44 @@
 
 🚧 Il s'agit d'un projet en cours visant à traduire Star Citizen dans d'autres langues.
 
-**Table des matières :**
-1. [Guide d'Installation](#guide-dinstallation)
-3. [Avis de non-responsabilité](#avis-de-non-responsabilité)
 
+
+
+**Table des matières :**
+1. [Langues Prises en Charge](#langues-prises-en-charge)
+2. [Guide d'Installation](#guide-dinstallation)
+3. [Mise à Jour des Fichiers de Localisation](#mise-à-jour-des-fichiers-de-localisation)
+4. [Contribuer](#contribuer)
+5. [Avis de non-responsabilité](#avis-de-non-responsabilité)
+
+---
 ## Langues Prises en Charge
 
 | Langue | Pris en Charge |
 |---|---|
-| Chinois | ❌ |
 | Chinois Simplifié | ❌ |
 | Chinois Traditionnel | ❌ |
 | Anglais | ✅ |
-| Français | ❌ |
 | Français - France | ❌ |
-| Allemand | ❌ |
 | Allemand - Allemagne | ✅ |
-| Italien | ❌ |
 | Italien - Italie | ❌ |
-| Japonais | ❌ |
 | Japonais - Japon | ❌ |
-| Coréen | ❌ |
 | Coréen - Corée du Sud | ❌ |
-| Polonais | ❌ |
 | Polonais - Pologne | ❌ |
-| Portugais | ❌ |
 | Portugais - Brésil | ❌ |
-| Espagnol | ❌ |
 | Espagnol - Amérique latine | ❌ |
 | Espagnol - Espagne | ❌ |
 
+---
 ## Guide d'Installation
+
+### Installation Automatique
+1. Téléchargez le script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd) (Appuyez sur `CTRL + S` pour le télécharger).
+2. Placez le fichier téléchargé dans le dossier `\StarCitizen\LIVE\data\` (par exemple, `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data`).
+3. Exécutez le fichier `install_localization.cmd` et suivez les instructions.
+   > ℹ️ Ce script téléchargera automatiquement la dernière version des fichiers de localisation, les installera dans le dossier `Localization` pour vous, et configurera le fichier `user.cfg`.
+
+### Installation Manuelle
 1. Téléchargez le fichier [Localization.zip](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip).
 2. Extrayez le fichier téléchargé dans `\StarCitizen\LIVE\data\`. (ex: `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`)
 3. Créez ou modifiez le fichier suivant : `\StarCitizen\LIVE\user.cfg`. (ex: `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user.cfg`)
@@ -53,9 +60,15 @@
     | Espagnol - Amérique Latine | `g_language = spanish_(latin_america)` |
     | Espagnol - Espagne | `g_language = spanish_(spain) ` |
 
+---
+## Mise à Jour des Fichiers de Localisation
+Pour mettre à jour les fichiers de localisation, veuillez suivre à nouveau le [Guide d'Installation](#installation-guide).
+
+---
 ## Contribuer
 [Voir CONTRIBUTING.md](CONTRIBUTING.md)
 
+---
 ## Avis de non-responsabilité
 
 Il s'agit d'un site de fans non officiel de Star Citizen, sans affiliation avec le groupe de sociétés Cloud Imperium. Tout le contenu de ce site qui n'a pas été rédigé par son hôte ou ses utilisateurs est la propriété de leurs propriétaires respectifs. Star Citizen®, Roberts Space Industries® et Cloud Imperium® sont des marques déposées de Cloud Imperium Rights LLC.
