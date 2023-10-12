@@ -13,7 +13,7 @@
 | Vereinfachtes Chinesisch | ❌ |
 | Traditionelles Chinesisch | ❌ |
 | Englisch | ✅ |
-| Französisch - Frankreich | ❌ |
+| Französisch - Frankreich | ✅ |
 | Deutsch - Deutschland | ✅ |
 | Italienisch - Italien | ❌ |
 | Japanisch - Japan | ❌ |

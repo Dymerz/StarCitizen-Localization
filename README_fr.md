@@ -20,7 +20,7 @@
 | Chinois Simplifié | ❌ |
 | Chinois Traditionnel | ❌ |
 | Anglais | ✅ |
-| Français - France | ❌ |
+| Français - France | ✅ |
 | Allemand - Allemagne | ✅ |
 | Italien - Italie | ❌ |
 | Japonais - Japon | ❌ |

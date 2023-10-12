@@ -20,7 +20,7 @@
 | Chinese Simplified | ❌ |
 | Chinese Traditional | ❌ |
 | English | ✅ |
-| French - France | ❌ |
+| French - France | ✅ |
 | German - Germany | ✅ |
 | Italian - Italy | ❌ |
 | Japanese - Japan | ❌ |
