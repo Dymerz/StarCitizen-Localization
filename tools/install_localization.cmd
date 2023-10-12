@@ -23,13 +23,15 @@ set BATCH_PATH=%~dp0
 set BATCH_PATH=%BATCH_PATH:~0,-1%
 
 rem Check if the script is executed from the "\StarCitizen\[Live or PTU]\Data" folder
-if /i "%BATCH_PATH:~-22%" neq "\StarCitizen\LIVE\data" (
-  if /i "%BATCH_PATH:~-22%" neq "\StarCitizen\PTU\data" (
-    echo:
-    echo This script must be executed from the "\StarCitizen\[LIVE or PTU]\data" folder.
-    pause
-    exit /b
-  )
+echo %BATCH_PATH% | findstr /I /C:"\StarCitizen\LIVE\data" >nul
+if errorlevel 1 (
+    echo %BATCH_PATH% | findstr /I /C:"\StarCitizen\PTU\data" >nul
+    if errorlevel 1 (
+        echo:
+        echo This script must be executed from the "\StarCitizen\[LIVE or PTU]\data" folder.
+        pause
+        exit /b
+    )
 )
 
 echo Downloading the latest version of the localization files...
