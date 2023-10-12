@@ -105,6 +105,6 @@ if not exist "../user.cfg" (
 )
 
 echo:
-echo The language has been changed to !lang_list[%lang_choice%]!
+echo You can now enjoy Star Citizen in !lang_list[%lang_choice%]!
 pause
 endlocal

@@ -8,9 +8,9 @@
 **Inhaltsverzeichnis:**
 1. [Unterstützte Sprachen](#unterstützte-sprachen)
 2. [Installationsanleitung](#installationsanleitung)
-3. [Aktualisierung der Übersetzungsdateien](#beitragen)
+3. [Aktualisieren der Lokalisierungsdateien](#aktualisieren-der-lokalisierungsdateien)
 4. [Beitragen](#beitragen)
-5. [Haftungsausschluss](#Haftungsausschluss)
+5. [Haftungsausschluss](#haftungsausschluss)
 
 ---
 ## Unterstützte Sprachen
@@ -20,7 +20,7 @@
 | Chinesisch Vereinfacht | ❌ |
 | Chinesisch Traditionell | ❌ |
 | Englisch | ✅ |
-| Französisch - Frankreich | ❌ |
+| Französisch - Frankreich | ✅ |
 | Deutsch - Deutschland | ✅ |
 | Italienisch - Italien | ❌ |
 | Japanisch - Japan | ❌ |
@@ -38,6 +38,7 @@
 2. Legen Sie die heruntergeladene Datei im Ordner `\StarCitizen\LIVE\data\` ab. (z.B. `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data`)
 3. Führen Sie das `install_localization.cmd` aus und folgen Sie den Anweisungen.
     > ℹ️ Dieses Skript wird automatisch die neueste Version der Übersetzungsdateien herunterladen, sie im Ordner `Localization` für Sie installieren und die Datei `user.cfg` konfigurieren.
+4. Starten Sie das Spiel und genießen Sie die Übersetzung! 🚀
 
 ### Manuelle Installation
 1. Laden Sie die Datei [Localization.zip](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip) herunter.
@@ -60,9 +61,11 @@
     | Spanisch - Lateinamerika | `g_language = spanish_(latin_america)` |
     | Spanisch - Spanien | `g_language = spanish_(spain) ` |
 
+5. Speichern Sie die Datei und starten Sie das Spiel. 🚀
+
 ---
-## Aktualisierung der Übersetzungsdateien
-Um die Übersetzungsdateien zu aktualisieren, folgen Sie bitte erneut der [Installationsanleitung](#installationsanleitung).
+## Aktualisieren der Lokalisierungsdateien
+Um die Lokalisierungsdateien zu aktualisieren, folgen Sie bitte erneut der [Installationsanleitung](#installationsanleitung).
 
 ---
 ## Beitragen
