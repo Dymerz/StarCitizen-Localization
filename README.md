@@ -13,25 +13,16 @@
 
 | Langue | Supported |
 |---|---|
-| Chinese | ❌ |
 | Chinese Simplified | ❌ |
 | Chinese Traditional | ❌ |
 | English | ✅ |
-| French | ❌ |
 | French - France | ❌ |
-| German | ❌ |
 | German - Germany | ✅ |
-| Italian | ❌ |
 | Italian - Italy | ❌ |
-| Japanese | ❌ |
 | Japanese - Japan | ❌ |
-| Korean | ❌ |
 | Korean - South Korea | ❌ |
-| Polish | ❌ |
 | Polish - Poland | ❌ |
-| Portuguese | ❌ |
 | Portuguese - Brazil | ❌ |
-| Spanish | ❌ |
 | Spanish - Latin America | ❌ |
 | Spanish - Spain | ❌ |
 
