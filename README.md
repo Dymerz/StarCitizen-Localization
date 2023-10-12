@@ -6,8 +6,11 @@
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
 
 **Table of Contents:**
-1. [Installation Guide](#installation-guide)
-2. [Disclaimer](#Disclaimer)
+1. [Supported Languages](#supported-languages)
+2. [Installation Guide](#installation-guide)
+3. [Updating the Localization Files](#contributing)
+4. [Contributing](#contributing)
+5. [Disclaimer](#Disclaimer)
 
 ---
 ## Supported Languages
@@ -38,7 +41,7 @@
 
 ### Manual Installation
 1. Download the [Localization.zip](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip) file.
-2. Extract the downloaded file to `\StarCitizen\LIVE\data\`.  (e.g. `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`)
+2. Extract the downloaded file to `\StarCitizen\LIVE\data\`. (e.g. `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`)
 3. Create or edit the following file: `\StarCitizen\LIVE\user.cfg`. (e.g. `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user.cfg`)
 4. Depending on the language you want to use, add one of the following lines to the file:
 
@@ -65,6 +68,7 @@ To update the localization files, please follow the [Installation Guide](#instal
 ## Contributing
 [See CONTRIBUTING.md](CONTRIBUTING.md)
 
+---
 ## Disclaimer
 
 This is an unofficial Star Citizen fansite, not affiliated with the Cloud Imperium group of companies. All content on this site not authored by its host or users are property of their respective owners. Star Citizen®, Roberts Space Industries® and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC
