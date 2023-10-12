@@ -3,6 +3,7 @@
 🚧 This is a Work In Progress project to translate Star Citizen into other languages.
 
 - 🇫🇷 [Instruction en Français](README_fr.md).
+- 🇩🇪 [Anleitung auf Deutsch](README_de.md).
 
 **Table of Contents:**
 1. [Installation Guide](#installation-guide)
