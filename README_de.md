@@ -12,6 +12,7 @@
 |---|---|
 | Vereinfachtes Chinesisch | ❌ |
 | Traditionelles Chinesisch | ❌ |
+| Englisch | ✅ |
 | Französisch - Frankreich | ❌ |
 | Deutsch - Deutschland | ✅ |
 | Italienisch - Italien | ❌ |
