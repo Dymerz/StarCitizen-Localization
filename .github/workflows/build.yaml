@@ -21,7 +21,4 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: |
-          "Localization.zip"
-          "tools/install_localization.cmd"
-
+        files: "Localization.zip"
