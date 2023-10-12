@@ -10,25 +10,15 @@
 
 | Sprache | Unterstützt |
 |---|---|
-| Chinesisch | ❌ |
 | Vereinfachtes Chinesisch | ❌ |
 | Traditionelles Chinesisch | ❌ |
-| Englisch | ✅ |
-| Französisch | ❌ |
 | Französisch - Frankreich | ❌ |
-| Deutsch | ❌ |
 | Deutsch - Deutschland | ✅ |
-| Italienisch | ❌ |
 | Italienisch - Italien | ❌ |
-| Japanisch | ❌ |
 | Japanisch - Japan | ❌ |
-| Koreanisch | ❌ |
 | Koreanisch - Südkorea | ❌ |
-| Polnisch | ❌ |
 | Polnisch - Polen | ❌ |
-| Portugiesisch | ❌ |
 | Portugiesisch - Brasilien | ❌ |
-| Spanisch | ❌ |
 | Spanisch - Lateinamerika | ❌ |
 | Spanisch - Spanien | ❌ |
 
