@@ -1,0 +1,41 @@
+name: Update French localization file
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 1 * * *' # every day at 1am UTC
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-file:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout current repository
+      uses: actions/checkout@v3
+
+    - name: Download global.ini from 'SPEED0U/StarCitizenTranslations'
+      run: |
+        curl -o global.ini -L "https://raw.githubusercontent.com/SPEED0U/StarCitizenTranslations/main/french_(france)/global.ini"
+        mv global.ini "Localization/french_(france)/global.ini"
+
+    - name: Check if the file has changed
+      id: check-changes
+      run: |
+        if [[ -n $(git status --porcelain "Localization/french_(france)/global.ini") ]]; then
+          echo "File has changed."
+          echo "changes=true" >> $GITHUB_OUTPUT
+        else
+          echo "File has not changed."
+          echo "changes=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push the fetched file
+      if: steps.check-changes.outputs.changes == 'true'
+      run: |
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Action"
+        git add "Localization/french_(france)/global.ini"
+        git commit -m "Update French localization 🇫🇷"
+        git push
