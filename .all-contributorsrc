@@ -1,10 +1,24 @@
 {
-  "projectName": "all-contributors",
-  "projectOwner": "all-contributors",
+  "projectName": "StarCitizen-Localization",
+  "projectOwner": "Dymerz",
   "files": [
     "README_de.md",
     "README_es.md",
     "README_fr.md",
     "README.md"
+  ],
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributorsPerLine": 7,
+  "contributors": [
+    {
+      "login": "electronicfreak",
+      "name": "electronicfreak",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11193801?v=4",
+      "profile": "https://github.com/electronicfreak",
+      "contributions": [
+        "translation"
+      ]
+    }
   ]
 }
