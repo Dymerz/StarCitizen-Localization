@@ -4,6 +4,7 @@
 
 - 🇫🇷 [Instruction en Français](README_fr.md).
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
+- 🇪🇸 [Instrucción en español](README_es.md)
 
 **Table of Contents:**
 1. [Supported Languages](#supported-languages)
@@ -28,7 +29,7 @@
 | Polish - Poland | ❌ |
 | Portuguese - Brazil | ❌ |
 | Spanish - Latin America | ❌ |
-| Spanish - Spain | ❌ |
+| Spanish - Spain | ✅ |
 
 ---
 ## Installation Guide
