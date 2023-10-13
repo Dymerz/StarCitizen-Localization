@@ -12,6 +12,15 @@
   "contributorsPerLine": 7,
   "contributors": [
     {
+      "login": "electronicfreak",
+      "name": "electronicfreak",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11193801?v=4",
+      "profile": "https://github.com/electronicfreak",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
       "login": "Autovot",
       "name": "Autovot",
       "avatar_url": "https://avatars.githubusercontent.com/u/87210193?v=4",
