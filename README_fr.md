@@ -28,7 +28,7 @@
 | Polonais - Pologne | ❌ |
 | Portugais - Brésil | ❌ |
 | Espagnol - Amérique latine | ❌ |
-| Espagnol - Espagne | ❌ |
+| Espagnol - Espagne | ✅ |
 
 ---
 ## Guide d'Installation
