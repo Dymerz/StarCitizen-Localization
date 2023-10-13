@@ -1,0 +1,10 @@
+{
+  "projectName": "all-contributors",
+  "projectOwner": "all-contributors",
+  "files": [
+    "README_de.md",
+    "README_es.md",
+    "README_fr.md",
+    "README.md"
+  ]
+}

@@ -15,7 +15,6 @@
 
 ---
 ## Unterstützte Sprachen
-
 | Sprache | Unterstützt |
 |---|---|
 | Chinesisch Vereinfacht | ❌ |
@@ -73,6 +72,16 @@ Um die Lokalisierungsdateien zu aktualisieren, folgen Sie bitte erneut der [Inst
 [Siehe CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
-## Haftungsausschluss
+## Mitwirkende
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+---
+## Haftungsausschluss
 Dies ist eine inoffizielle Star Citizen Fanseite und steht in keiner Verbindung zur Cloud Imperium Unternehmensgruppe. Alle Inhalte auf dieser Seite, die nicht vom Host oder den Benutzern erstellt wurden, sind Eigentum ihrer jeweiligen Besitzer. Star Citizen®, Roberts Space Industries® und Cloud Imperium® sind eingetragene Marken von Cloud Imperium Rights LLC.

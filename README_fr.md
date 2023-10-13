@@ -5,6 +5,7 @@
 
 
 
+
 **Table des matières :**
 1. [Langues Prises en Charge](#langues-prises-en-charge)
 2. [Guide d'Installation](#guide-dinstallation)
@@ -14,7 +15,6 @@
 
 ---
 ## Langues Prises en Charge
-
 | Langue | Pris en Charge |
 |---|---|
 | Chinois Simplifié | ❌ |
@@ -61,6 +61,8 @@
     | Espagnol - Amérique Latine | `g_language = spanish_(latin_america)` |
     | Espagnol - Espagne | `g_language = spanish_(spain) ` |
 
+5. Lancez le jeu et profitez de la traduction ! 🚀
+
 ---
 ## Mise à Jour des Fichiers de Localisation
 Pour mettre à jour les fichiers de localisation, veuillez suivre à nouveau le [Guide d'Installation](#guide-dinstallation).
@@ -70,6 +72,16 @@ Pour mettre à jour les fichiers de localisation, veuillez suivre à nouveau le 
 [Voir CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
-## Avis de non-responsabilité
+## Contributeurs
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+---
+## Avis de non-responsabilité
 Il s'agit d'un site de fans non officiel de Star Citizen, sans affiliation avec le groupe de sociétés Cloud Imperium. Tout le contenu de ce site qui n'a pas été rédigé par son hôte ou ses utilisateurs est la propriété de leurs propriétaires respectifs. Star Citizen®, Roberts Space Industries® et Cloud Imperium® sont des marques déposées de Cloud Imperium Rights LLC.
