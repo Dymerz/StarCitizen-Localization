@@ -2,8 +2,10 @@
 
 🚧 Il s'agit d'un projet en cours visant à traduire Star Citizen dans d'autres langues.
 
-
-
+- 🇩🇪 [Anleitung auf Deutsch](README_de.md).
+- 🇪🇸 [Instrucciones en Español](README_es.md).
+- 🇮🇹 [Istruzioni in Italiano](README_it.md).
+- 🇬🇧 [Instructions in English.](README.md).
 
 
 **Table des matières :**
@@ -22,7 +24,7 @@
 | Anglais | ✅ |
 | Français - France | ✅ |
 | Allemand - Allemagne | ✅ |
-| Italien - Italie | ❌ |
+| Italien - Italie | ✅ |
 | Japonais - Japon | ❌ |
 | Coréen - Corée du Sud | ❌ |
 | Polonais - Pologne | ❌ |

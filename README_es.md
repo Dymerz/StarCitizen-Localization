@@ -4,7 +4,8 @@
 
 - 🇫🇷 [Instruction en Français](README_fr.md).
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
-- 🇪🇸 [Instrucciones en Español](README_es.md)
+- 🇮🇹 [Istruzioni in Italiano](README_it.md).
+- 🇬🇧 [Instructions in English.](README.md).
 
 **Tabla de contenidos:**
   - [Idiomas soportados](#idiomas-soportados)
@@ -22,7 +23,7 @@
 | Inglés                  | ✅         |
 | Francés - Francia       | ✅         |
 | Alemán - Alemania       | ✅         |
-| Italiano - Italia       | ❌         |
+| Italiano - Italia       | ✅         |
 | Japonés - Japón         | ❌         |
 | Coreano - Corea del Sur | ❌         |
 | Polaco - Polonia        | ❌         |

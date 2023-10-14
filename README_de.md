@@ -3,8 +3,9 @@
 🚧 Dies ist ein laufendes Projekt zur Übersetzung von Star Citizen in andere Sprachen.
 
 - 🇫🇷 [Instruction en Français](README_fr.md).
-- 🇬🇧 [Instructions in english](README.md).
-- 🇪🇸 [Instrucción en español](README_es.md)
+- 🇩🇪 [Anleitung auf Deutsch](README_de.md).
+- 🇪🇸 [Instrucciones en Español](README_es.md).
+- 🇮🇹 [Istruzioni in Italiano](README_it.md).
 
 **Inhaltsverzeichnis:**
 1. [Unterstützte Sprachen](#unterstützte-sprachen)
@@ -22,7 +23,7 @@
 | Englisch | ✅ |
 | Französisch - Frankreich | ✅ |
 | Deutsch - Deutschland | ✅ |
-| Italienisch - Italien | ❌ |
+| Italienisch - Italien | ✅ |
 | Japanisch - Japan | ❌ |
 | Koreanisch - Südkorea | ❌ |
 | Polnisch - Polen | ❌ |
