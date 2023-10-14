@@ -72,7 +72,7 @@ Per aggiornare i file di localizzazione, segui nuovamente la guida [Installazion
 
 ---
 ## Contribuire
-[Guarda CONTRIBUTING.md](CONTRIBUTING_it.md)
+[Guarda CONTRIBUTING_it.md](CONTRIBUTING_it.md)
 
 ---
 ## Contributori
