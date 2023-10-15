@@ -34,7 +34,7 @@ jobs:
       run: npm ci
 
     - name: Execute INI merge script
-      run: npm run --prefix ./tools/ini-merge start data/Localization/english/global.ini data/Localization/french_(france)/human.ini data/Localization/french_(france)/ai.ini data/Localization/french_(france)/global.ini
+      run: npm run --prefix tools/ini-merger start data/Localization/english/global.ini data/Localization/french_(france)/human.ini data/Localization/french_(france)/ai.ini data/Localization/french_(france)/global.ini
 
     - name: Check if the file has changed
       id: check-changes
