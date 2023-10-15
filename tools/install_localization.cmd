@@ -1,8 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set "releases_url=https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/"
-
 rem List of languages
 set "lang_list[1]=chinese_(simplified)"
 set "lang_list[2]=chinese_(traditional)"
