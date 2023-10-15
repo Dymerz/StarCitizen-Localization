@@ -2,7 +2,7 @@
 
 ## Add a new language
 
-1. Create a folder under `Localization` with the name of the language you want to add, for example `french`.
+1. Create a folder under `data/Localization` with the name of the language you want to add, for example `french_(france)`.
 2. Copy the `english` folder and rename it to the language you want to add.
 3. Translate the strings in the `global.ini` file.
 
