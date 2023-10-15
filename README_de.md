@@ -23,7 +23,7 @@
 | Englisch | ✅ |
 | Französisch - Frankreich | ✅ |
 | Deutsch - Deutschland | ✅ |
-| Italienisch - Italien | ✅ |
+| Italienisch - Italien | ❌ |
 | Japanisch - Japan | ❌ |
 | Koreanisch - Südkorea | ❌ |
 | Polnisch - Polen | ❌ |

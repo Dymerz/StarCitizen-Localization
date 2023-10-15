@@ -25,7 +25,7 @@
 | Inglese | ✅ |
 | Francese - Francia | ✅ |
 | Tedesco - Germania | ✅ |
-| Italiano - Italia | ✅ |
+| Italiano - Italia | ❌ |
 | Giapponese - Giappone | ❌ |
 | Coreano - Corea del Sud | ❌ |
 | Polacco - Polonia | ❌ |

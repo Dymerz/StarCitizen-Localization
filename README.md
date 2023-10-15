@@ -24,7 +24,7 @@
 | English | ✅ |
 | French - France | ✅ |
 | German - Germany | ✅ |
-| Italian - Italy | ✅ |
+| Italian - Italy | ❌ |
 | Japanese - Japan | ❌ |
 | Korean - South Korea | ❌ |
 | Polish - Poland | ❌ |
