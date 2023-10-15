@@ -34,7 +34,7 @@ jobs:
       run: npm ci
 
     - name: Execute INI merge script
-      run: npm run --prefix tools/ini-merger start "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "human.ini" "ai.ini" "$GITHUB_WORKSPACE/data/Localization/french_(france)/global.ini"
+      run: npm run --prefix tools/ini-merger start "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "$GITHUB_WORKSPACE/human.ini" "$GITHUB_WORKSPACE/ai.ini" "$GITHUB_WORKSPACE/data/Localization/french_(france)/global.ini"
 
     - name: Check if the file has changed
       id: check-changes
