@@ -15,6 +15,8 @@
 
 ## Indicazioni
 
+**_IMPORTANTE:_** Prima di fare una richiesta di commit controllate che il vostro file global.ini non faccia crashare il gioco
+
 ### Forma
 
 I **Verbi** vengono coniugati con la forma del tu. Ad esempio:
