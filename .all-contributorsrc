@@ -47,6 +47,16 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "Auhrus",
+      "name": "Auhrus",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57270834?v=4",
+      "profile": "https://github.com/Auhrus",
+      "contributions": [
+        "translation",
+        "projectManagement"
+      ]
     }
   ]
 }
