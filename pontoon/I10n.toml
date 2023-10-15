@@ -1,0 +1,11 @@
+basepath = "."
+
+locales = [
+    "de",
+    "es",
+    "it",
+]
+
+[[paths]]
+    reference = "translate/public/static/locale/en-US/*.ftl"
+    l10n = "translate/public/static/locale/{locale}/*.ftl"
