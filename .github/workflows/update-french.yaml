@@ -15,10 +15,26 @@ jobs:
     - name: Checkout current repository
       uses: actions/checkout@v3
 
-    - name: Download global.ini from 'SPEED0U/StarCitizenTranslations'
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 18
+
+    - name: Download global.ini from 'SPEED0U/StarCitizenTranslations' - AI translated
       run: |
         curl -o global.ini -L "https://raw.githubusercontent.com/SPEED0U/StarCitizenTranslations/main/french_(france)/global.ini"
-        mv global.ini "data/Localization/french_(france)/global.ini"
+        mv global.ini "data/Localization/french_(france)/ai.ini"
+
+    - name: Download global.ini from 'traduction.circuspes.fr' - Human translated
+      run: |
+        curl -o global.ini -L "https://traduction.circuspes.fr/download/global.ini"
+        mv global.ini "data/Localization/french_(france)/human.ini"
+
+    - name: Install dependencies
+      working-directory: ./tools/ini-merge
+      run: npm ci
+
+    - name: Execute INI merge script
+      run: npm run --prefix ./tools/ini-merge start data/Localization/english/global.ini data/Localization/french_(france)/human.ini data/Localization/french_(france)/ai.ini data/Localization/french_(france)/global.ini
 
     - name: Check if the file has changed
       id: check-changes
