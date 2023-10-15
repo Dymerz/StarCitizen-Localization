@@ -30,4 +30,9 @@ Il termine **Please** è variabile. Es:
 
 Questa parte verra aggiornata frequentemente.
 
-I nomi dei **veicoli** e dei **luoghi** non vanno tradotti, ma lasciati nella forma originale.
+I seguenti termini **NON** dovranno essere tradotti:
+
+* **Nomi dei veicoli**
+* **Nomi dei luoghi**
+* **Nomi propri**
+* Marine
