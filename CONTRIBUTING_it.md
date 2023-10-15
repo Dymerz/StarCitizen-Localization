@@ -15,11 +15,13 @@
 
 ## Indicazioni
 
+**_IMPORTANTE:_** Prima di fare una richiesta di commit controllate che il vostro file global.ini non faccia crashare il gioco
+
 ### Forma
 
 I **Verbi** vengono coniugati con la forma del tu. Ad esempio:
 
-- "Please enter your name" diventa "Inserisci il tuo nome".
+- "Please enter your name" diventa "Per favore, inserisci il tuo nome".
 
 Il termine **Please** è variabile. Es:
 
@@ -30,4 +32,9 @@ Il termine **Please** è variabile. Es:
 
 Questa parte verra aggiornata frequentemente.
 
-I nomi dei **veicoli** e dei **luoghi** non vanno tradotti, ma lasciati nella forma originale.
+I seguenti termini **NON** dovranno essere tradotti:
+
+* **Nomi dei veicoli**
+* **Nomi dei luoghi**
+* **Nomi propri**
+* Marine
