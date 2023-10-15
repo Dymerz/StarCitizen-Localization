@@ -19,7 +19,7 @@
 
 I **Verbi** vengono coniugati con la forma del tu. Ad esempio:
 
-- "Please enter your name" diventa "Inserisci il tuo nome".
+- "Please enter your name" diventa "Per favore, inserisci il tuo nome".
 
 Il termine **Please** è variabile. Es:
 
