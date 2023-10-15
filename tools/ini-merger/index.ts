@@ -57,7 +57,7 @@ function mergeIniFiles(referenceData: Ini, sourceData: Ini, replacementData: Ini
  */
 function writeMergedIniFile(filePath: string, data: Ini): void
 {
-  fs.writeFileSync(filePath, ini.stringify(data));
+  fs.writeFileSync(filePath, '\ufeff'+ini.stringify(data), { encoding: 'utf-8' });
   console.log(`File ${filePath} has been created successfully.`);
 }
 
