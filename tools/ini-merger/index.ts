@@ -62,7 +62,7 @@ function writeMergedIniFile(filePath: string, data: Ini): void
 }
 
 // Get command line arguments
-const [, , referenceFilePath, sourceFilePath, replacementFilePath] = process.argv;
+const [, , referenceFilePath, sourceFilePath, replacementFilePath, outputFilePath] = process.argv;
 
 if (!referenceFilePath || !sourceFilePath || !replacementFilePath)
 {
@@ -85,6 +85,6 @@ const mergedData = mergeIniFiles(referenceData, sourceData, replacementData);
 console.log('Writing merged INI file...');
 
 // Write merged file
-writeMergedIniFile('global.ini', mergedData);
+writeMergedIniFile(outputFilePath, mergedData);
 
 console.log('Done.');
