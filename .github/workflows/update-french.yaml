@@ -30,7 +30,7 @@ jobs:
         mv global.ini "data/Localization/french_(france)/human.ini"
 
     - name: Install dependencies
-      working-directory: ./tools/ini-merge
+      working-directory: ./tools/ini-merger
       run: npm ci
 
     - name: Execute INI merge script
