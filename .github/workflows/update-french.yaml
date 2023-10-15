@@ -31,7 +31,7 @@ jobs:
 
     - name: Install dependencies
       working-directory: ./tools/ini-merger
-      run: npm ci
+      run: npm install
 
     - name: Execute INI merge script
       run: npm run --prefix tools/ini-merger start "data/Localization/english/global.ini" "human.ini" "ai.ini" "data/Localization/french_(france)/global.ini"
