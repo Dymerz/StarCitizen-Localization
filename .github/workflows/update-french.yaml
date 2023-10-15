@@ -2,7 +2,7 @@ name: Update French localization file
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '0 1 * * *' # every day at 1am UTC
+    - cron:  '0 */4 * * *' # every 4 hours
 
 permissions:
   contents: write
