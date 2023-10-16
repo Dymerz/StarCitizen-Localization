@@ -1,0 +1,43 @@
+name: Validate Global.ini Encoding
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '*/**/global.ini'
+
+jobs:
+  validate-encoding:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get all "global.ini" files that have changed
+        id: changed-files
+        uses: tj-actions/changed-files@v39
+        with:
+          files: data/Localization/**/*.ini
+
+      - name: Check encoding
+        run: |
+          echo "Checking $file encoding..."
+
+          is_valid=true
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            is_utf8=$(head -c3 "$file" | LC_ALL=C grep -qP '\xef\xbb\xbf' && echo "true" || echo "false")
+
+            if [ $is_utf8 = "false" ]; then
+              echo "🔥 File $file is not UTF-8 with BOM encoded"
+              is_valid=false
+            fi
+
+            echo "✅ File $file is UTF-8 with BOM encoded"
+          done
+
+          if [ "$is_valid" = "false" ]; then
+            echo "Some files are not UTF-8 with BOM encoded"
+            exit 1
+          fi
