@@ -4,11 +4,8 @@ on:
   pull_request:
     branches:
       - main
-      - feature/*
     paths:
       - '*/**/global.ini'
-
-  workflow_dispatch:
 
 jobs:
   validate-encoding:
