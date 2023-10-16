@@ -1,4 +1,4 @@
-name: Validate Global.ini Encoding
+name: Validate global.ini Encoding
 
 on:
   pull_request:
@@ -12,6 +12,7 @@ on:
 
 jobs:
   validate-encoding:
+    name: Validate global.ini Encoding
     runs-on: ubuntu-latest
     steps:
 
