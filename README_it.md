@@ -3,9 +3,9 @@
 🚧 Questo è un progetto Work In Progress per tradurre Star Citizen in altre lingue.
 
 - 🇫🇷 [Instruction en Français](README_fr.md).
-- 🇬🇧 [Instructions in English.](README.md)
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
-- 🇪🇸 [Instrucción en español](README_es.md)
+- 🇪🇸 [Instrucciones en Español](README_es.md).
+- 🇬🇧 [Instructions in English.](README.md).
 
 **Tabella dei contenuti:**
   - [Lingue supportate](#lingue-supportate)

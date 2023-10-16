@@ -1,8 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set "localization_url=https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip"
-
 rem List of languages
 set "lang_list[1]=chinese_(simplified)"
 set "lang_list[2]=chinese_(traditional)"
@@ -34,22 +32,6 @@ if errorlevel 1 (
     )
 )
 
-echo Downloading the latest version of the localization files...
-curl -L -s -o Localization.zip %localization_url%
-
-echo Extracting the localization files...
-powershell -noprofile -executionpolicy bypass -command "Expand-Archive -Path Localization.zip -DestinationPath . -Force"
-
-del Localization.zip
-
-rem Check if the "Localization" folder exists
-if not exist "Localization" (
-  echo:
-  echo The "Localization" folder does not exist.
-  pause
-  exit /b
-)
-
 rem Ask the user to select the language to install
 echo Select the language you want to install:
 echo 1. Chinese - Simplified
@@ -65,7 +47,9 @@ echo 10. Portuguese - Brazil
 echo 11. Spanish - Latin
 echo 12. Spanish - Spain
 
-set /p lang_choice="Enter the number of the language you want to install, e.g. 3 for English: "
+echo:
+echo Enter the number of the language you want to install, e.g. 3 for English.
+set /p lang_choice="Language number: "
 
 if "!lang_list[%lang_choice%]!" == "" (
   echo:
@@ -74,10 +58,20 @@ if "!lang_list[%lang_choice%]!" == "" (
   exit /b
 )
 
-rem Check if the selected language folder exists
-if not exist "Localization\!lang_list[%lang_choice%]!" (
+@REM Get the language name from the list
+set "language=!lang_list[%lang_choice%]!"
+
+@REM Create the language folder if it does not exist
+IF NOT EXIST ".\Localization\!language!" mkdir .\Localization\!language!
+
+@REM echo Downloading the latest version of the localization files...
+set "reference=main"
+curl -L -s -o "global.ini" "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/!reference!/data/Localization/!language!/global.ini"
+
+rem Check if the selected language exists
+IF NOT EXIST "global.ini" (
   echo:
-  echo The language folder Localization\!lang_list[%lang_choice%]! does not exist.
+  echo The language "!language!" does not exist.
   echo:
   echo Maybe the language is not available yet, you can check the status of the translations here:
   echo https://github.com/Dymerz/StarCitizen-Localization#supported-languages
@@ -85,10 +79,13 @@ if not exist "Localization\!lang_list[%lang_choice%]!" (
   exit /b
 )
 
-set "language_line=g_language = !lang_list[%lang_choice%]!"
+move /y global.ini ".\Localization\!language!\global.ini" > nul
 
 rem Delete the user.cfg.new file if it exists
 IF EXIST user.cfg.new DEL /F user.cfg.new
+
+@REM Prepare the language line to add to the user.cfg file
+set "language_line=g_language = !language!"
 
 rem Check if the ..\user.cfg file exists, if not, create it
 if not exist "../user.cfg" (
@@ -107,6 +104,6 @@ if not exist "../user.cfg" (
 )
 
 echo:
-echo You can now enjoy Star Citizen in !lang_list[%lang_choice%]!
+echo You can now enjoy Star Citizen in !language!
 pause
 endlocal

@@ -20,7 +20,13 @@ jobs:
 
     - name: Zip locales
       working-directory: ./data
-      run: zip -r Localization.zip . -i "Localization/*"
+      run: |
+        for file in $(find Localization/ -name '*.ini'); do
+          dir=$(dirname "$file")
+          filename=$(basename "$file")
+          foldername=$(basename "$dir")
+          zip -j "$dir/../$foldername.zip" "$file"
+        done
 
     - name: Release
       uses: softprops/action-gh-release@v1
