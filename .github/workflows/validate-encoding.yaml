@@ -19,8 +19,8 @@ jobs:
       - name: Get all "global.ini" files that have changed
         id: changed-files
         uses: tj-actions/changed-files@v39
-        with:
-          files: data/Localization/**/*.ini
+        # with:
+        #   files: data/Localization/**/*.ini
 
       - name: Validate encoding
         run: bash tools/validate-encoding.bash ${{ steps.changed-files.outputs.all_changed_files }}
