@@ -23,4 +23,4 @@ jobs:
 
       - name: Validate encoding
         if: steps.changed-files.outputs.all_changed_files_count > 0
-        run: bash tools/validate-encoding.bash ${{ steps.changed-files.outputs.all_changed_files }}
+        run: bash tools/validate-encoding.bash "${{ steps.changed-files.outputs.all_changed_files }}"
