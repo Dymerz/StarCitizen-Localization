@@ -1,12 +1,11 @@
 #!/bin/bash
 # Usage: ./validate-encoding.bash "data/Localization/english/global.ini"
 
-
-echo "Checking file(s) encoding of: $files"
+echo "Checking file(s) encoding of: $1"
 echo "========================="
 
 is_valid=true
-for file in "$@"; do
+for file in $1; do
   is_utf8=$(head -c3 "$file" | LC_ALL=C grep -qP '\xef\xbb\xbf' && echo "true" || echo "false")
 
   if [ $is_utf8 = "false" ]; then
