@@ -23,5 +23,5 @@ jobs:
           files: data/Localization/**/*.ini
 
       - name: Validate encoding
-        run: bash tools/validate-encoding.bash ${{ steps.changed-files.outputs.files }}
+        run: bash tools/validate-encoding.bash ${{ steps.changed-files.outputs.all_changed_files }}
         # run: tools/validate-encoding.bash "data/Localization/english/global.ini" "data/Localization/french_(france)/global.ini"
