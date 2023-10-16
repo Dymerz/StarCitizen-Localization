@@ -4,8 +4,6 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - '*/**/global.ini'
 
 jobs:
   validate-encoding:
