@@ -37,4 +37,6 @@ I seguenti termini **NON** dovranno essere tradotti:
 * **Nomi dei veicoli**
 * **Nomi dei luoghi**
 * **Nomi propri**
+* **Nomi delle missioni**
+* **Nomi degli oggetti**
 * Marine
