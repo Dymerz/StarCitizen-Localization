@@ -15,7 +15,7 @@
 
 ## Indicazioni
 
-**_IMPORTANTE:_** Prima di fare una richiesta di commit controllate che il vostro file global.ini non faccia crashare il gioco
+**_IMPORTANTE:_** Prima di fare una richiesta di commit controllate che il vostro file global.ini non faccia crashare il gioco e che non ci siano placeholders. Verificate sempre che la codifica del vostro file global.ini sia **UTF8 BOM**
 
 ### Forma
 
