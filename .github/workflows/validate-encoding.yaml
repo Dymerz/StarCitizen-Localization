@@ -21,4 +21,5 @@ jobs:
           files: data/Localization/**/*.ini
 
       - name: Validate encoding
+        if: steps.changed-files.outputsall_changed_files_count > 0
         run: bash tools/validate-encoding.bash ${{ steps.changed-files.outputs.all_changed_files }}
