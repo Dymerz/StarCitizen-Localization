@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   fetch-file:
+    if: github.repository == 'Dymerz/StarCitizen-Localization'
     runs-on: ubuntu-latest
 
     steps:
