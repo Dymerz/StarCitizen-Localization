@@ -6,6 +6,7 @@
 - 🇪🇸 [Instrucciones en Español](README_es.md).
 - 🇮🇹 [Istruzioni in Italiano](README_it.md).
 - 🇬🇧 [Instructions in English.](README.md).
+- 🇧🇷 [Instrução em Português](README_ptbr.md).
 
 
 **Table des matières :**
@@ -28,7 +29,7 @@
 | Japonais - Japon | ❌ |
 | Coréen - Corée du Sud | ❌ |
 | Polonais - Pologne | ❌ |
-| Portugais - Brésil | ❌ |
+| Portugais - Brésil | ✅ |
 | Espagnol - Amérique latine | ❌ |
 | Espagnol - Espagne | ✅ |
 

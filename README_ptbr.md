@@ -6,7 +6,7 @@
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
 - 🇪🇸 [Instrucciones en Español](README_es.md).
 - 🇮🇹 [Istruzioni in Italiano](README_it.md).
-- 🇧🇷 [Instrução em Português](README_ptbr.md).
+- 🇬🇧 [Instructions in English.](README.md).
 
 **Table of Contents:**
   - [Supported Languages](#supported-languages)

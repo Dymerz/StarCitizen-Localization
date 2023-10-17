@@ -6,6 +6,7 @@
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
 - 🇪🇸 [Instrucciones en Español](README_es.md).
 - 🇬🇧 [Instructions in English.](README.md).
+- 🇧🇷 [Instrução em Português](README_ptbr.md).
 
 **Tabella dei contenuti:**
   - [Lingue supportate](#lingue-supportate)
@@ -29,7 +30,7 @@
 | Giapponese - Giappone | ❌ |
 | Coreano - Corea del Sud | ❌ |
 | Polacco - Polonia | ❌ |
-| Portoghese (Brasile) - Brasile | ❌ |
+| Portoghese (Brasile) - Brasile | ✅ |
 | Spagnolo - America Latina | ❌ |
 | Spagnolo - Spagna | ✅ |
 
