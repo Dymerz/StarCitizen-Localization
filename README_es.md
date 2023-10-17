@@ -6,6 +6,7 @@
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
 - 🇮🇹 [Istruzioni in Italiano](README_it.md).
 - 🇬🇧 [Instructions in English.](README.md).
+- 🇧🇷 [Instrução em Português](README_ptbr.md).
 
 **Tabla de contenidos:**
   - [Idiomas soportados](#idiomas-soportados)
@@ -27,7 +28,7 @@
 | Japonés - Japón         | ❌         |
 | Coreano - Corea del Sur | ❌         |
 | Polaco - Polonia        | ❌         |
-| Portugués - Brasil      | ❌         |
+| Portugués - Brasil      | ✅         |
 | Español - Latinoamérica | ❌         |
 | Español - España        | ✅         |
 
