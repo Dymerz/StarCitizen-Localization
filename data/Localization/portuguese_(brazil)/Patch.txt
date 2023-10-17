@@ -1,0 +1,6 @@
+v1.4
+Alterações:
+-Alterações dos nomes das bebidas do bar
+
+
+Obrigado ao **MorningChan**, @metro2030 , @attisano e @big0dexx pela ajuda!

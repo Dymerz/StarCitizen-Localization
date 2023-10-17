@@ -1,0 +1,7 @@
+Caso você ja use um USER.cfg acrecesnte este codigo no seu arquivo:
+g_language = portuguese_(brazil)
+
+Para voltar pro inglês recomendo que mude para:
+g_language = english
+
+Para instalar a tradução apenas jogue os arquivos na pasta StarCitizen\LIVE
