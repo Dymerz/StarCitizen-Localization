@@ -6,9 +6,11 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   fetch-file:
+    if: github.repository == 'Dymerz/StarCitizen-Localization'
     runs-on: ubuntu-latest
 
     steps:
@@ -37,22 +39,13 @@ jobs:
     - name: Execute INI merge script
       run: npm run --prefix tools/ini-merger start "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "$GITHUB_WORKSPACE/human.ini" "$GITHUB_WORKSPACE/ai.ini" "$GITHUB_WORKSPACE/data/Localization/french_(france)/global.ini"
 
-    - name: Check if the file has changed
-      id: check-changes
-      run: |
-        if [[ -n $(git status --porcelain "data/Localization/french_(france)/global.ini") ]]; then
-          echo "File has changed."
-          echo "changes=true" >> $GITHUB_OUTPUT
-        else
-          echo "File has not changed."
-          echo "changes=false" >> $GITHUB_OUTPUT
-        fi
-
-    - name: Commit and push the fetched file
-      if: steps.check-changes.outputs.changes == 'true'
-      run: |
-        git config --local user.email "actions@github.com"
-        git config --local user.name "GitHub Action"
-        git add "data/Localization/french_(france)/global.ini"
-        git commit -m "Update French localization 🇫🇷"
-        git push
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        add-paths: data/Localization/french_(france)/global.ini
+        commit-message: Update French localization 🇫🇷
+        branch: feature/update-french
+        delete-branch: true
+        title: Update French localization 🇫🇷
+        labels: french
+        assignees: Dymerz
