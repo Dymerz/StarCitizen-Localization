@@ -18,7 +18,7 @@
 ---
 ## Idiomas Suportados
 
-| Language | Supported |
+| Idioma | Suportado |
 |---|---|
 | Chinese Simplified | ❌ |
 | Chinese Traditional | ❌ |
@@ -49,7 +49,7 @@
 3. Crie ou edite o seguinte arquivo: `\StarCitizen\LIVE\user.cfg`. (por exemplo, `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user.cfg`)
 4. Dependendo do idioma que você deseja usar, adicione uma das seguintes linhas ao arquivo:
 
-    | Language |   |
+    | idioma |   |
     |---|---|
     | Chinese - Simplified | `g_language = chinese_(simplified)` |
     | Chinese - Traditional | `g_language = chinese_(traditional)` |
@@ -71,11 +71,11 @@
 Para atualizar os arquivos de localização, siga novamente o [Guia de Instalação](#guia-de-instalação).
 
 ---
-## Contributing
+## Contribuir
 [See CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
-## Contributors
+## Contribuidores
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -98,4 +98,4 @@ Para atualizar os arquivos de localização, siga novamente o [Guia de Instalaç
 
 ---
 ## Disclaimer
-This is an unofficial Star Citizen fansite, not affiliated with the Cloud Imperium group of companies. All content on this site not authored by its host or users are property of their respective owners. Star Citizen®, Roberts Space Industries® and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC
+Este é um site não oficial de fãs de Star Citizen, não afiliado ao grupo de empresas Cloud Imperium. Todo o conteúdo deste site que não seja de autoria de seu anfitrião ou de seus usuários é de propriedade de seus respectivos donos. Star Citizen®, Roberts Space Industries® e Cloud Imperium® são marcas registradas da Cloud Imperium Rights LLC
