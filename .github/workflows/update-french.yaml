@@ -41,6 +41,8 @@ jobs:
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
+      env:
+        GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
       with:
         add-paths: data/Localization/french_(france)/global.ini
         commit-message: Update French localization 🇫🇷
