@@ -18,14 +18,18 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Zip locales
+    - name: Zip all locales
+      working-directory: ./data
+      run: zip -r Localization.zip . -i "Localization/*"
+
+    - name: Zip each locales
       working-directory: ./data
       run: |
         for file in $(find Localization/ -name '*.ini'); do
-          dir=$(dirname "$file")
-          filename=$(basename "$file")
-          foldername=$(basename "$dir")
-          zip -j "$dir/../$foldername.zip" "$file"
+            dir=$(dirname "$file")
+            filename=$(basename "$file")
+            foldername=$(basename "$dir")
+            zip -j "$foldername.zip" "$file"
         done
 
     - name: Release
