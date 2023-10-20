@@ -1,5 +1,8 @@
 # StarCitizen-Localization 🌎
 
+![Game Version](https://img.shields.io/badge/3.20.0%20LIVE-Ready-green?link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Freleases%2Ftag%2Fgame%252F3.20.0)
+![Game Version](https://img.shields.io/badge/3.21.0%20LIVE-Work_In_Progress-yellow)
+
 🚧 This is a Work In Progress project to translate Star Citizen into other languages.
 
 - 🇫🇷 [Instruction en Français](README_fr.md).
@@ -18,20 +21,15 @@
 ---
 ## Supported Languages
 
-| Langue | Supported |
-|---|---|
-| Chinese Simplified | ❌ |
-| Chinese Traditional | ❌ |
-| English | ✅ |
-| French - France | ✅ |
-| German - Germany | ✅ |
+| Langue | Supported | Source |
+|---|---|---|
+| English | ✅ | Imported from game files |
+| French - France | ✅ | Generated from [circuspes.fr](https://traduction.circuspes.fr) and [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| German - Germany | ✅ | Here |
 | Italian - Italy | ❌ |
-| Japanese - Japan | ❌ |
-| Korean - South Korea | ❌ |
-| Polish - Poland | ❌ |
-| Portuguese - Brazil | ✅ |
+| Portuguese - Brazil | ✅ | Here |
 | Spanish - Latin America | ❌ |
-| Spanish - Spain | ✅ |
+| Spanish - Spain | ✅ | Here |
 
 ---
 ## Installation Guide
