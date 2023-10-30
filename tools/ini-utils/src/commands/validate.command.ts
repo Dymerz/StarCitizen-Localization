@@ -10,6 +10,7 @@ export class ValidateCommand
 {
 	public static async run(referenceFilePath: string, filePaths: string[], ci: boolean)
 	{
+
     console.log('Validating INI files...');
     console.log('Preparing...');
 
@@ -18,6 +19,12 @@ export class ValidateCommand
     const files = filePaths
       .filter(IniHelper.exists)
       .map(filePath => IniHelper.loadFile(filePath));
+
+    if(filePaths.length === 0)
+    {
+      console.error('No files to validate');
+      return;
+    }
 
     let success = true;
 
