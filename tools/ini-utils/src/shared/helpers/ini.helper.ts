@@ -15,6 +15,8 @@ export class IniHelper
   */
   public static loadFile(filePath: string): Ini
   {
+    console.log(`Loading file ${filePath}`);
+
     const fileContent = fs.readFileSync(filePath, 'utf-8');
     return {
       path   : filePath,

@@ -17,7 +17,9 @@ program
   .action(MergeCommand.run);
 
 program
-  .command('validate <referenceFilePath> <filePaths...>')
+  .command('validate')
+  .option('--source <path>', 'Reference file path')
+  .option('--files <path...>', 'Files to validate')
   .option('--ci', 'Run in CI mode')
   .description('Check if all entries from reference file are present in other files')
   .action(ValidateCommand.run);
