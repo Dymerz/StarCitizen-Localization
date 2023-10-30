@@ -19,7 +19,7 @@ export class ValidateCommand
       .filter(IniHelper.exists)
       .map(filePath => IniHelper.loadFile(filePath));
 
-      let success = true;
+    let success = true;
 
     // Validate all files
     for (const file of files)
