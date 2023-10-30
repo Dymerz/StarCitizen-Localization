@@ -28,7 +28,7 @@ jobs:
       with:
         node-version: 18
 
-    - name: npm-ci
+    - name: Install dependencies
       uses: chill-viking/npm-ci@v1.2.0
       with:
         working_directory: tools/ini-utils
