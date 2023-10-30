@@ -23,16 +23,6 @@ jobs:
       with:
         files: "**/global.ini"
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-
-    - name: Install dependencies
-      uses: chill-viking/npm-ci@v1.2.0
-      with:
-        working_directory: tools/ini-utils
-
   validate-encoding:
     name: Validate global.ini Encoding
     runs-on: ubuntu-latest
@@ -49,12 +39,20 @@ jobs:
   validate-entries:
     name: Validate global.ini Entries
     runs-on: ubuntu-latest
+    working_directory: tools/ini-utils
     needs: prepare
 
     steps:
     - name: Checkout current repository
       uses: actions/checkout@v3
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      uses: chill-viking/npm-ci@v1.2.0
+
     - name: Validate key/value pairs
-      working-directory: tools/ini-utils
       run: npm run start validate "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "${{ needs.prepare.outputs.changed-files }}"
