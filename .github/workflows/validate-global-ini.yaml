@@ -28,9 +28,10 @@ jobs:
       with:
         node-version: 18
 
-    - name: Install dependencies
-      working-directory: tools/ini-utils
-      run: npm ci
+    - name: npm-ci
+      uses: chill-viking/npm-ci@v1.2.0
+      with:
+        working_directory: tools/ini-utils
 
   validate-encoding:
     name: Validate global.ini Encoding
