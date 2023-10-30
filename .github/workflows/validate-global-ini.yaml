@@ -39,10 +39,12 @@ jobs:
     needs: prepare
 
     steps:
+    - name: Checkout current repository
+      uses: actions/checkout@v3
 
-      - name: Validate encoding
-        if: steps.changed-files.outputs.all_changed_files_count > 0
-        run: bash tools/validate-encoding.bash "${{ needs.prepare.outputs.changed-files }}"
+    - name: Validate encoding
+      if: steps.changed-files.outputs.all_changed_files_count > 0
+      run: bash tools/validate-encoding.bash "${{ needs.prepare.outputs.changed-files }}"
 
   validate-entries:
     name: Validate global.ini Entries
@@ -50,6 +52,9 @@ jobs:
     needs: prepare
 
     steps:
+    - name: Checkout current repository
+      uses: actions/checkout@v3
+
     - name: Validate key/value pairs
       working-directory: tools/ini-utils
       run: npm run start validate "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "${{ needs.prepare.outputs.changed-files }}"
