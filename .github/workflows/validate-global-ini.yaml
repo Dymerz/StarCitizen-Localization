@@ -31,38 +31,38 @@ jobs:
     - name: test2
       run: echo  "${{ steps.changed-files.outputs.all_changed_files }}"
 
-  # validate-encoding:
-  #   name: Validate global.ini Encoding
-  #   runs-on: ubuntu-latest
-  #   needs: prepare
+  validate-encoding:
+    name: Validate global.ini Encoding
+    runs-on: ubuntu-latest
+    needs: prepare
 
-  #   steps:
-  #   - name: Checkout current repository
-  #     uses: actions/checkout@v3
+    steps:
+    - name: Checkout current repository
+      uses: actions/checkout@v3
 
-  #   - name: Validate encoding
-  #     if: steps.changed-files.outputs.all_changed_files_count > 0
-  #     run: bash tools/validate-encoding.bash "${{ needs.prepare.outputs.changed-files }}"
+    - name: Validate encoding
+      if: steps.changed-files.outputs.all_changed_files_count > 0
+      run: bash tools/validate-encoding.bash "${{ needs.prepare.outputs.changed-files }}"
 
-  # validate-entries:
-  #   name: Validate global.ini Entries
-  #   runs-on: ubuntu-latest
-  #   needs: prepare
+  validate-entries:
+    name: Validate global.ini Entries
+    runs-on: ubuntu-latest
+    needs: prepare
 
-  #   steps:
-  #   - name: Checkout current repository
-  #     uses: actions/checkout@v3
+    steps:
+    - name: Checkout current repository
+      uses: actions/checkout@v3
 
-  #   - name: Set up Node.js
-  #     uses: actions/setup-node@v3
-  #     with:
-  #       node-version: 18
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
 
-  #   - name: Install dependencies
-  #     uses: chill-viking/npm-ci@v1.2.0
-  #     with:
-  #       working_directory: tools/ini-utils
+    - name: Install dependencies
+      uses: chill-viking/npm-ci@v1.2.0
+      with:
+        working_directory: tools/ini-utils
 
-  #   - name: Validate key/value pairs
-  #     working-directory: tools/ini-utils
-  #     run: npm run start validate "$GITHUB_WORKSPACE/data/Localization/english/global.ini" ${{ needs.prepare.outputs.changed-files }}
+    - name: Validate key/value pairs
+      working-directory: tools/ini-utils
+      run: npm run start validate "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "${{ needs.prepare.outputs.changed-files }}"
