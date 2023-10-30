@@ -17,20 +17,20 @@ jobs:
     - name: Checkout current repository
       uses: actions/checkout@v3
 
+    - name: Get all "global.ini" files that have changed
+      id: changed-files
+      uses: tj-actions/changed-files@v39
+      with:
+        files: "**/global.ini"
+
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 18
 
     - name: Install dependencies
-      working-directory: ./tools/ini-utils
+      working-directory: tools/ini-utils
       run: npm ci
-
-    - name: Get all "global.ini" files that have changed
-      id: changed-files
-      uses: tj-actions/changed-files@v39
-      with:
-        files: "**/global.ini"
 
   validate-encoding:
     name: Validate global.ini Encoding
@@ -50,5 +50,5 @@ jobs:
 
     steps:
     - name: Validate key/value pairs
-      working-directory: ./tools/ini-utils
+      working-directory: tools/ini-utils
       run: npm run start validate "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "${{ needs.prepare.outputs.changed-files }}"
