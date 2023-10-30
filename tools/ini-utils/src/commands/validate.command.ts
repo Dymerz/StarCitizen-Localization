@@ -22,7 +22,7 @@ export class ValidateCommand
 
     if(filePaths.length === 0)
     {
-      console.error('No files to validate');
+      console.log('No files to validate');
       return;
     }
 
@@ -61,7 +61,7 @@ export class ValidateCommand
       const result = ValidateCommand.checkMissingKeys(referenceData, fileData);
       if (!result)
       {
-        console.error('  => One or more keys are missing in source file');
+        console.log('  => One or more keys are missing in source file');
         success = false;
       }
       else
@@ -77,7 +77,7 @@ export class ValidateCommand
       const result = ValidateCommand.checkPlaceholders(referenceData, fileData);
       if (!result)
       {
-        console.error('  => One or more placeholders are missing in source file');
+        console.log('  => One or more placeholders are missing in source file');
         success = false;
       }
       else
@@ -102,9 +102,9 @@ export class ValidateCommand
     const missingKeys = referenceKeys.filter(key => !sourceKeys.includes(key));
     if (missingKeys.length > 0)
     {
-      console.error('  - Missing entries in file:\n');
+      console.log('  - Missing entries in file:\n');
       for (const key of missingKeys)
-        console.error(`  - ${key}`);
+        console.log(`  - ${key}`);
       return false;
     }
 
@@ -162,7 +162,7 @@ export class ValidateCommand
           const regex = new RegExp(`~${placeholder.name}\\\(${placeholder.parameter}\\\)`, 'g');
           if (!regex.test(sourceValue))
           {
-            console.error(`  - Unable to find placeholder "${placeholder.name}(${placeholder.parameter})" in "${key}"`);
+            console.log(`  - Unable to find placeholder "${placeholder.name}(${placeholder.parameter})" in "${key}"`);
             isValid = false;
           }
         }

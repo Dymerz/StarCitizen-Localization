@@ -25,12 +25,6 @@ jobs:
         separator: "\" \""
         # files: "**/global.ini"
 
-    - name: test1
-      run: echo ${{ steps.changed-files.outputs.all_changed_files }}
-
-    - name: test2
-      run: echo  "${{ steps.changed-files.outputs.all_changed_files }}"
-
   validate-encoding:
     name: Validate global.ini Encoding
     runs-on: ubuntu-latest
