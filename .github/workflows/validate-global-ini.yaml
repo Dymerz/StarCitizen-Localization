@@ -63,5 +63,4 @@ jobs:
 
     - name: Validate key/value pairs
       working-directory: tools/ini-utils
-      run: node ./dist/src/index.js validate --ci "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "./examples/test.ini"
-      # run: node ./dist/src/index.js validate --ci "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "${{ needs.prepare.outputs.changed-files }}"
+      run: node ./dist/src/index.js validate --ci "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "${{ needs.prepare.outputs.changed-files }}"
