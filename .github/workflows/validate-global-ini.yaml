@@ -1,0 +1,54 @@
+name: Validate global.ini
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  prepare:
+    name: Prepare environment
+    runs-on: ubuntu-latest
+    outputs:
+      changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
+
+    steps:
+    - name: Checkout current repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      working-directory: ./tools/ini-utils
+      run: npm ci
+
+    - name: Get all "global.ini" files that have changed
+      id: changed-files
+      uses: tj-actions/changed-files@v39
+      with:
+        files: "**/global.ini"
+
+  validate-encoding:
+    name: Validate global.ini Encoding
+    runs-on: ubuntu-latest
+    needs: prepare
+
+    steps:
+
+      - name: Validate encoding
+        if: steps.changed-files.outputs.all_changed_files_count > 0
+        run: bash tools/validate-encoding.bash "${{ needs.prepare.outputs.changed-files }}"
+
+  validate-entries:
+    name: Validate global.ini Entries
+    runs-on: ubuntu-latest
+    needs: prepare
+
+    steps:
+    - name: Merge INI files
+      working-directory: ./tools/ini-utils
+      run: npm run start validate "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "${{ needs.prepare.outputs.changed-files }}"
