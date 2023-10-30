@@ -19,38 +19,39 @@ export class ValidateCommand
 		const referenceData = IniHelper.loadFile(source);
     console.log(`Reference file: ${referenceData.path}`);
 
-    // const iniFiles = files
-    //   .filter(IniHelper.exists)
-    //   .map(filePath => IniHelper.loadFile(filePath));
+    const iniFiles = files
+      .filter(file => IniHelper.exists(file))
+      .map(filePath => IniHelper.loadFile(filePath));
+    console.log(`Files to validate: ${iniFiles.length}`);
 
-    // if(files.length === 0)
-    // {
-    //   console.log('No files to validate');
-    //   return;
-    // }
+    if(files.length === 0)
+    {
+      console.log('No files to validate');
+      return;
+    }
 
-    // let success = true;
+    let success = true;
 
-    // // Validate all files
-    // for (const file of iniFiles)
-    // {
-    //   console.log();
-    //   console.log('==================================================');
-    //   console.log(`File "${file.path}"...`);
-    //   console.log('==================================================');
-    //   const isValid = ValidateCommand.validateIni(referenceData, file);
-    //   if (!isValid)
-    //   {
-    //     success = false;
-    //     console.log();
-    //     console.log(`File "${file.path}" is invalid`);
-    //   }
+    // Validate all files
+    for (const file of iniFiles)
+    {
+      console.log();
+      console.log('==================================================');
+      console.log(`File "${file.path}"...`);
+      console.log('==================================================');
+      const isValid = ValidateCommand.validateIni(referenceData, file);
+      if (!isValid)
+      {
+        success = false;
+        console.log();
+        console.log(`File "${file.path}" is invalid`);
+      }
 
-    //   console.log('==================================================');
-    // }
+      console.log('==================================================');
+    }
 
     // Return error code if CI is enabled
-    // if(options.ci && !success) process.exit(1);
+    if(options.ci && !success) process.exit(1);
 	}
 
   private static validateIni(referenceData: Ini, fileData: Ini): boolean

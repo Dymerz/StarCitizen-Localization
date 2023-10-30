@@ -37,6 +37,6 @@ export class IniHelper
 
   public static exists(filePath: string): boolean
   {
-    return fs.existsSync(filePath) && fs.lstatSync(filePath).isFile();
+    return fs.lstatSync(filePath).isFile();
   }
 }
