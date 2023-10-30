@@ -2,7 +2,7 @@
   "name": "ini-merger",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
     "start:merge": "ts-node src/index.ts merge",
@@ -17,11 +17,10 @@
     "@types/node": "^20.8.6",
     "commander": "^11.1.0",
     "ini": "^4.1.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1",
+    "nodemon": "^3.0.1"
   },
   "devDependencies": {
-    "@types/node": "^20.8.6",
-    "nodemon": "^3.0.1",
-    "ts-node": "^10.9.1"
   }
 }
