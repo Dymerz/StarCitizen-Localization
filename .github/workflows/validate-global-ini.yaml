@@ -49,6 +49,6 @@ jobs:
     needs: prepare
 
     steps:
-    - name: Merge INI files
+    - name: Validate key/value pairs
       working-directory: ./tools/ini-utils
       run: npm run start validate "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "${{ needs.prepare.outputs.changed-files }}"
