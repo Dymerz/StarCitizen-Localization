@@ -22,14 +22,14 @@ jobs:
       uses: tj-actions/changed-files@v39
       with:
         files: "**/*.ini"
-        separator: "' '"
+        separator: "\" \""
         # files: "**/global.ini"
 
     - name: test1
       run: echo ${{ steps.changed-files.outputs.all_changed_files }}
 
     - name: test2
-      run: echo  '${{ steps.changed-files.outputs.all_changed_files }}'
+      run: echo  "${{ steps.changed-files.outputs.all_changed_files }}"
 
   # validate-encoding:
   #   name: Validate global.ini Encoding
