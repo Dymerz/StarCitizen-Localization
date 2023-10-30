@@ -9,24 +9,19 @@ import { IniHelper }   from '../shared/helpers/ini.helper';
 export class ValidateCommand
 {
 	public static async run(
-    options: {
-      source: string,
-      files : string[],
-      ci    : boolean
-    }
+    source : string,
+    files  : string[],
+    options: { ci: boolean}
   ){
-    console.log(options);
-
     console.log('Validating INI files...');
-    console.log('Preparing...');
 
 		// Load files
-		const referenceData = IniHelper.loadFile(options.source);
-    const files = options.files
+		const referenceData = IniHelper.loadFile(source);
+    const iniFiles = files
       .filter(IniHelper.exists)
       .map(filePath => IniHelper.loadFile(filePath));
 
-    if(options.files.length === 0)
+    if(files.length === 0)
     {
       console.log('No files to validate');
       return;
@@ -35,7 +30,7 @@ export class ValidateCommand
     let success = true;
 
     // Validate all files
-    for (const file of files)
+    for (const file of iniFiles)
     {
       console.log();
       console.log('==================================================');

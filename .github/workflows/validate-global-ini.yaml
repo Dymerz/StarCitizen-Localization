@@ -57,6 +57,10 @@ jobs:
       with:
         working_directory: tools/ini-utils
 
+    - name: Build ini-utils
+      working-directory: tools/ini-utils
+      run: npm run build
+
     - name: Validate key/value pairs
       working-directory: tools/ini-utils
-      run: npm run start validate --ci --source "$GITHUB_WORKSPACE/data/Localization/english/global.ini" --files "${{ needs.prepare.outputs.changed-files }}"
+      run: node ./dist/src/index.js validate --ci --source "$GITHUB_WORKSPACE/data/Localization/english/global.ini" --files "${{ needs.prepare.outputs.changed-files }}"
