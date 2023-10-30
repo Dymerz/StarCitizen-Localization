@@ -22,8 +22,8 @@ jobs:
       uses: tj-actions/changed-files@v39
       with:
         files: "**/*.ini"
-        separator: "\" \""
         # files: "**/global.ini"
+        separator: "\" \""
 
   validate-encoding:
     name: Validate global.ini Encoding
@@ -41,7 +41,7 @@ jobs:
   validate-entries:
     name: Validate global.ini Entries
     runs-on: ubuntu-latest
-    # needs: prepare
+    needs: prepare
 
     steps:
     - name: Checkout current repository
