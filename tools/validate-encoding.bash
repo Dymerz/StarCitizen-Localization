@@ -1,7 +1,7 @@
 #!/bin/bash
 # Usage: ./validate-encoding.bash "data/Localization/english/global.ini"
 
-echo "Checking file(s) encoding of: $1"
+echo "Checking file(s) encoding of: $@"
 echo "========================="
 
 is_valid=true
