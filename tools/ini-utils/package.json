@@ -1,0 +1,26 @@
+{
+  "name": "ini-merger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "start:merge": "ts-node src/index.ts merge",
+    "watch:merge": "nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"npx ts-node src/index.ts merge\"",
+    "watch:validate": "nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"npx ts-node src/index.ts validate --source .\\examples\\base.ini --files .\\examples\\test.ini\"",
+    "build": "tsc -p ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/ini": "^1.3.31",
+    "@types/node": "^20.8.6",
+    "commander": "^11.1.0",
+    "ini": "^4.1.1",
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+  }
+}
