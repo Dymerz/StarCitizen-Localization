@@ -5,7 +5,7 @@ echo "Checking file(s) encoding of: $1"
 echo "========================="
 
 is_valid=true
-for file in $1; do
+for file in "$@"; do
   is_utf8=$(head -c3 "$file" | LC_ALL=C grep -qP '\xef\xbb\xbf' && echo "true" || echo "false")
 
   if [ $is_utf8 = "false" ]; then
