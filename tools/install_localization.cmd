@@ -68,24 +68,42 @@ if not exist "global.ini" (
 )
 move /y global.ini ".\Localization\!language!\global.ini" > nul
 
-:: Update user.cfg
+@REM :: Update user.cfg
 if exist user.cfg.new del /F user.cfg.new
+
 set "language_line=g_language = !language!"
+set "language_line_audio=g_languageAudio = english"
+
 if not exist "../user.cfg" (
-   echo !language_line! > ../user.cfg
+    echo !language_line! > ../user.cfg
+    echo !language_line_audio! > ../user.cfg
 ) else (
     set "foundLanguage=0"
+    set "foundLanguageAudio=0"
+
     for /f "delims=" %%a in (../user.cfg) do (
         set "line=%%a"
-        if /i "!line:~0,10!" == "g_language" (           
-			echo !language_line!>> user.cfg.new
-			set "foundLanguage=1"
+        if /i "!line:~0,10!" == "g_language" (
+            if "!foundLanguage!" == "0" (
+              echo !language_line!>> user.cfg.new
+              set "foundLanguage=1"
+            )
         ) else (
-            echo !line!>> user.cfg.new
+            if /i "!line:~0,15!" == "g_languageAudio" (
+                if "!foundLanguageAudio!" == "0" (
+                  echo !language_line_audio!>> user.cfg.new
+                  set "foundLanguageAudio=1"
+                )
+            ) else (
+                echo !line!>> user.cfg.new
+            )
         )
     )
     if "!foundLanguage!"=="0" (
         echo !language_line!>> user.cfg.new
+    )
+    if "!foundLanguageAudio!"=="0" (
+        echo !language_line_audio!>> user.cfg.new
     )
     move /y user.cfg.new ..\user.cfg > nul
 )
