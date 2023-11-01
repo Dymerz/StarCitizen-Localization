@@ -32,6 +32,15 @@ jobs:
       working-directory: tools/ini-utils
       run: npm run build
 
+    - uses: actions/upload-artifact@v3
+      with:
+        name: ini-utils
+        if-no-files-found: error
+        path: |
+          tools/ini-utils
+          !tools/ini-utils/examples/
+          !tools/ini-utils/src/
+
   merge:
     name: Merge
     if: github.repository == 'Dymerz/StarCitizen-Localization'
@@ -39,6 +48,11 @@ jobs:
     needs: prepare
 
     steps:
+    - uses: actions/download-artifact@v3
+      with:
+        name: ini-utils
+        path: tools/ini-utils
+
     - name: Download global.ini from 'SPEED0U/StarCitizenTranslations' - AI translated
       run: |
         curl -o global.ini -L "https://raw.githubusercontent.com/SPEED0U/StarCitizenTranslations/main/french_(france)/global.ini"
