@@ -16,7 +16,7 @@ export class MergeCommand
 		console.log('Merging INI files...');
 
 		// Merge files
-		const mergedData = this.mergeIniFiles(referenceData.content, sourceData.content, replacementData.content);
+		const mergedData = MergeCommand.mergeIniFiles(referenceData.content, sourceData.content, replacementData.content);
 
 		console.log('Writing merged INI file...');
 
