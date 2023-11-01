@@ -1,6 +1,8 @@
 # StarCitizen-Localization
 
-🚧 Il s'agit d'un projet en cours visant à traduire Star Citizen dans d'autres langues.
+![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
+
 
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
 - 🇪🇸 [Instrucciones en Español](README_es.md).
@@ -20,18 +22,13 @@
 ## Langues Prises en Charge
 | Langue | Pris en Charge |
 |---|---|
-| Chinois Simplifié | ❌ |
-| Chinois Traditionnel | ❌ |
-| Anglais | ✅ |
-| Français - France | ✅ |
-| Allemand - Allemagne | ✅ |
+| Anglais | ✅ 3.21.0 |
+| Français - France | ✅ 3.21.0 |
+| Allemand - Allemagne | ✅ 3.21.0 |
 | Italien - Italie | ❌ |
-| Japonais - Japon | ❌ |
-| Coréen - Corée du Sud | ❌ |
-| Polonais - Pologne | ❌ |
-| Portugais - Brésil | ✅ |
+| Portugais - Brésil | ✅ 3.21.0 |
 | Espagnol - Amérique latine | ❌ |
-| Espagnol - Espagne | ✅ |
+| Espagnol - Espagne | ✅ 3.21.0 |
 
 ---
 ## Guide d'Installation

@@ -1,12 +1,8 @@
 # StarCitizen-Übersetzung 🌎
 
-🚧 Dies ist ein laufendes Projekt zur Übersetzung von Star Citizen in andere Sprachen.
+![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
-- 🇫🇷 [Instruction en Français](README_fr.md).
-- 🇪🇸 [Instrucciones en Español](README_es.md).
-- 🇮🇹 [Istruzioni in Italiano](README_it.md).
-- 🇧🇷 [Instrução em Português](README_ptbr.md).
-- 🇬🇧 [Instructions in English.](README.md).
 
 **Inhaltsverzeichnis:**
 1. [Unterstützte Sprachen](#unterstützte-sprachen)
@@ -19,18 +15,13 @@
 ## Unterstützte Sprachen
 | Sprache | Unterstützt |
 |---|---|
-| Chinesisch Vereinfacht | ❌ |
-| Chinesisch Traditionell | ❌ |
-| Englisch | ✅ |
-| Französisch - Frankreich | ✅ |
-| Deutsch - Deutschland | ✅ |
+| Englisch | ✅ 3.21.0 |
+| Französisch - Frankreich | ✅ 3.21.0 |
+| Deutsch - Deutschland | ✅ 3.21.0 |
 | Italienisch - Italien | ❌ |
-| Japanisch - Japan | ❌ |
-| Koreanisch - Südkorea | ❌ |
-| Polnisch - Polen | ❌ |
-| Portugiesisch - Brasilien | ✅ |
+| Portugiesisch - Brasilien | ✅ 3.21.0 |
 | Spanisch - Lateinamerika | ❌ |
-| Spanisch - Spanien | ✅ |
+| Spanisch - Spanien | ✅ 3.21.0 |
 
 ---
 ## Installationsanleitung
