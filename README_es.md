@@ -13,15 +13,16 @@
 
 ---
 ## Idiomas soportados
-| Idioma                  | Soportado |
-| ----------------------- | --------- |
-| Inglés                  | ✅ 3.21.0  |
-| Francés - Francia       | ✅ 3.21.0  |
-| Alemán - Alemania       | ✅ 3.21.0  |
-| Italiano - Italia       | ✅ 3.21.0  |
-| Portugués - Brasil      | ✅ 3.21.0  |
+
+| Idioma                  | Soportado  | Fuente |
+| ----------------------- | ---------- | ------ |
+| Inglés                  | ✅ 3.21.0  | Importado de los archivos del juego |
+| Francés - Francia       | ✅ 3.21.0  | Generado a partir de [circuspes.fr](https://traduction.circuspes.fr) y [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Alemán - Alemania       | ✅ 3.21.0  | Aquí |
+| Italiano - Italia       | ✅ 3.21.0  | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portugués - Brasil      | ✅ 3.21.0  | Aquí |
 | Español - Latinoamérica | ❌         |
-| Español - España        | ✅ 3.21.0  |
+| Español - España        | ✅ 3.21.0  | Aquí |
 
 ---
 ## Guía de instalación

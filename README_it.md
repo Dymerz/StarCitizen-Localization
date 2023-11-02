@@ -21,15 +21,15 @@
 ---
 ## Lingue Supportate
 
-| Lingue | Supportate |
-|---|---|
-| Inglese | ✅ 3.21.0 |
-| Francese - Francia | ✅ 3.21.0 |
-| Tedesco - Germania | ✅ 3.21.0 |
-| Italiano - Italia | ✅ 3.21.0 |
-| Portoghese (Brasile) - Brasile | ✅ 3.21.0 |
+| Lingue | Supportate | Fonte |
+|---|---|---|
+| Inglese | ✅ 3.21.0 | Importato dai file di gioco |
+| Francese - Francia | ✅ 3.21.0 | Generato da [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation)
+| Tedesco - Germania | ✅ 3.21.0 | Qui |
+| Italiano - Italia | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portoghese (Brasile) - Brasile | ✅ 3.21.0 | Qui |
 | Spagnolo - America Latina | ❌ |
-| Spagnolo - Spagna | ✅ 3.21.0 |
+| Spagnolo - Spagna | ✅ 3.21.0 | Qui |
 
 ---
 ## Installazione

@@ -20,15 +20,16 @@
 
 ---
 ## Langues Prises en Charge
-| Langue | Pris en Charge |
-|---|---|
-| Anglais | ✅ 3.21.0 |
-| Français - France | ✅ 3.21.0 |
-| Allemand - Allemagne | ✅ 3.21.0 |
-| Italien - Italie | ✅ 3.21.0 |
-| Portugais - Brésil | ✅ 3.21.0 |
+
+| Langue | Pris en Charge | Source |
+|---|---|---|
+| Anglais | ✅ 3.21.0 | Importé des fichiers du jeu |
+| Français - France | ✅ 3.21.0 | Généré à partir de [circuspes.fr](https://traduction.circuspes.fr) et [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Allemand - Allemagne | ✅ 3.21.0 | Ici |
+| Italien - Italie | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) et [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portugais - Brésil | ✅ 3.21.0 | Ici |
 | Espagnol - Amérique latine | ❌ |
-| Espagnol - Espagne | ✅ 3.21.0 |
+| Espagnol - Espagne | ✅ 3.21.0 | Ici |
 
 ---
 ## Guide d'Installation
