@@ -25,7 +25,7 @@
 | English | ✅ 3.21.0 |
 | French - France | ✅ 3.21.0 |
 | German - Germany | ✅ 3.21.0 |
-| Italian - Italy | ❌ |
+| Italian - Italy | ✅ 3.21.0 |
 | Portuguese - Brazil | ✅ 3.21.0 |
 | Spanish - Latin America | ❌ |
 | Spanish - Spain | ✅ 3.21.0 |

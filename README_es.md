@@ -18,7 +18,7 @@
 | Inglés                  | ✅ 3.21.0  |
 | Francés - Francia       | ✅ 3.21.0  |
 | Alemán - Alemania       | ✅ 3.21.0  |
-| Italiano - Italia       | ❌         |
+| Italiano - Italia       | ✅ 3.21.0  |
 | Portugués - Brasil      | ✅ 3.21.0  |
 | Español - Latinoamérica | ❌         |
 | Español - España        | ✅ 3.21.0  |
