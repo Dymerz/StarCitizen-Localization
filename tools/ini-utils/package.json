@@ -6,8 +6,9 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "start:merge": "ts-node src/index.ts merge",
+    "start:validate": "ts-node src/index.ts validate",
     "watch:merge": "nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"npx ts-node src/index.ts merge\"",
-    "watch:validate": "nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"npx ts-node src/index.ts validate ./examples/base.ini ./examples/test.ini\"",
+    "watch:validate": "nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"npx ts-node src/index.ts validate\"",
     "build": "tsc -p ."
   },
   "author": "",
