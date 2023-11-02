@@ -24,8 +24,11 @@ jobs:
       id: changed-files
       uses: tj-actions/changed-files@v39
       with:
-        files: "**/global.ini"
+        files: "data/Localization/*/global.ini"
         separator: "\" \""
+
+    - name: List all changed files
+      run: echo "Changed files ${{ steps.changed-files.outputs.all_changed_files }}"
 
   validate-encoding:
     name: Validate global.ini Encoding
