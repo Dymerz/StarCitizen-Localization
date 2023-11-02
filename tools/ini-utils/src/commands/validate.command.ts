@@ -140,7 +140,7 @@ export class ValidateCommand
         continue;    
       }
 
-      do
+      do 
       {
         match = placeholderRegex.exec(value);
         if (match && match.groups)
@@ -148,6 +148,12 @@ export class ValidateCommand
           // Extract placeholder name and parameter
           const name = match.groups.name;
           const parameter = match.groups.parameter;
+          
+          if(!ValidateCommand.isValidPlaceholder(key, match))
+          {
+            isValid = false;
+            continue;
+          }
 
           // Add new or append to existing entries
           const placeholder: Placeholder = { name, parameter };
@@ -188,5 +194,24 @@ export class ValidateCommand
     }
 
     return isValid;
+  }
+
+  private static isValidPlaceholder(key: string, match: RegExpExecArray): boolean 
+  {
+    if(!match.groups)
+      return false;
+
+    const name      = match.groups.name;
+    const parameter = match.groups.parameter;
+    
+    // Check if parameter contains opening parenthesis, which means that it is not a valid placeholder
+    const badTokens = ['(', ')', '~', ']', '\\n'];
+    if(badTokens.some(token => parameter.indexOf(token) !== -1))
+    {
+      console.log(`  - Invalid placeholder "${name}(${parameter})" in "${key}"`);
+      return false;
+    }   
+
+    return true;
   }
 }
