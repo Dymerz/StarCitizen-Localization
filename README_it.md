@@ -21,15 +21,15 @@
 ---
 ## Lingue Supportate
 
-| Lingue | Supportate |
-|---|---|
-| Inglese | ✅ 3.21.0 |
-| Francese - Francia | ✅ 3.21.0 |
-| Tedesco - Germania | ✅ 3.21.0 |
-| Italiano - Italia | ✅ 3.21.0 |
-| Portoghese (Brasile) - Brasile | ✅ 3.21.0 |
+| Lingue | Supportate | Fonte |
+|---|---|---|
+| Inglese | ✅ 3.21.0 | Importato dai file di gioco |
+| Francese - Francia | ✅ 3.21.0 | Generato da [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation)
+| Tedesco - Germania | ✅ 3.21.0 | Qui |
+| Italiano - Italia | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portoghese (Brasile) - Brasile | ✅ 3.21.0 | Qui |
 | Spagnolo - America Latina | ❌ |
-| Spagnolo - Spagna | ✅ 3.21.0 |
+| Spagnolo - Spagna | ✅ 3.21.0 | Qui |
 
 ---
 ## Installazione
@@ -49,15 +49,10 @@
 
     | Lingue |   |
     |---|---|
-    | Cinese Semplificato | `g_language = chinese_(simplified)` |
-    | Cinese Tradizionale | `g_language = chinese_(traditional)` |
     | Inglese | `g_language = english` |
     | Francese - Francia | `g_language = french_(france)` |
     | Tedesco - Germania | `g_language = german_(germany)` |
     | Italiano - Italia | `g_language = italian_(italy)` |
-    | Giapponese - Giappone | `g_language = japanese_(japan)` |
-    | Coreano - Corea del Sud | `g_language = korean_(south_korea)` |
-    | Polacco - Polonia | `g_language = polish_(poland)` |
     | Portoghese (Brasile) - Brasile | `g_language = portuguese_(brazil)` |
     | Spagnolo - America Latina | `g_language = spanish_(latin_america)` |
     | Spagnolo - Spagna | `g_language = spanish_(spain) ` |
