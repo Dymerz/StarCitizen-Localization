@@ -25,10 +25,10 @@
 | English | ✅ 3.21.0 | Imported from game files |
 | French - France | ✅ 3.21.0 | Generated from [circuspes.fr](https://traduction.circuspes.fr) and [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
 | German - Germany | ✅ 3.21.0 | Here |
-| Italian - Italy | ❌ |
+| Italian - Italy | ✅ 3.21.0 |
 | Portuguese - Brazil | ✅ 3.21.0 | Here |
 | Spanish - Latin America | ❌ |
-| Spanish - Spain | ✅ | Here |
+| Spanish - Spain | ✅ 3.21.0 | Here |
 
 ---
 ## Installation Guide
