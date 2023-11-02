@@ -37,9 +37,9 @@ export class MergeCommand
    * @param replacementData
    * @returns
    */
-  private static mergeIniFiles(referenceData: Record<string, string>, sourceData: Record<string, string>, replacementData: Record<string, string>): Record<string, string>
+  private static mergeIniFiles(referenceData: Record<string, string|undefined>, sourceData: Record<string, string|undefined>, replacementData: Record<string, string|undefined>): Record<string, string|undefined>
   {
-    const mergedData: Record<string, string> = {};
+    const mergedData: Record<string, string|undefined> = {};
 
     for (const key in sourceData)
     {

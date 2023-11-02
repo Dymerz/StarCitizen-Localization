@@ -132,6 +132,14 @@ export class ValidateCommand
     for (const [key, value] of Object.entries(referenceData.content))
     {
       let match: RegExpExecArray | null
+      
+      if(value === undefined)
+      {
+        console.log(`  - Unable to find key "${key}" in reference file`);
+        isValid = false;
+        continue;    
+      }
+
       do
       {
         match = placeholderRegex.exec(value);
@@ -157,6 +165,13 @@ export class ValidateCommand
     {
       const placeholders = referencePlaceholders.get(key);
       const sourceValue = sourceData.content[key];
+
+      if(sourceValue === undefined)
+      {
+        console.log(`  - Unable to find key "${key}" in source file`);
+        isValid = false;
+        continue;
+      }
 
       // Check if value contains all placeholders
       if (placeholders)
