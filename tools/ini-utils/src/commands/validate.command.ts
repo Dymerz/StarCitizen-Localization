@@ -123,7 +123,7 @@ export class ValidateCommand
    */
   private static checkPlaceholders(referenceData: Ini, sourceData: Ini): boolean
   {
-    const placeholderRegex = /(~(?<name>\w+)\((?<parameter>\w+)\))/g; // match ~name(parameter)
+    const placeholderRegex = /(~(?<name>\w+)\((?<parameter>.*?)\))/g; // match ~name(parameter)
     let isValid = true;
 
     const referencePlaceholders = new Map<string, Placeholder[]>();
@@ -163,8 +163,7 @@ export class ValidateCommand
       {
         for (const placeholder of placeholders)
         {
-          const regex = new RegExp(`~${placeholder.name}\\\(${placeholder.parameter}\\\)`, 'g');
-          if (!regex.test(sourceValue))
+          if (sourceValue.indexOf(`~${placeholder.name}(${placeholder.parameter})`) === -1)
           {
             console.log(`  - Unable to find placeholder "${placeholder.name}(${placeholder.parameter})" in "${key}"`);
             isValid = false;
