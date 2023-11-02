@@ -49,15 +49,10 @@
 
     | Language  |   |
     |---|---|
-    | Chinois simplifié | `g_language = chinese_(simplified)` |
-    | Chinois traditionnel | `g_language = chinese_(traditional)` |
     | Anglais | `g_language = english` |
     | Français - France | `g_language = french_(france)` |
     | Allemand - Allemagne | `g_language = german_(germany)` |
     | Italien - Italie | `g_language = italian_(italy)` |
-    | Japonais - Japon | `g_language = japanese_(japan)` |
-    | Coréen - Corée du Sud | `g_language = korean_(south_korea)` |
-    | Polonais - Pologne | `g_language = polish_(poland)` |
     | Portugais - Brésil | `g_language = portuguese_(brazil)` |
     | Espagnol - Amérique Latine | `g_language = spanish_(latin_america)` |
     | Espagnol - Espagne | `g_language = spanish_(spain) ` |

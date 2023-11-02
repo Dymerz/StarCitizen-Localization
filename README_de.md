@@ -41,15 +41,10 @@
 
     | Sprache |   |
     |---|---|
-    | Chinesisch - Vereinfacht | `g_language = chinese_(simplified)` |
-    | Chinesisch - Traditionell | `g_language = chinese_(traditional)` |
     | Englisch | `g_language = english` |
     | Französisch - Frankreich | `g_language = french_(france)` |
     | Deutsch - Deutschland | `g_language = german_(germany)` |
     | Italienisch - Italien | `g_language = italian_(italy)` |
-    | Japanisch - Japan | `g_language = japanese_(japan)` |
-    | Koreanisch - Südkorea | `g_language = korean_(south_korea)` |
-    | Polnisch - Polen | `g_language = polish_(poland)` |
     | Portugiesisch - Brasilien | `g_language = portuguese_(brazil)` |
     | Spanisch - Lateinamerika | `g_language = spanish_(latin_america)` |
     | Spanisch - Spanien | `g_language = spanish_(spain) ` |

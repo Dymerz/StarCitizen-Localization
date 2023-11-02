@@ -42,15 +42,10 @@
 
     | Idioma                |                                        |
     | ----------------------- | -------------------------------------- |
-    | Chino simplificado      | `g_language = chinese_(simplified)`    |
-    | Chino tradicional       | `g_language = chinese_(traditional)`   |
     | Inglés                  | `g_language = english`                 |
     | Francés - Francia       | `g_language = french_(france)`         |
     | Alemán - Alemania       | `g_language = german_(germany)`        |
     | Italiano - Italia       | `g_language = italian_(italy)`         |
-    | Japonés - Japón         | `g_language = japanese_(japan)`        |
-    | Coreano - Corea del Sur | `g_language = korean_(south_korea)`    |
-    | Polaco - Polonia        | `g_language = polish_(poland)`         |
     | Portugués - Brasil      | `g_language = portuguese_(brazil)`     |
     | Español - Latinoamérica | `g_language = spanish_(latin_america)` |
     | Español - España        | `g_language = spanish_(spain)`         |

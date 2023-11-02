@@ -48,15 +48,10 @@
 
     | idioma |   |
     |---|---|
-    | Chinese - Simplified | `g_language = chinese_(simplified)` |
-    | Chinese - Traditional | `g_language = chinese_(traditional)` |
     | English | `g_language = english` |
     | French - France | `g_language = french_(france)` |
     | German - Germany | `g_language = german_(germany)` |
     | Italian - Italy | `g_language = italian_(italy)` |
-    | Japanese - Japan | `g_language = japanese_(japan)` |
-    | Korean - South Korea | `g_language = korean_(south_korea)` |
-    | Polish - Poland | `g_language = polish_(poland)` |
     | Portuguese - Brazil | `g_language = portuguese_(brazil)` |
     | Spanish - Latin America | `g_language = spanish_(latin_america)` |
     | Spanish - Spain | `g_language = spanish_(spain) ` |
