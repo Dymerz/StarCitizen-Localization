@@ -64,11 +64,11 @@ export class ValidateCommand
       const result = ValidateCommand.checkMissingKeys(referenceData, fileData);
       if (!result)
       {
-        console.log('  => One or more keys are missing in source file');
+        console.log('  => 🔥 One or more keys are missing in source file');
         success = false;
       }
       else
-        console.log('  => All keys are present in the file');
+        console.log('  => ✅ All keys are present in the file');
     }
 
     console.log();
@@ -80,11 +80,11 @@ export class ValidateCommand
       const result = ValidateCommand.validateTildPlaceholders(referenceData, fileData);
       if (!result)
       {
-        console.log('  => One or more placeholders are missing in source file');
+        console.log('  => 🔥 One or more placeholders are missing in source file');
         success = false;
       }
       else
-        console.log('  => All placeholders are present in source file');
+        console.log('  => ✅ All placeholders are present in source file');
     }
 
     console.log();
@@ -96,11 +96,11 @@ export class ValidateCommand
       const result = ValidateCommand.validatePercentPlaceholders(referenceData, fileData);
       if (!result)
       {
-        console.log('  => One or more placeholders are missing in source file');
+        console.log('  => 🔥 One or more placeholders are missing in source file');
         success = false;
       }
       else
-        console.log('  => All placeholders are present in source file');
+        console.log('  => ✅ All placeholders are present in source file');
     }
 
     return success;
@@ -146,11 +146,7 @@ export class ValidateCommand
     for (const [key, value] of Object.entries(referenceData.content))
     {
       if(value === undefined)
-      {
-        console.log(`  - Unable to find key "${key}" in reference file`);
-        isValid = false;
         continue;    
-      }
 
       const matches = StringHelper.getAllMatchesGroups<TildPlaceholder>(value, placeholderRegex);
 
@@ -175,11 +171,7 @@ export class ValidateCommand
       const sourceValue = sourceData.content[key]?.toLocaleLowerCase();
 
       if (sourceValue === undefined)
-      {
-        console.log(`  - Unable to find key "${key}" in source file`);
-        isValid = false;
         continue;
-      }
 
       if (placeholders === undefined)
         continue;
@@ -190,7 +182,7 @@ export class ValidateCommand
         const toSearch = `~${placeholder.name.toLocaleLowerCase()}(${placeholder.parameter.toLocaleLowerCase()})`;
         if (sourceValue.indexOf(toSearch) === -1)
         {
-          console.log(`  - Unable to find placeholder "${placeholder.name}(${placeholder.parameter})" in "${key}"`);
+          console.log(`  - Unable to find placeholder "~${placeholder.name}(${placeholder.parameter})" in "${key}"`);
           isValid = false;
         }
       }
@@ -210,68 +202,38 @@ export class ValidateCommand
     const placeholderRegex = /%(?<name>\w+)/g; // match %name
     let isValid = true;
 
-    const referencePlaceholders = new Map<string, string[]>();
-    const sourcePlaceholders = new Map<string, string[]>();
+    const referencePlaceholders = new Map<string, PercentPlaceholder[]>();
 
     // Find all placeholders in reference file
     for (const [key, value] of Object.entries(referenceData.content))
     {
       if(value === undefined)
-      {
-        console.log(`  - Unable to find key "${key}" in reference file`);
-        isValid = false;
         continue;    
-      }
 
       const matches = StringHelper.getAllMatchesGroups<PercentPlaceholder>(value, placeholderRegex);
-      const names = matches.map(match => match.name);
-
-      referencePlaceholders.set(key, names);
+      referencePlaceholders.set(key, matches);
     }
 
-    // Find all placeholders in source file
-    for (const [key, value] of Object.entries(sourceData.content))
-    {
-      if(value === undefined)
-      {
-        console.log(`  - Unable to find key "${key}" in source file`);
-        isValid = false;
-        continue;    
-      }
-
-      const matches = StringHelper.getAllMatchesGroups<PercentPlaceholder>(value, placeholderRegex);
-      const names = matches.map(match => match.name);
-
-      sourcePlaceholders.set(key, names);
-    }
 
     // Check if all placeholders are present in source file
     for (const key of referencePlaceholders.keys())
     {
-      const referenceValues = referencePlaceholders.get(key);
-      const sourceValues = sourcePlaceholders.get(key);
+      const placeholders = referencePlaceholders.get(key);
+      const sourceValue = sourceData.content[key];
 
-      if(referenceValues === undefined)
-      {
-        console.log(`  - Unable to find key "${key}" in reference file`);
-        isValid = false;
+      if(placeholders === undefined)
         continue;
-      }
 
-      if(sourceValues === undefined)
-      {
-        console.log(`  - Unable to find key "${key}" in source file`);
-        isValid = false;
+      if(sourceValue === undefined)
         continue;
-      }
       
-
       // Check if values from reference are present in source
-      for (const referenceValue of referenceValues)
+      for (const placeholder of placeholders)
       {
-        if(!sourceValues.includes(referenceValue))
+        const toSearch = `%${placeholder.name}`;
+        if (sourceValue.indexOf(toSearch) === -1)
         {
-          console.log(`  - Unable to find placeholder "%${referenceValue}" in "${key}"`);
+          console.log(`  - Unable to find placeholder "%${placeholder.name}" in "${key}"`);
           isValid = false;
         }
       }
