@@ -99,16 +99,15 @@ export class ValidateCommand
    */
   private static checkMissingKeys(referenceData: Ini, sourceData: Ini): boolean
   {
-    const referenceKeys = Object.keys(referenceData);
-    const sourceKeys    = Object.keys(sourceData);
+    const referenceKeys = Object.keys(referenceData.content);
+    const sourceKeys    = Object.keys(sourceData.content);
 
     // Check if all keys from reference are present in source
     const missingKeys = referenceKeys.filter(key => !sourceKeys.includes(key));
     if (missingKeys.length > 0)
     {
-      console.log('  - Missing entries in file:\n');
       for (const key of missingKeys)
-        console.log(`  - ${key}`);
+        console.log(`  - Unable to find key "${key}"`);
       return false;
     }
 
