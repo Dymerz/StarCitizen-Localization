@@ -146,8 +146,8 @@ export class ValidateCommand
         if (match && match.groups)
         {
           // Extract placeholder name and parameter
-          const name = match.groups.name;
-          const parameter = match.groups.parameter;
+          const name = match.groups.name.toLocaleLowerCase();
+          const parameter = match.groups.parameter.toLocaleLowerCase();
           
           if(!ValidateCommand.isValidPlaceholder(key, match))
           {
@@ -184,7 +184,7 @@ export class ValidateCommand
       {
         for (const placeholder of placeholders)
         {
-          if (sourceValue.indexOf(`~${placeholder.name}(${placeholder.parameter})`) === -1)
+          if (sourceValue.toLocaleLowerCase().indexOf(`~${placeholder.name}(${placeholder.parameter})`) === -1)
           {
             console.log(`  - Unable to find placeholder "${placeholder.name}(${placeholder.parameter})" in "${key}"`);
             isValid = false;
