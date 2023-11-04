@@ -3,7 +3,7 @@ import * as fs  from 'fs';
 import * as ini from 'ini';
 
 // Interfaces
-import { Ini }  from '../interfaces/ini.interface';
+import { Ini }  from '../types/ini.type';
 
 
 export class IniHelper

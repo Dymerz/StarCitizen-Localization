@@ -1,18 +1,17 @@
 // Interfaces
-import { Ini }         from '../shared/interfaces/ini.interface';
-import { Placeholder } from '../shared/interfaces/placeholder.interface';
+import { Ini }                from '../shared/types/ini.type';
+import { PercentPlaceholder } from '../shared/types/percent-placeholder.type';
+import { TildPlaceholder }    from '../shared/types/tild-placeholder.type';
 
 // Helpers
-import { IniHelper }   from '../shared/helpers/ini.helper';
+import { IniHelper }          from '../shared/helpers/ini.helper';
+import { StringHelper }       from '../shared/helpers/string.helper';
 
 
 export class ValidateCommand
 {
-	public static async run(
-    source : string,
-    files  : string[],
-    options: { ci: boolean}
-  ){
+	public static async run(source : string, files  : string[], options: { ci: boolean})
+  {
     console.log('Validating INI files...');
 
 		// Load files
@@ -65,27 +64,43 @@ export class ValidateCommand
       const result = ValidateCommand.checkMissingKeys(referenceData, fileData);
       if (!result)
       {
-        console.log('  => One or more keys are missing in source file');
+        console.log('  => 🔥 One or more keys are missing in source file');
         success = false;
       }
       else
-        console.log('  => All keys are present in the file');
+        console.log('  => ✅ All keys are present in the file');
     }
 
     console.log();
 
     // NOTE Check if all variable placeholders are present in source
     {
-      console.log('Validating placeholders...');
+      console.log('Validating "~name(parameter)" placeholders...');
 
-      const result = ValidateCommand.checkPlaceholders(referenceData, fileData);
+      const result = ValidateCommand.validateTildPlaceholders(referenceData, fileData);
       if (!result)
       {
-        console.log('  => One or more placeholders are missing in source file');
+        console.log('  => 🔥 One or more placeholders are missing in source file');
         success = false;
       }
       else
-        console.log('  => All placeholders are present in source file');
+        console.log('  => ✅ All placeholders are present in source file');
+    }
+
+    console.log();
+
+    // NOTE Check if all variable placeholders are present in source
+    {
+      console.log('Validating "%name" placeholders...');
+
+      const result = ValidateCommand.validatePercentPlaceholders(referenceData, fileData);
+      if (!result)
+      {
+        console.log('  => 🔥 One or more placeholders are missing in source file');
+        success = false;
+      }
+      else
+        console.log('  => ✅ All placeholders are present in source file');
     }
 
     return success;
@@ -99,16 +114,15 @@ export class ValidateCommand
    */
   private static checkMissingKeys(referenceData: Ini, sourceData: Ini): boolean
   {
-    const referenceKeys = Object.keys(referenceData);
-    const sourceKeys    = Object.keys(sourceData);
+    const referenceKeys = Object.keys(referenceData.content);
+    const sourceKeys    = Object.keys(sourceData.content);
 
     // Check if all keys from reference are present in source
     const missingKeys = referenceKeys.filter(key => !sourceKeys.includes(key));
     if (missingKeys.length > 0)
     {
-      console.log('  - Missing entries in file:\n');
       for (const key of missingKeys)
-        console.log(`  - ${key}`);
+        console.log(`  - Unable to find key "${key}"`);
       return false;
     }
 
@@ -116,49 +130,90 @@ export class ValidateCommand
   }
 
   /**
-   * Check if all placeholders from reference are present in source
+   * Check if all "~name(parameter)" placeholders from reference are present in source
    * @param referenceData
    * @param sourceData
    * @returns
    */
-  private static checkPlaceholders(referenceData: Ini, sourceData: Ini): boolean
+  private static validateTildPlaceholders(referenceData: Ini, sourceData: Ini): boolean
   {
     const placeholderRegex = /(~(?<name>\w+)\((?<parameter>.*?)\))/g; // match ~name(parameter)
     let isValid = true;
 
-    const referencePlaceholders = new Map<string, Placeholder[]>();
+    const referencePlaceholders = new Map<string, TildPlaceholder[]>();
 
     // Find all placeholders in reference file
     for (const [key, value] of Object.entries(referenceData.content))
     {
-      let match: RegExpExecArray | null
-      
       if(value === undefined)
-      {
-        console.log(`  - Unable to find key "${key}" in reference file`);
-        isValid = false;
         continue;    
+
+      const matches = StringHelper.getAllMatchesGroups<TildPlaceholder>(value, placeholderRegex);
+
+      // Check if placeholders of this key is valid
+      for (const match of matches) 
+      {
+        if(!ValidateCommand.isValidTildPlaceholder(match))
+        {
+          console.log(`  - Invalid placeholder "${match.name}(${match.parameter})" in "${key}"`);
+          isValid = false;
+          continue;
+        }
       }
 
-      do
-      {
-        match = placeholderRegex.exec(value);
-        if (match && match.groups)
-        {
-          // Extract placeholder name and parameter
-          const name = match.groups.name;
-          const parameter = match.groups.parameter;
-
-          // Add new or append to existing entries
-          const placeholder: Placeholder = { name, parameter };
-          const placeholders = referencePlaceholders.get(key);
-          if (placeholders)
-            placeholders.push(placeholder);
-          else
-            referencePlaceholders.set(key, [placeholder]);
-        }
-      } while(match)
+      referencePlaceholders.set(key, matches);
     }
+
+    // Check if all placeholders are present in source file
+    for (const key of referencePlaceholders.keys())
+    {
+      const placeholders = referencePlaceholders.get(key);
+      const sourceValue = sourceData.content[key]?.toLocaleLowerCase();
+
+      if (sourceValue === undefined)
+        continue;
+
+      if (placeholders === undefined)
+        continue;
+
+      // Check if value contains all placeholders
+      for (const placeholder of placeholders)
+      {
+        const toSearch = `~${placeholder.name.toLocaleLowerCase()}(${placeholder.parameter.toLocaleLowerCase()})`;
+        if (sourceValue.indexOf(toSearch) === -1)
+        {
+          console.log(`  - Unable to find placeholder "~${placeholder.name}(${placeholder.parameter})" in "${key}"`);
+          isValid = false;
+        }
+      }
+    }
+
+    return isValid;
+  }
+
+  /**
+   * Check if all "%name" placeholders from reference are present in source
+   * @param referenceData
+   * @param sourceData
+   * @returns
+   */
+  private static validatePercentPlaceholders(referenceData: Ini, sourceData: Ini): boolean 
+  {
+    const placeholderRegex = /%(?<name>\w+)/g; // match %name
+    let isValid = true;
+
+    const referencePlaceholders = new Map<string, PercentPlaceholder[]>();
+
+    // Find all placeholders in reference file
+    for (const [key, value] of Object.entries(referenceData.content))
+    {
+      if(value === undefined)
+        continue;    
+
+      const matches = StringHelper.getAllMatchesGroups<PercentPlaceholder>(value, placeholderRegex);
+      referencePlaceholders.set(key, matches);
+    }
+
 
     // Check if all placeholders are present in source file
     for (const key of referencePlaceholders.keys())
@@ -166,27 +221,39 @@ export class ValidateCommand
       const placeholders = referencePlaceholders.get(key);
       const sourceValue = sourceData.content[key];
 
-      if(sourceValue === undefined)
-      {
-        console.log(`  - Unable to find key "${key}" in source file`);
-        isValid = false;
+      if(placeholders === undefined)
         continue;
-      }
 
-      // Check if value contains all placeholders
-      if (placeholders)
+      if(sourceValue === undefined)
+        continue;
+      
+      // Check if values from reference are present in source
+      for (const placeholder of placeholders)
       {
-        for (const placeholder of placeholders)
+        const toSearch = `%${placeholder.name}`;
+        if (sourceValue.indexOf(toSearch) === -1)
         {
-          if (sourceValue.indexOf(`~${placeholder.name}(${placeholder.parameter})`) === -1)
-          {
-            console.log(`  - Unable to find placeholder "${placeholder.name}(${placeholder.parameter})" in "${key}"`);
-            isValid = false;
-          }
+          console.log(`  - Unable to find placeholder "%${placeholder.name}" in "${key}"`);
+          isValid = false;
         }
       }
     }
 
     return isValid;
+  }
+
+  /**
+   * Check if placeholder is valid
+   * @param key The key of the entry
+   * @param match The match result
+   * @returns 
+   */
+  private static isValidTildPlaceholder(placeholder: TildPlaceholder): boolean 
+  {
+    const parameter = placeholder.parameter;
+    
+    // Check if parameter contains opening parenthesis, which means that it is not a valid placeholder
+    const badTokens = ['(', ')', '~', ']', '\\n'];
+    return !badTokens.some(token => parameter.indexOf(token) !== -1)
   }
 }

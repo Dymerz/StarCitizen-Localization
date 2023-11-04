@@ -20,15 +20,15 @@
 ---
 ## Idiomas Suportados
 
-| Idioma | Suportado |
-|---|---|
-| English | ✅ 3.21.0 |
-| French - France | ✅ 3.21.0 |
-| German - Germany | ✅ 3.21.0 |
-| Italian - Italy | ✅ 3.21.0 |
-| Portuguese - Brazil | ✅ 3.21.0 |
+| Idioma | Suportado | Fonte |
+|---|---|---|
+| English | ✅ 3.21.0 | Importado dos arquivos do jogo |
+| French - France | ✅ 3.21.0 | Gerado a partir de [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| German - Germany | ✅ 3.21.0 | Aqui |
+| Italian - Italy | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portuguese - Brazil | ✅ 3.21.0 | Aqui |
 | Spanish - Latin America | ❌ |
-| Spanish - Spain | ✅ 3.21.0 |
+| Spanish - Spain | ✅ 3.21.0 | Aqui |
 
 ---
 ## Guia de Instalação
@@ -48,15 +48,10 @@
 
     | idioma |   |
     |---|---|
-    | Chinese - Simplified | `g_language = chinese_(simplified)` |
-    | Chinese - Traditional | `g_language = chinese_(traditional)` |
     | English | `g_language = english` |
     | French - France | `g_language = french_(france)` |
     | German - Germany | `g_language = german_(germany)` |
     | Italian - Italy | `g_language = italian_(italy)` |
-    | Japanese - Japan | `g_language = japanese_(japan)` |
-    | Korean - South Korea | `g_language = korean_(south_korea)` |
-    | Polish - Poland | `g_language = polish_(poland)` |
     | Portuguese - Brazil | `g_language = portuguese_(brazil)` |
     | Spanish - Latin America | `g_language = spanish_(latin_america)` |
     | Spanish - Spain | `g_language = spanish_(spain) ` |
