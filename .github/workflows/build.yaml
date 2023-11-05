@@ -38,4 +38,5 @@ jobs:
         files: |
           data/*.zip
           tools/*.cmd
+          tools/*.ps1
 
