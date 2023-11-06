@@ -1,5 +1,4 @@
 # Description: Install the localization files for Star Citizen
-# Author: Dymerz (Urbain Corentin)
 # GitHub: https://github.com/Dymerz/StarCitizen-Localization
 
 ########################################
