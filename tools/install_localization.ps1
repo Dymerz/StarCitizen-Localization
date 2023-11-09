@@ -9,14 +9,12 @@ Write-Debug Start
 $global:LOCALES = $null
 
 function Get-Locales() {
-  # check if local file exist and use it
-  if (Test-Path -Path "./install_localization.i18n.json" -PathType Leaf) {
-    $global:LOCALES = Get-Content -Path "./install_localization.i18n.json" -Raw | ConvertFrom-Json
-    return
-  }
+  # $global:LOCALES = Get-Content -Path "./install_localization.i18n.json" -Raw | ConvertFrom-Json
+  # return
 
   try {
-    $global:LOCALES = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/main/tools/install_localization.i18n.json" | ConvertFrom-Json
+    $raw = [Text.Encoding]::UTF8.GetString((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/feature/improve-install-script/tools/install_localization.i18n.json").RawContentStream.ToArray())
+    $global:LOCALES = $raw | ConvertFrom-Json
   }
   catch {
     Write-Host "Unable to get the locales file from GitHub" -ForegroundColor Red
@@ -24,7 +22,6 @@ function Get-Locales() {
     Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
     exit 0
   }
-
 }
 
 function Get-Translate {
