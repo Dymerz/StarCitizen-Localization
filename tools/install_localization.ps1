@@ -428,7 +428,7 @@ if ($language -eq "Remove") {
 }
 
 Write-Host ""
-Write-Host " Resume:" -ForegroundColor Yellow
+Write-Host " Overview:" -ForegroundColor Yellow
 Write-Host "  - Game folder: $gameFolder" -ForegroundColor Yellow
 Write-Host "  - Install the language $language" -ForegroundColor Yellow
 Write-Host ""
