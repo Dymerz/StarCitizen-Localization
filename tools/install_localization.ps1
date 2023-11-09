@@ -417,20 +417,11 @@ else {
 $language = Select-LanguageMenu
 if ($null -eq $language) { exit 0 }
 
-if ($language -eq "Remove") {
-  Write-Host "Removing the language files..." -ForegroundColor Yellow
-  Clear-Language -rootFolder $gameFolder
-
-  Write-Host ""
-  Write-Host "Uninstall completed" -ForegroundColor Green
-  Read-Host "Press Enter to exit"
-  return
-}
-
 Write-Host ""
 Write-Host " Overview:" -ForegroundColor Yellow
 Write-Host "  - Game folder: $gameFolder" -ForegroundColor Yellow
-Write-Host "  - Install the language $language" -ForegroundColor Yellow
+if ($language -eq "Remove") { Write-Host "  - Remove the language files" -ForegroundColor Yellow }
+else                        { Write-Host "  - Install the language $language" -ForegroundColor Yellow }
 Write-Host ""
 
 $continue = New-YesNoMenu -message "Do you want to continue?"
@@ -438,13 +429,23 @@ if ($continue -eq "No" ) { exit 0 }
 
 Write-Host "Downloading the language files..." -ForegroundColor Yellow
 
+if ($language -eq "Remove") {
+  Write-Host "Removing the language files..." -ForegroundColor Yellow
+  Clear-Language -rootFolder $gameFolder
+
+  Write-Host ""
+  Write-Host "Uninstall completed" -ForegroundColor Green
+  Read-Host "Press Enter to exit"
+  exit 0
+}
+
 $success = Invoke-DownloadLanguage -rootFolder $gameFolder -language $language -branch "main"
 if (-not $success) {
   Write-Host "Invoke-DownloadLanguage failed" -ForegroundColor Red
   Write-Host "An error occurred while installing the language files." -ForegroundColor Red
   Write-Host "If you think this is a bug, please report it here:" -ForegroundColor Red
   Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
-  return
+  exit 0
 }
 
 Write-Host "Configuring the game..." -ForegroundColor Yellow
@@ -456,7 +457,7 @@ if (-not $success) {
   Write-Host "An error occurred while updating the 'user.cfg' file." -ForegroundColor Red
   Write-Host "If you think this is a bug, please report it here:" -ForegroundColor Red
   Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
-  return
+  exit 0
 }
 
 Write-Host ""
