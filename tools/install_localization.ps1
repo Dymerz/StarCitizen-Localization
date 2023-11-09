@@ -127,7 +127,7 @@ function New-Menu {
   param(
     [parameter(Mandatory = $true)][System.Collections.Generic.List[string]]$menuItems, # contains all menu items
     [string]$title = "Menu Title", # the title for the menu
-    [string]$hint = "Use arrows to move then, 'Enter' to validate, 'ESC' to Exit`n", # hint to be displayed above menu entries
+    [string]$hint = "Use arrows (↑ and ↓) to move then, 'Enter' to validate, 'ESC' to Exit`n", # hint to be displayed above menu entries
     [ValidateSet("green", "yellow", "red", "black", "white")]                                   # you might add more colors allowed by console
     [string]$titleColor = 'green'                                                          # color of the title
   )
