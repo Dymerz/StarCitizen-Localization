@@ -1,0 +1,300 @@
+{
+  "en": {
+    "DESCRIPTION"        : "Description: Install the localization files for Star Citizen",
+    "FOUND_FOLDER"       : "Found the game folder: $0",
+    "GET_VERSIONS"       : "Getting available game versions...",
+    "SELECT_GAME_VERSION": "Select the game version to use",
+    "SELECT_EXE"         : "Select the StarCitizen_Launcher.exe in the game folder",
+    "SELECT_VERSION"     : "Select the game version to use",
+    "OVERVIEW"           : "Overview:",
+    "GAME_FOLDER"        : "  - Game folder: $0",
+    "REMOVE_LANGUAGE"    : "  - Remove the language files",
+    "INSTALL_LANGUAGE"   : "  - Install the language $0",
+    "CONTINUE_PROMPT"    : "Do you want to continue?",
+    "DOWNLOAD_FILES"     : "Downloading the language files...",
+    "REMOVE_FILES"       : "Removing the language files...",
+    "UNINSTALL_COMPLETE" : "Uninstall completed",
+    "EXIT_PROMPT"        : "Press Enter to exit",
+    "CONFIGURE_GAME"     : "Configuring the game...",
+    "INSTALL_COMPLETE"   : "Install completed",
+    "ENJOY_GAME"         : "You can now enjoy Star Citizen in \"$0\"",
+    "ENTER_TO_CONTINUE"  : "Press Enter to continue",
+    "REMOVE"             : "Remove",
+    "INTERACTIVE_MENU"   : {
+      "HINT"     : "Use arrows (↑ and ↓) to move then, 'Enter' to validate, 'ESC' to Exit`n",
+      "EXITING"  : "You pressed Esc, exiting...",
+      "SELECTION": "You selected $0"
+    },
+    "YES_NO_MENU": {
+      "TITLE": "Vuoi continuare?",
+      "YES"  : {
+        "SHORT": "Yes",
+        "LONG" : "Yes: continue"
+      },
+      "NO"   : {
+        "SHORT": "No",
+        "LONG" : "No: exit"
+      }
+    },
+    "ERRORS": {
+      "NO_GAME_FOLDER_SELECTED" : "An error occurred while selecting the game folder.",
+      "REPORT_BUG"              : "If you think this is a bug, please report it here:",
+      "INSTALL_ERROR"           : "An error occurred while installing the language files.",
+      "USER_CFG_UPDATE_FAILED"  : "Update 'user.cfg' failed",
+      "USER_CFG_UPDATE_ERROR"   : "An error occurred while updating the 'user.cfg' file.",
+      "MENU_INVALID_BUTTON"     : "Invalid button! Try again...",
+      "LANGUAGE_NOT_EXIST"      : "The language \"$0\" does not exist.",
+      "LANGUAGE_DOWNLOAD_FAILED": "Language download failed",
+      "LANGUAGE_NOT_AVAILABLE"  : "Maybe the language is not available yet, you can check the status of the translations here:"
+    }
+  },
+  "fr": {
+    "DESCRIPTION"        : "Description : Installer les fichiers de localisation pour Star Citizen",
+    "FOUND_FOLDER"       : "Dossier du jeu trouvé : $0",
+    "GET_VERSIONS"       : "Obtention des versions disponibles du jeu...",
+    "SELECT_GAME_VERSION": "Sélectionnez la version du jeu à utiliser",
+    "SELECT_EXE"         : "Sélectionnez StarCitizen_Launcher.exe dans le dossier du jeu",
+    "SELECT_VERSION"     : "Sélectionnez la version du jeu à utiliser",
+    "OVERVIEW"           : "Aperçu :",
+    "GAME_FOLDER"        : "  - Dossier du jeu : $0",
+    "REMOVE_LANGUAGE"    : "  - Supprimer les fichiers de langue",
+    "INSTALL_LANGUAGE"   : "  - Installer la langue $0",
+    "CONTINUE_PROMPT"    : "Voulez-vous continuer ?",
+    "DOWNLOAD_FILES"     : "Téléchargement des fichiers de langue...",
+    "REMOVE_FILES"       : "Suppression des fichiers de langue...",
+    "UNINSTALL_COMPLETE" : "Désinstallation terminée",
+    "EXIT_PROMPT"        : "Appuyez sur Entrée pour quitter",
+    "CONFIGURE_GAME"     : "Configuration du jeu en cours...",
+    "INSTALL_COMPLETE"   : "Installation terminée",
+    "ENJOY_GAME"         : "Vous pouvez désormais profiter de Star Citizen en \"$0\"",
+    "ENTER_TO_CONTINUE"  : "Appuyez sur Entrée pour quitter",
+    "REMOVE"             : "Supprimer",
+    "INTERACTIVE_MENU"   : {
+      "HINT"     : "Utilisez les flèches (↑ et ↓) pour vous déplacer, 'Entrée' pour valider, 'ESC' pour quitter`n",
+      "EXITING"  : "Vous avez appuyé sur Echap, sortie...",
+      "SELECTION": "Vous avez sélectionné $0"
+    },
+    "YES_NO_MENU": {
+      "TITLE": "Voulez-vous continuer",
+      "YES": {
+        "SHORT": "Oui",
+        "LONG" : "Oui : continuer"
+      },
+      "NO": {
+        "SHORT": "Non",
+        "LONG" : "Non : quitter"
+      }
+    },
+    "ERRORS": {
+      "NO_GAME_FOLDER_SELECTED" : "Une erreur s'est produite lors de la sélection du dossier du jeu.",
+      "REPORT_BUG"              : "Si vous pensez qu'il s'agit d'un bug, veuillez le signaler ici :",
+      "INSTALL_ERROR"           : "Une erreur s'est produite lors de l'installation des fichiers de langue.",
+      "USER_CFG_UPDATE_FAILED"  : "Échec de la mise à jour de 'user.cfg'",
+      "USER_CFG_UPDATE_ERROR"   : "Une erreur s'est produite lors de la mise à jour du fichier 'user.cfg'.",
+      "MENU_INVALID_BUTTON"     : "Bouton invalide ! Réessayez...",
+      "LANGUAGE_NOT_EXIST"      : "La langue \"$0\" n'existe pas.",
+      "LANGUAGE_DOWNLOAD_FAILED": "Échec du téléchargement de la langue",
+      "LANGUAGE_NOT_AVAILABLE"  : "Peut-être que la langue n'est pas encore disponible. Vous pouvez vérifier l'état des traductions ici :"
+    }
+  },
+  "de": {
+    "DESCRIPTION"        : "Beschreibung: Installieren Sie die Lokalisierungsdateien für Star Citizen",
+    "FOUND_FOLDER"       : "Spieleordner gefunden: $0",
+    "GET_VERSIONS"       : "Verfügbare Spielversionen abrufen...",
+    "SELECT_GAME_VERSION": "Wählen Sie die Spielversion aus, die Sie verwenden möchten",
+    "SELECT_EXE"         : "Wählen Sie die Datei StarCitizen_Launcher.exe im Spieleordner aus",
+    "SELECT_VERSION"     : "Wählen Sie die zu verwendende Spielversion aus",
+    "OVERVIEW"           : "Übersicht:",
+    "GAME_FOLDER"        : "  - Spieleordner: $0",
+    "REMOVE_LANGUAGE"    : "  - Entfernen Sie die Sprachdateien",
+    "INSTALL_LANGUAGE"   : "  - Installieren Sie die Sprache $0",
+    "CONTINUE_PROMPT"    : "Möchten Sie fortfahren?",
+    "DOWNLOAD_FILES"     : "Laden der Sprachdateien...",
+    "REMOVE_FILES"       : "Entfernen der Sprachdateien...",
+    "UNINSTALL_COMPLETE" : "Deinstallation abgeschlossen",
+    "EXIT_PROMPT"        : "Drücken Sie die Eingabetaste, um zu beenden",
+    "CONFIGURE_GAME"     : "Konfiguriere das Spiel...",
+    "INSTALL_COMPLETE"   : "Installation abgeschlossen",
+    "ENJOY_GAME"         : "Sie können jetzt Star Citizen in \"$0\" genießen",
+    "ENTER_TO_CONTINUE"  : "Drücken Sie die Eingabetaste, um zu beenden",
+    "REMOVE"             : "Entfernen",
+    "INTERACTIVE_MENU"   : {
+      "HINT"     : "Verwenden Sie die Pfeiltasten (↑ und ↓) zum Bewegen, 'Enter' zum Bestätigen, 'ESC' zum Beenden`n",
+      "EXITING"  : "Sie haben Esc gedrückt, verlasse...",
+      "SELECTION": "Sie haben $0 ausgewählt"
+    },
+    "YES_NO_MENU": {
+      "TITLE": "Möchten Sie fortfahren",
+      "YES": {
+        "SHORT": "Ja",
+        "LONG" : "Ja: fortfahren"
+      },
+      "NO": {
+        "SHORT": "Nein",
+        "LONG" : "Nein: beenden"
+      }
+    },
+    "ERRORS": {
+      "NO_GAME_FOLDER_SELECTED" : "Ein Fehler ist beim Auswählen des Spieleordners aufgetreten.",
+      "REPORT_BUG"              : "Wenn Sie denken, dass dies ein Fehler ist, melden Sie ihn bitte hier:",
+      "INSTALL_ERROR"           : "Ein Fehler ist beim Installieren der Sprachdateien aufgetreten.",
+      "USER_CFG_UPDATE_FAILED"  : "Update von 'user.cfg' fehlgeschlagen",
+      "USER_CFG_UPDATE_ERROR"   : "Ein Fehler ist beim Aktualisieren der Datei 'user.cfg' aufgetreten.",
+      "MENU_INVALID_BUTTON"     : "Ungültige Taste! Versuchen Sie es erneut...",
+      "LANGUAGE_NOT_EXIST"      : "Die Sprache \"$0\" existiert nicht.",
+      "LANGUAGE_DOWNLOAD_FAILED": "Herunterladen der Sprache fehlgeschlagen",
+      "LANGUAGE_NOT_AVAILABLE"  : "Vielleicht ist die Sprache noch nicht verfügbar. Sie können den Status der Übersetzungen hier überprüfen:"
+    }
+  },
+  "it": {
+    "DESCRIPTION"        : "Descrizione: Installa i file di localizzazione per Star Citizen",
+    "FOUND_FOLDER"       : "Trova la cartella di gioco: $0",
+    "GET_VERSIONS"       : "Ottenimento delle versioni disponibili del gioco...",
+    "SELECT_GAME_VERSION": "Seleziona la versione del gioco da utilizzare",
+    "SELECT_EXE"         : "Seleziona StarCitizen_Launcher.exe nella cartella di gioco",
+    "SELECT_VERSION"     : "Seleziona la versione del gioco da utilizzare",
+    "OVERVIEW"           : "Panoramica:",
+    "GAME_FOLDER"        : "  - Cartella di gioco: $0",
+    "REMOVE_LANGUAGE"    : "  - Rimuovi i file di lingua",
+    "INSTALL_LANGUAGE"   : "  - Installa la lingua $0",
+    "CONTINUE_PROMPT"    : "Vuoi continuare?",
+    "DOWNLOAD_FILES"     : "Download dei file di lingua in corso...",
+    "REMOVE_FILES"       : "Rimozione dei file di lingua...",
+    "UNINSTALL_COMPLETE" : "Disinstallazione completata",
+    "EXIT_PROMPT"        : "Premi Invio per uscire",
+    "CONFIGURE_GAME"     : "Configurazione del gioco in corso...",
+    "INSTALL_COMPLETE"   : "Installazione completata",
+    "ENJOY_GAME"         : "Ora puoi goderti Star Citizen in \"$0\"",
+    "ENTER_TO_CONTINUE"  : "Premi Invio per uscire",
+    "REMOVE"             : "Rimuovi",
+    "LANGUAGE_NOT_EXIST" : "La lingua \"$0\" non esiste.",
+    "EXITING"            : "Hai premuto Esc, uscita...",
+    "SELECTION"          : "Hai selezionato $0",
+    "YES_NO_TITLE"       : "Vuoi continuare",
+    "INTERACTIVE_MENU": {
+      "HINT"     : "Usa le frecce (↑ e ↓) per muoverti, 'Invio' per confermare, 'ESC' per uscire`n",
+      "EXITING"  : "Hai premuto Esc, in uscita...",
+      "SELECTION": "Hai selezionato $0"
+    },
+    "YES_NO_MENU": {
+      "TITLE": "¿Desea continuar",
+      "YES"                : {
+        "SHORT": "Sì",
+        "LONG" : "Sì: continua"
+      },
+      "NO": {
+        "SHORT": "No",
+        "LONG" : "No: esci"
+      }
+    },
+    "ERRORS": {
+      "NO_GAME_FOLDER_SELECTED" : "Si è verificato un errore durante la selezione della cartella di gioco.",
+      "REPORT_BUG"              : "Se pensi che si tratti di un bug, segnalalo qui:",
+      "INSTALL_ERROR"           : "Si è verificato un errore durante l'installazione dei file di lingua.",
+      "USER_CFG_UPDATE_FAILED"  : "Aggiornamento di 'user.cfg' non riuscito",
+      "USER_CFG_UPDATE_ERROR"   : "Si è verificato un errore durante l'aggiornamento del file 'user.cfg'.",
+      "MENU_INVALID_BUTTON"     : "Pulsante non valido! Riprova...",
+      "LANGUAGE_NOT_EXIST"      : "La lingua \"$0\" non esiste.",
+      "LANGUAGE_DOWNLOAD_FAILED": "Download della lingua non riuscito",
+      "LANGUAGE_NOT_AVAILABLE"  : "Forse la lingua non è ancora disponibile, puoi verificare lo stato delle traduzioni qui:"
+    }
+  },
+  "pt": {
+    "DESCRIPTION"        : "Descrição: Instale os arquivos de localização para o Star Citizen",
+    "FOUND_FOLDER"       : "Encontrada a pasta do jogo: $0",
+    "GET_VERSIONS"       : "Obtendo as versões disponíveis do jogo...",
+    "SELECT_GAME_VERSION": "Selecione a versão do jogo a ser usada",
+    "SELECT_EXE"         : "Selecione o StarCitizen_Launcher.exe na pasta do jogo",
+    "SELECT_VERSION"     : "Selecione a versão do jogo a ser usada",
+    "OVERVIEW"           : "Visão geral:",
+    "GAME_FOLDER"        : "  - Pasta do jogo: $0",
+    "REMOVE_LANGUAGE"    : "  - Remover os arquivos de idioma",
+    "INSTALL_LANGUAGE"   : "  - Instalar o idioma $0",
+    "CONTINUE_PROMPT"    : "Deseja continuar?",
+    "DOWNLOAD_FILES"     : "Baixando os arquivos de idioma...",
+    "REMOVE_FILES"       : "Removendo os arquivos de idioma...",
+    "UNINSTALL_COMPLETE" : "Desinstalação concluída",
+    "EXIT_PROMPT"        : "Pressione Enter para sair",
+    "CONFIGURE_GAME"     : "Configurando o jogo...",
+    "INSTALL_COMPLETE"   : "Instalação concluída",
+    "ENJOY_GAME"         : "Agora você pode aproveitar o Star Citizen em \"$0\"",
+    "ENTER_TO_CONTINUE"  : "Pressione Enter para sair",
+    "REMOVE"             : "Remover",
+    "INTERACTIVE_MENU"   : {
+      "HINT"     : "Use as setas (↑ e ↓) para se mover, 'Enter' para validar, 'ESC' para sair`n",
+      "EXITING"  : "Você pressionou Esc, saindo...",
+      "SELECTION": "Você selecionou $0"
+    },
+    "YES_NO_MENU": {
+      "TITLE": "Deseja continuar",
+      "YES": {
+        "SHORT": "Sim",
+        "LONG" : "Sim: continuar"
+      },
+      "NO": {
+        "SHORT": "Não",
+        "LONG" : "Não: sair"
+      }
+    },
+    "ERRORS": {
+      "NO_GAME_FOLDER_SELECTED" : "Ocorreu um erro ao selecionar a pasta do jogo.",
+      "REPORT_BUG"              : "Se você achar que isso é um bug, por favor, relate-o aqui:",
+      "INSTALL_ERROR"           : "Ocorreu um erro ao instalar os arquivos de idioma.",
+      "USER_CFG_UPDATE_FAILED"  : "Falha na atualização do 'user.cfg'",
+      "USER_CFG_UPDATE_ERROR"   : "Ocorreu um erro ao atualizar o arquivo 'user.cfg'.",
+      "MENU_INVALID_BUTTON"     : "Botão inválido! Tente novamente...",
+      "LANGUAGE_NOT_EXIST"      : "O idioma \"$0\" não existe.",
+      "LANGUAGE_DOWNLOAD_FAILED": "Falha no download do idioma",
+      "LANGUAGE_NOT_AVAILABLE"  : "Talvez o idioma ainda não esteja disponível. Você pode verificar o status das traduções aqui:"
+    }
+  },
+  "es": {
+    "DESCRIPTION"        : "Descripción: Instale los archivos de localización para Star Citizen",
+    "FOUND_FOLDER"       : "Se encontró la carpeta del juego: $0",
+    "GET_VERSIONS"       : "Obteniendo las versiones disponibles del juego...",
+    "SELECT_GAME_VERSION": "Selecciona la versión del juego que deseas usar",
+    "SELECT_EXE"         : "Seleccione StarCitizen_Launcher.exe en la carpeta del juego",
+    "SELECT_VERSION"     : "Seleccione la versión del juego a utilizar",
+    "OVERVIEW"           : "Resumen:",
+    "GAME_FOLDER"        : "  - Carpeta del juego: $0",
+    "REMOVE_LANGUAGE"    : "  - Eliminar los archivos de idioma",
+    "INSTALL_LANGUAGE"   : "  - Instalar el idioma $0",
+    "CONTINUE_PROMPT"    : "¿Desea continuar?",
+    "DOWNLOAD_FILES"     : "Descargando los archivos de idioma...",
+    "REMOVE_FILES"       : "Eliminando los archivos de idioma...",
+    "UNINSTALL_COMPLETE" : "Desinstalación completada",
+    "EXIT_PROMPT"        : "Presiona Enter para salir",
+    "CONFIGURE_GAME"     : "Configurando el juego...",
+    "INSTALL_COMPLETE"   : "Instalación completada",
+    "ENJOY_GAME"         : "Ahora puedes disfrutar de Star Citizen en \"$0\"",
+    "ENTER_TO_CONTINUE"  : "Presiona Enter para salir",
+    "REMOVE"             : "Eliminar",
+    "INTERACTIVE_MENU"   : {
+      "HINT"     : "Usa las flechas (↑ y ↓) para moverte, 'Enter' para validar, 'ESC' para salir`n",
+      "EXITING"  : "Presionaste Esc, saliendo...",
+      "SELECTION": "Seleccionaste $0"
+    },
+    "YES_NO_MENU": {
+      "TITLE": "¿Desea continuar",
+      "YES": {
+        "SHORT": "Sí",
+        "LONG" : "Sí: continuar"
+      },
+      "NO": {
+        "SHORT": "No",
+        "LONG" : "No: salir"
+      }
+    },
+    "ERRORS": {
+      "NO_GAME_FOLDER_SELECTED" : "Se produjo un error al seleccionar la carpeta del juego.",
+      "REPORT_BUG"              : "Si piensa que esto es un error, repórtelo aquí:",
+      "INSTALL_ERROR"           : "Se produjo un error al instalar los archivos de idioma.",
+      "USER_CFG_UPDATE_FAILED"  : "Error al actualizar 'user.cfg'",
+      "USER_CFG_UPDATE_ERROR"   : "Se produjo un error al actualizar el archivo 'user.cfg'.",
+      "MENU_INVALID_BUTTON"     : "¡Botón no válido! Inténtalo de nuevo...",
+      "LANGUAGE_NOT_EXIST"      : "El idioma \"$0\" no existe.",
+      "LANGUAGE_DOWNLOAD_FAILED": "Error en la descarga del idioma",
+      "LANGUAGE_NOT_AVAILABLE"  : "Tal vez el idioma aún no esté disponible. Puedes verificar el estado de las traducciones aquí:"
+    }
+  }
+}
