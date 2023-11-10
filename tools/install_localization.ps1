@@ -137,7 +137,7 @@ Function Select-FromList($title, $message = "Selection", $list = @())
       $value = $($value.Keys | ForEach-Object { $value[$_] }) -join " - "
     }
 
-    Write-Host "  $key. $value"
+    Write-Host "  $key) $value"
   }
 
   Write-Host ""
@@ -309,11 +309,6 @@ Description: Install the localization files for Star Citizen
 GitHub: https://github.com/Dymerz/StarCitizen-Localization
 -------------------------------------------------------------
 
-Usage Instructions:
-  1. Select the game folder
-  2. Select the language to install/update
-  3. Enjoy Star Citizen
-
 "@
 
 Start-Sleep -s 2
@@ -325,6 +320,7 @@ if($findStarCitizenFolder)
 {
   Write-Host "Found the game folder: $findStarCitizenFolder" -ForegroundColor Yellow
   Write-Host "Getting available game versions..." -ForegroundColor Yellow
+  Write-Host ""
 
   $environments = [ordered] @{}
   $index = 0
