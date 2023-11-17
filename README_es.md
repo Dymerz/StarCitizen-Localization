@@ -21,8 +21,8 @@
 | Alemán - Alemania       | ✅ 3.21.1  | Aquí |
 | Italiano - Italia       | ✅ 3.21.0  | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Portugués - Brasil      | ✅ 3.21.0  | Aquí |
-| Español - Latinoamérica | ✅ 3.21.1  |
-| Español - España        | ❌         | Aquí |
+| Español - Latinoamérica | ❌         |
+| Español - España        | ✅ 3.21.1  | Aquí |
 
 ---
 ## Guía de instalación
