@@ -20,6 +20,7 @@
 
 ---
 ## Idiomas soportados
+
 | Idioma                  | Soportado  | Fuente |
 | ----------------------- | ---------- | ------ |
 | Inglés                  | ✅ 3.21.1  | Importado de los archivos del juego |

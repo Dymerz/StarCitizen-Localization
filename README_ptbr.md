@@ -19,6 +19,7 @@
 
 ---
 ## Idiomas Suportados
+
 | Idioma | Suportado | Fonte |
 |---|---|---|
 | English | ✅ 3.21.1 | Importado dos arquivos do jogo |

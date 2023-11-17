@@ -20,6 +20,7 @@
 
 ---
 ## Supported Languages
+
 | Langue | Supported | Source |
 |---|---|---|
 | English | ✅ 3.21.1 | Imported from game files |

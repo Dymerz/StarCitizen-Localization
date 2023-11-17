@@ -20,6 +20,7 @@
 
 ---
 ## Unterstützte Sprachen
+
 | Sprache | Unterstützt | Quelle |
 |---|---|---|
 | Englisch | ✅ 3.21.1 | Importiert aus den Spieldateien |
