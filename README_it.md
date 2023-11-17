@@ -4,10 +4,10 @@
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
 
+- 🇬🇧 [Instructions in English.](README.md).
 - 🇫🇷 [Instruction en Français](README_fr.md).
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
 - 🇪🇸 [Instrucciones en Español](README_es.md).
-- 🇬🇧 [Instructions in English.](README.md).
 - 🇧🇷 [Instrução em Português](README_ptbr.md).
 
 **Tabella dei contenuti:**
@@ -20,7 +20,6 @@
 
 ---
 ## Lingue Supportate
-
 | Lingue | Supportate | Fonte |
 |---|---|---|
 | Inglese | ✅ 3.21.1 | Importato dai file di gioco |
