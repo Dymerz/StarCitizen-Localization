@@ -6,49 +6,97 @@
 ########################################
 Write-Debug Start
 
+$global:LOCALES = $null
+
+function Get-Locales() {
+  # $global:LOCALES = Get-Content -Path "./install_localization.i18n.json" -Raw | ConvertFrom-Json
+  # return
+
+  try {
+    $raw = [Text.Encoding]::UTF8.GetString((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/feature/improve-install-script/tools/install_localization.i18n.json").RawContentStream.ToArray())
+    $global:LOCALES = $raw | ConvertFrom-Json
+  }
+  catch {
+    Write-Host "Unable to get the locales file from GitHub" -ForegroundColor Red
+    Write-Host "If the problem persists, please report the bug here:" -ForegroundColor Red
+    Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
+    exit 0
+  }
+}
+
+function Get-Translate {
+  param (
+    [string]$key,
+    [string[]]$variableValues = @()
+  )
+  $locales = $global:LOCALES
+
+  $userCulture = (Get-Culture).TwoLetterISOLanguageName
+  if (-not $localesPSobject.Properties.name -match $userCulture) {
+    $userCulture = 'en'
+  }
+
+  $userLocales = $locales.$userCulture
+
+  try {
+    $keyParts = $Key -split '\.'
+    $value = $userLocales
+
+    # Get the value from the key
+    foreach ($Part in $keyParts) {
+      $value = $value.$Part
+    }
+
+    # Replace the variables in the string
+    for ($i = 0; $i -lt $variableValues.Count; $i++) {
+      $variablePlaceholder = ('$' + ($i + 0))
+      $value = $value -replace [regex]::Escape($variablePlaceholder), $variableValues[$i]
+    }
+
+    return $value
+  }
+  catch {
+    return "KEY NOT FOUND: $Key"
+  }
+}
+
 <#
   .SYNOPSIS
     Open a file dialog to select "StarCitizen_Launcher.exe" file
 #>
-Function Open-FileDialog($filter)
-{
-  [System.Reflection.Assembly]::LoadWithPartialName("System.windows.forms")|Out-Null
+Function Open-FileDialog($filter) {
+  [System.Reflection.Assembly]::LoadWithPartialName("System.windows.forms") | Out-Null
 
   $fileDialog = New-Object System.Windows.Forms.OpenFileDialog
 
   $fileDialog.Filter = $filter
   $fileDialog.ShowHelp = $true
 
-  if($fileDialog.ShowDialog() -eq "OK")
-  {
+  if ($fileDialog.ShowDialog() -eq "OK") {
     return $fileDialog.FileName
   }
   return $null
 }
 
-Function Find-RSILauncherFolder()
-{
+Function Find-RSILauncherFolder() {
   # Try to find the game folder from the default installation path
   $path = "C:\Program Files\Roberts Space Industries\"
-  if (Test-Path -Path "$path\RSI Launcher\RSI Launcher.exe" -PathType Leaf)
-  {
+  if (Test-Path -Path "$path\RSI Launcher\RSI Launcher.exe" -PathType Leaf) {
     Write-Debug "Found the RSI Launcher folder from the default installation path: $path"
     return "$path\RSI Launcher"
   }
 
   # Try to find the game folder from the "RSI Launcher" shortcut
   $path = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Roberts Space Industries\RSI Launcher.lnk"
-  if (Test-Path -Path $path -PathType Leaf)
-  {
-    $wshShell   = New-Object -ComObject WScript.Shell
-    $shortcut   = $wshShell.CreateShortcut($path)
+  if (Test-Path -Path $path -PathType Leaf) {
+    $wshShell = New-Object -ComObject WScript.Shell
+    $shortcut = $wshShell.CreateShortcut($path)
     $targetPath = $shortcut.TargetPath
 
     # get resolve the "RSI Launcher" folder
     $rsiLauncherFolder = Split-Path -Path $targetPath -Parent
 
-    if (Test-Path -Path "$rsiLauncherFolder\RSI Launcher.exe" -PathType Leaf)
-    {
+    if (Test-Path -Path "$rsiLauncherFolder\RSI Launcher.exe" -PathType Leaf) {
       Write-Debug "Found the RSI Launcher folder from the 'RSI Launcher' shortcut: $rsiLauncherFolder"
       return $rsiLauncherFolder
     }
@@ -61,12 +109,10 @@ Function Find-RSILauncherFolder()
   .SYNOPSIS
     Try to guess the game folder from the "RSI Launcher" logs, the default installation path or the "RSI Launcher" shortcut
 #>
-Function Find-StarCitizenFolder()
-{
+Function Find-StarCitizenFolder() {
   # Try to find the game folder from the "RSI Launcher" logs
   $path = Join-Path $env:APPDATA "\rsilauncher\logs\log.log"
-  if (Test-Path -Path $path -PathType Leaf)
-  {
+  if (Test-Path -Path $path -PathType Leaf) {
     $content = Get-Content -Path $path -Raw
     $contentFixed = "[$content]" | Out-String # add missing '[' and ']' characters
     $contentFixed = $contentFixed -replace ',(\s*\])', '$1' # fix ending comma in object
@@ -82,8 +128,7 @@ Function Find-StarCitizenFolder()
     # get the last "libraryFolder" property as it is the most recent
     $lastLibraryFolder = $libraryFolders[-1]
 
-    if (Test-Path -Path $lastLibraryFolder -PathType Container)
-    {
+    if (Test-Path -Path $lastLibraryFolder -PathType Container) {
       Write-Debug "Found the game folder from the 'RSI Launcher' logs: $lastLibraryFolder"
       return "$lastLibraryFolder\StarCitizen"
     }
@@ -91,26 +136,23 @@ Function Find-StarCitizenFolder()
 
   # Try to find the game folder from the default installation path
   $path = "C:\Program Files\Roberts Space Industries\StarCitizen"
-  if (Test-Path -Path "$path\LIVE\StarCitizen_Launcher.exe" -PathType Leaf)
-  {
+  if (Test-Path -Path "$path\LIVE\StarCitizen_Launcher.exe" -PathType Leaf) {
     Write-Debug "Found the game folder from the default installation path: $path"
     return $path
   }
 
   # Try to find the game folder from the "RSI Launcher" shortcut
   $path = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Roberts Space Industries\RSI Launcher.lnk"
-  if (Test-Path -Path $path -PathType Leaf)
-  {
-    $wshShell   = New-Object -ComObject WScript.Shell
-    $shortcut   = $wshShell.CreateShortcut($path)
+  if (Test-Path -Path $path -PathType Leaf) {
+    $wshShell = New-Object -ComObject WScript.Shell
+    $shortcut = $wshShell.CreateShortcut($path)
     $targetPath = $shortcut.TargetPath
 
     # get resolve the "Roberts Space Industries" grand parent folder
     $rsiLauncherPath = Split-Path -Path $targetPath -Parent
-    $rsiPath         = Split-Path -Path $rsiLauncherPath -Parent
+    $rsiPath = Split-Path -Path $rsiLauncherPath -Parent
 
-    if (Test-Path -Path "$rsiPath\StarCitizen\LIVE\StarCitizen_Launcher.exe" -PathType Leaf)
-    {
+    if (Test-Path -Path "$rsiPath\StarCitizen\LIVE\StarCitizen_Launcher.exe" -PathType Leaf) {
       Write-Debug "Found the game folder from the 'RSI Launcher' shortcut: $rsiPath"
       return "$rsiPath\StarCitizen"
     }
@@ -122,87 +164,170 @@ Function Find-StarCitizenFolder()
 
 <#
   .SYNOPSIS
+    Reverse the colors of the console
+#>
+function Reverse-Colors {
+  $bColor = [System.Console]::BackgroundColor
+  $fColor = [System.Console]::ForegroundColor
+  [System.Console]::BackgroundColor = $fColor
+  [System.Console]::ForegroundColor = $bColor
+}
+
+<#
+  .SYNOPSIS
     Create a menu to select an item from a list
 #>
-Function Select-FromList($title, $message = "Selection", $list = @())
-{
-  # Ask the user to select an item from the list
-  Write-Host $title
-  foreach ($key in $list.Keys)
-  {
-    $value = $list[$key]
+function New-Menu {
+  param(
+    [parameter(Mandatory = $true)][System.Collections.Generic.List[string]]$menuItems, # contains all menu items
+    [string]$title = "Menu Title",
+    [string]$hint = (Get-Translate "INTERACTIVE_MENU.HINT"),
+    [ValidateSet("green", "yellow", "red", "black", "white")] # you might add more colors allowed by console
+    [string]$titleColor = 'green'                             # color of the title
+  )
 
-    if($value.GetType() -ne [String])
-    {
-      $value = $($value.Keys | ForEach-Object { $value[$_] }) -join " - "
+  # prepare variables with function wide scope
+  $invalidChoice = $false # initialize the flag indicating whether an ivalid key was pressed
+  $selectIndex = 0 # initialize the variable storing the selection index (by default the first entry)
+  $outChar = 'a' # initialize the variable storing the Enter or Esc value
+
+  # prepare the cosnole
+  [System.Console]::CursorVisible = $false    # hide the cursor, we don't need it
+  [Console]::Clear()                          # clear everything before showing the menu
+
+  # main loop showing all the entries and handling the interaction with user
+  # end the loop only when Enter or Escape is pressed
+  while (([System.Int16]$inputChar.Key -ne [System.ConsoleKey]::Enter) -and ([System.Int16]$inputChar.Key -ne [System.ConsoleKey]::Escape)) {
+    # show title and hint
+    [System.Console]::CursorTop = 0                     # start from top and then overwrite all lines; it's used instead of Clear to avoid blinking
+    $tempColor = [System.Console]::ForegroundColor      # keep the default font color
+    [System.Console]::ForegroundColor = $titleColor     # set the color for title according to value of parameter
+    [System.Console]::WriteLine("$title`n")
+    [System.Console]::ForegroundColor = $tempColor      # revert back to default font color
+
+    [System.Console]::WriteLine($hint)
+
+    # show all entries
+    for ($i = 0; $i -lt $menuItems.Count; $i++) {
+      [System.Console]::Write("[$i] ") # add identity number to each entry, it's not highlighted for selection but it's in the same line
+      if ($selectIndex -eq $i) {
+        Reverse-Colors # in case this is the selected entry, reverse color just for it to make the selection visible
+        [System.Console]::WriteLine($menuItems[$i])
+        Reverse-Colors
+      }
+      else {
+        [System.Console]::WriteLine($menuItems[$i]) # in case this is not-selected entry, just show it
+      }
     }
 
-    Write-Host "  $key) $value"
+    # in case of invalid key, show the message
+    if ($invalidChoice) {
+      [System.Console]::WriteLine((Get-Translate "ERRORS.MENU_INVALID_BUTTON"))
+    }
+    else {
+      [System.Console]::Write([System.String]::new(' ', [System.Console]::WindowWidth)) # in case the valid key was used after invalid, clean-up this line
+      [System.Console]::SetCursorPosition(0, [System.Console]::CursorTop)               # set the cursor back to first column so it's properly back to 1st column, 1st row in next iteration of the loop
+    }
+
+    # reset the invalid key flag
+    $invalidChoice = $false
+
+    # read the key from user
+    $inputChar = [System.Console]::ReadKey($true)
+
+    # handle arrows
+    if ([System.Int16]$inputChar.Key -eq [System.ConsoleKey]::DownArrow) {
+      # avoid selection out of range
+      if ($selectIndex -lt $menuItems.Count - 1) {
+        $selectIndex++
+      }
+    }
+    elseif ([System.Int16]$inputChar.Key -eq [System.ConsoleKey]::UpArrow) {
+      # avoid selection out of range
+      if ($selectIndex -gt 0) {
+        $selectIndex--
+      }
+    }
+    else {
+      $invalidChoice = $true # key not recognized, raise the flag
+    }
+
+    # assign the key value to variable with scope outside the loop
+    $outChar = $inputChar
   }
 
-  Write-Host ""
-  $validChoice = $false
-  do
-  {
-    $choice = Read-Host $message
-    if ($list.Contains([int]$choice))
-    {
-      $validChoice = $true
-    }
-    else
-    {
-      Write-Host ""
-      Write-Host "The number you entered is not valid."
-    }
-  } while (-not $validChoice)
+  # handle the result, just show the selected entry if Enter was pressed; do nothing if Escape was pressed
+  if ($outChar.Key -eq [System.ConsoleKey]::Enter) {
+    [Console]::WriteLine((Get-Translate "INTERACTIVE_MENU.SELECTION" $menuItems[$selectIndex]))
+    return $menuItems[$selectIndex]
+  }
 
-  return $list[[int]$choice]
+  if ($outChar.Key -eq [System.ConsoleKey]::Escape) {
+    [Console]::WriteLine((Get-Translate "INTERACTIVE_MENU.EXITING"))
+    return $null
+  }
+}
+
+function New-YesNoMenu {
+  param(
+    [string]$message = (Get-Translate "YES_NO_MENU.TITLE")
+  )
+
+  $yes = New-Object System.Management.Automation.Host.ChoiceDescription ('&' + (Get-Translate "YES_NO_MENU.YES.SHORT")), (Get-Translate "YES_NO_MENU.YES.SHORT")
+  $no = New-Object System.Management.Automation.Host.ChoiceDescription ('&' + (Get-Translate "YES_NO_MENU.NO.SHORT")), (Get-Translate "YES_NO_MENU.NO.SHORT")
+  $options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
+
+  $result = $host.ui.PromptForChoice("", $message, $options, 0)
+
+  switch ($result)
+  {
+    0 { return $true }
+    1 { return $false }
+  }
 }
 
 <#
   .SYNOPSIS
     Create a menu to select the game version
 #>
-Function Select-LanguageMenu()
-{
-  $lang_list = [ordered] @{
-    0 = "REMOVE"
-    1 = "english"
-    2 = "french_(france)"
-    3 = "german_(germany)"
-    4 = "italian_(italy)"
-    5 = "portuguese_(brazil)"
-    6 = "spanish_(latin_america)"
-    7 = "spanish_(spain)"
-  }
+Function Select-LanguageMenu() {
+  $remove = (Get-Translate "REMOVE")
+  $lang_list = @(
+    $remove
+    "english"
+    "french_(france)"
+    "german_(germany)"
+    "italian_(italy)"
+    "portuguese_(brazil)"
+    "spanish_(latin_america)"
+    "spanish_(spain)"
+  )
 
-  return Select-FromList -title "Select the language to install" -message "Selection" -list $lang_list
+  $result = New-Menu -title "Select the language to install" -menuItems $lang_list
+  if ($result -eq $remove) { return $null }
+  return $result
 }
 
 <#
   .SYNOPSIS
     Download the latest version of the localization files
 #>
-Function Invoke-DownloadLanguage($rootFolder, $language, $branch = "main")
-{
+Function Invoke-DownloadLanguage($rootFolder, $language, $branch = "main") {
   # Create the language folder if it does not exist
   $languagePath = "$rootFolder\data\Localization\$language"
-  if (-not (Test-Path -Path "$languagePath" -PathType Container))
-  {
+  if (-not (Test-Path -Path "$languagePath" -PathType Container)) {
     New-Item -ItemType Directory -Path "$languagePath"
   }
 
   # Download the latest version of the localization files
-  try
-  {
+  try {
     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/$branch/data/Localization/$language/global.ini" -OutFile "$languagePath\global.ini"
   }
-  catch
-  {
+  catch {
     Write-Host ""
-    Write-Host "The language ""$language"" does not exist."
+    Write-Host (Get-Translate "ERRORS.LANGUAGE_NOT_EXIST")
     Write-Host ""
-    Write-Host "Maybe the language is not available yet, you can check the status of the translations here:"
+    Write-Host (Get-Translate "ERRORS.LANGUAGE_NOT_AVAILABLE")
     Write-Host "https://github.com/Dymerz/StarCitizen-Localization#supported-languages"
     Write-Host ""
     return $false
@@ -215,11 +340,9 @@ Function Invoke-DownloadLanguage($rootFolder, $language, $branch = "main")
   .SYNOPSIS
     Update the 'user.cfg' file with the language settings
 #>
-Function Set-UserCfg($rootFolder, $language)
-{
+Function Set-UserCfg($rootFolder, $language) {
   # Check if the 'user.cfg' file exists, if not, create it
-  if (-not (Test-Path -Path "$rootFolder\user.cfg"))
-  {
+  if (-not (Test-Path -Path "$rootFolder\user.cfg")) {
     New-Item -ItemType File -Path "$rootFolder\user.cfg"
   }
 
@@ -227,22 +350,18 @@ Function Set-UserCfg($rootFolder, $language)
   $userCfgContent = Get-Content -Path "$rootFolder\user.cfg"
 
   # Update the language settings or add if it does not exist
-  if ($userCfgContent -match "^g_language\s*=" )
-  {
+  if ($userCfgContent -match "^g_language\s*=" ) {
     $userCfgContent = $userCfgContent -replace "^g_language\s*=.*", "g_language = $language"
   }
-  else
-  {
+  else {
     $userCfgContent += "g_language = $language`n"
   }
 
   # Fix the audio language settings (see: https://issue-council.robertsspaceindustries.com/projects/STAR-CITIZEN/issues/STARC-86490)
-  if ($userCfgContent -match "^g_languageAudio\s*=" )
-  {
+  if ($userCfgContent -match "^g_languageAudio\s*=" ) {
     $userCfgContent = $userCfgContent -replace "^g_languageAudio\s*=.*", "g_languageAudio = english"
   }
-  else
-  {
+  else {
     $userCfgContent += "g_languageAudio = english`n"
   }
 
@@ -255,17 +374,14 @@ Function Set-UserCfg($rootFolder, $language)
   .SYNOPSIS
     Clear the language settings in the 'user.cfg' file
 #>
-Function Clear-Language($rootFolder)
-{
+Function Clear-Language($rootFolder) {
   # Remove the Localization folder
-  if (Test-Path -Path "$rootFolder\data\Localization" -PathType Container)
-  {
+  if (Test-Path -Path "$rootFolder\data\Localization" -PathType Container) {
     Remove-Item -Path "$rootFolder\data\Localization" -Recurse -Force
   }
 
   # Check if the 'user.cfg' file exists, if not, return
-  if (-not (Test-Path -Path "$rootFolder\user.cfg"))
-  {
+  if (-not (Test-Path -Path "$rootFolder\user.cfg")) {
     return
   }
 
@@ -273,14 +389,12 @@ Function Clear-Language($rootFolder)
   $userCfgContent = Get-Content -Path "$rootFolder\user.cfg"
 
   # Clear the language settings
-  if ($userCfgContent -match "^g_language\s*=" )
-  {
+  if ($userCfgContent -match "^g_language\s*=" ) {
     $userCfgContent = $userCfgContent | Where-Object { $_ -notmatch '^g_language\s*=.*' }
   }
 
   # Clear the audio fix settings
-  if ($userCfgContent -match "^g_languageAudio\s*=" )
-  {
+  if ($userCfgContent -match "^g_languageAudio\s*=" ) {
     $userCfgContent = $userCfgContent | Where-Object { $_ -notmatch '^g_languageAudio\s*=.*' }
   }
 
@@ -291,8 +405,7 @@ Function Clear-Language($rootFolder)
   .SYNOPSIS
     Get the game version from the "build_manifest.id" file
 #>
-Function Get-GameVersion($gamePath, $environment)
-{
+Function Get-GameVersion($gamePath, $environment) {
   $buildManifest = Get-Content -Path "$gamePath\$environment\build_manifest.id" | ConvertFrom-Json
   return $buildManifest.Data.Branch
 }
@@ -302,10 +415,11 @@ Function Get-GameVersion($gamePath, $environment)
 # !SECTION     #########################
 # SECTION Main #########################
 ########################################
+Get-Locales
 
 Write-Host @"
 -------------------------------------------------------------
-Description: Install the localization files for Star Citizen
+$(Get-Translate "DESCRIPTION")
 GitHub: https://github.com/Dymerz/StarCitizen-Localization
 -------------------------------------------------------------
 
@@ -316,40 +430,41 @@ Start-Sleep -s 2
 # Detect or ask the game folder
 $gameFolder = ""
 $findStarCitizenFolder = Find-StarCitizenFolder
-if($findStarCitizenFolder)
-{
-  Write-Host "Found the game folder: $findStarCitizenFolder" -ForegroundColor Yellow
-  Write-Host "Getting available game versions..." -ForegroundColor Yellow
+if ($findStarCitizenFolder) {
+  Write-Host (Get-Translate "FOUND_FOLDER" $findStarCitizenFolder) -ForegroundColor Yellow
+  Write-Host (Get-Translate "GET_VERSIONS") -ForegroundColor Yellow
   Write-Host ""
 
-  $environments = [ordered] @{}
-  $index = 0
+  $environments = @{}
+  $menuItems = [System.Collections.Generic.List[string]]::new()
 
   # Get all sub folders (e.g. LIVE, PTU, ...)
   $subFolders = Get-ChildItem -Path $findStarCitizenFolder -Directory | Select-Object -ExpandProperty Name
-  foreach ($subFolder in $subFolders)
-  {
+  foreach ($subFolder in $subFolders) {
     # Check if the sub folder contains the "StarCitizen_Launcher.exe" file
-    if (Test-Path -Path "$findStarCitizenFolder\$subFolder\StarCitizen_Launcher.exe" -PathType Leaf)
-    {
+    if (Test-Path -Path "$findStarCitizenFolder\$subFolder\StarCitizen_Launcher.exe" -PathType Leaf) {
       $version = Get-GameVersion -gamePath "$findStarCitizenFolder" -environment $subFolder
-      $environments.Add($index, [ordered] @{ Name = $subFolder; Version = $version })
+      $index = "$subFolder (version: $version)" #TODO
+
+      $menuItems.Add($index)
+      $environments.Add($index, $subfolder)
     }
   }
 
-  $selectedEnvironment = $(Select-FromList -title "Select the game version to use" -message "Selection" -list $environments)
-  $gameFolder = "$findStarCitizenFolder\$($selectedEnvironment.Name)"
+  $choice = New-Menu -title  (Get-Translate "SELECT_GAME_VERSION") $menuItems
+  if ($null -eq $choice) { exit 0 }
+
+  $result = $environments[$choice]
+  $gameFolder = "$findStarCitizenFolder\$result"
 }
-else
-{
-  Write-Host "Select the StarCitizen_Launcher.exe in the game folder" -ForegroundColor Yellow
+else {
+  Write-Host (Get-Translate "SELECT_EXE") -ForegroundColor Yellow
   $selectedFile = Open-FileDialog -filter "Star Citizen Launcher | StarCitizen_Launcher.exe"
 
-  if(-not $selectedFile)
-  {
+  if (-not $selectedFile) {
     Write-Host ""
-    Write-Host "An error occurred while selecting the game folder." -ForegroundColor Red
-    Write-Host "If you think this is a bug, please report it here:" -ForegroundColor Red
+    Write-Host (Get-Translate "ERRORS.NO_GAME_FOLDER_SELECTED") -ForegroundColor Red
+    Write-Host (Get-Translate "ERRORS.REPORT_BUG") -ForegroundColor Red
     Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
     return
   }
@@ -357,50 +472,56 @@ else
   $gameFolder = Split-Path -Path $selectedFile -Parent
 }
 
-Write-Host "Using the game folder: $gameFolder" -ForegroundColor Yellow
+$language = Select-LanguageMenu
+if ($null -eq $language) { exit 0 }
+
+Write-Host ""
+Write-Host (Get-Translate "OVERVIEW") -ForegroundColor Yellow
+Write-Host (Get-Translate "GAME_FOLDER" $gameFolder) -ForegroundColor Yellow
+if ($null -eq $language) { Write-Host (Get-Translate "REMOVE_LANGUAGE") -ForegroundColor Yellow }
+else                     { Write-Host (Get-Translate "INSTALL_LANGUAGE" $language) -ForegroundColor Yellow }
 Write-Host ""
 
-$language = Select-LanguageMenu
-if ($language -eq "REMOVE")
-{
-  Write-Host "Removing the language files..." -ForegroundColor Yellow
+$continue = New-YesNoMenu -message (Get-Translate "CONTINUE_PROMPT")
+if (-not $continue) { exit 0 }
+
+Write-Host (Get-Translate "DOWNLOAD_FILES") -ForegroundColor Yellow
+
+if ($null -eq $language) {
+  Write-Host (Get-Translate "REMOVE_FILES") -ForegroundColor Yellow
   Clear-Language -rootFolder $gameFolder
 
   Write-Host ""
-  Write-Host "Uninstall completed" -ForegroundColor Green
-  Read-Host "Press Enter to exit"
-  return
+  Write-Host (Get-Translate "UNINSTALL_COMPLETE") -ForegroundColor Green
+  Read-Host (Get-Translate "EXIT_PROMPT")
+  exit 0
 }
-
-Write-Host "Downloading the language files..." -ForegroundColor Yellow
 
 $success = Invoke-DownloadLanguage -rootFolder $gameFolder -language $language -branch "main"
-if (-not $success)
-{
-  Write-Host "Invoke-DownloadLanguage failed" -ForegroundColor Red
-  Write-Host "An error occurred while installing the language files." -ForegroundColor Red
-  Write-Host "If you think this is a bug, please report it here:" -ForegroundColor Red
+if (-not $success) {
+  Write-Host (Get-Translate "ERRORS.LANGUAGE_DOWNLOAD_FAILED") -ForegroundColor Red
+  Write-Host (Get-Translate "ERRORS.INSTALL_ERROR") -ForegroundColor Red
+  Write-Host (Get-Translate "ERRORS.REPORT_BUG") -ForegroundColor Red
   Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
-  return
+  exit 0
 }
 
-Write-Host "Configuring the game..." -ForegroundColor Yellow
+Write-Host (Get-Translate "CONFIGURE_GAME") -ForegroundColor Yellow
 Start-Sleep -s 2
 
 $success = Set-UserCfg -rootFolder $gameFolder -language $language
-if (-not $success)
-{
-  Write-Host "Update 'user.cfg' failed" -ForegroundColor Red
-  Write-Host "An error occurred while updating the 'user.cfg' file." -ForegroundColor Red
-  Write-Host "If you think this is a bug, please report it here:" -ForegroundColor Red
+if (-not $success) {
+  Write-Host (Get-Translate "ERRORS.USER_CFG_UPDATE_FAILED") -ForegroundColor Red
+  Write-Host (Get-Translate "ERRORS.USER_CFG_UPDATE_ERROR") -ForegroundColor Red
+  Write-Host (Get-Translate "ERRORS.REPORT_BUG") -ForegroundColor Red
   Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
-  return
+  exit 0
 }
 
 Write-Host ""
-Write-Host "Install completed" -ForegroundColor Green
-Write-Host "You can now enjoy Star Citizen in ""$language""" -ForegroundColor Green
-Read-Host "Press Enter to exit"
+Write-Host (Get-Translate "INSTALL_COMPLETE") -ForegroundColor Green
+Write-Host (Get-Translate "ENJOY_GAME" $language) -ForegroundColor Green
+Read-Host (Get-Translate "ENTER_TO_CONTINUE")
 
 ########################################
 # !SECTION #############################
