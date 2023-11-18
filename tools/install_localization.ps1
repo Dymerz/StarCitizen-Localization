@@ -13,7 +13,7 @@ function Get-Locales() {
   # return
 
   try {
-    $raw = [Text.Encoding]::UTF8.GetString((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/feature/improve-install-script/tools/install_localization.i18n.json").RawContentStream.ToArray())
+    $raw = [Text.Encoding]::UTF8.GetString((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/main/tools/install_localization.i18n.json").RawContentStream.ToArray())
     $global:LOCALES = $raw | ConvertFrom-Json
   }
   catch {
