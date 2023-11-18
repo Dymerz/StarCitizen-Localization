@@ -4,6 +4,7 @@
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
 
+- 🇬🇧 [Instructions in English.](README.md).
 - 🇫🇷 [Instruction en Français](README_fr.md).
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
 - 🇪🇸 [Instrucciones en Español](README_es.md).
@@ -22,11 +23,11 @@
 
 | Langue | Supported | Source |
 |---|---|---|
-| English | ✅ 3.21.0 | Imported from game files |
+| English | ✅ 3.21.1 | Imported from game files |
 | French - France | ✅ 3.21.0 | Generated from [circuspes.fr](https://traduction.circuspes.fr) and [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| German - Germany | ✅ 3.21.0 | Here |
+| German - Germany | ✅ 3.21.1 | Here |
 | Italian - Italy | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portuguese - Brazil | ✅ 3.21.0 | Here |
+| Portuguese - Brazil | ✅ 3.21.1 | Here |
 | Spanish - Latin America | ❌ |
 | Spanish - Spain | ✅ 3.21.0 | Here |
 

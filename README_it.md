@@ -4,10 +4,10 @@
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
 
+- 🇬🇧 [Instructions in English.](README.md).
 - 🇫🇷 [Instruction en Français](README_fr.md).
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
 - 🇪🇸 [Instrucciones en Español](README_es.md).
-- 🇬🇧 [Instructions in English.](README.md).
 - 🇧🇷 [Instrução em Português](README_ptbr.md).
 
 **Tabella dei contenuti:**
@@ -23,11 +23,11 @@
 
 | Lingue | Supportate | Fonte |
 |---|---|---|
-| Inglese | ✅ 3.21.0 | Importato dai file di gioco |
+| Inglese | ✅ 3.21.1 | Importato dai file di gioco |
 | Francese - Francia | ✅ 3.21.0 | Generato da [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation)
-| Tedesco - Germania | ✅ 3.21.0 | Qui |
+| Tedesco - Germania | ✅ 3.21.1 | Qui |
 | Italiano - Italia | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portoghese (Brasile) - Brasile | ✅ 3.21.0 | Qui |
+| Portoghese (Brasile) - Brasile | ✅ 3.21.1 | Qui |
 | Spagnolo - America Latina | ❌ |
 | Spagnolo - Spagna | ✅ 3.21.0 | Qui |
 

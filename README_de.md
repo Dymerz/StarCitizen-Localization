@@ -4,22 +4,30 @@
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
 
+- 🇬🇧 [Instructions in English.](README.md).
+- 🇫🇷 [Instruction en Français](README_fr.md).
+- 🇩🇪 [Anleitung auf Deutsch](README_de.md).
+- 🇪🇸 [Instrucciones en Español](README_es.md).
+- 🇮🇹 [Istruzioni in Italiano](README_it.md).
+- 🇧🇷 [Instrução em Português](README_ptbr.md).
+
 **Inhaltsverzeichnis:**
-1. [Unterstützte Sprachen](#unterstützte-sprachen)
-2. [Installationsanleitung](#installationsanleitung)
-3. [Aktualisieren der Lokalisierungsdateien](#aktualisieren-der-lokalisierungsdateien)
-4. [Beitragen](#beitragen)
-5. [Haftungsausschluss](#haftungsausschluss)
+  - [Unterstützte Sprachen](#unterstützte-sprachen)
+  - [Installationsanleitung](#installationsanleitung)
+  - [Aktualisieren der Lokalisierungsdateien](#aktualisieren-der-lokalisierungsdateien)
+  - [Beitragen](#beitragen)
+  - [Haftungsausschluss](#haftungsausschluss)
 
 ---
 ## Unterstützte Sprachen
+
 | Sprache | Unterstützt | Quelle |
 |---|---|---|
-| Englisch | ✅ 3.21.0 | Importiert aus den Spieldateien |
+| Englisch | ✅ 3.21.1 | Importiert aus den Spieldateien |
 | Französisch - Frankreich | ✅ 3.21.0 | Generiert von [circuspes.fr](https://traduction.circuspes.fr) und [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Deutsch - Deutschland | ✅ 3.21.0 | Hier |
+| Deutsch - Deutschland | ✅ 3.21.1 | Hier |
 | Italienisch - Italien | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portugiesisch - Brasilien | ✅ 3.21.0 | Hier |
+| Portugiesisch - Brasilien | ✅ 3.21.1 | Hier |
 | Spanisch - Lateinamerika | ❌ |
 | Spanisch - Spanien | ✅ 3.21.0 | Hier |
 
