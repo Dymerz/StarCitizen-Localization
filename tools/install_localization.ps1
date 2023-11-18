@@ -293,8 +293,7 @@ function New-YesNoMenu {
 Function Select-LanguageMenu() {
   $remove = (Get-Translate "REMOVE")
   $lang_list = @(
-    $remove
-    "english"
+    "english / $remove"
     "french_(france)"
     "german_(germany)"
     "italian_(italy)"
@@ -304,7 +303,7 @@ Function Select-LanguageMenu() {
   )
 
   $result = New-Menu -title "Select the language to install" -menuItems $lang_list
-  if ($result -eq $remove) { return $null }
+  if ($result -eq $lang_list[0]) { return $null }
   return $result
 }
 
