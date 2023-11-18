@@ -472,7 +472,6 @@ else {
 }
 
 $language = Select-LanguageMenu
-if ($null -eq $language) { exit 0 }
 
 Write-Host ""
 Write-Host (Get-Translate "OVERVIEW") -ForegroundColor Yellow
@@ -484,8 +483,6 @@ Write-Host ""
 $continue = New-YesNoMenu -message (Get-Translate "CONTINUE_PROMPT")
 if (-not $continue) { exit 0 }
 
-Write-Host (Get-Translate "DOWNLOAD_FILES") -ForegroundColor Yellow
-
 if ($null -eq $language) {
   Write-Host (Get-Translate "REMOVE_FILES") -ForegroundColor Yellow
   Clear-Language -rootFolder $gameFolder
@@ -495,6 +492,8 @@ if ($null -eq $language) {
   Read-Host (Get-Translate "EXIT_PROMPT")
   exit 0
 }
+
+Write-Host (Get-Translate "DOWNLOAD_FILES") -ForegroundColor Yellow
 
 $success = Invoke-DownloadLanguage -rootFolder $gameFolder -language $language -branch "main"
 if (-not $success) {
