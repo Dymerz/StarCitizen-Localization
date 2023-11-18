@@ -14,7 +14,6 @@ set "lang_list[9]=polish_(poland)"
 set "lang_list[10]=portuguese_(brazil)"
 set "lang_list[11]=spanish_(latin_america)"
 set "lang_list[12]=spanish_(spain)"
-set "lang_list[13]=REMOVE
 
 :: Check the directory
 set BATCH_PATH=%~dp0
@@ -30,7 +29,7 @@ if errorlevel 1 (
 echo Select the language you want to install or choose 13 to remove g_language:
 echo 1. Chinese - Simplified
 echo 2. Chinese - Traditional
-echo 3. English
+echo 3. English / Remove "g_language"
 echo 4. French - France
 echo 5. German - Germany
 echo 6. Italian - Italy
@@ -40,7 +39,6 @@ echo 9. Polish - Poland
 echo 10. Portuguese - Brazil
 echo 11. Spanish - Latin America
 echo 12. Spanish - Spain
-echo 13. Remove "g_language"
 
 echo Enter the number of the language you want to select.
 set /p lang_choice="Language number: "
@@ -53,8 +51,8 @@ if not defined lang_list[%lang_choice%] (
 )
 set "language=!lang_list[%lang_choice%]!"
 
-:: Option to remove g_language
-if "!language!"=="REMOVE" goto RemoveLanguage
+:: Option to remove g_language if english is chosen
+if "!language!"=="english" goto RemoveLanguage
 
 :: Download language file
 IF NOT EXIST ".\Localization\!language!" mkdir .\Localization\!language!
@@ -68,7 +66,7 @@ if not exist "global.ini" (
 )
 move /y global.ini ".\Localization\!language!\global.ini" > nul
 
-@REM :: Update user.cfg
+:: Update user.cfg
 if exist user.cfg.new del /F user.cfg.new
 
 set "language_line=g_language = !language!"
@@ -108,11 +106,13 @@ if not exist "../user.cfg" (
     move /y user.cfg.new ..\user.cfg > nul
 )
 
+:: Finished Instatlation
 echo Script completed successfully.
 if "!language!" neq "english" echo You can now enjoy Star Citizen in !language!.
 pause
 goto :eof
 
+:: Remove g_language from user.cfg to use default language (english)
 :RemoveLanguage
 for /f "delims=" %%a in (../user.cfg) do (
     set "line=%%a"
@@ -122,6 +122,7 @@ for /f "delims=" %%a in (../user.cfg) do (
 )
 move /y user.cfg.new ..\user.cfg > nul
 echo g_language entry has been removed.
+echo You can now enjoy Star Citizen in english!
 pause
 
 endlocal
