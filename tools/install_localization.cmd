@@ -112,7 +112,7 @@ if "!language!" neq "english" echo You can now enjoy Star Citizen in !language!.
 pause
 goto :eof
 
-:: Remove g_language from user.cfg to use default language (english)
+:: Remove g_language from user.cfg to use default language (english). Also delete Localization folder
 :RemoveLanguage
 for /f "delims=" %%a in (../user.cfg) do (
     set "line=%%a"
@@ -120,6 +120,7 @@ for /f "delims=" %%a in (../user.cfg) do (
         echo !line!>> user.cfg.new
     )
 )
+IF EXIST ".\Localization\" RD /S /Q .\Localization\
 move /y user.cfg.new ..\user.cfg > nul
 echo g_language entry has been removed.
 echo You can now enjoy Star Citizen in english!
