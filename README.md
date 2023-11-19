@@ -24,7 +24,7 @@
 | Langue | Supported | Source |
 |---|---|---|
 | English | ✅ 3.21.1 | Imported from game files |
-| French - France | ✅ 3.21.0 | Generated from [circuspes.fr](https://traduction.circuspes.fr) and [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| French - France | ✅ 3.21.1 | Generated from [circuspes.fr](https://traduction.circuspes.fr) and [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
 | German - Germany | ✅ 3.21.1 | Here |
 | Italian - Italy | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Portuguese - Brazil | ✅ 3.21.1 | Here |

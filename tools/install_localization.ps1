@@ -13,7 +13,7 @@ function Get-Locales() {
   # return
 
   try {
-    $raw = [Text.Encoding]::UTF8.GetString((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/feature/improve-install-script/tools/install_localization.i18n.json").RawContentStream.ToArray())
+    $raw = [Text.Encoding]::UTF8.GetString((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/main/tools/install_localization.i18n.json").RawContentStream.ToArray())
     $global:LOCALES = $raw | ConvertFrom-Json
   }
   catch {
@@ -293,8 +293,7 @@ function New-YesNoMenu {
 Function Select-LanguageMenu() {
   $remove = (Get-Translate "REMOVE")
   $lang_list = @(
-    $remove
-    "english"
+    "english / $remove"
     "french_(france)"
     "german_(germany)"
     "italian_(italy)"
@@ -304,7 +303,7 @@ Function Select-LanguageMenu() {
   )
 
   $result = New-Menu -title "Select the language to install" -menuItems $lang_list
-  if ($result -eq $remove) { return $null }
+  if ($result -eq $lang_list[0]) { return $null }
   return $result
 }
 
@@ -473,7 +472,6 @@ else {
 }
 
 $language = Select-LanguageMenu
-if ($null -eq $language) { exit 0 }
 
 Write-Host ""
 Write-Host (Get-Translate "OVERVIEW") -ForegroundColor Yellow
@@ -485,8 +483,6 @@ Write-Host ""
 $continue = New-YesNoMenu -message (Get-Translate "CONTINUE_PROMPT")
 if (-not $continue) { exit 0 }
 
-Write-Host (Get-Translate "DOWNLOAD_FILES") -ForegroundColor Yellow
-
 if ($null -eq $language) {
   Write-Host (Get-Translate "REMOVE_FILES") -ForegroundColor Yellow
   Clear-Language -rootFolder $gameFolder
@@ -496,6 +492,8 @@ if ($null -eq $language) {
   Read-Host (Get-Translate "EXIT_PROMPT")
   exit 0
 }
+
+Write-Host (Get-Translate "DOWNLOAD_FILES") -ForegroundColor Yellow
 
 $success = Invoke-DownloadLanguage -rootFolder $gameFolder -language $language -branch "main"
 if (-not $success) {

@@ -9,6 +9,7 @@
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
 - 🇪🇸 [Instrucciones en Español](README_es.md).
 - 🇮🇹 [Istruzioni in Italiano](README_it.md).
+- 🇧🇷 [Instrução em Português](README_ptbr.md).
 
 **Table of Contents:**
   - [Supported Languages](#supported-languages)
@@ -23,7 +24,7 @@
 | Idioma | Suportado | Fonte |
 |---|---|---|
 | English | ✅ 3.21.1 | Importado dos arquivos do jogo |
-| French - France | ✅ 3.21.0 | Gerado a partir de [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| French - France | ✅ 3.21.1 | Gerado a partir de [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
 | German - Germany | ✅ 3.21.1 | Aqui |
 | Italian - Italy | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Portuguese - Brazil | ✅ 3.21.1 | Aqui |

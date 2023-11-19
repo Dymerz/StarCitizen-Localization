@@ -4,10 +4,11 @@
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
 
+- 🇬🇧 [Instructions in English.](README.md).
+- 🇫🇷 [Instruction en Français](README_fr.md).
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
 - 🇪🇸 [Instrucciones en Español](README_es.md).
 - 🇮🇹 [Istruzioni in Italiano](README_it.md).
-- 🇬🇧 [Instructions in English.](README.md).
 - 🇧🇷 [Instrução em Português](README_ptbr.md).
 
 
@@ -23,11 +24,11 @@
 
 | Langue | Pris en Charge | Source |
 |---|---|---|
-| Anglais | ✅ 3.21.0 | Importé des fichiers du jeu |
-| Français - France | ✅ 3.21.0 | Généré à partir de [circuspes.fr](https://traduction.circuspes.fr) et [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Allemand - Allemagne | ✅ 3.21.0 | Ici |
+| Anglais | ✅ 3.21.1 | Importé des fichiers du jeu |
+| Français - France | ✅ 3.21.1 | Généré à partir de [circuspes.fr](https://traduction.circuspes.fr) et [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Allemand - Allemagne | ✅ 3.21.1 | Ici |
 | Italien - Italie | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) et [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portugais - Brésil | ✅ 3.21.0 | Ici |
+| Portugais - Brésil | ✅ 3.21.1 | Ici |
 | Espagnol - Amérique latine | ❌ |
 | Espagnol - Espagne | ✅ 3.21.0 | Ici |
 
