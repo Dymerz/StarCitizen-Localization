@@ -23,11 +23,11 @@
 
 | Sprache | Unterstützt | Quelle |
 |---|---|---|
-| Englisch | ✅ 3.21.1 | Importiert aus den Spieldateien |
+| Englisch | ✅ 3.22.0 | Importiert aus den Spieldateien |
 | Französisch - Frankreich | ✅ 3.21.1 | Generiert von [circuspes.fr](https://traduction.circuspes.fr) und [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Deutsch - Deutschland | ✅ 3.21.1 | Hier |
+| Deutsch - Deutschland | ✅ 3.22.0 | Hier |
 | Italienisch - Italien | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portugiesisch - Brasilien | ✅ 3.21.1 | Hier |
+| Portugiesisch - Brasilien | ✅ 3.22.0 | Hier |
 | Spanisch - Lateinamerika | ❌ |
 | Spanisch - Spanien | ✅ 3.21.0 | Hier |
 
