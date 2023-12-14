@@ -21,7 +21,7 @@
 ---
 ## Supported Languages
 
-| Langue | Supported | Source |
+| Language | Supported | Source |
 |---|---|---|
 | English | ✅ 3.22.0 | Imported from game files |
 | French - France | ✅ 3.21.1 | Generated from [circuspes.fr](https://traduction.circuspes.fr) and [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
