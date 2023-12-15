@@ -21,15 +21,15 @@
 ---
 ## Idiomas soportados
 
-| Idioma                  | Soportado  | Fuente |
-| ----------------------- | ---------- | ------ |
-| Inglés                  | ✅ 3.22.0  | Importado de los archivos del juego |
-| Francés - Francia       | ✅ 3.21.1  | Generado a partir de [circuspes.fr](https://traduction.circuspes.fr) y [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Alemán - Alemania       | ✅ 3.22.0  | Aquí |
-| Italiano - Italia       | ✅ 3.21.0  | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portugués - Brasil      | ✅ 3.22.0  | Aquí |
-| Español - Latinoamérica | ❌         |
-| Español - España        | ✅ 3.21.1  | Aquí |
+| Idioma | Soportado | Fuente |
+|---|---|---|
+| Inglés | ![Static Badge](https://img.shields.io/badge/3.22.0-LIVE-brightgreen) | Importado de archivos de juego |
+| Francés - Francia | ![Static Badge](https://img.shields.io/badge/3.22.0-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) y [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Alemán - Alemania | ![Static Badge](https://img.shields.io/badge/3.22.0-LIVE-brightgreen) | Aquí |
+| Italiano - Italia | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portugués - Brasil | ![Static Badge](https://img.shields.io/badge/3.22.0-LIVE-brightgreen)| Aquí |
+| Español - América Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
+| Español - España | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | Aquí |
 
 ---
 ## Guía de instalación

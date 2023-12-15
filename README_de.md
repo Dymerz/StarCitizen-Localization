@@ -23,13 +23,13 @@
 
 | Sprache | Unterstützt | Quelle |
 |---|---|---|
-| Englisch | ✅ 3.22.0 | Importiert aus den Spieldateien |
-| Französisch - Frankreich | ✅ 3.21.1 | Generiert von [circuspes.fr](https://traduction.circuspes.fr) und [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Deutsch - Deutschland | ✅ 3.22.0 | Hier |
-| Italienisch - Italien | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portugiesisch - Brasilien | ✅ 3.22.0 | Hier |
-| Spanisch - Lateinamerika | ❌ |
-| Spanisch - Spanien | ✅ 3.21.0 | Hier |
+| Englisch | ![Static Badge](https://img.shields.io/badge/3.22.0-LIVE-brightgreen) | Importiert aus Spieldateien |
+| Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/3.22.0-LIVE-brightgreen) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) und [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Deutsch - Deutschland | ![Static Badge](https://img.shields.io/badge/3.22.0-LIVE-brightgreen) | Hier |
+| Italienisch - Italien | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portugiesisch - Brasilien | ![Static Badge](https://img.shields.io/badge/3.22.0-LIVE-brightgreen)| Hier |
+| Spanisch - Lateinamerika | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
+| Spanisch - Spanien | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | Hier |
 
 ---
 ## Installationsanleitung
