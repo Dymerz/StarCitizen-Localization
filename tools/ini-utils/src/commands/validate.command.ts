@@ -146,12 +146,12 @@ export class ValidateCommand
     for (const [key, value] of Object.entries(referenceData.content))
     {
       if(value === undefined)
-        continue;    
+        continue;
 
       const matches = StringHelper.getAllMatchesGroups<TildPlaceholder>(value, placeholderRegex);
 
       // Check if placeholders of this key is valid
-      for (const match of matches) 
+      for (const match of matches)
       {
         if(!ValidateCommand.isValidTildPlaceholder(match))
         {
@@ -168,7 +168,7 @@ export class ValidateCommand
     for (const key of referencePlaceholders.keys())
     {
       const placeholders = referencePlaceholders.get(key);
-      const sourceValue = sourceData.content[key]?.toLocaleLowerCase();
+      const sourceValue = sourceData.content[key]
 
       if (sourceValue === undefined)
         continue;
@@ -176,11 +176,19 @@ export class ValidateCommand
       if (placeholders === undefined)
         continue;
 
+      // check key type
+      if(typeof sourceValue !== 'string')
+      {
+        console.log(`  - Key "${key}" is not a string`);
+        isValid = false;
+        continue;
+      }
+
       // Check if value contains all placeholders
       for (const placeholder of placeholders)
       {
         const toSearch = `~${placeholder.name.toLocaleLowerCase()}(${placeholder.parameter.toLocaleLowerCase()})`;
-        if (sourceValue.indexOf(toSearch) === -1)
+        if (sourceValue.toLocaleLowerCase().indexOf(toSearch) === -1)
         {
           console.log(`  - Unable to find placeholder "~${placeholder.name}(${placeholder.parameter})" in "${key}"`);
           isValid = false;
@@ -197,7 +205,7 @@ export class ValidateCommand
    * @param sourceData
    * @returns
    */
-  private static validatePercentPlaceholders(referenceData: Ini, sourceData: Ini): boolean 
+  private static validatePercentPlaceholders(referenceData: Ini, sourceData: Ini): boolean
   {
     const placeholderRegex = /%(?<name>\w+)/g; // match %name
     let isValid = true;
@@ -208,7 +216,7 @@ export class ValidateCommand
     for (const [key, value] of Object.entries(referenceData.content))
     {
       if(value === undefined)
-        continue;    
+        continue;
 
       const matches = StringHelper.getAllMatchesGroups<PercentPlaceholder>(value, placeholderRegex);
       referencePlaceholders.set(key, matches);
@@ -226,7 +234,7 @@ export class ValidateCommand
 
       if(sourceValue === undefined)
         continue;
-      
+
       // Check if values from reference are present in source
       for (const placeholder of placeholders)
       {
@@ -246,12 +254,12 @@ export class ValidateCommand
    * Check if placeholder is valid
    * @param key The key of the entry
    * @param match The match result
-   * @returns 
+   * @returns
    */
-  private static isValidTildPlaceholder(placeholder: TildPlaceholder): boolean 
+  private static isValidTildPlaceholder(placeholder: TildPlaceholder): boolean
   {
     const parameter = placeholder.parameter;
-    
+
     // Check if parameter contains opening parenthesis, which means that it is not a valid placeholder
     const badTokens = ['(', ')', '~', ']', '\\n'];
     return !badTokens.some(token => parameter.indexOf(token) !== -1)

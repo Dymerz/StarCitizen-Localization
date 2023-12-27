@@ -18,6 +18,7 @@ set "lang_list[12]=spanish_(spain)"
 :: Check the directory
 set BATCH_PATH=%~dp0
 set BATCH_PATH=%BATCH_PATH:~0,-1%
+echo Checking directory...
 echo %BATCH_PATH% | findstr /I /C:"\StarCitizen\LIVE\data" >nul || echo %BATCH_PATH% | findstr /I /C:"\StarCitizen\PTU\data" >nul
 if errorlevel 1 (
     echo This script must be executed from the "\StarCitizen\[LIVE or PTU]\data" folder.
@@ -26,7 +27,8 @@ if errorlevel 1 (
 )
 
 :: Display language options
-echo Select the language you want to install or choose 13 to remove g_language:
+echo.
+echo Select the language you want to install:
 echo 1. Chinese - Simplified
 echo 2. Chinese - Traditional
 echo 3. English / Remove "g_language"
@@ -41,22 +43,33 @@ echo 11. Spanish - Latin America
 echo 12. Spanish - Spain
 
 echo Enter the number of the language you want to select.
+:LanguageInput
 set /p lang_choice="Language number: "
-
-:: Check for valid choice
 if not defined lang_list[%lang_choice%] (
-    echo Invalid choice.
-    pause
-    exit /b
+    echo Invalid choice. Please enter a number from 1 to 13.
+    goto LanguageInput
 )
 set "language=!lang_list[%lang_choice%]!"
 
-:: Option to remove g_language if english is chosen
-if "!language!"=="english" goto RemoveLanguage
+:: Language-specific operations
+if "!language!"=="english" (
+    echo Removing translation...
+    goto RemoveLanguage
+)
+
+:: Create language folder
+IF NOT EXIST ".\Localization\!language!" mkdir .\Localization\!language!
+
+:: Set branch on repository
+set "reference=main"
+echo %BATCH_PATH% | findstr /I /C:"\StarCitizen\PTU\data" >nul
+if errorlevel 0 (
+	set "reference=ptu"
+)
 
 :: Download language file
-IF NOT EXIST ".\Localization\!language!" mkdir .\Localization\!language!
-set "reference=main"
+echo.
+echo Downloading language file for !language!...
 curl -L -s -o "global.ini" "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/!reference!/data/Localization/!language!/global.ini"
 if not exist "global.ini" (
     echo The language "!language!" does not exist. Check the status of translations at: 
@@ -67,6 +80,7 @@ if not exist "global.ini" (
 move /y global.ini ".\Localization\!language!\global.ini" > nul
 
 :: Update user.cfg
+echo Updating user.cfg...
 if exist user.cfg.new del /F user.cfg.new
 
 set "language_line=g_language = !language!"
@@ -107,8 +121,9 @@ if not exist "../user.cfg" (
 )
 
 :: Finished Instatlation
+echo.
 echo Script completed successfully.
-if "!language!" neq "english" echo You can now enjoy Star Citizen in !language!.
+echo You can now enjoy Star Citizen in !language!.
 pause
 goto :eof
 
