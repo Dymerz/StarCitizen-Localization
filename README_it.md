@@ -1,5 +1,6 @@
 # StarCitizen-Localization 🌎
 
+[![Discord](https://img.shields.io/discord/1185135396112322620?logo=discord&label=discord)](https://discord.gg/Gbvz9fTmZU)
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
@@ -22,15 +23,15 @@
 ---
 ## Lingue Supportate
 
-| Lingue | Supportate | Fonte |
+| Lingua | Supportato | Fonte |
 |---|---|---|
-| Inglese | ✅ 3.22.0 | Importato dai file di gioco |
-| Francese - Francia | ✅ 3.21.1 | Generato da [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation)
-| Tedesco - Germania | ✅ 3.22.0 | Qui |
-| Italiano - Italia | ✅ 3.21.0 | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portoghese (Brasile) - Brasile | ✅ 3.22.0 | Qui |
-| Spagnolo - America Latina | ❌ |
-| Spagnolo - Spagna | ✅ 3.21.0 | Qui |
+| Inglese | ![Static Badge](https://img.shields.io/badge/3.22.0-LIVE-brightgreen) | Importato dai file di gioco |
+| Francese - Francia | ![Static Badge](https://img.shields.io/badge/3.22.0-LIVE-brightgreen) | Generato da [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Tedesco - Germania | ![Static Badge](https://img.shields.io/badge/3.22.0-LIVE-brightgreen) | Qui |
+| Italiano - Italia | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portoghese - Brasile | ![Static Badge](https://img.shields.io/badge/3.22.0-LIVE-brightgreen)| Qui |
+| Spagnolo - America Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
+| Spagnolo - Spagna | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | Qui |
 
 ---
 ## Installazione
