@@ -24,11 +24,11 @@
 
 | Língua | Suportado | Fonte |
 |---|---|---|
-| Inglês | ![Static Badge](https://img.shields.io/badge/3.22.1-LIVE-brightgreen) | Importado dos arquivos do jogo |
+| Inglês | ![Static Badge](https://img.shields.io/badge/3.23.0-PTU-brightgreen) | Importado dos arquivos do jogo |
 | Francês - França | ![Static Badge](https://img.shields.io/badge/3.22.1-LIVE-brightgreen) | Gerado a partir de [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Alemão - Alemanha | ![Static Badge](https://img.shields.io/badge/3.22.1-LIVE-brightgreen) | Aqui |
-| Italiano - Itália | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Português - Brasil | ![Static Badge](https://img.shields.io/badge/3.22.1-LIVE-brightgreen)| Aqui |
+| Alemão - Alemanha | ![Static Badge](https://img.shields.io/badge/3.23.0-PTU-brightgreen) | Aqui |
+| Italiano - Itália | ![Static Badge](https://img.shields.io/badge/3.23.0-PTU-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Português - Brasil | ![Static Badge](https://img.shields.io/badge/3.23.0-PTU-brightgreen)| Aqui |
 | Espanhol - América Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
 | Espanhol - Espanha | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | Aqui |
 
