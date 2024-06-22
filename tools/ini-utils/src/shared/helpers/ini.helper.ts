@@ -17,10 +17,14 @@ export class IniHelper
   {
     console.log(`Loading file ${filePath}`);
 
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-    return {
+    const fileContent = fs.readFileSync(filePath, 'utf-8')
+      .replace(/([\S] *);/g, '$1\\;')  // escape semicolon
+      .replace(/([\S] *)#/g, '$1\\#'); // escape hash
+
+    const parsed = ini.parse(fileContent);
+      return {
       path   : filePath,
-      content: ini.parse(fileContent)
+      content: parsed
     };
   }
 
