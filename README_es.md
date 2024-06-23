@@ -30,7 +30,7 @@
 | Italiano - Italia | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Portugués - Brasil | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen)| Aquí |
 | Español - América Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
-| Español - España | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | Aquí |
+| Español - España | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Aquí |
 
 ---
 ## Guía de instalación
