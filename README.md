@@ -27,10 +27,10 @@
 | English | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Imported from game files |
 | French - France | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Generated from [circuspes.fr](https://traduction.circuspes.fr) and [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
 | German - Germany | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Here |
-| Italian - Italy | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Italian - Italy | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Portuguese - Brazil | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen)| Here |
 | Spanish - Latin America | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
-| Spanish - Spain | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Here |
+| Spanish - Spain | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Here |
 
 ---
 ## Installation Guide
