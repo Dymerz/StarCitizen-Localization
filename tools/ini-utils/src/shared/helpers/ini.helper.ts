@@ -18,11 +18,10 @@ export class IniHelper
     console.log(`Loading file ${filePath}`);
 
     const fileContent = fs.readFileSync(filePath, 'utf-8')
-      .replace(/([\S] *);/g, '$1\\;')  // escape semicolon
-      .replace(/([\S] *)#/g, '$1\\#'); // escape hash
+      .replace(/([\S] *)(?<!\\)([;#])/g, '$1\\$2')  // escape semicolon and hash
 
     const parsed = ini.parse(fileContent);
-      return {
+    return {
       path   : filePath,
       content: parsed
     };
