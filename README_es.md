@@ -24,13 +24,13 @@
 
 | Idioma | Soportado | Fuente |
 |---|---|---|
-| Inglés | ![Static Badge](https://img.shields.io/badge/3.23.1-LIVE-brightgreen) | Importado de archivos de juego |
-| Francés - Francia | ![Static Badge](https://img.shields.io/badge/3.22.1-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) y [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Alemán - Alemania | ![Static Badge](https://img.shields.io/badge/3.23.1-LIVE-brightgreen) | Aquí |
-| Italiano - Italia | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portugués - Brasil | ![Static Badge](https://img.shields.io/badge/3.23.1-LIVE-brightgreen)| Aquí |
+| Inglés | ![Static Badge](https://img.shields.io/badge/3.24-PTU-brightgreen) | Importado de archivos de juego |
+| Francés - Francia | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) y [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Alemán - Alemania | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Aquí |
+| Italiano - Italia | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portugués - Brasil | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen)| Aquí |
 | Español - América Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
-| Español - España | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | Aquí |
+| Español - España | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Aquí |
 
 ---
 ## Guía de instalación
@@ -86,6 +86,7 @@ Para actualizar los archivos de localización, por favor sigue nuevamente la [Gu
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Brill65"><img src="https://avatars.githubusercontent.com/u/8363399?v=4?s=100" width="100px;" alt="Manu"/><br /><sub><b>Manu</b></sub></a><br /><a href="#review-Brill65" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/danidomen"><img src="https://avatars.githubusercontent.com/u/5998908?v=4?s=100" width="100px;" alt="Daniel Martin (dmartin-webimpacto)"/><br /><sub><b>Daniel Martin (dmartin-webimpacto)</b></sub></a><br /><a href="#translation-danidomen" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>

@@ -25,13 +25,13 @@
 
 | Langue | Pris en charge | Source |
 |---|---|---|
-| Anglais | ![Static Badge](https://img.shields.io/badge/3.23.1-LIVE-brightgreen) | Importé des fichiers de jeu |
-| Français - France | ![Static Badge](https://img.shields.io/badge/3.22.1-LIVE-brightgreen) | Généré à partir de [circuspes.fr](https://traduction.circuspes.fr) et [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Allemand - Allemagne | ![Static Badge](https://img.shields.io/badge/3.23.1-LIVE-brightgreen) | Ici |
-| Italien - Italie | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) et [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portugais - Brésil | ![Static Badge](https://img.shields.io/badge/3.23.1-LIVE-brightgreen)| Ici |
+| Anglais | ![Static Badge](https://img.shields.io/badge/3.24-PTU-brightgreen) | Importé des fichiers de jeu |
+| Français - France | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Généré à partir de [circuspes.fr](https://traduction.circuspes.fr) et [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Allemand - Allemagne | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Ici |
+| Italien - Italie | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) et [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portugais - Brésil | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen)| Ici |
 | Espagnol - Amérique Latine | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
-| Espagnol - Espagne | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | Ici |
+| Espagnol - Espagne | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Ici |
 
 ---
 ## Guide d'Installation
@@ -86,6 +86,7 @@ Pour mettre à jour les fichiers de localisation, veuillez suivre à nouveau le 
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Brill65"><img src="https://avatars.githubusercontent.com/u/8363399?v=4?s=100" width="100px;" alt="Manu"/><br /><sub><b>Manu</b></sub></a><br /><a href="#review-Brill65" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/danidomen"><img src="https://avatars.githubusercontent.com/u/5998908?v=4?s=100" width="100px;" alt="Daniel Martin (dmartin-webimpacto)"/><br /><sub><b>Daniel Martin (dmartin-webimpacto)</b></sub></a><br /><a href="#translation-danidomen" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>

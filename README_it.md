@@ -25,13 +25,13 @@
 
 | Lingua | Supportato | Fonte |
 |---|---|---|
-| Inglese | ![Static Badge](https://img.shields.io/badge/3.23.1-LIVE-brightgreen) | Importato dai file di gioco |
-| Francese - Francia | ![Static Badge](https://img.shields.io/badge/3.22.1-LIVE-brightgreen) | Generato da [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Tedesco - Germania | ![Static Badge](https://img.shields.io/badge/3.23.1-LIVE-brightgreen) | Qui |
-| Italiano - Italia | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portoghese - Brasile | ![Static Badge](https://img.shields.io/badge/3.23.1-LIVE-brightgreen)| Qui |
+| Inglese | ![Static Badge](https://img.shields.io/badge/3.24-PTU-brightgreen) | Importato dai file di gioco |
+| Francese - Francia | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Generato da [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Tedesco - Germania | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Qui |
+| Italiano - Italia | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portoghese - Brasile | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen)| Qui |
 | Spagnolo - America Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
-| Spagnolo - Spagna | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | Qui |
+| Spagnolo - Spagna | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Qui |
 
 ---
 ## Installazione
@@ -87,6 +87,7 @@ Per aggiornare i file di localizzazione, segui nuovamente la guida [Installazion
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Brill65"><img src="https://avatars.githubusercontent.com/u/8363399?v=4?s=100" width="100px;" alt="Manu"/><br /><sub><b>Manu</b></sub></a><br /><a href="#review-Brill65" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/danidomen"><img src="https://avatars.githubusercontent.com/u/5998908?v=4?s=100" width="100px;" alt="Daniel Martin (dmartin-webimpacto)"/><br /><sub><b>Daniel Martin (dmartin-webimpacto)</b></sub></a><br /><a href="#translation-danidomen" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>
