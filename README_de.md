@@ -24,7 +24,7 @@
 
 | Sprache | Unterstützt | Quelle |
 |---|---|---|
-| Englisch | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Importiert aus Spieldateien |
+| Englisch | ![Static Badge](https://img.shields.io/badge/3.24-PTU-brightgreen) | Importiert aus Spieldateien |
 | Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) und [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
 | Deutsch - Deutschland | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Hier |
 | Italienisch - Italien | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
