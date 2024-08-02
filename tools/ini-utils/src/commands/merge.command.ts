@@ -31,10 +31,10 @@ export class MergeCommand
 
 
   /**
-   * Merge two INI files
-   * @param referenceData
-   * @param sourceData
-   * @param replacementData
+   * Merge two INI dictionaries
+   * @param referenceData The original INI data
+   * @param sourceData The data to take the values from
+   * @param replacementData The data to take the values from if the key is not present in the source data
    * @returns
    */
   private static mergeIniFiles(referenceData: Record<string, string|undefined>, sourceData: Record<string, string|undefined>, replacementData: Record<string, string|undefined>): Record<string, string|undefined>
@@ -43,15 +43,10 @@ export class MergeCommand
 
     for (const key in sourceData)
     {
-      if (referenceData[key] && referenceData[key] === sourceData[key])
-      {
-        // Key is present in reference file and has the same value in source file
-        mergedData[key] = replacementData[key] || sourceData[key];
-      }
-      else
-      {
-        mergedData[key] = sourceData[key];
-      }
+      const referenceValue   = referenceData[key];
+      const sourceValue      = sourceData[key];
+      const replacementValue = replacementData[key];
+      mergedData[key] = sourceValue || replacementValue || referenceValue;
     }
 
     // Add missing keys from the reference file
