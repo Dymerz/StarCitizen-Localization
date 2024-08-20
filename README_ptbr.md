@@ -4,7 +4,11 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
+- **Versões:** 
+  - [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_ptbr.md) 
+  - [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_ptbr.md)
 
+- **Idiomas:**
 - 🇬🇧 [Instructions in English.](README.md).
 - 🇫🇷 [Instruction en Français](README_fr.md).
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
@@ -28,7 +32,7 @@
 | Francês - França | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Gerado a partir de [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
 | Alemão - Alemanha | ![Static Badge](https://img.shields.io/badge/3.24-PTU-brightgreen) | Aqui |
 | Italiano - Itália | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Português - Brasil | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen)| Aqui |
+| Português - Brasil | ![Static Badge](https://img.shields.io/badge/3.24-PTU-brightgreen)| Aqui |
 | Espanhol - América Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
 | Espanhol - Espanha | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Aqui |
 
