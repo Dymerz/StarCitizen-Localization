@@ -507,9 +507,7 @@ Write-Host (Get-Translate "OVERVIEW") -ForegroundColor Yellow
 Write-Host (Get-Translate "GAME_FOLDER" $gameFolder) -ForegroundColor Yellow
 if ($null -eq $language) { Write-Host (Get-Translate "REMOVE_LANGUAGE") -ForegroundColor Yellow }
 else                     { Write-Host (Get-Translate "INSTALL_LANGUAGE" $language) -ForegroundColor Yellow }
-# Write-Host (Get-Translate "BRANCH" $branch) -ForegroundColor Yellow
-#  not with translate
-Write-Host "  - Branch: $branch" -ForegroundColor Yellow
+Write-Host (Get-Translate "BRANCH" $branch) -ForegroundColor Yellow
 Write-Host ""
 
 $continue = New-YesNoMenu -message (Get-Translate "CONTINUE_PROMPT")
