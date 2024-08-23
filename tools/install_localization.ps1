@@ -110,7 +110,7 @@ Function Find-RSILauncherFolder() {
     Try to guess the game folder from the "RSI Launcher" logs, the default installation path, or the "RSI Launcher" shortcut
 #>
 Function Find-StarCitizenFolder() {
-    # Try to find the game folder from the "RSI Launcher" logs using the new regex method
+    # Try to find the game folder from the "RSI Launcher" logs using the new regex method (RSI Launcher 2.0)
     $logPath = Join-Path $env:APPDATA "\rsilauncher\logs\log.log"
     if (Test-Path -Path $logPath -PathType Leaf) {
         $logContent = Get-Content -Path $logPath -Raw
