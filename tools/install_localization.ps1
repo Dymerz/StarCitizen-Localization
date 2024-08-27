@@ -114,15 +114,16 @@ Function Find-StarCitizenFolder() {
     $logPath = Join-Path $env:APPDATA "\rsilauncher\logs\log.log"
     if (Test-Path -Path $logPath -PathType Leaf) {
         $logContent = Get-Content -Path $logPath -Raw
-        
+
         # Regex pattern to match the line where the game is launched
         $regexPattern = "Installing Star Citizen (.*?) at ([^`")]+)"
-        
+
         # Try to find the path using the regular expression
-        $pathMatch = [regex]::Match($logContent, $regexPattern)
-        
-        if ($pathMatch.Success) {
-            $starCitizenPath = $pathMatch.Groups[2].Value
+        $pathMatches = [regex]::Matches($logContent, $regexPattern)
+
+        if ($pathMatches.Count -gt 0) {
+            $lastMatch = $pathMatches[$pathMatches.Count - 1]
+            $starCitizenPath = $lastMatch.Groups[2].Value
             if (Test-Path -Path $starCitizenPath -PathType Container) {
                 Write-Debug "Found the game folder from the log file using regex: $starCitizenPath"
                 return $starCitizenPath
