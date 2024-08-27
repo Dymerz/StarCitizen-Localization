@@ -116,7 +116,7 @@ Function Find-StarCitizenFolder() {
         $logContent = Get-Content -Path $logPath -Raw
         
         # Regex pattern to match the line where the game is launched
-        $regexPattern = "Launching Star Citizen (PTU|LIVE) from \(([^)]+)\)"
+        $regexPattern = "Installing Star Citizen (.*?) at ([^`")]+)"
         
         # Try to find the path using the regular expression
         $pathMatch = [regex]::Match($logContent, $regexPattern)
