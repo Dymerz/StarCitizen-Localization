@@ -43,9 +43,9 @@
 ### Installazione Automatica (Italiano non supportato al momento in quanto la traduzione deve ancora iniziare)
 1. Scarica lo script [install_localization.ps1](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.ps1).
 2. Fai clic con il tasto destro sul file scaricato (**install_localization.ps1**) e seleziona `Esegui con PowerShell`.
-   > ℹ️ Questo script scaricherà automaticamente l'ultima versione dei file di localizzazione, li installerà nella cartella `Localization` e configurerà il file `user.cfg` per te.
+   > ℹ️ Questo script scaricherà automaticamente l'ultima versione dei file di localizzazione, li installerà nella cartella `Localization` e configurerà il file `user.cfg`.
 3. Avvia il gioco e goditi la traduzione!
-> **Nota:** In alternativa, puoi utilizzare lo script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd). Tuttavia, si consiglia lo script PowerShell poiché supporta anche l'RSI Launcher 2.0 e offre una migliore rilevazione del gioco e un'esperienza di installazione più fluida.
+> **Nota:** In alternativa, puoi utilizzare lo script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd). Posiziona il file scaricato nella cartella `\StarCitizen\LIVE\data\` (ad esempio, `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data`).
 
 ### Installazione Manuale (Italiano non supportato al momento in quanto la traduzione deve ancora iniziare)
 1. Scarica il file [Localization.zip](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip).
