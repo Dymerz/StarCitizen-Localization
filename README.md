@@ -4,7 +4,11 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
+**Versions:** 
+- [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README.md) 
+- [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README.md)
 
+**Languages:**
 - 🇬🇧 [Instructions in English.](README.md).
 - 🇫🇷 [Instruction en Français](README_fr.md).
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
@@ -24,11 +28,11 @@
 
 | Language | Supported | Source |
 |---|---|---|
-| English | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Imported from game files |
+| English | ![Static Badge](https://img.shields.io/badge/3.24-LIVE-brightgreen) | Imported from game files |
 | French - France | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Generated from [circuspes.fr](https://traduction.circuspes.fr) and [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| German - Germany | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Here |
+| German - Germany | ![Static Badge](https://img.shields.io/badge/3.24-LIVE-brightgreen) | Here |
 | Italian - Italy | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portuguese - Brazil | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen)| Here |
+| Portuguese - Brazil | ![Static Badge](https://img.shields.io/badge/3.24-LIVE-brightgreen)| Here |
 | Spanish - Latin America | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
 | Spanish - Spain | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Here |
 
@@ -36,10 +40,11 @@
 ## Installation Guide
 
 ### Automatic Installation
-1. Download the [install_localization.ps1](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.ps1) script.
-2. Right click on the downloaded file (**install_localization.ps1**) and select `Run with PowerShell`.
-  > ℹ️ This script will automatically download the latest version of the localization files, install them in the `Localization` folder for you, configure the `user.cfg` file.
+1. Download the [install_localization.ps1](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.ps1) script.   
+2. Right-click on the downloaded file (**install_localization.ps1**) and select `Run with PowerShell`.   
+   > ℹ️ This script will automatically download the latest version of the localization files, install them in the `Localization` folder for you, and configure the `user.cfg` file.
 3. Launch the game and enjoy the translation!
+> **Note:** Alternatively, you can use the [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd) script. However, the PowerShell script is recommended as it also supports the RSI Launcher 2.0 and provides better game detection and a smoother installation experience.
 
 ### Manual Installation
 1. Download the [Localization.zip](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip) file.
