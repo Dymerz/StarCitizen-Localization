@@ -29,25 +29,25 @@
 
 | Lingua | Supportato | Fonte |
 |---|---|---|
-| Inglese | ![Static Badge](https://img.shields.io/badge/3.24-PTU-brightgreen) | Importato dai file di gioco |
-| Francese - Francia | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Generato da [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Tedesco - Germania | ![Static Badge](https://img.shields.io/badge/3.24-PTU-brightgreen) | Qui |
+| Inglese | ![Static Badge](https://img.shields.io/badge/3.24-LIVE-brightgreen) | Importato dai file di gioco |
+| Francese - Francia | ![Static Badge](https://img.shields.io/badge/3.24-LIVE-brightgreen) | Generato da [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Tedesco - Germania | ![Static Badge](https://img.shields.io/badge/3.24-LIVE-brightgreen) | Qui |
 | Italiano - Italia | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portoghese - Brasile | ![Static Badge](https://img.shields.io/badge/3.24-PTU-brightgreen)| Qui |
+| Portoghese - Brasile | ![Static Badge](https://img.shields.io/badge/3.24-LIVE-brightgreen)| Qui |
 | Spagnolo - America Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
 | Spagnolo - Spagna | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Qui |
 
 ---
 ## Installazione
 
-### Installazione Automatica (Italiano non supportato al momento in quanto la traduzione deve ancora iniziare)
-1. Scarica lo script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd) (Premi `CTRL + S` per scaricare)
-2. Inserisci il file scaricato nella cartella `\StarCitizen\LIVE\data\` . (e.g. `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data`)
-3. Esegui `install_localization.cmd` e segui le istruzioni.
-    > ℹ️ Questo script scaricherà automaticamente l'ultima versione dei file di localizzazione, li installerà nella cartella "Localization" e configurerà il file "user.cfg"
-4. Avvia il gioco!!
+### Installazione Automatica
+1. Scarica lo script [install_localization.ps1](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.ps1).
+2. Fai clic con il tasto destro sul file scaricato (**install_localization.ps1**) e seleziona `Esegui con PowerShell`.
+   > ℹ️ Questo script scaricherà automaticamente l'ultima versione dei file di localizzazione, li installerà nella cartella `Localization` e configurerà il file `user.cfg`.
+3. Avvia il gioco e goditi la traduzione!
+> **Nota:** In alternativa, puoi utilizzare lo script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd). Posiziona il file scaricato nella cartella `\StarCitizen\LIVE\data\` (ad esempio, `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data`).
 
-### Installazione Manuale (Italiano non supportato al momento in quanto la traduzione deve ancora iniziare)
+### Installazione Manuale
 1. Scarica il file [Localization.zip](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip).
 2. Estrai il file scaricato in `\StarCitizen\LIVE\data\`. (e.g. `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`)
 3. Crea o modifica il file seguente: `\StarCitizen\LIVE\user.cfg`. (e.g. `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user.cfg`)
