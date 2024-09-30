@@ -4,7 +4,11 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
+- **Versions :** 
+  - [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_fr.md) 
+  - [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_fr.md)
 
+- **Langues :**
 - 🇬🇧 [Instructions in English.](README.md).
 - 🇫🇷 [Instruction en Français](README_fr.md).
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
@@ -25,13 +29,13 @@
 
 | Langue | Pris en charge | Source |
 |---|---|---|
-| Anglais | ![Static Badge](https://img.shields.io/badge/3.22.1-LIVE-brightgreen) | Importé des fichiers de jeu |
-| Français - France | ![Static Badge](https://img.shields.io/badge/3.22.1-LIVE-brightgreen) | Généré à partir de [circuspes.fr](https://traduction.circuspes.fr) et [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Allemand - Allemagne | ![Static Badge](https://img.shields.io/badge/3.22.1-LIVE-brightgreen) | Ici |
-| Italien - Italie | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) et [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portugais - Brésil | ![Static Badge](https://img.shields.io/badge/3.22.1-LIVE-brightgreen)| Ici |
+| Anglais | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-brightgreen) | Importé des fichiers de jeu |
+| Français - France | ![Static Badge](https://img.shields.io/badge/3.24-LIVE-brightgreen) | Généré à partir de [circuspes.fr](https://traduction.circuspes.fr) et [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Allemand - Allemagne | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-brightgreen) | Ici |
+| Italien - Italie | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) et [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portugais - Brésil | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-brightgreen)| Ici |
 | Espagnol - Amérique Latine | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
-| Espagnol - Espagne | ![Static Badge](https://img.shields.io/badge/3.21.0-LIVE-orange) | Ici |
+| Espagnol - Espagne | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Ici |
 
 ---
 ## Guide d'Installation
@@ -39,8 +43,9 @@
 ### Installation Automatique
 1. Téléchargez le script [install_localization.ps1](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.ps1).
 2. Faites un clic droit sur le fichier téléchargé (**install_localization.ps1**) et sélectionnez `Exécuter avec PowerShell`.
-   > ℹ️ Ce script téléchargera automatiquement la dernière version des fichiers de localisation, les installera dans le dossier `Localization` pour vous, et configurera le fichier `user.cfg`.
-3. Lancez le jeu et profitez de la traduction ! 🚀
+   > ℹ️ Ce script téléchargera automatiquement la dernière version des fichiers de localisation, les installera dans le dossier `Localization` et configurera le fichier `user.cfg`.
+3. Lancez le jeu et profitez de la traduction !
+> **Note :** Vous pouvez également utiliser le script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd). Placez le fichier téléchargé dans le dossier `\StarCitizen\LIVE\data\` (par exemple, `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data`).
 
 ### Installation Manuelle
 1. Téléchargez le fichier [Localization.zip](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip).
@@ -86,6 +91,7 @@ Pour mettre à jour les fichiers de localisation, veuillez suivre à nouveau le 
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Brill65"><img src="https://avatars.githubusercontent.com/u/8363399?v=4?s=100" width="100px;" alt="Manu"/><br /><sub><b>Manu</b></sub></a><br /><a href="#review-Brill65" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/danidomen"><img src="https://avatars.githubusercontent.com/u/5998908?v=4?s=100" width="100px;" alt="Daniel Martin (dmartin-webimpacto)"/><br /><sub><b>Daniel Martin (dmartin-webimpacto)</b></sub></a><br /><a href="#translation-danidomen" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>
