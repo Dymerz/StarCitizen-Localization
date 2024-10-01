@@ -44,5 +44,5 @@ To validate INI files, use the `validate` command. This command checks if all en
 Example:
 
   ```sh
-  node ./dist/src/index.js validate data/Localization/english/global.ini data/Localization/french_(france)/global.ini
+  node ./dist/src/index.js validate ../../data/Localization/english/global.ini ../../data/Localization/french_(france)/global.ini
   ```
