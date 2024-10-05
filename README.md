@@ -28,11 +28,11 @@
 
 | Language | Supported | Source |
 |---|---|---|
-| English | ![Static Badge](https://img.shields.io/badge/3.24.1-PTU-brightgreen) | Imported from game files |
+| English | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-brightgreen) | Imported from game files |
 | French - France | ![Static Badge](https://img.shields.io/badge/3.24-LIVE-brightgreen) | Generated from [circuspes.fr](https://traduction.circuspes.fr) and [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| German - Germany | ![Static Badge](https://img.shields.io/badge/3.24.1-PTU-brightgreen) | Here |
-| Italian - Italy | ![Static Badge](https://img.shields.io/badge/3.23.0-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portuguese - Brazil | ![Static Badge](https://img.shields.io/badge/3.24.1-PTU-brightgreen)| Here |
+| German - Germany | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-brightgreen) | Here |
+| Italian - Italy | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Portuguese - Brazil | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-brightgreen)| Here |
 | Spanish - Latin America | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
 | Spanish - Spain | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-brightgreen) | Here |
 
@@ -91,6 +91,7 @@ To update the localization files, please follow the [Installation Guide](#instal
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Brill65"><img src="https://avatars.githubusercontent.com/u/8363399?v=4?s=100" width="100px;" alt="Manu"/><br /><sub><b>Manu</b></sub></a><br /><a href="#review-Brill65" title="Reviewed Pull Requests">👀</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/danidomen"><img src="https://avatars.githubusercontent.com/u/5998908?v=4?s=100" width="100px;" alt="Daniel Martin (dmartin-webimpacto)"/><br /><sub><b>Daniel Martin (dmartin-webimpacto)</b></sub></a><br /><a href="#translation-danidomen" title="Translation">🌍</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/xGattoMattox"><img src="https://avatars.githubusercontent.com/u/149336969?v=4?s=100" width="100px;" alt="xGattoMattox"/><br /><sub><b>xGattoMattox</b></sub></a><br /><a href="#translation-xGattoMattox" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>

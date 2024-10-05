@@ -6,6 +6,7 @@
     "README_es.md",
     "README_fr.md",
     "README_it.md",
+    "README_ptbr.md",
     "README.md"
   ],
   "commitType": "docs",
@@ -92,6 +93,15 @@
       "name": "Daniel Martin (dmartin-webimpacto)",
       "avatar_url": "https://avatars.githubusercontent.com/u/5998908?v=4",
       "profile": "https://github.com/danidomen",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "xGattoMattox",
+      "name": "xGattoMattox",
+      "avatar_url": "https://avatars.githubusercontent.com/u/149336969?v=4",
+      "profile": "https://github.com/xGattoMattox",
       "contributions": [
         "translation"
       ]
