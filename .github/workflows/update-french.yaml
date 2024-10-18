@@ -53,7 +53,7 @@ jobs:
 
     - name: Create Pull Request
       if: github.ref == 'refs/heads/main'
-      uses: peter-evans/create-pull-request@v6
+      uses: peter-evans/create-pull-request@v7
       with:
         add-paths: data/Localization/french_(france)/global.ini
         commit-message: Update French localization 🇫🇷
