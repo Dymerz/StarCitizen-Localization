@@ -54,13 +54,12 @@ jobs:
     - name: Create Pull Request
       if: github.ref == 'refs/heads/main'
       uses: peter-evans/create-pull-request@v6
-      env:
-        GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
       with:
         add-paths: data/Localization/french_(france)/global.ini
         commit-message: Update French localization 🇫🇷
         branch: feature/update-french
-        delete-branch: true
         title: Update French localization 🇫🇷
         labels: french
+        delete-branch: true
         assignees: Dymerz
+        draft: always-true
