@@ -39,4 +39,5 @@ jobs:
           data/*.zip
           tools/*.cmd
           tools/*.ps1
+        draft: true
 
