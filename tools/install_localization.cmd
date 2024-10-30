@@ -41,7 +41,6 @@ echo 9. Polish - Poland
 echo 10. Portuguese - Brazil
 echo 11. Spanish - Latin America
 echo 12. Spanish - Spain
-REM echo 13. Lithuanian - Lithuania
 
 echo Enter the number of the language you want to select.
 :LanguageInput
