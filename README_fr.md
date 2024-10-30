@@ -40,30 +40,43 @@
 ---
 ## Guide d'Installation
 
-### Installation Automatique
+### Installation automatique
+
 1. Téléchargez le script [install_localization.ps1](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.ps1).
-2. Faites un clic droit sur le fichier téléchargé (**install_localization.ps1**) et sélectionnez `Exécuter avec PowerShell`.
-   > ℹ️ Ce script téléchargera automatiquement la dernière version des fichiers de localisation, les installera dans le dossier `Localization` et configurera le fichier `user.cfg`.
-3. Lancez le jeu et profitez de la traduction !
-> **Note :** Vous pouvez également utiliser le script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd). Placez le fichier téléchargé dans le dossier `\StarCitizen\LIVE\data\` (par exemple, `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data`).
+2. **Cliquez droit** sur le fichier téléchargé (**install_localization.ps1**) et sélectionnez `Exécuter avec PowerShell`.
+3. Suivez les instructions ; le script téléchargera et installera les fichiers de traduction dans le dossier `Localization` et configurera `user.cfg`.
+4. Lancez le jeu et profitez de la traduction !
 
-### Installation Manuelle
-1. Téléchargez le fichier [Localization.zip](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip).
-2. Extrayez le fichier téléchargé dans `\StarCitizen\LIVE\data\`. (ex: `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`)
-3. Créez ou modifiez le fichier suivant : `\StarCitizen\LIVE\user.cfg`. (ex: `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user.cfg`)
-4. Selon la langue que vous souhaitez utiliser, ajoutez l'une des lignes suivantes au fichier :
+> **Remarque :** Si vous rencontrez une erreur de stratégie d'exécution :
+> - Cliquez droit dans le dossier où est enregistré **install_localization.ps1** et sélectionnez **Ouvrir dans PowerShell**.
+> - Exécutez :
+>   ```powershell
+>   PowerShell -ExecutionPolicy Bypass -File "./install_localization.ps1"
+>   ```
+>   Cela est nécessaire car Windows peut bloquer l’exécution des scripts en raison de paramètres de sécurité.
 
-    | Language  |   |
-    |---|---|
-    | Anglais | `g_language = english` |
-    | Français - France | `g_language = french_(france)` |
-    | Allemand - Allemagne | `g_language = german_(germany)` |
-    | Italien - Italie | `g_language = italian_(italy)` |
-    | Portugais - Brésil | `g_language = portuguese_(brazil)` |
-    | Espagnol - Amérique Latine | `g_language = spanish_(latin_america)` |
-    | Espagnol - Espagne | `g_language = spanish_(spain) ` |
+> **Option alternative :** Utilisez le script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd) :
+> - Assurez-vous que le dossier `data` existe dans votre répertoire de jeu (par exemple, `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`).
+> - Placez **install_localization.cmd** dans le dossier `data` et double-cliquez pour l'exécuter.
 
-5. Lancez le jeu et profitez de la traduction ! 🚀
+### Installation manuelle
+
+1. Téléchargez [Localization.zip](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip).
+2. Extrayez dans `\StarCitizen\LIVE\data\`.
+3. Créez/modifiez `\StarCitizen\LIVE\user.cfg`.
+4. Ajoutez les lignes suivantes pour configurer la langue et la langue audio :
+   ```plaintext
+   g_language = french_(france)
+   g_languageAudio = english
+   ```
+5. Enregistrez le fichier `user.cfg` et lancez le jeu. 🚀
+
+#### Exemple de fichier `user.cfg` :
+```plaintext
+g_language = french_(france)
+g_languageAudio = english
+autres paramètres ici...
+```
 
 ---
 ## Mise à Jour des Fichiers de Localisation
