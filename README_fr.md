@@ -75,7 +75,6 @@
 ```plaintext
 g_language = french_(france)
 g_languageAudio = english
-autres paramètres ici...
 ```
 
 ---

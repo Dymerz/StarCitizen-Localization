@@ -75,7 +75,6 @@
 ```plaintext
 g_language = italian_(italy)
 g_languageAudio = english
-altri parametri qui...
 ```
 
 ---
