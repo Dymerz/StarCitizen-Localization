@@ -75,7 +75,6 @@
 ```plaintext
 g_language = portuguese_(brazil)
 g_languageAudio = english
-outros ajustes aqui...
 ```
 
 ---

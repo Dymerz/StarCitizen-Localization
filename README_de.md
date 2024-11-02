@@ -73,7 +73,6 @@
 ```plaintext
 g_language = german_(germany)
 g_languageAudio = english
-weitere Einstellungen hier...
 ```
 
 ---
