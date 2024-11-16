@@ -9,9 +9,6 @@ Write-Debug Start
 $global:LOCALES = $null
 
 function Get-Locales() {
-  # $global:LOCALES = Get-Content -Path "./install_localization.i18n.json" -Raw | ConvertFrom-Json
-  # return
-
   try {
     $raw = [Text.Encoding]::UTF8.GetString((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/main/tools/install_localization.i18n.json").RawContentStream.ToArray())
     $global:LOCALES = $raw | ConvertFrom-Json
@@ -182,7 +179,6 @@ Function Find-StarCitizenFolder() {
     Write-Warning "Unable to find the game folder"
     return $null
 }
-
 
 <#
   .SYNOPSIS
@@ -451,8 +447,6 @@ Start-Sleep -s 2
 # Detect or ask the game folder
 $gameFolder = ""
 $findStarCitizenFolder = Find-StarCitizenFolder
-#  go up one folder
-$findStarCitizenFolder = Split-Path -Path $findStarCitizenFolder -Parent
 if ($findStarCitizenFolder) {
   Write-Host (Get-Translate "FOUND_FOLDER" $findStarCitizenFolder) -ForegroundColor Yellow
   Write-Host (Get-Translate "GET_VERSIONS") -ForegroundColor Yellow
