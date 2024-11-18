@@ -15,8 +15,6 @@ export class IniHelper
   */
   public static loadFile(filePath: string): Ini
   {
-    console.log(`Loading file ${filePath}`);
-
     const fileContent = fs.readFileSync(filePath, 'utf-8')
       .replace(/([\S] *)(?<!\\)([;#])/g, '$1\\$2')  // escape semicolon and hash
 
