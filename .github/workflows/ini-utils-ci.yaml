@@ -2,9 +2,6 @@ name: Run INI Utils Tests
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'tools/ini-utils/**'
   pull_request:
     paths:
       - 'tools/ini-utils/**'
