@@ -1,0 +1,7 @@
+{
+  "mochaExplorer.files": "test/**/*spec.ts",
+  "mochaExplorer.require": "ts-node/register",
+  "mochaExplorer.cwd": "tools\\ini-utils",
+  "mochaExplorer.watch": "tools\\ini-utils\\test",
+  "mochaExplorer.timeout": 0
+}
