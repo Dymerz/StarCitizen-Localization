@@ -26,8 +26,10 @@
   },
   "devDependencies": {
     "@types/mocha": "^10.0.9",
+    "@types/sinon": "^17.0.3",
     "mocha": "^10.8.2",
-    "ts-mocha": "^10.0.0",
-    "nyc": "^17.1.0"
+    "nyc": "^17.1.0",
+    "sinon": "^19.0.2",
+    "ts-mocha": "^10.0.0"
   }
 }

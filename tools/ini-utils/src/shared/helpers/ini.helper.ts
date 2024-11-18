@@ -8,6 +8,11 @@ import { Ini }  from '../types/ini.type';
 
 export class IniHelper
 {
+  public static writeFileSync(path: string, data: string, options: fs.WriteFileOptions): void
+  {
+    fs.writeFileSync(path, data, options);
+  }
+
   /**
    * Load an INI file and return its content as an object
    * @param filePath
@@ -32,12 +37,6 @@ export class IniHelper
    */
   public static writeFile(file: Ini): void
   {
-    fs.writeFileSync(file.path, '\ufeff'+ini.stringify(file.content), { encoding: 'utf-8' });
-    console.log(`File ${file.path} has been created successfully.`);
-  }
-
-  public static exists(filePath: string): boolean
-  {
-    return fs.lstatSync(filePath).isFile();
+    IniHelper.writeFileSync(file.path, '\ufeff'+ini.stringify(file.content), { encoding: 'utf-8',  });
   }
 }
