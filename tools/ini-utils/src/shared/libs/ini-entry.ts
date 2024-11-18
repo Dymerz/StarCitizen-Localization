@@ -6,7 +6,7 @@ export type IniEntryErrorType = 'key-missing'
   | 'extra-tilde-placeholder-in-source'
   | 'missing-percent-placeholder-in-source'
   | 'missing-tilde-placeholder-in-source'
-  | 'invalid-tilde-placeholder';
+  | 'invalid-tilde-placeholder-in-reference';
 
 export type IniEntryErrors =
 {
@@ -15,7 +15,7 @@ export type IniEntryErrors =
 }
 export class IniEntry
 {
-  private static readonly BAD_TOKENS = ['(', ')', '~', ']', '\\n']; // Invalid tokens
+  private static readonly BAD_TOKENS = ['(', ')', '~', ']', '[', '\\n']; // Invalid tokens
 
   public readonly key: string;
   public readonly reference: IniEntrySource;
@@ -47,16 +47,13 @@ export class IniEntry
   {
     this.checkMissingKey();
 
-    // Validate placeholders only if key is present
-    if(!this.errors.find(e => e.type === 'key-missing'))
-    {
-      this.validateTildePlaceholders();
-      this.validatePercentPlaceholders();
+    this.validateTildePlaceholders();
+    this.validatePercentPlaceholders();
 
-      if(!this.hasError('missing-tilde-placeholder-in-source') && !this.hasError('invalid-tilde-placeholder'))
-      {
-        this.validateExtraTildePlaceholder();
-      }
+    // Check if there are extra placeholders in source if there are no errors
+    if(this.isValid())
+    {
+      this.validateExtraTildePlaceholder();
     }
   }
 
@@ -96,7 +93,7 @@ export class IniEntry
       // Check if placeholder is valid
       if(!IniEntry.isValidTildePlaceholder(placeholder))
       {
-        this.addError('invalid-tilde-placeholder', `Invalid placeholder: "${placeholder.parameter}"`);
+        this.addError('invalid-tilde-placeholder-in-reference', `Invalid placeholder: "${placeholder.parameter}" in reference`);
         continue;
       }
 
