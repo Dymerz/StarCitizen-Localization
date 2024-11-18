@@ -48,6 +48,9 @@ describe('IniEntry.validateExtraTildePlaceholder', () =>
     const result = entry.isValid();
 
     assert.ok(!result, 'extra placeholders in source should not be valid');
+
+    const error = entry.hasError('extra-tilde-placeholder-in-source');
+    assert.ok(error, 'extra placeholders in source should have error');
   });
 
   it('should return false if source has fewer placeholders', () =>
@@ -57,6 +60,9 @@ describe('IniEntry.validateExtraTildePlaceholder', () =>
     const result = entry.isValid();
 
     assert.ok(!result, 'fewer placeholders in source should not be valid');
+
+    const error = entry.hasError('extra-tilde-placeholder-in-source');
+    assert.ok(error, 'extra placeholders in source should have error');
   });
 
   it('should handle case-insensitive placeholder comparison', () =>

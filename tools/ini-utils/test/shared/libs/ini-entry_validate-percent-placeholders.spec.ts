@@ -21,6 +21,9 @@ describe('IniEntry.validatePercentPlaceholders', () =>
     const result = entry.isValid();
 
     assert.ok(!result);
+
+    const error = entry.hasError('missing-percent-placeholder-in-source');
+    assert.ok(error);
   });
 
   it('should return true when there are no percent placeholders', () =>

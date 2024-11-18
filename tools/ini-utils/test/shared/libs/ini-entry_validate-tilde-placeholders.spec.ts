@@ -21,6 +21,9 @@ describe('IniEntry.validateTildePlaceholders', () =>
     const result = entry.isValid();
 
     assert.ok(!result, 'Expected to return false when a tilde placeholder is missing');
+
+    const error = entry.hasError('missing-tilde-placeholder-in-source');
+    assert.ok(error, 'Expected to return an error when a tilde placeholder is missing');
   });
 
   it('should return true when there are no tilde placeholders', () =>
@@ -52,11 +55,14 @@ describe('IniEntry.validateTildePlaceholders', () =>
 
   it('should return false when there is an invalid tilde placeholder', () =>
   {
-    const entry = new IniEntry('key1', 'value with ~name(invalid)', 'value with ~name(]invalid)');
+    const entry = new IniEntry('key1', 'value with ~name(]invalid)', 'value with ~name(valid)');
     entry['validateTildePlaceholders']();
     const result = entry.isValid();
 
     assert.ok(!result, 'Expected to return false when there is an invalid tilde placeholder');
+
+    const error = entry.hasError('invalid-tilde-placeholder-in-reference');
+    assert.ok(error, 'Expected to return an error when there is an invalid tilde placeholder');
   });
 
   it('should return true when multiple tilde placeholders are present', () =>
@@ -75,6 +81,9 @@ describe('IniEntry.validateTildePlaceholders', () =>
     const result = entry.isValid();
 
     assert.ok(!result, 'Expected to return false when a tilde placeholder contains a percent placeholder');
+
+    const error = entry.hasError('missing-tilde-placeholder-in-source');
+    assert.ok(error, 'Expected to return an error when a tilde placeholder contains a percent placeholder');
   });
 
   it('should return true when a tilde placeholder contains a percent placeholder and a tilde placeholder', () =>
@@ -93,5 +102,8 @@ describe('IniEntry.validateTildePlaceholders', () =>
     const result = entry.isValid();
 
     assert.ok(!result, 'Expected to return false when there is a typo in the source tilde placeholder');
+
+    const error = entry.hasError('missing-tilde-placeholder-in-source');
+    assert.ok(error, 'Expected to return an error when there is a typo in the source tilde placeholder');
   });
 });
