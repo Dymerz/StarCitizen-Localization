@@ -9,7 +9,7 @@
     "start:validate": "ts-node src/index.ts validate",
     "watch:merge": "nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"npx ts-node src/index.ts merge\"",
     "watch:validate": "nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"npx ts-node src/index.ts validate\"",
-    "test": "nyc ts-mocha",
+    "test": "nyc --reporter html --reporter text --report-dir .nyc_output/summary ts-mocha",
     "test:watch": "ts-mocha --watch",
     "build": "tsc -p ."
   },
