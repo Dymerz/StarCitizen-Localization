@@ -2,3 +2,4 @@
 */**/node_modules
 /tools/ini-utils/dist
 **/.nyc_output
+**/coverage
