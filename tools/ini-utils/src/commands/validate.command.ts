@@ -7,7 +7,7 @@ import { IniHelper } from '../shared/helpers/ini.helper';
 
 export class ValidateCommand
 {
-	public static async run(reference : string, files: string[], options: { ci: boolean}): Promise<void>
+	public static async run(reference: string, files: string[], options: { ci: boolean}): Promise<void>
   {
     console.log(`Reference file: ${reference}`);
 
