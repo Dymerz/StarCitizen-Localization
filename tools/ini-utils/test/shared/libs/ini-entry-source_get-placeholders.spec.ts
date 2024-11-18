@@ -7,7 +7,7 @@ import { TildePlaceholder }          from '../../../src/shared/libs/tilde-placeh
 
 import assert                        from 'assert';
 
-describe('ValidateCommand.extractPlaceholders: "~name(parameter)"', () =>
+describe('IniEntrySource.getPlaceholders: "~name(parameter)"', () =>
 {
   it('should return an empty array if the key does not exist in the data', () =>
   {
@@ -65,7 +65,7 @@ describe('ValidateCommand.extractPlaceholders: "~name(parameter)"', () =>
   });
 });
 
-describe('ValidateCommand.extractPlaceholders: "%name"', () =>
+describe('IniEntrySource.getPlaceholders: "%name"', () =>
 {
   it('should return an empty array if the key does not exist in the data', () =>
   {
