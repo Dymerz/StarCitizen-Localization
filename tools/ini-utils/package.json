@@ -9,6 +9,9 @@
     "start:validate": "ts-node src/index.ts validate",
     "watch:merge": "nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"npx ts-node src/index.ts merge\"",
     "watch:validate": "nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"npx ts-node src/index.ts validate\"",
+    "test": "nyc --reporter lcov --reporter text ts-mocha",
+    "test:watch": "ts-mocha --watch",
+    "coverage": "codecov",
     "build": "tsc -p ."
   },
   "author": "",
@@ -18,10 +21,17 @@
     "@types/node": "^20.8.6",
     "commander": "^11.1.0",
     "ini": "^4.1.1",
-    "typescript": "^5.2.2",
+    "nodemon": "^3.1.7",
     "ts-node": "^10.9.1",
-    "nodemon": "^3.1.7"
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@types/mocha": "^10.0.9",
+    "@types/sinon": "^17.0.3",
+    "codecov": "^3.8.2",
+    "mocha": "^10.8.2",
+    "nyc": "^17.1.0",
+    "sinon": "^19.0.2",
+    "ts-mocha": "^10.0.0"
   }
 }

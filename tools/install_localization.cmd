@@ -88,7 +88,7 @@ set "language_line_audio=g_languageAudio = english"
 
 if not exist "../user.cfg" (
     echo !language_line! > ../user.cfg
-    echo !language_line_audio! > ../user.cfg
+    echo !language_line_audio! >> ../user.cfg
 ) else (
     set "foundLanguage=0"
     set "foundLanguageAudio=0"

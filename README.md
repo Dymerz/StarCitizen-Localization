@@ -40,29 +40,53 @@
 ## Installation Guide
 
 ### Automatic Installation
-1. Download the [install_localization.ps1](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.ps1) script.   
-2. Right-click on the downloaded file (**install_localization.ps1**) and select `Run with PowerShell`.   
-   > ℹ️ This script will automatically download the latest version of the localization files, install them in the `Localization` folder for you, and configure the `user.cfg` file.
-3. Launch the game and enjoy the translation!
-> **Note:** Alternatively, you can use the [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd) script. Place the downloaded file in the `\StarCitizen\LIVE\data\` folder (e.g., `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data`).
 
+1. Download the [install_localization.ps1](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.ps1) script.
+2. **Right-click on the downloaded file** (**install_localization.ps1**) and select `Run with PowerShell`.
+3. Follow the instructions, and the script will automatically download the latest localization files, install them in the `Localization` folder, and configure the `user.cfg` file.
+4. Launch the game and enjoy the translation!
+
+> **Note:** If you encounter an execution policy error:
+> - Open the folder where the **install_localization.ps1** script is saved, right-click in the folder, and select **Open in PowerShell**.
+> - Run the following command to bypass the execution policy:
+>   ```powershell
+>   PowerShell -ExecutionPolicy Bypass -File "./install_localization.ps1"
+>   ```
+>   This is needed because Windows may prevent scripts from running due to security settings.
+
+> **Alternative Option:** Use the [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd) script:
+> - Ensure a `data` folder exists in your game directory (e.g., `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`).
+> - Place **install_localization.cmd** into the `data` folder and double-click to run it.
+
+---
 ### Manual Installation
+
 1. Download the [Localization.zip](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/Localization.zip) file.
-2. Extract the downloaded file to `\StarCitizen\LIVE\data\`. (e.g. `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`)
-3. Create or edit the following file: `\StarCitizen\LIVE\user.cfg`. (e.g. `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user.cfg`)
-4. Depending on the language you want to use, add one of the following lines to the file:
+2. Extract the files to `\StarCitizen\LIVE\data\` (e.g., `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`).
+3. Create/edit `\StarCitizen\LIVE\user.cfg` (e.g., `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user.cfg`).
+4. Add the language line to `user.cfg`:
 
-    | Language |   |
-    |---|---|
-    | English | `g_language = english` |
-    | French - France | `g_language = french_(france)` |
-    | German - Germany | `g_language = german_(germany)` |
-    | Italian - Italy | `g_language = italian_(italy)` |
-    | Portuguese - Brazil | `g_language = portuguese_(brazil)` |
-    | Spanish - Latin America | `g_language = spanish_(latin_america)` |
-    | Spanish - Spain | `g_language = spanish_(spain) ` |
+    | Language                  | Configuration                 |
+    |---------------------------|-------------------------------|
+    | English                   | `g_language = english`        |
+    | French - France           | `g_language = french_(france)`|
+    | German - Germany          | `g_language = german_(germany)`|
+    | Italian - Italy           | `g_language = italian_(italy)` |
+    | Portuguese - Brazil       | `g_language = portuguese_(brazil)` |
+    | Spanish - Latin America   | `g_language = spanish_(latin_america)` |
+    | Spanish - Spain           | `g_language = spanish_(spain)` |
 
-5. Save the file and launch the game. 🚀
+5. Add audio language:
+   ```plaintext
+   g_languageAudio = english
+   ```
+6. Save the `user.cfg` file, and launch the game. 🚀
+
+#### Example `user.cfg` File:
+```plaintext
+g_language = french_(france)
+g_languageAudio = english
+```
 
 ---
 ## Updating the Localization Files

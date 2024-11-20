@@ -26,6 +26,7 @@ export class MergeCommand
       content: mergedData
     });
 
+    console.log(`File ${outputFilePath} has been created successfully.`);
 		console.log('Done.');
 	}
 
