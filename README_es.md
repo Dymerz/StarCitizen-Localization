@@ -4,57 +4,63 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
-- **Versiones:** 
-  - [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_es.md) 
+- **Versiones:**  
+  - [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_es.md)  
   - [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_es.md)
 
-- **Idiomas:**
-- 🇬🇧 [Instructions in English.](README.md).
-- 🇫🇷 [Instruction en Français](README_fr.md).
-- 🇩🇪 [Anleitung auf Deutsch](README_de.md).
-- 🇪🇸 [Instrucciones en Español](README_es.md).
-- 🇮🇹 [Istruzioni in Italiano](README_it.md).
-- 🇧🇷 [Instrução em Português](README_ptbr.md).
+- **Idiomas:**  
+  - 🇬🇧 [Instructions in English.](README.md)  
+  - 🇫🇷 [Instruction en Français](README_fr.md)  
+  - 🇩🇪 [Anleitung auf Deutsch](README_de.md)  
+  - 🇪🇸 [Instrucciones en Español](README_es.md)  
+  - 🇮🇹 [Istruzioni in Italiano](README_it.md)  
+  - 🇧🇷 [Instrução em Português](README_ptbr.md)  
 
 **Tabla de contenidos:**
-  - [Idiomas soportados](#idiomas-soportados)
-  - [Guía de instalación](#guía-de-instalación)
-  - [Actualizar archivos localización](#actualizar-archivos-localización)
-  - [Contribuir](#contribuir)
-  - [Descargo de responsabilidad](#descargo-de-responsabilidad)
+- [Idiomas soportados](#idiomas-soportados)
+- [Guía de instalación](#guía-de-instalación)
+- [Actualizar archivos de localización](#actualizar-archivos-de-localización)
+- [Contribuir](#contribuir)
+- [Descargo de responsabilidad](#descargo-de-responsabilidad)
 
 ---
+
 ## Idiomas soportados
 
-| Idioma | Soportado | Fuente |
-|---|---|---|
-| Inglés | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Importado de archivos de juego |
-| Francés - Francia | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) y [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Alemán - Alemania | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Aquí |
-| Italiano - Italia | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portugués - Brasil | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen)| Aquí |
-| Español - América Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
-| Español - España | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Aquí |
+| Idioma                  | Soportado   | Fuente |
+|--------------------------|-------------|--------|
+| Inglés                  | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Importado de archivos del juego |
+| Francés - Francia       | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) y [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Alemán - Alemania       | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Aquí |
+| Portugués - Brasil      | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Aquí |
+| Italiano - Italia       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Español - España        | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Aquí |
+| Español - Latinoamérica | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | A la espera de contribución |
+| Chino - Simplificado    | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | A la espera de contribución |
+| Chino - Tradicional     | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | A la espera de contribución |
+| Japonés - Japón         | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | A la espera de contribución |
+| Coreano - Corea del Sur | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | A la espera de contribución |
+| Polaco - Polonia        | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | A la espera de contribución |
 
 ---
+
 ## Guía de instalación
 
 ### Instalación automática
 
 1. Descarga el script [install_localization.ps1](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.ps1).
 2. **Haz clic derecho** en el archivo descargado (**install_localization.ps1**) y selecciona `Ejecutar con PowerShell`.
-3. Sigue las instrucciones; el script descargará automáticamente los archivos de localización más recientes, los instalará en la carpeta `Localization` y configurará el archivo `user.cfg`.
+3. Sigue las instrucciones.
 4. Inicia el juego y disfruta de la traducción.
 
-> **Nota:** Si encuentras un error de política de ejecución:
-> - Abre la carpeta donde se guardó **install_localization.ps1**, haz clic derecho en la carpeta y selecciona **Abrir en PowerShell**.
-> - Ejecuta el siguiente comando para omitir la política de ejecución:
+> **Nota:** Si encuentras un error de política de ejecución:  
+> - Abre PowerShell en la carpeta donde guardaste **install_localization.ps1** y ejecuta:  
 >   ```powershell
 >   PowerShell -ExecutionPolicy Bypass -File "./install_localization.ps1"
 >   ```
->   Esto es necesario ya que Windows puede bloquear la ejecución de scripts debido a configuraciones de seguridad.
+> Esto es necesario porque Windows puede bloquear scripts debido a configuraciones de seguridad.
 
-> **Opción alternativa:** Usa el script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd):
+> **Opción alternativa:** Usa el script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd):  
 > - Asegúrate de que exista una carpeta `data` en el directorio del juego (por ejemplo, `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`).
 > - Coloca **install_localization.cmd** en la carpeta `data` y haz doble clic para ejecutarlo.
 
@@ -68,6 +74,7 @@
    g_language = spanish_(spain)
    g_languageAudio = english
    ```
+   > El idioma de audio debe ser inglés.
 5. Guarda el archivo `user.cfg` e inicia el juego. 🚀
 
 #### Ejemplo de archivo `user.cfg`:
@@ -76,16 +83,20 @@ g_language = spanish_(spain)
 g_languageAudio = english
 ```
 
+---
+
+## Actualizar archivos de localización
+
+Para actualizar los archivos de localización, sigue nuevamente la [Guía de instalación](#guía-de-instalación).
 
 ---
-## Actualizar archivos localización
-Para actualizar los archivos de localización, por favor sigue nuevamente la [Guía de Instalación](#guía-de-instalación).
 
----
 ## Contribuir
-[Mira CONTRIBUTING.md](CONTRIBUTING.md)
+
+[Consulta CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
+
 ## Contribuidores
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -115,5 +126,7 @@ Para actualizar los archivos de localización, por favor sigue nuevamente la [Gu
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---
+
 ## Descargo de responsabilidad
+
 Este es un sitio web de fans no oficial de Star Citizen, no afiliado al grupo de empresas Cloud Imperium. Todo el contenido en este sitio que no haya sido creado por su anfitrión o sus usuarios es propiedad de sus respectivos propietarios. Star Citizen®, Roberts Space Industries® y Cloud Imperium® son marcas registradas de Cloud Imperium Rights LLC.
