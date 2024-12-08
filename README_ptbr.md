@@ -26,15 +26,20 @@
 ---
 ## Idiomas Suportados
 
-| Língua | Suportado | Fonte |
-|---|---|---|
-| Inglês | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Importado dos arquivos do jogo |
-| Francês - França | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Gerado a partir de [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Alemão - Alemanha | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Aqui |
-| Italiano - Itália | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Português - Brasil | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen)| Aqui |
-| Espanhol - América Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
-| Espanhol - Espanha | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Aqui |
+| Idioma                  | Suportado | Fonte |
+|--------------------------|-----------|-------|
+| Inglês                  | ![Static Badge](https://img.shields.io/badge/4.0.0-EPTU-brightgreen) | Importado dos arquivos do jogo |
+| Francês - França        | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Gerado de [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Alemão - Alemanha       | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Aqui |
+| Português - Brasil      | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Aqui |
+| Italiano - Itália       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Espanhol - Espanha      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Aqui |
+| Espanhol - América Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
+| Chinês - Simplificado   | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
+| Chinês - Tradicional    | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
+| Japonês - Japão         | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
+| Coreano - Coreia do Sul | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
+| Polonês - Polônia       | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
 
 ---
 ## Guia de Instalação
@@ -69,6 +74,7 @@
    g_language = portuguese_(brazil)
    g_languageAudio = english
    ```
+   > O idioma de áudio deve ser inglês.
 5. Salve o arquivo `user.cfg` e inicie o jogo. 🚀
 
 #### Exemplo de arquivo `user.cfg`:
