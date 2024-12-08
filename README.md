@@ -26,15 +26,20 @@
 ---
 ## Supported Languages
 
-| Language | Supported | Source |
-|---|---|---|
-| English | ![Static Badge](https://img.shields.io/badge/3.24.3-PTU-brightgreen) | Imported from game files |
-| French - France | ![Static Badge](https://img.shields.io/badge/3.24.2-LIVE-brightgreen) | Generated from [circuspes.fr](https://traduction.circuspes.fr) and [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| German - Germany | ![Static Badge](https://img.shields.io/badge/3.24.3-PTU-brightgreen) | Here |
-| Italian - Italy | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Portuguese - Brazil | ![Static Badge](https://img.shields.io/badge/3.24.3-PTU-brightgreen)| Here |
-| Spanish - Latin America | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) |
-| Spanish - Spain | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Here |
+| Language                 | Supported | Source |
+|--------------------------|-----------|--------|
+| English                  | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Imported from game files |
+| French - France          | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Generated from [circuspes.fr](https://traduction.circuspes.fr) and [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| German - Germany         | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Here |
+| Portuguese - Brazil      | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Here |
+| Italian - Italy          | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Spanish - Spain          | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Here |
+| Spanish - Latin America  | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
+| Chinese - Simplified     | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
+| Chinese - Traditional    | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
+| Japanese - Japan         | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
+| Korean - South Korea     | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
+| Polish - Poland          | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
 
 ---
 ## Installation Guide
@@ -66,17 +71,22 @@
 3. Create/edit `\StarCitizen\LIVE\user.cfg` (e.g., `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user.cfg`).
 4. Add the language line to `user.cfg`:
 
-    | Language                  | Configuration                 |
-    |---------------------------|-------------------------------|
-    | English                   | `g_language = english`        |
-    | French - France           | `g_language = french_(france)`|
-    | German - Germany          | `g_language = german_(germany)`|
-    | Italian - Italy           | `g_language = italian_(italy)` |
-    | Portuguese - Brazil       | `g_language = portuguese_(brazil)` |
-    | Spanish - Latin America   | `g_language = spanish_(latin_america)` |
-    | Spanish - Spain           | `g_language = spanish_(spain)` |
+| Language                  | Configuration                 |
+|---------------------------|-------------------------------|
+| English                   | `g_language = english`        |
+| French - France           | `g_language = french_(france)`|
+| German - Germany          | `g_language = german_(germany)`|
+| Portuguese - Brazil       | `g_language = portuguese_(brazil)` |
+| Italian - Italy           | `g_language = italian_(italy)` |
+| Spanish - Spain           | `g_language = spanish_(spain)` |
+| Spanish - Latin America   | `g_language = spanish_(latin_america)` |
+| Chinese - Simplified      | `g_language = chinese_(simplified)` |
+| Chinese - Traditional     | `g_language = chinese_(traditional)` |
+| Japanese - Japan          | `g_language = japanese_(japan)` |
+| Korean - South Korea      | `g_language = korean_(south_korea)` |
+| Polish - Poland           | `g_language = polish_(poland)` |
 
-5. Add audio language:
+5. Always add audio language english:
    ```plaintext
    g_languageAudio = english
    ```
