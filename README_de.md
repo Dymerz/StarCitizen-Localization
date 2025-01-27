@@ -28,10 +28,10 @@
 
 | Sprache                 | Unterstützt | Quelle |
 |--------------------------|-------------|--------|
-| Englisch                | ![Static Badge](https://img.shields.io/badge/4.0.0-EPTU-brightgreen) | Aus Spieldateien importiert |
+| Englisch                | ![Static Badge](https://img.shields.io/badge/4.0.1-PTU-brightgreen) | Aus Spieldateien importiert |
 | Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) und [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Deutsch - Deutschland   | ![Static Badge](https://img.shields.io/badge/4.0.0-EPTU-brightgreen) | Hier |
-| Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.0.0-EPTU-brightgreen) | Hier |
+| Deutsch - Deutschland   | ![Static Badge](https://img.shields.io/badge/4.0.1-PTU-brightgreen) | Hier |
+| Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.0.1-PTU-brightgreen) | Hier |
 | Italienisch - Italien   | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spanisch - Spanien      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Hier |
 | Spanisch - Lateinamerika| ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Warten auf Beitrag |
