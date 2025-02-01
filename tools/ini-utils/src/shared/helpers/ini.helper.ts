@@ -13,6 +13,11 @@ export class IniHelper
     fs.writeFileSync(path, data, options);
   }
 
+  public static readFileSync(path: string): string
+  {
+    return fs.readFileSync(path, 'utf-8');
+  }
+
   /**
    * Load an INI file and return its content as an object
    * @param filePath
@@ -20,10 +25,10 @@ export class IniHelper
   */
   public static loadFile(filePath: string): Ini
   {
-    const fileContent = fs.readFileSync(filePath, 'utf-8')
-      .replace(/([\S] *)(?<!\\)([;#])/g, '$1\\$2')  // escape semicolon and hash
+    const fileContent = IniHelper.readFileSync(filePath);
+    const fileContentEscaped = IniHelper.escapeValues(fileContent);
 
-    const parsed = ini.parse(fileContent);
+    const parsed = ini.parse(fileContentEscaped);
     return {
       path   : filePath,
       content: parsed
@@ -38,5 +43,19 @@ export class IniHelper
   public static writeFile(file: Ini): void
   {
     IniHelper.writeFileSync(file.path, '\ufeff'+ini.stringify(file.content), { encoding: 'utf-8',  });
+  }
+
+  /**
+   * Escape semicolon and hash from values in INI file
+   * @param content
+   * @returns
+   */
+  private static escapeValues(content: string): string
+  {
+    return content.replace(/^([^=\r\n]+)=(.*)$/gm, (_, key, value) =>
+    {
+      const escapedValue = value.replace(/([#;\\])/g, '\\$1');
+      return `${key}=${escapedValue}`;
+    });
   }
 }

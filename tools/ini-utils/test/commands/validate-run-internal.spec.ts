@@ -75,23 +75,58 @@ describe('ValidateCommand.runInternal', () =>
 
   it('should validate value with semi-colon', () =>
   {
-    const referenceData = makeIniFromKey(reference, 'good_semi_colon_comment');
-    const sourceData = makeIniFromKey(source, 'good_semi_colon_comment');
+    const referenceData = makeIniFromKey(reference, 'good_semi_colon');
+    const sourceData = makeIniFromKey(source, 'good_semi_colon');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(result, 'semi-colon in value should be valid');
+    assert.ok(result, 'semi-colon in value should be escaped');
   });
 
-  it('should validate value with hashtag', () =>
+  it('should validate value with double semi-colon', () =>
   {
-    const referenceData = makeIniFromKey(reference, 'good_hashtag_comment');
-    const sourceData = makeIniFromKey(source, 'good_hashtag_comment');
+    const referenceData = makeIniFromKey(reference, 'good_double_semi_colon');
+    const sourceData = makeIniFromKey(source, 'good_double_semi_colon');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(result, 'hashtag in value should be valid');
+    assert.ok(result, 'double semi-colon in value should be escaped');
   });
 
-  // TODO
+  it('should validate value with semi-colon escaped', () =>
+  {
+    const referenceData = makeIniFromKey(reference, 'good_semi_colon_escaped');
+    const sourceData = makeIniFromKey(source, 'good_semi_colon_escaped');
+
+    const result = validateIni(referenceData, sourceData);
+    assert.ok(result, 'escaped semi-colon in value should be escaped');
+  });
+
+  it('should validate value with hash', () =>
+  {
+    const referenceData = makeIniFromKey(reference, 'good_hash');
+    const sourceData = makeIniFromKey(source, 'good_hash');
+
+    const result = validateIni(referenceData, sourceData);
+    assert.ok(result, 'hash in value should be escaped');
+  });
+
+  it('should validate value with double hash', () =>
+    {
+      const referenceData = makeIniFromKey(reference, 'good_double_hash');
+      const sourceData = makeIniFromKey(source, 'good_double_hash');
+
+      const result = validateIni(referenceData, sourceData);
+      assert.ok(result, 'double hash in value should be escaped');
+    });
+
+  it('should validate value with hash escaped', () =>
+  {
+    const referenceData = makeIniFromKey(reference, 'good_hash_escaped');
+    const sourceData = makeIniFromKey(source, 'good_hash_escaped');
+
+    const result = validateIni(referenceData, sourceData);
+    assert.ok(result, 'escaped hash in value should be escaped');
+  });
+
   it('should not validate misspelled percent placeholder', () =>
   {
     const referenceData = makeIniFromKey(reference, 'bad_percent_placeholder1');
@@ -149,7 +184,7 @@ describe('ValidateCommand.runInternal', () =>
   it('should not validate bad key', () =>
   {
     const referenceData = makeIniFromKey(reference, 'bad_key');
-    const sourceData = makeIniFromKey(source, 'bad_key');
+    const sourceData = makeIniFromKey(source, 'mauvaise_cle');
 
     const result = validateIni(referenceData, sourceData);
     assert.ok(!result, 'bad key should not be valid');
