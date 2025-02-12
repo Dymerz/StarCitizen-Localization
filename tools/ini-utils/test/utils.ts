@@ -27,6 +27,9 @@ export const makeIniFromKey = (file: Ini, key: string): Ini =>
       return obj;
     }, {} as any);
 
+  if(Object.keys(content).length === 0)
+    throw new Error(`Key '${key}' not found in file ${file.path}`);
+
   return {
     path: file.path,
     content

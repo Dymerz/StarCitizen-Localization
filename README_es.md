@@ -4,17 +4,17 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
-- **Versiones:**  
-  - [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_es.md)  
+- **Versiones:**
+  - [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_es.md)
   - [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_es.md)
 
-- **Idiomas:**  
-  - 🇬🇧 [Instructions in English.](README.md)  
-  - 🇫🇷 [Instruction en Français](README_fr.md)  
-  - 🇩🇪 [Anleitung auf Deutsch](README_de.md)  
-  - 🇪🇸 [Instrucciones en Español](README_es.md)  
-  - 🇮🇹 [Istruzioni in Italiano](README_it.md)  
-  - 🇧🇷 [Instrução em Português](README_ptbr.md)  
+- **Idiomas:**
+  - 🇬🇧 [Instructions in English.](README.md)
+  - 🇫🇷 [Instruction en Français](README_fr.md)
+  - 🇩🇪 [Anleitung auf Deutsch](README_de.md)
+  - 🇪🇸 [Instrucciones en Español](README_es.md)
+  - 🇮🇹 [Istruzioni in Italiano](README_it.md)
+  - 🇧🇷 [Instrução em Português](README_ptbr.md)
 
 **Tabla de contenidos:**
 - [Idiomas soportados](#idiomas-soportados)
@@ -29,10 +29,10 @@
 
 | Idioma                  | Soportado   | Fuente |
 |--------------------------|-------------|--------|
-| Inglés                  | ![Static Badge](https://img.shields.io/badge/4.0.0-EPTU-brightgreen) | Importado de archivos del juego |
-| Francés - Francia       | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) y [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Alemán - Alemania       | ![Static Badge](https://img.shields.io/badge/4.0.0-EPTU-brightgreen) | Aquí |
-| Portugués - Brasil      | ![Static Badge](https://img.shields.io/badge/4.0.0-EPTU-brightgreen) | Aquí |
+| Inglés                  | ![Static Badge](https://img.shields.io/badge/4.0.2-PTU-brightgreen) | Importado de archivos del juego |
+| Francés - Francia       | ![Static Badge](https://img.shields.io/badge/4.0.1-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) y [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Alemán - Alemania       | ![Static Badge](https://img.shields.io/badge/4.0.1-LIVE-brightgreen) | Aquí |
+| Portugués - Brasil      | ![Static Badge](https://img.shields.io/badge/4.0.1-LIVE-brightgreen) | Aquí |
 | Italiano - Italia       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Español - España        | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Aquí |
 | Español - Latinoamérica | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | A la espera de contribución |
@@ -53,14 +53,14 @@
 3. Sigue las instrucciones.
 4. Inicia el juego y disfruta de la traducción.
 
-> **Nota:** Si encuentras un error de política de ejecución:  
-> - Abre PowerShell en la carpeta donde guardaste **install_localization.ps1** y ejecuta:  
+> **Nota:** Si encuentras un error de política de ejecución:
+> - Abre PowerShell en la carpeta donde guardaste **install_localization.ps1** y ejecuta:
 >   ```powershell
 >   PowerShell -ExecutionPolicy Bypass -File "./install_localization.ps1"
 >   ```
 > Esto es necesario porque Windows puede bloquear scripts debido a configuraciones de seguridad.
 
-> **Opción alternativa:** Usa el script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd):  
+> **Opción alternativa:** Usa el script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd):
 > - Asegúrate de que exista una carpeta `data` en el directorio del juego (por ejemplo, `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`).
 > - Coloca **install_localization.cmd** en la carpeta `data` y haz doble clic para ejecutarlo.
 
@@ -115,7 +115,7 @@ Para actualizar los archivos de localización, sigue nuevamente la [Guía de ins
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Brill65"><img src="https://avatars.githubusercontent.com/u/8363399?v=4?s=100" width="100px;" alt="Manu"/><br /><sub><b>Manu</b></sub></a><br /><a href="#review-Brill65" title="Reviewed Pull Requests">👀</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/danidomen"><img src="https://avatars.githubusercontent.com/u/5998908?v=4?s=100" width="100px;" alt="Daniel Martin (dmartin-webimpacto)"/><br /><sub><b>Daniel Martin (dmartin-webimpacto)</b></sub></a><br /><a href="#translation-danidomen" title="Translation">🌍</a></td>
-	  <td align="center" valign="top" width="14.28%"><a href="https://github.com/xGattoMattox"><img src="https://avatars.githubusercontent.com/u/149336969?v=4?s=100" width="100px;" alt="xGattoMattox"/><br /><sub><b>xGattoMattox</b></sub></a><br /><a href="#translation-xGattoMattox" title="Translation">🌍</a></td> 
+	  <td align="center" valign="top" width="14.28%"><a href="https://github.com/xGattoMattox"><img src="https://avatars.githubusercontent.com/u/149336969?v=4?s=100" width="100px;" alt="xGattoMattox"/><br /><sub><b>xGattoMattox</b></sub></a><br /><a href="#translation-xGattoMattox" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>
