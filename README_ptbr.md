@@ -4,8 +4,8 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
-- **Versões:** 
-  - [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_ptbr.md) 
+- **Versões:**
+  - [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_ptbr.md)
   - [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_ptbr.md)
 
 - **Idiomas:**
@@ -29,7 +29,7 @@
 | Idioma                  | Suportado | Fonte |
 |--------------------------|-----------|-------|
 | Inglês                  | ![Static Badge](https://img.shields.io/badge/4.0.1-LIVE-brightgreen) | Importado dos arquivos do jogo |
-| Francês - França        | ![Static Badge](https://img.shields.io/badge/3.24.3-LIVE-brightgreen) | Gerado de [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
+| Francês - França        | ![Static Badge](https://img.shields.io/badge/4.0.1-LIVE-brightgreen) | Gerado de [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
 | Alemão - Alemanha       | ![Static Badge](https://img.shields.io/badge/4.0.1-LIVE-brightgreen) | Aqui |
 | Português - Brasil      | ![Static Badge](https://img.shields.io/badge/4.0.1-LIVE-brightgreen) | Aqui |
 | Italiano - Itália       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
