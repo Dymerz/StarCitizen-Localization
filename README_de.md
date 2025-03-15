@@ -30,7 +30,7 @@
 |--------------------------|-------------|--------|
 | Englisch                | ![Static Badge](https://img.shields.io/badge/4.0.2-LIVE-brightgreen) | Aus Spieldateien importiert |
 | Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/4.0.2-LIVE-brightgreen) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) und [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Deutsch - Deutschland   | ![Static Badge](https://img.shields.io/badge/4.0.2-LIVE-brightgreen) | Hier |
+| Deutsch - Deutschland   | ![Static Badge](https://img.shields.io/badge/4.1.0-PTU-brightgreen) | Hier |
 | Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.0.2-LIVE-brightgreen) | Hier |
 | Italienisch - Italien   | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spanisch - Spanien      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Hier |
