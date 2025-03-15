@@ -107,4 +107,4 @@ jobs:
       run: npm run build
 
     - name: Validate key/value pairs
-      run: node ./tools/ini-utils/dist/src/index.js validate --ci "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "${{ needs.prepare.outputs.changed-files }}"
+      run: node ./tools/ini-utils/dist/src/index.js validate --ci "$GITHUB_WORKSPACE/data/Localization/english/global.ini" ${{ needs.prepare.outputs.changed-files }}
