@@ -21,43 +21,73 @@ jobs:
     name: Prepare environment
     runs-on: ubuntu-latest
     outputs:
-      changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
-      changed-files-count: ${{ steps.changed-files.outputs.all_changed_files_count }}
+      changed-files: ${{ steps.find-changed-files.outputs.changed_files }}
+      changed-files-count: ${{ steps.find-changed-files.outputs.changed_files_count }}
 
     steps:
     - name: Checkout current repository
       uses: actions/checkout@v3
-
-    - name: Get all "global.ini" files that have changed
-      id: changed-files
-      uses: tj-actions/changed-files@v39
       with:
-        files: "data/Localization/*/global.ini"
-        separator: "\" \""
+        fetch-depth: 0  # Fetch all history for comparing changes
+
+    - name: Find changed global.ini files
+      id: find-changed-files
+      run: |
+        echo "${{ github.event_name }} event triggered this workflow"
+
+        # Determine the base and head references based on the event type
+        if [ "${{ github.event_name }}" == "pull_request" ]; then
+          BASE_REF="${{ github.event.pull_request.base.sha }}"
+          HEAD_REF="${{ github.event.pull_request.head.sha }}"
+        elif [ "${{ github.event_name }}" == "push" ]; then
+          BASE_REF="HEAD^"
+          HEAD_REF="HEAD"
+        else
+          # For workflow_dispatch or any other event, compare with the main branch
+          git fetch origin main
+          BASE_REF="origin/main"
+          HEAD_REF="HEAD"
+        fi
+
+        echo "Comparing $BASE_REF...$HEAD_REF"
+
+        # Get changed files with a single git diff command
+        # Using quotes around the grep pattern to prevent shell expansion of the asterisk
+        CHANGED_FILES=$(git diff --name-only $BASE_REF $HEAD_REF | grep -E "data/Localization/.*/global\.ini" || echo "")
+
+        # Format the files for output with correct separator
+        if [ ! -z "$CHANGED_FILES" ]; then
+          # Properly format the changed files for the output with quotes and spaces
+          FORMATTED_FILES=$(echo "$CHANGED_FILES" | sed 's/.*/"&"/' | tr '\n' ' ')
+          echo "Changed files: $FORMATTED_FILES"
+          echo "changed_files=$FORMATTED_FILES" >> $GITHUB_OUTPUT
+          echo "changed_files_count=$(echo "$CHANGED_FILES" | wc -l)" >> $GITHUB_OUTPUT
+        else
+          echo "No global.ini files changed"
+          echo "changed_files=''" >> $GITHUB_OUTPUT
+          echo "changed_files_count=0" >> $GITHUB_OUTPUT
+        fi
 
     - name: List all changed files
-      run: echo "Changed files ${{ steps.changed-files.outputs.all_changed_files }}"
+      run: echo "Changed files ${{ steps.find-changed-files.outputs.changed-files }}"
 
   validate-encoding:
     name: Validate global.ini Encoding
     runs-on: ubuntu-latest
     needs: prepare
-
+    if: needs.prepare.outputs.changed-files-count > 0
     steps:
     - name: Checkout current repository
-      if: needs.prepare.outputs.changed-files-count > 0
       uses: actions/checkout@v3
 
     - name: Validate encoding
-      if: needs.prepare.outputs.changed-files-count > 0
-      run: bash tools/validate-encoding.bash "${{ needs.prepare.outputs.changed-files }}"
+      run: bash tools/validate-encoding.bash ${{ needs.prepare.outputs.changed-files }}
 
   validate-entries:
     name: Validate global.ini Entries
     runs-on: ubuntu-latest
     needs: prepare
     if: needs.prepare.outputs.changed-files-count > 0
-
     steps:
     - name: Checkout current repository
       uses: actions/checkout@v3
@@ -77,4 +107,4 @@ jobs:
       run: npm run build
 
     - name: Validate key/value pairs
-      run: node ./tools/ini-utils/dist/src/index.js validate --ci "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "${{ needs.prepare.outputs.changed-files }}"
+      run: node ./tools/ini-utils/dist/src/index.js validate --ci "$GITHUB_WORKSPACE/data/Localization/english/global.ini" ${{ needs.prepare.outputs.changed-files }}
