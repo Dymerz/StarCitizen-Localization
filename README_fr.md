@@ -45,7 +45,21 @@
 ---
 ## Guide d'Installation
 
-### Installation automatique
+### Méthode d'Installation la Plus Simple (PowerShell)
+
+Copiez et collez simplement cette **commande unique** dans PowerShell pour installer automatiquement les traductions de Star Citizen :
+
+```powershell
+powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/main/tools/install_localization.ps1)"
+```
+
+> **Étapes Simples :**
+> 1. Appuyez sur `Win+X` et sélectionnez "Windows PowerShell" ou "Terminal"
+> 2. Copiez la commande ci-dessus
+> 3. Collez-la dans PowerShell et appuyez sur Entrée
+> 4. Suivez les instructions à l'écran pour sélectionner votre langue
+
+### Installation Automatique (Alternative)
 
 1. Téléchargez le script [install_localization.ps1](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.ps1).
 2. **Cliquez droit** sur le fichier téléchargé (**install_localization.ps1**) et sélectionnez `Exécuter avec PowerShell`.
