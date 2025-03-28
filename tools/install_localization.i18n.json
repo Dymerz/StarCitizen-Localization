@@ -22,7 +22,7 @@
     "ENTER_TO_CONTINUE"  : "Press Enter to continue",
     "REMOVE"             : "Remove",
     "INTERACTIVE_MENU"   : {
-      "HINT"     : "Use arrows (↑ and ↓) to move then, 'Enter' to validate, 'ESC' to Exit`n",
+      "HINT"     : "Use arrows (↑ and ↓) to move then, 'Enter' to validate, 'ESC' to Exit",
       "EXITING"  : "You pressed Esc, exiting...",
       "SELECTION": "You selected $0"
     },
@@ -72,7 +72,7 @@
     "ENTER_TO_CONTINUE"  : "Appuyez sur Entrée pour quitter",
     "REMOVE"             : "Supprimer",
     "INTERACTIVE_MENU"   : {
-      "HINT"     : "Utilisez les flèches (↑ et ↓) pour vous déplacer, 'Entrée' pour valider, 'ESC' pour quitter`n",
+      "HINT"     : "Utilisez les flèches (↑ et ↓) pour vous déplacer, 'Entrée' pour valider, 'ESC' pour quitter",
       "EXITING"  : "Vous avez appuyé sur Echap, sortie...",
       "SELECTION": "Vous avez sélectionné $0"
     },
@@ -122,7 +122,7 @@
     "ENTER_TO_CONTINUE"  : "Drücken Sie die Eingabetaste, um zu beenden",
     "REMOVE"             : "Entfernen",
     "INTERACTIVE_MENU"   : {
-      "HINT"     : "Verwenden Sie die Pfeiltasten (↑ und ↓) zum Bewegen, 'Enter' zum Bestätigen, 'ESC' zum Beenden`n",
+      "HINT"     : "Verwenden Sie die Pfeiltasten (↑ und ↓) zum Bewegen, 'Enter' zum Bestätigen, 'ESC' zum Beenden",
       "EXITING"  : "Sie haben Esc gedrückt, verlasse...",
       "SELECTION": "Sie haben $0 ausgewählt"
     },
@@ -176,7 +176,7 @@
     "SELECTION"          : "Hai selezionato $0",
     "YES_NO_TITLE"       : "Vuoi continuare",
     "INTERACTIVE_MENU": {
-      "HINT"     : "Usa le frecce (↑ e ↓) per muoverti, 'Invio' per confermare, 'ESC' per uscire`n",
+      "HINT"     : "Usa le frecce (↑ e ↓) per muoverti, 'Invio' per confermare, 'ESC' per uscire",
       "EXITING"  : "Hai premuto Esc, in uscita...",
       "SELECTION": "Hai selezionato $0"
     },
@@ -226,7 +226,7 @@
     "ENTER_TO_CONTINUE"  : "Pressione Enter para sair",
     "REMOVE"             : "Remover",
     "INTERACTIVE_MENU"   : {
-      "HINT"     : "Use as setas (↑ e ↓) para se mover, 'Enter' para validar, 'ESC' para sair`n",
+      "HINT"     : "Use as setas (↑ e ↓) para se mover, 'Enter' para validar, 'ESC' para sair",
       "EXITING"  : "Você pressionou Esc, saindo...",
       "SELECTION": "Você selecionou $0"
     },
@@ -276,7 +276,7 @@
     "ENTER_TO_CONTINUE"  : "Presiona Enter para salir",
     "REMOVE"             : "Eliminar",
     "INTERACTIVE_MENU"   : {
-      "HINT"     : "Usa las flechas (↑ y ↓) para moverte, 'Enter' para validar, 'ESC' para salir`n",
+      "HINT"     : "Usa las flechas (↑ y ↓) para moverte, 'Enter' para validar, 'ESC' para salir",
       "EXITING"  : "Presionaste Esc, saliendo...",
       "SELECTION": "Seleccionaste $0"
     },
