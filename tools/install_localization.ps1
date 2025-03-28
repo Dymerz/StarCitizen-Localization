@@ -28,12 +28,22 @@ function Get-Translate {
   )
   $locales = $global:LOCALES
 
+  # If locales is null (file failed to load), return the key
+  if ($null -eq $locales) {
+    return $Key
+  }
+
   $userCulture = (Get-Culture).TwoLetterISOLanguageName
   if (-not $localesPSobject.Properties.name -match $userCulture) {
     $userCulture = 'en'
   }
 
   $userLocales = $locales.$userCulture
+
+  # If userLocales is null, return the key
+  if ($null -eq $userLocales) {
+    return $Key
+  }
 
   try {
     $keyParts = $Key -split '\.'
@@ -42,6 +52,11 @@ function Get-Translate {
     # Get the value from the key
     foreach ($Part in $keyParts) {
       $value = $value.$Part
+
+      # If the value becomes null during key path navigation, return the key
+      if ($null -eq $value) {
+        return $Key
+      }
     }
 
     # Replace the variables in the string
@@ -53,7 +68,8 @@ function Get-Translate {
     return $value
   }
   catch {
-    return "KEY NOT FOUND: $Key"
+    # Return the key itself as fallback instead of an error message
+    return $Key
   }
 }
 
