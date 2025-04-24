@@ -28,7 +28,7 @@
 
 | Language                 | Supported | Source |
 |--------------------------|-----------|--------|
-| English                  | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Imported from game files |
+| English                  | ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Imported from game files |
 | French - France          | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Generated from [circuspes.fr](https://traduction.circuspes.fr) and [SPEED0U/Scefra](https://github.com/SPEED0U/Scefra) |
 | German - Germany         | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Here |
 | Portuguese - Brazil      | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Here |
