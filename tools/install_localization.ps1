@@ -17,7 +17,7 @@ function Get-Locales() {
     Write-Host "Unable to get the locales file from GitHub" -ForegroundColor Red
     Write-Host "If the problem persists, please report the bug here:" -ForegroundColor Red
     Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
-    exit 0
+    return
   }
 }
 
@@ -28,12 +28,22 @@ function Get-Translate {
   )
   $locales = $global:LOCALES
 
+  # If locales is null (file failed to load), return the key
+  if ($null -eq $locales) {
+    return $Key
+  }
+
   $userCulture = (Get-Culture).TwoLetterISOLanguageName
   if (-not $localesPSobject.Properties.name -match $userCulture) {
     $userCulture = 'en'
   }
 
   $userLocales = $locales.$userCulture
+
+  # If userLocales is null, return the key
+  if ($null -eq $userLocales) {
+    return $Key
+  }
 
   try {
     $keyParts = $Key -split '\.'
@@ -42,6 +52,11 @@ function Get-Translate {
     # Get the value from the key
     foreach ($Part in $keyParts) {
       $value = $value.$Part
+
+      # If the value becomes null during key path navigation, return the key
+      if ($null -eq $value) {
+        return $Key
+      }
     }
 
     # Replace the variables in the string
@@ -53,7 +68,8 @@ function Get-Translate {
     return $value
   }
   catch {
-    return "KEY NOT FOUND: $Key"
+    # Return the key itself as fallback instead of an error message
+    return $Key
   }
 }
 
@@ -469,7 +485,7 @@ if ($findStarCitizenFolder) {
   }
 
   $choice = New-Menu -title  (Get-Translate "SELECT_GAME_VERSION") $menuItems
-  if ($null -eq $choice) { exit 0 }
+  if ($null -eq $choice) { return }
 
   $result = $environments[$choice]
   $gameFolder = "$findStarCitizenFolder\$result"
@@ -506,7 +522,7 @@ Write-Host (Get-Translate "BRANCH" $branch) -ForegroundColor Yellow
 Write-Host ""
 
 $continue = New-YesNoMenu -message (Get-Translate "CONTINUE_PROMPT")
-if (-not $continue) { exit 0 }
+if (-not $continue) { return }
 
 if ($null -eq $language) {
   Write-Host (Get-Translate "REMOVE_FILES") -ForegroundColor Yellow
@@ -515,7 +531,7 @@ if ($null -eq $language) {
   Write-Host ""
   Write-Host (Get-Translate "UNINSTALL_COMPLETE") -ForegroundColor Green
   Read-Host (Get-Translate "EXIT_PROMPT")
-  exit 0
+  return
 }
 
 Write-Host (Get-Translate "DOWNLOAD_FILES") -ForegroundColor Yellow
@@ -526,7 +542,7 @@ if (-not $success) {
   Write-Host (Get-Translate "ERRORS.INSTALL_ERROR") -ForegroundColor Red
   Write-Host (Get-Translate "ERRORS.REPORT_BUG") -ForegroundColor Red
   Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
-  exit 0
+  return
 }
 
 Write-Host (Get-Translate "CONFIGURE_GAME") -ForegroundColor Yellow
@@ -538,7 +554,7 @@ if (-not $success) {
   Write-Host (Get-Translate "ERRORS.USER_CFG_UPDATE_ERROR") -ForegroundColor Red
   Write-Host (Get-Translate "ERRORS.REPORT_BUG") -ForegroundColor Red
   Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
-  exit 0
+  return
 }
 
 Write-Host ""

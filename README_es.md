@@ -29,10 +29,10 @@
 
 | Idioma                  | Soportado   | Fuente |
 |--------------------------|-------------|--------|
-| Inglés                  | ![Static Badge](https://img.shields.io/badge/4.1.0-PTU-brightgreen) | Importado de archivos del juego |
-| Francés - Francia       | ![Static Badge](https://img.shields.io/badge/4.0.2-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) y [SPEED0U/StarCitizenFrenchTranslation](https://github.com/SPEED0U/StarCitizenFrenchTranslation) |
-| Alemán - Alemania       | ![Static Badge](https://img.shields.io/badge/4.1.0-PTU-brightgreen) | Aquí |
-| Portugués - Brasil      | ![Static Badge](https://img.shields.io/badge/4.1.0-PTU-brightgreen) | Aquí |
+| Inglés                  | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Importado de archivos del juego |
+| Francés - Francia       | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) y [SPEED0U/Scefra](https://github.com/SPEED0U/Scefra) |
+| Alemán - Alemania       | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Aquí |
+| Portugués - Brasil      | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Aquí |
 | Italiano - Italia       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Español - España        | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Aquí |
 | Español - Latinoamérica | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | A la espera de contribución |
@@ -46,7 +46,21 @@
 
 ## Guía de instalación
 
-### Instalación automática
+### Método de Instalación Más Sencillo (PowerShell)
+
+Simplemente copia y pega este **único comando** en PowerShell para instalar automáticamente las traducciones de Star Citizen:
+
+```powershell
+powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/main/tools/install_localization.ps1)"
+```
+
+> **Pasos Simples:**
+> 1. Presiona `Win+X` y selecciona "Windows PowerShell" o "Terminal"
+> 2. Copia el comando de arriba
+> 3. Pégalo en PowerShell y presiona Enter
+> 4. Sigue las instrucciones en pantalla para seleccionar tu idioma
+
+### Instalación Automática (Alternativa)
 
 1. Descarga el script [install_localization.ps1](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.ps1).
 2. **Haz clic derecho** en el archivo descargado (**install_localization.ps1**) y selecciona `Ejecutar con PowerShell`.
