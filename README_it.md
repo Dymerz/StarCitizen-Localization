@@ -29,7 +29,7 @@
 
 | Lingua                  | Supportato | Fonte |
 |--------------------------|------------|-------|
-| Inglese                 | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Importato dai file di gioco |
+| Inglese                 | ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Importato dai file di gioco |
 | Francese - Francia      | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Generato da [circuspes.fr](https://traduction.circuspes.fr) e [SPEED0U/Scefra](https://github.com/SPEED0U/Scefra) |
 | Tedesco - Germania      | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Qui |
 | Portoghese - Brasile    | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Qui |
