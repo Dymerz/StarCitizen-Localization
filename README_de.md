@@ -4,11 +4,11 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
-- **Versionen:**
-  - [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_de.md)
-  - [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_de.md)
+**Versionen:**
+- [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_de.md)
+- [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_de.md)
 
-- **Sprachen:**
+**Sprachen:**
 - 🇬🇧 [Instructions in English.](README.md).
 - 🇫🇷 [Instruction en Français](README_fr.md).
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
@@ -17,11 +17,11 @@
 - 🇧🇷 [Instrução em Português](README_ptbr.md).
 
 **Inhaltsverzeichnis:**
-  - [Unterstützte Sprachen](#unterstützte-sprachen)
-  - [Installationsanleitung](#installationsanleitung)
-  - [Aktualisieren der Lokalisierungsdateien](#aktualisieren-der-lokalisierungsdateien)
-  - [Beitragen](#beitragen)
-  - [Haftungsausschluss](#haftungsausschluss)
+- [Unterstützte Sprachen](#unterstützte-sprachen)
+- [Installationsanleitung](#installationsanleitung)
+- [Aktualisieren der Lokalisierungsdateien](#aktualisieren-der-lokalisierungsdateien)
+- [Beitragen](#beitragen)
+- [Haftungsausschluss](#haftungsausschluss)
 
 ---
 ## Unterstützte Sprachen

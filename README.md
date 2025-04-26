@@ -17,11 +17,11 @@
 - 🇧🇷 [Instrução em Português](README_ptbr.md).
 
 **Table of Contents:**
-  - [Supported Languages](#supported-languages)
-  - [Installation Guide](#installation-guide)
-  - [Updating the Localization Files](#contributing)
-  - [Contributing](#contributing)
-  - [Disclaimer](#Disclaimer)
+- [Supported Languages](#supported-languages)
+- [Installation Guide](#installation-guide)
+- [Updating the Localization Files](#contributing)
+- [Contributing](#contributing)
+- [Disclaimer](#Disclaimer)
 
 ---
 ## Supported Languages
