@@ -4,17 +4,17 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
-- **Versiones:**
-  - [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_es.md)
-  - [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_es.md)
+**Versiones:**
+- [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_es.md)
+- [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_es.md)
 
-- **Idiomas:**
-  - 🇬🇧 [Instructions in English.](README.md)
-  - 🇫🇷 [Instruction en Français](README_fr.md)
-  - 🇩🇪 [Anleitung auf Deutsch](README_de.md)
-  - 🇪🇸 [Instrucciones en Español](README_es.md)
-  - 🇮🇹 [Istruzioni in Italiano](README_it.md)
-  - 🇧🇷 [Instrução em Português](README_ptbr.md)
+**Idiomas:**
+- 🇬🇧 [Instructions in English.](README.md)
+- 🇫🇷 [Instruction en Français](README_fr.md)
+- 🇩🇪 [Anleitung auf Deutsch](README_de.md)
+- 🇪🇸 [Instrucciones en Español](README_es.md)
+- 🇮🇹 [Istruzioni in Italiano](README_it.md)
+- 🇧🇷 [Instrução em Português](README_ptbr.md)
 
 **Tabla de contenidos:**
 - [Idiomas soportados](#idiomas-soportados)
@@ -29,10 +29,10 @@
 
 | Idioma                  | Soportado   | Fuente |
 |--------------------------|-------------|--------|
-| Inglés                  | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Importado de archivos del juego |
+| Inglés                  | ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Importado de archivos del juego |
 | Francés - Francia       | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) y [SPEED0U/Scefra](https://github.com/SPEED0U/Scefra) |
-| Alemán - Alemania       | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Aquí |
-| Portugués - Brasil      | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Aquí |
+| Alemán - Alemania       | ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Aquí |
+| Portugués - Brasil      | ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Aquí |
 | Italiano - Italia       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Español - España        | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Aquí |
 | Español - Latinoamérica | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | A la espera de contribución |
