@@ -1,0 +1,8 @@
+# This file maps the locale codes used in Pontoon to the folder structure in this repository
+
+[locale_mapping]
+fr = "french_(france)"
+de = "german_(germany)"
+it = "italian_(italy)"
+"pt-BR" = "portuguese_(brazil)"
+es = "spanish_(spain)"

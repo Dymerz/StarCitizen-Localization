@@ -1,0 +1,32 @@
+# StarCitizen Localization configuration for Mozilla Pontoon
+# The configuration follows the format at: https://github.com/mozilla/moz-l10n/wiki/L10nConfigPaths-file-format
+
+# Base path for relative paths in the configuration
+basepath = "."
+
+# List of locale codes to enable for the project
+locales = [
+  "fr",    # French (France)
+  "de",    # German (Germany)
+  "it",    # Italian (Italy)
+  "pt-BR", # Portuguese (Brazil)
+  "es",    # Spanish (Spain)
+]
+
+# Environment aliases for shorthand in paths
+[env]
+l = "{locale}"
+
+# Path definitions for localization files
+[[paths]]
+reference = "data/Localization/english/global.ini"
+l10n = "data/Localization/{locale}/global.ini"
+
+# Custom locale mapping - this links to the .pontoon-paths.toml file
+[locale_mapping]
+path = ".pontoon-paths.toml"
+
+# Project metadata
+[project]
+name = "StarCitizen-Localization"
+description = "Localization files for Star Citizen game"
