@@ -20,7 +20,7 @@ l = "{locale}"
 # Path definitions for localization files
 [[paths]]
 reference = "data/Localization/english/global.ini"
-l10n = "data/Localization/{locale}/global.ini"
+l10n = "data/Localization/{l}/global.ini"
 
 # Custom locale mapping - this links to the .pontoon-paths.toml file
 [locale_mapping]
