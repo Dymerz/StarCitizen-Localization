@@ -4,7 +4,8 @@ locales = ["fr-FR", "de-DE", "it-IT", "pt-BR", "es-ES"]
 
 [[paths]]
 reference = "english/*.ini"
-l10n = "{locale_path}/*.ini"
+l10n = "{locale}/*.ini"
 
+# Map locales to their directory names
 [env]
-locale_map = { "fr-FR" = "french_(france)", "de-DE" = "german_(germany)", "it-IT" = "italian_(italy)", "pt-BR" = "portuguese_(brazil)", "es-ES" = "spanish_(spain)" }
+locale_ = { "fr-FR" = "french_(france)", "de-DE" = "german_(germany)", "it-IT" = "italian_(italy)", "pt-BR" = "portuguese_(brazil)", "es-ES" = "spanish_(spain)" }
