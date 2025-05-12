@@ -3,8 +3,8 @@ basepath = "data/Localization"
 locales = ["fr", "de", "it", "pt-BR", "es-ES"]
 
 [[paths]]
-reference = "en/*.ini"
-l10n = "{locale}/*.ini"
+reference = "{basepath}/en/*.ini"
+l10n = "{basepath}/{locale}/*.ini"
 
 [[project]]
 [[project.metadata]]
