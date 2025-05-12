@@ -14,10 +14,13 @@ reference = "english/global.ini"
 l10n = "french_(france)/global.ini"
 locales = ["fr"]
 
-# [[project]]
-# name = "StarCitizen Localization"
-# description = "Localization files for Star Citizen"
-# version = "4.1.0-LIVE"
+[[excludes]]
+path = "tools"
 
-# [[project.metadata]]
-# priority = 5
+[[project]]
+name = "StarCitizen Localization"
+description = "Localization files for Star Citizen"
+version = "4.1.0-LIVE"
+
+[[project.metadata]]
+priority = 5
