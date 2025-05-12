@@ -1,6 +1,13 @@
 basepath = "data/Localization"
 
-locales = ["english", "french_(france)"]
+locales = [
+  "english",
+  "french_(france)",
+  "german_(germany)",
+  "italian_(italy)",
+  "portuguese_(brazil)",
+  "spanish_(spain)",
+]
 
 [env]
 l = "{l10n_base}/{locale}"
@@ -8,36 +15,6 @@ l = "{l10n_base}/{locale}"
 [[paths]]
 reference = "english/*.ini"
 l10n = "{l}/*.ini"
-
-# [[paths]]
-# reference = "english/global.ini"
-# l10n = "german_(germany)/global.ini"
-# locales = ["en"]
-
-# [[paths]]
-# reference = "english/global.ini"
-# l10n = "french_(france)/global.ini"
-# locales = ["fr"]
-
-# [[paths]]
-# reference = "english/global.ini"
-# l10n = "german_(germany)/global.ini"
-# locales = ["de"]
-
-# [[paths]]
-# reference = "english/global.ini"
-# l10n = "italian_(italy)/global.ini"
-# locales = ["it"]
-
-# [[paths]]
-# reference = "english/global.ini"
-# l10n = "portuguese_(brazil)/global.ini"
-# locales = ["pt-BR"]
-
-# [[paths]]
-# reference = "english/global.ini"
-# l10n = "spanish_(spain)/global.ini"
-# locales = ["es-ES"]
 
 [[excludes]]
 path = "tools"
