@@ -1,6 +1,6 @@
 basepath = "data/Localization"
 
-locales = ["fr", "de", "it", "pt-BR", "es-ES"]
+locales = ["english", "french_(france)"]
 
 [env]
 l = "{l10n_base}/{locale}"
