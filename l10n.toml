@@ -2,17 +2,22 @@ basepath = "data/Localization"
 
 locales = ["fr", "de", "it", "pt-BR", "es-ES"]
 
-[map_locales]
-fr = "french_(france)"
-de = "german_(germany)"
-it = "italian_(italy)"
-pt-BR = "portuguese_(brazil)"
-es-ES = "spanish_(spain)"
+[env]
+l = "{l10n_base}/{locale}"
 
 [[paths]]
-reference = "{basepath}/english/*.ini"
-l10n = "{basepath}/{locale_map}/*.ini"
+reference = "english/*.ini"
+l10n = "{l}/*.ini"
 
-[[project]]
-[[project.metadata]]
-priority = 5
+[[paths]]
+reference = "english/global.ini"
+l10n = "french_(france)/global.ini"
+locales = ["fr"]
+
+# [[project]]
+# name = "StarCitizen Localization"
+# description = "Localization files for Star Citizen"
+# version = "4.1.0-LIVE"
+
+# [[project.metadata]]
+# priority = 5
