@@ -2,9 +2,16 @@ basepath = "data/Localization"
 
 locales = ["fr", "de", "it", "pt-BR", "es-ES"]
 
+[map_locales]
+fr = "french_(france)"
+de = "german_(germany)"
+it = "italian_(italy)"
+pt-BR = "portuguese_(brazil)"
+es-ES = "spanish_(spain)"
+
 [[paths]]
-reference = "{basepath}/en/*.ini"
-l10n = "{basepath}/{locale}/*.ini"
+reference = "{basepath}/english/*.ini"
+l10n = "{basepath}/{locale_map}/*.ini"
 
 [[project]]
 [[project.metadata]]
