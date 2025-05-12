@@ -1,6 +1,6 @@
 basepath = "data/Localization"
 
-locales = ["fr-FR", "de-DE", "it-IT", "pt-BR", "es-ES"]
+locales = ["fr", "de", "it", "pt-BR", "es-ES"]
 
 [[paths]]
 reference = "english/*.ini"
@@ -8,4 +8,4 @@ l10n = "{locale}/*.ini"
 
 # Map locales to their directory names
 [env]
-locale_ = { "fr-FR" = "french_(france)", "de-DE" = "german_(germany)", "it-IT" = "italian_(italy)", "pt-BR" = "portuguese_(brazil)", "es-ES" = "spanish_(spain)" }
+locale_ = { "fr" = "french_(france)", "de" = "german_(germany)", "it" = "italian_(italy)", "pt-BR" = "portuguese_(brazil)", "es-ES" = "spanish_(spain)" }
