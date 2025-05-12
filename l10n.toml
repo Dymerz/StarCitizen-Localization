@@ -2,10 +2,10 @@ basepath = "data/Localization"
 
 locales = ["fr", "de", "it", "pt-BR", "es-ES"]
 
-[env]
-locale_path = { fr = "french_(france)", de = "german_(germany)", it = "italian_(italy)", "pt-BR" = "portuguese_(brazil)" }
-
-"es-ES" = "spanish_(spain)"
 [[paths]]
-reference = "english/*.ini"
-l10n = "{locale_path}/*.ini"
+reference = "en/*.ini"
+l10n = "{locale}/*.ini"
+
+[[project]]
+[[project.metadata]]
+priority = 5
