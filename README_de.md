@@ -4,11 +4,11 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Dymerz/StarCitizen-Localization/.github%2Fworkflows%2Fvalidate-global-ini.yaml?event=push&label=INI%20Validation&link=https%3A%2F%2Fgithub.com%2FDymerz%2FStarCitizen-Localization%2Factions%2Fworkflows%2Fvalidate-global-ini.yaml)
 
-- **Versionen:**
-  - [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_de.md)
-  - [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_de.md)
+**Versionen:**
+- [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_de.md)
+- [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_de.md)
 
-- **Sprachen:**
+**Sprachen:**
 - 🇬🇧 [Instructions in English.](README.md).
 - 🇫🇷 [Instruction en Français](README_fr.md).
 - 🇩🇪 [Anleitung auf Deutsch](README_de.md).
@@ -17,21 +17,21 @@
 - 🇧🇷 [Instrução em Português](README_ptbr.md).
 
 **Inhaltsverzeichnis:**
-  - [Unterstützte Sprachen](#unterstützte-sprachen)
-  - [Installationsanleitung](#installationsanleitung)
-  - [Aktualisieren der Lokalisierungsdateien](#aktualisieren-der-lokalisierungsdateien)
-  - [Beitragen](#beitragen)
-  - [Haftungsausschluss](#haftungsausschluss)
+- [Unterstützte Sprachen](#unterstützte-sprachen)
+- [Installationsanleitung](#installationsanleitung)
+- [Aktualisieren der Lokalisierungsdateien](#aktualisieren-der-lokalisierungsdateien)
+- [Beitragen](#beitragen)
+- [Haftungsausschluss](#haftungsausschluss)
 
 ---
 ## Unterstützte Sprachen
 
 | Sprache                 | Unterstützt | Quelle |
 |--------------------------|-------------|--------|
-| Englisch                | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Aus Spieldateien importiert |
+| Englisch                | ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Aus Spieldateien importiert |
 | Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) |
-| Deutsch - Deutschland   | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Hier |
-| Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Hier |
+| Deutsch - Deutschland   | ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Hier |
+| Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Hier |
 | Italienisch - Italien   | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spanisch - Spanien      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Hier |
 | Spanisch - Lateinamerika| ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Warten auf Beitrag |
