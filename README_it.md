@@ -29,9 +29,9 @@
 
 | Lingua                  | Supportato | Fonte |
 |--------------------------|------------|-------|
-| Inglese                 | ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Importato dai file di gioco |
+| Inglese                 | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Importato dai file di gioco |
 | Francese - Francia      | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Generato da [circuspes.fr](https://traduction.circuspes.fr) |
-| Tedesco - Germania      | ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Qui |
+| Tedesco - Germania      | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Qui |
 | Portoghese - Brasile    | ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Qui |
 | Italiano - Italia       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spagnolo - Spagna       | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Qui |
