@@ -83,7 +83,7 @@ powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercont
 
 > **Opción Alternativa:** Usa el script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd):
 > - Asegúrate de que exista una carpeta `data` en tu directorio del juego (ej. `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`).
-> - Coloca **install_localization.cmd*- en la carpeta `data` y haz doble clic para ejecutarlo.
+> - Coloca **install_localization.cmd** en la carpeta `data` y haz doble clic para ejecutarlo.
 
 ---
 
