@@ -1,7 +1,3 @@
-Aquí tienes la traducción al español:
-
----
-
 # StarCitizen-Localization 🌎
 
 [![Discord](https://img.shields.io/discord/1185135396112322620?logo=discord\&label=discord)](https://discord.gg/Gbvz9fTmZU)
@@ -47,7 +43,7 @@ Aquí tienes la traducción al español:
 | Chino (Tradicional)     | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
 | Japonés (Japón)         | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
 | Coreano (Corea del Sur) | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
-| Polaco (Polonia)        | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución    
+| Polaco (Polonia)        | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución
 
 ---
 
