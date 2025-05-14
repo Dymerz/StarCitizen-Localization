@@ -50,7 +50,7 @@ jobs:
         commit-message: Update French localization 🇫🇷
         base: ptu
         branch: feature/update-french-ptu
-        title: Update French localization 🇫🇷
+        title: (PTU) Update French localization 🇫🇷
         labels: french
         delete-branch: true
         assignees: Dymerz
