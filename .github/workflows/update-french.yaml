@@ -1,4 +1,4 @@
-name: Update French localization file
+name: Update French localization file (LIVE)
 on:
   workflow_dispatch:
   schedule:
