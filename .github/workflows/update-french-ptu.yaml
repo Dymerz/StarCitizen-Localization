@@ -18,6 +18,9 @@ jobs:
     - name: Checkout current repository
       uses: actions/checkout@v3
 
+    - name: "Checkout to 'ptu' branch"
+      run: git checkout ptu
+
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
@@ -48,7 +51,7 @@ jobs:
         commit-message: Update French localization 🇫🇷
         base: ptu
         branch: feature/update-french-ptu
-        title: Update French localization 🇫🇷
+        title: (PTU) Update French localization 🇫🇷
         labels: french
         delete-branch: true
         assignees: Dymerz
