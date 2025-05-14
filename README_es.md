@@ -47,7 +47,7 @@ Aquí tienes la traducción al español:
 | Chino (Tradicional)     | ![x.xx.x-LIVE](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
 | Japonés (Japón)         | ![x.xx.x-LIVE](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
 | Coreano (Corea del Sur) | ![x.xx.x-LIVE](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
-| Polaco (Polonia)        | ![x.xx.x-LIVE](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
+| Polaco (Polonia)        | ![x.xx.x-LIVE](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución    
 
 ---
 
