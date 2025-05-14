@@ -1,0 +1,55 @@
+name: Update French localization file (PTU)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 */4 * * *' # every 4 hours
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-french-ptu:
+    name: Update French localization file
+    if: github.repository == 'Dymerz/StarCitizen-Localization'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout current repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      uses: chill-viking/npm-ci@v1.2.0
+      with:
+        working_directory: tools/ini-utils
+
+    - name: Build ini-utils
+      working-directory: tools/ini-utils
+      run: npm run build
+
+    - name: Download global.ini from 'traduction.circuspes.fr' - Human translated
+      run: |
+        curl -o global.ini -L "https://traduction.circuspes.fr/download_ptu/global.ini"
+        mv global.ini "$GITHUB_WORKSPACE/data/Localization/french_(france)/global.ini"
+
+    - name: Validate "traduction.circuspes.fr" file
+      run: node ./tools/ini-utils/dist/src/index.js validate "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "$GITHUB_WORKSPACE/data/Localization/french_(france)/global.ini"
+
+    - name: Create Pull Request
+      if: github.ref == 'refs/heads/ptu'
+      uses: peter-evans/create-pull-request@v7
+      with:
+        add-paths: data/Localization/french_(france)/global.ini
+        commit-message: Update French localization 🇫🇷
+        base: ptu
+        branch: feature/update-french-ptu
+        title: Update French localization 🇫🇷
+        labels: french
+        delete-branch: true
+        assignees: Dymerz
+        draft: always-true
