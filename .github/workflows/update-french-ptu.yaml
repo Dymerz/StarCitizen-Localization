@@ -17,6 +17,8 @@ jobs:
     steps:
     - name: Checkout current repository
       uses: actions/checkout@v3
+      with:
+        ref: ptu
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
