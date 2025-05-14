@@ -17,8 +17,9 @@ jobs:
     steps:
     - name: Checkout current repository
       uses: actions/checkout@v3
-      with:
-        ref: ptu
+
+    - name: "Checkout to 'ptu' branch"
+      run: git checkout ptu
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
