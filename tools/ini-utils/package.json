@@ -27,9 +27,11 @@
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
+    "@types/mock-fs": "^4.13.4",
     "@types/sinon": "^17.0.3",
     "codecov": "^3.8.3",
     "mocha": "^10.8.2",
+    "mock-fs": "^5.5.0",
     "nyc": "^17.1.0",
     "sinon": "^19.0.2",
     "ts-mocha": "^10.0.0"
