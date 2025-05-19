@@ -5,10 +5,12 @@ on:
   pull_request:
     paths:
       - 'tools/ini-utils/**'
+      - '.github/workflows/ini-utils-ci.yaml'
   push:
     branches: [main]
     paths:
       - 'tools/ini-utils/**'
+      - '.github/workflows/ini-utils-ci.yaml'
 
 jobs:
   build:
