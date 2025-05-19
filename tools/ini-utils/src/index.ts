@@ -1,15 +1,13 @@
 #!/usr/bin/env node
 import { program } from 'commander';
+import { version } from '../package.json';
 import { MergeCommand } from './commands/merge.command';
 import { ValidateCommand } from './commands/validate.command';
-
-// Read package.json for version
-const packageJson = require('../package.json');
 
 program
   .name('ini-utils')
   .description('A utility for working with Star Citizen INI localization files')
-  .version(packageJson.version);
+  .version(version);
 
 program
   .command('merge <referenceFilePath> <sourceFilePath> <replacementFilePath> <outputFilePath>')
