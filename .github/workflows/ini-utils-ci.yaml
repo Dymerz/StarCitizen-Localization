@@ -90,7 +90,7 @@ jobs:
         retention-days: 7
 
   publish:
-    name: Publish to GitHub Packages
+    name: Publish to npmjs
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -98,13 +98,6 @@ jobs:
     steps:
     - name: Checkout current repository
       uses: actions/checkout@v4
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 22
-        registry-url: 'https://npm.pkg.github.com'
-        scope: '@dymerz'
 
     - name: Download updated package.json
       uses: actions/download-artifact@v4
@@ -118,12 +111,18 @@ jobs:
         name: ini-utils-package
         path: ./
 
-    - name: Publish to GitHub Packages
+    - name: Set up Node.js for npmjs
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Publish to npmjs
       run: |
-        echo "Publishing version ${{ needs.build.outputs.new_version }}"
+        echo "Publishing version ${{ needs.build.outputs.new_version }} to npmjs"
         npm publish *.tgz
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - name: Create Pull Request for version bump
       uses: peter-evans/create-pull-request@v7
@@ -134,7 +133,7 @@ jobs:
         base: main
         title: "chore: bump ini-utils version to ${{ needs.build.outputs.new_version }}"
         body: |
-          This PR is automatically generated to update the version of ini-utils package after a successful publish to GitHub Packages.
+          This PR is automatically generated to update the version of ini-utils package after a successful publish to npmjs registry.
 
           Version: ${{ needs.build.outputs.new_version }}
 
