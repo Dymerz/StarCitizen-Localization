@@ -19,9 +19,7 @@
     "test": "nyc --reporter lcov --reporter text ts-mocha",
     "test:watch": "ts-mocha --watch",
     "coverage": "codecov",
-    "build": "tsc -p .",
-    "postinstall": "node ./bin/postinstall.js",
-    "prepare": "npm run build"
+    "build": "tsc -p ."
   },
   "author": "Dymerz",
   "license": "ISC",
