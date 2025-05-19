@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-// External modules
-import * as packageJson    from '../package.json';
+import { program } from 'commander';
+import { MergeCommand } from './commands/merge.command';
 import { ValidateCommand } from './commands/validate.command';
-import { MergeCommand }    from './commands/merge.command';
-import { program }         from 'commander';
 
+// Read package.json for version
+const packageJson = require('../package.json');
 
 program
   .name('ini-utils')
-  .description('A utils for working with ini files')
+  .description('A utility for working with Star Citizen INI localization files')
   .version(packageJson.version);
 
 program
