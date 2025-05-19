@@ -5,12 +5,10 @@ on:
   pull_request:
     paths:
       - 'tools/ini-utils/**'
-      - '.github/workflows/ini-utils-ci.yaml'
   push:
     branches: [main]
     paths:
       - 'tools/ini-utils/**'
-      - '.github/workflows/ini-utils-ci.yaml'
 
 jobs:
   build:
@@ -134,6 +132,8 @@ jobs:
         commit-message: "chore: bump ini-utils version to ${{ needs.build.outputs.new_version }}"
         branch: automated-version-bump-ini-utils
         delete-branch: true
+        draft: always-true
+        assignees: Dymerz
         base: main
         title: "chore: bump ini-utils version to ${{ needs.build.outputs.new_version }}"
         body: |
