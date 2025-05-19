@@ -13,7 +13,7 @@
 
     ```sh
     git clone https://github.com/Dymerz/StarCitizen-Localization.git
-    cd <repository-directory>/tools/ini-utils
+    cd tools/ini-utils
     ```
 
 2. **Install dependencies:**
@@ -41,7 +41,7 @@ npx @dymerz/starcitizen-ini-utils
 Or with a specific command:
 
 ```sh
-npx @dymerz/starcitizen-ini-utils validate <source> [files...]
+npx @dymerz/starcitizen-ini-utils validate <files...> [options]
 npx @dymerz/starcitizen-ini-utils merge <referenceFilePath> <sourceFilePath> <replacementFilePath> <outputFilePath>
 ```
 
@@ -56,7 +56,7 @@ npx github:Dymerz/StarCitizen-Localization/tools/ini-utils
 Or with a specific command:
 
 ```sh
-npx github:Dymerz/StarCitizen-Localization/tools/ini-utils validate <source> [files...]
+npx github:Dymerz/StarCitizen-Localization/tools/ini-utils validate <files...> [options]
 npx github:Dymerz/StarCitizen-Localization/tools/ini-utils merge <referenceFilePath> <sourceFilePath> <replacementFilePath> <outputFilePath>
 ```
 
@@ -68,27 +68,37 @@ You can add this tool as a dependency to your project:
 npm install @dymerz/starcitizen-ini-utils
 ```
 
-Then configure your `.npmrc` file to use GitHub Packages:
-
-```
-@dymerz:registry=https://npm.pkg.github.com
-```
-
 ### Validate INI Files
 
 To validate INI files, use the `validate` command. This command checks if all entries from a reference file are present in the source files and if the placeholders match.
 
   ```sh
-  npx @dymerz/starcitizen-ini-utils validate <source> [files...]
+  npx @dymerz/starcitizen-ini-utils validate <files...> [options]
   ```
 
-  - `<source>`: Path to the english INI file.
-  - `[files...]`: Paths to the INI files to validate.
+  - `<files...>`: Paths to the INI files to validate.
+  - `[options]`:
+    - `--reference-type <type>`: Type of reference: "github" or "local" (default: "github")
+    - `--github-branch <branch>`: GitHub branch to use (default: "main")
+    - `--github-repository <repository>`: GitHub repository path (default: "Dymerz/StarCitizen-Localization")
+    - `--github-file-path <path>`: Path to file within repository (default: "english/global.ini")
+    - `--local-path <path>`: Path to local reference file (required when reference-type is "local")
+    - `--ci`: Run in CI mode
 
-Example:
+Examples:
 
   ```sh
-  npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/english/global.ini ../../data/Localization/french_(france)/global.ini
+  # Validate against main branch on GitHub (default)
+  npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/french_(france)/global.ini
+
+  # Validate against PTU branch
+  npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/french_(france)/global.ini --github-branch ptu
+
+  # Validate against local reference file
+  npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/french_(france)/global.ini --reference-type local --local-path ../../data/Localization/english/global.ini
+
+  # Validate against custom URL
+  npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/french_(france)/global.ini --reference-type url --url-path https://example.com/path/to/reference.ini
   ```
 
 ### Merge INI Files
