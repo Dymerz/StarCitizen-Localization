@@ -1,28 +1,44 @@
-name: Run INI Utils Tests
+name: INI Utils - Build and Publish
 
 on:
   workflow_dispatch:
   pull_request:
     paths:
       - 'tools/ini-utils/**'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/ini-utils/**'
 
 jobs:
-  test:
+  build:
+    name: Build and Test
     runs-on: ubuntu-latest
+    outputs:
+      new_version: ${{ steps.version_update.outputs.new_version }}
 
     steps:
     - name: Checkout current repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 22
+
+    - name: Cache node modules
+      uses: actions/cache@v4
+      with:
+        path: tools/ini-utils/node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('tools/ini-utils/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
 
     - name: Install dependencies
-      uses: chill-viking/npm-ci@v1.2.0
-      with:
-        working_directory: tools/ini-utils
+      working-directory: tools/ini-utils
+      run: npm ci
 
     - name: Build ini-utils
       working-directory: tools/ini-utils
@@ -31,3 +47,86 @@ jobs:
     - name: Run tests
       working-directory: tools/ini-utils
       run: npm run test
+
+    # Only update version on main branch
+    - name: Update version
+      id: version_update
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      working-directory: tools/ini-utils
+      run: |
+        CURRENT_VERSION=$(node -p "require('./package.json').version")
+        echo "Current version: $CURRENT_VERSION"
+        NEW_VERSION=$(npm version patch --no-git-tag-version)
+        echo "New version: $NEW_VERSION"
+        echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+
+    # Non-main branches or PRs just get the current version
+    - name: Get current version
+      id: current_version
+      if: github.event_name != 'push' || github.ref != 'refs/heads/main'
+      working-directory: tools/ini-utils
+      run: |
+        CURRENT_VERSION=$(node -p "require('./package.json').version")
+        echo "Current version: $CURRENT_VERSION"
+        echo "new_version=v$CURRENT_VERSION" >> $GITHUB_OUTPUT
+
+    - name: Create package tarball
+      working-directory: tools/ini-utils
+      run: npm pack
+
+    - name: Upload package artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ini-utils-package
+        path: tools/ini-utils/*.tgz
+        retention-days: 7
+
+  publish:
+    name: Publish to GitHub Packages
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout current repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@dymerz'
+
+    - name: Download package artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: ini-utils-package
+        path: ./
+
+    - name: Publish to GitHub Packages
+      run: |
+        echo "Publishing version ${{ needs.build.outputs.new_version }}"
+        npm publish *.tgz
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create Pull Request for version bump
+      uses: peter-evans/create-pull-request@v7
+      with:
+        commit-message: "chore: bump ini-utils version to ${{ needs.build.outputs.new_version }}"
+        branch: automated-version-bump-ini-utils
+        delete-branch: true
+        base: main
+        title: "chore: bump ini-utils version to ${{ needs.build.outputs.new_version }}"
+        body: |
+          This PR is automatically generated to update the version of ini-utils package after a successful publish to GitHub Packages.
+
+          Version: ${{ needs.build.outputs.new_version }}
+
+          This PR was created automatically by the GitHub Actions workflow.
+        labels: ini-utils
+        add-paths: |
+          tools/ini-utils/package.json

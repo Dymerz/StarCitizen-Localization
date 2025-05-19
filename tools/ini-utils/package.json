@@ -1,8 +1,15 @@
 {
-  "name": "ini-merger",
+  "name": "@dymerz/starcitizen-ini-utils",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
+  "description": "A utility tool for working with Star Citizen INI localization files",
+  "main": "dist/src/index.js",
+  "bin": {
+    "starcitizen-ini-utils": "./bin/cli.js"
+  },
+  "files": [
+    "dist/**/*",
+    "bin/**/*"
+  ],
   "scripts": {
     "start": "ts-node src/index.ts",
     "start:merge": "ts-node src/index.ts merge",
@@ -12,13 +19,18 @@
     "test": "nyc --reporter lcov --reporter text ts-mocha",
     "test:watch": "ts-mocha --watch",
     "coverage": "codecov",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "postinstall": "node ./bin/postinstall.js",
+    "prepare": "npm run build"
   },
-  "author": "",
+  "author": "Dymerz",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dymerz/StarCitizen-Localization.git"
+  },
   "dependencies": {
     "@types/ini": "^4.1.1",
-    "@types/node": "^22.13.0",
     "commander": "^13.1.0",
     "ini": "^5.0.0",
     "nodemon": "^3.1.9",
@@ -28,6 +40,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/mock-fs": "^4.13.4",
+    "@types/node": "^22.15.19",
     "@types/sinon": "^17.0.3",
     "codecov": "^3.8.3",
     "mocha": "^10.8.2",
@@ -35,5 +48,17 @@
     "nyc": "^17.1.0",
     "sinon": "^19.0.2",
     "ts-mocha": "^10.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "ini",
+    "localization",
+    "star-citizen"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
   }
 }
