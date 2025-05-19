@@ -37,12 +37,12 @@ program
   .command('validate')
   .argument('<files...>', 'Files to validate')
   .description('Check if all entries in files are present and valid in the source file')
-  .option('--ci', 'Run in CI mode', false)
   .option('--reference-type <type>', 'Type of reference: "github" or "local"', 'github')
   .option('--github-branch <branch>', 'GitHub branch to use as reference (main, ptu, etc.)', 'main')
   .option('--github-repository <repository>', 'GitHub repository path', 'Dymerz/StarCitizen-Localization')
   .option('--github-file-path <path>', 'Path to file within repository', 'data/Localization/english/global.ini')
   .option('--local-path <path>', 'Path to local reference file')
+  .option('--ci', 'Run in CI mode', false)
   .action(ValidateCommand.run);
 
 program.parse();
