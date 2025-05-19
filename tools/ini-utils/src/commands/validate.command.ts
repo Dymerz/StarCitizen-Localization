@@ -169,26 +169,26 @@ export class ValidateCommand
   /**
    * Fetches an Ini file from a GitHub repository.
    *
-   * @param repositoryUrl - The URL of the GitHub repository
+   * @param repository - The GitHub repository in the format 'owner/repo'
    * @param branch - The branch of the repository to fetch the file from
    * @param filePath - The path to the file within the repository
    * @returns A Promise resolving to an Ini object containing the file content
    */
-  private static async getFileFromRepository(repositoryUrl: string, branch: string, filePath: string): Promise<Ini>
+  private static async getFileFromRepository(repository: string, branch: string, filePath: string): Promise<Ini>
   {
-    console.log(`Loading reference file: ${filePath} from repository ${repositoryUrl} on branch ${branch}`);
-    const root = new URL(`https://raw.githubusercontent.com/${repositoryUrl}/${branch}/`);
-    const url = new URL(filePath, root);
+    console.log(`Loading reference file: ${filePath} from repository ${repository} on branch ${branch}`);
+    const repositoryBaseUrl = new URL(`https://raw.githubusercontent.com/${repository}/${branch}/`);
+    const resourceUrl = new URL(filePath, repositoryBaseUrl);
 
-    const response = await fetch(url.toString());
+    const response = await fetch(resourceUrl.toString());
     if (!response.ok)
     {
-      console.error(`Failed to fetch file from ${url.toString()}: ${response.statusText}`);
-      throw new Error(`Failed to fetch file from ${url.toString()}`);
+      console.error(`Failed to fetch file from ${resourceUrl.toString()}: ${response.statusText}`);
+      throw new Error(`Failed to fetch file from ${resourceUrl.toString()}`);
     }
     const content = await response.text();
     return {
-      path: url.toString(),
+      path: resourceUrl.toString(),
       content: IniHelper.parse(content)
     };
   }
