@@ -1,115 +1,147 @@
-# ini-utils
+# StarCitizen INI Utils
 
-`@dymerz/starcitizen-ini-utils` is a utility tool for working with Star Citizen INI localization files. It provides commands to merge and validate INI files.
+[![INI Utils - Build and Publish](https://github.com/Dymerz/StarCitizen-Localization/actions/workflows/ini-utils-ci.yaml/badge.svg)](https://github.com/Dymerz/StarCitizen-Localization/actions/workflows/ini-utils-ci.yaml)
+[![npm version](https://img.shields.io/npm/v/@dymerz/starcitizen-ini-utils.svg)](https://www.npmjs.com/package/@dymerz/starcitizen-ini-utils)
+[![Node.js Version](https://img.shields.io/node/v/@dymerz/starcitizen-ini-utils)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+## Overview
+
+`@dymerz/starcitizen-ini-utils` is a specialized utility tool designed for working with Star Citizen localization files in INI format. This tool offers commands to validate and merge INI files, making it easier to manage and maintain localization data.
+
+### Key Features
+
+- **Validation**: Check if all entries from a reference file exist in source files and verify placeholder consistency
+- **Merging**: Combine multiple INI files intelligently to create updated localization files
+- **Placeholder Validation**: Ensures that special placeholders (% and ~ format) match between reference and translated content
+- **CI/CD Integration**: Can be used in continuous integration workflows with the `--ci` flag
 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (version 18 or higher)
 - [npm](https://www.npmjs.com/)
 
-## Setup
+## Installation Options
 
-1. **Clone the repository:**
+### Option 1: Use directly with npx (No Installation Required)
 
-    ```sh
-    git clone https://github.com/Dymerz/StarCitizen-Localization.git
-    cd tools/ini-utils
-    ```
-
-2. **Install dependencies:**
-
-    ```sh
-    npm install
-    ```
-
-3. **Build the project:**
-
-    ```sh
-    npm run build
-    ```
-
-## Usage
-
-### Using with npx from GitHub Packages (Recommended)
-
-You can use this tool directly with npx from GitHub Packages:
+The easiest way to use this tool is directly with npx:
 
 ```sh
 npx @dymerz/starcitizen-ini-utils
 ```
 
-Or with a specific command:
+### Option 2: Install as a project dependency
+
+```sh
+npm install @dymerz/starcitizen-ini-utils --save-dev
+```
+
+### Option 3: Local development setup
+1. **Clone the repository:**
+
+  ```sh
+  git clone https://github.com/Dymerz/StarCitizen-Localization.git
+  cd tools/ini-utils
+  ```
+
+2. **Install dependencies:**
+
+  ```sh
+  npm install
+  ```
+
+3. **Build the project:**
+
+  ```sh
+  npm run build
+  ```
+
+4. **Run tests:**
+
+  ```sh
+  npm test
+  ```
+
+## Usage
+
+### Command: `validate`
+
+Verifies that all entries from a reference INI file are present in the source files and checks that the placeholders match properly.
 
 ```sh
 npx @dymerz/starcitizen-ini-utils validate <files...> [options]
+```
+
+#### Parameters:
+
+- `<files...>`: Paths to the INI files to validate
+
+#### Options:
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--reference-type <type>` | Type of reference: "github", "local", or "url" | "github" |
+| `--github-branch <branch>` | GitHub branch to use | "main" |
+| `--github-repository <repo>` | GitHub repository path | "Dymerz/StarCitizen-Localization" |
+| `--github-file-path <path>` | Path to file within repository | "data/Localization/english/global.ini" |
+| `--local-path <path>` | Path to local reference file | (required when reference-type is "local") |
+| `--ci` | Run in CI mode (outputs errors differently) | false |
+
+#### Examples:
+
+```sh
+# Validate against main branch on GitHub (default)
+npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/german_(germany)/global.ini
+
+# Validate against PTU branch
+npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/german_(germany)/global.ini --github-branch ptu
+
+# Validate against local reference file
+npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/german_(germany)/global.ini \
+  --reference-type local \
+  --local-path ../../data/Localization/english/global.ini
+
+### Command: `merge`
+
+Merges multiple INI files, taking values from files in order of priority, and saves the result to a new file.
+
+```sh
 npx @dymerz/starcitizen-ini-utils merge <referenceFilePath> <sourceFilePath> <replacementFilePath> <outputFilePath>
 ```
 
-### Using directly from GitHub repository
+#### Parameters:
 
-You can also use this tool directly with npx without cloning the repository:
+- `<referenceFilePath>`: Path to the reference INI file (provides the structure and fallback values)
+- `<sourceFilePath>`: Path to the source INI file (first priority for values)
+- `<replacementFilePath>`: Path to the replacement INI file (second priority for values)
+- `<outputFilePath>`: Path to save the merged INI file
 
-```sh
-npx github:Dymerz/StarCitizen-Localization/tools/ini-utils
-```
-
-Or with a specific command:
-
-```sh
-npx github:Dymerz/StarCitizen-Localization/tools/ini-utils validate <files...> [options]
-npx github:Dymerz/StarCitizen-Localization/tools/ini-utils merge <referenceFilePath> <sourceFilePath> <replacementFilePath> <outputFilePath>
-```
-
-### Installing as a dependency
-
-You can add this tool as a dependency to your project:
+#### Example:
 
 ```sh
-npm install @dymerz/starcitizen-ini-utils
+npx @dymerz/starcitizen-ini-utils merge \
+  ./english/global.ini \
+  ./french_old/global.ini \
+  ./french_updates/global.ini \
+  ./french_merged/global.ini
 ```
 
-### Validate INI Files
+## Technical Details
 
-To validate INI files, use the `validate` command. This command checks if all entries from a reference file are present in the source files and if the placeholders match.
+- Written in TypeScript with strong typing
+- Creates UTF-8 files with BOM (Byte Order Mark) for proper encoding
+- Handles special characters in INI files by properly escaping semicolons and hash symbols
+- Validates both percent placeholders (`%name`) and tilde placeholders (`~name(parameter)`)
+- Supports case-insensitive placeholder validation
 
-  ```sh
-  npx @dymerz/starcitizen-ini-utils validate <files...> [options]
-  ```
+## Contributing
 
-  - `<files...>`: Paths to the INI files to validate.
-  - `[options]`:
-    - `--reference-type <type>`: Type of reference: "github" or "local" (default: "github")
-    - `--github-branch <branch>`: GitHub branch to use (default: "main")
-    - `--github-repository <repository>`: GitHub repository path (default: "Dymerz/StarCitizen-Localization")
-    - `--github-file-path <path>`: Path to file within repository (default: "english/global.ini")
-    - `--local-path <path>`: Path to local reference file (required when reference-type is "local")
-    - `--ci`: Run in CI mode
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Examples:
+## License
 
-  ```sh
-  # Validate against main branch on GitHub (default)
-  npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/french_(france)/global.ini
+[ISC License](LICENSE)
 
-  # Validate against PTU branch
-  npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/french_(france)/global.ini --github-branch ptu
-
-  # Validate against local reference file
-  npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/french_(france)/global.ini --reference-type local --local-path ../../data/Localization/english/global.ini
-
-  # Validate against custom URL
-  npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/french_(france)/global.ini --reference-type url --url-path https://example.com/path/to/reference.ini
-  ```
-
-### Merge INI Files
-
-To merge INI files, use the `merge` command:
-
-  ```sh
-  npx @dymerz/starcitizen-ini-utils merge <referenceFilePath> <sourceFilePath> <replacementFilePath> <outputFilePath>
-  ```
-
-  - `<referenceFilePath>`: Path to the reference INI file.
-  - `<sourceFilePath>`: Path to the source INI file.
-  - `<replacementFilePath>`: Path to the replacement INI file.
-  - `<outputFilePath>`: Path to save the merged INI file.
+---
+Developed and maintained by [Dymerz](https://github.com/Dymerz)
