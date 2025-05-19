@@ -120,7 +120,7 @@ jobs:
     - name: Publish to npmjs
       run: |
         echo "Publishing version ${{ needs.build.outputs.new_version }} to npmjs"
-        npm publish *.tgz
+        npm publish --provenance --access public *.tgz
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
