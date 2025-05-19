@@ -1,6 +1,6 @@
 {
   "name": "@dymerz/starcitizen-ini-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A utility tool for working with Star Citizen INI localization files",
   "main": "dist/src/index.js",
   "bin": {
@@ -22,14 +22,14 @@
     "build": "tsc -p ."
   },
   "author": "Dymerz",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Dymerz/StarCitizen-Localization.git"
   },
   "dependencies": {
     "@types/ini": "^4.1.1",
-    "commander": "^13.1.0",
+    "commander": "^14.0.0",
     "ini": "^5.0.0",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.1",

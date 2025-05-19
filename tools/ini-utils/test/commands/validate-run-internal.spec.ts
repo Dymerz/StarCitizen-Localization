@@ -1,10 +1,8 @@
-// External modules
+import assert from 'assert';
+import sinon from 'sinon';
 import { ValidateCommand } from '../../src/commands/validate.command';
-import assert              from 'assert';
-
-// Helpers
-import { IniHelper }       from '../../src/shared/helpers/ini.helper';
-import { makeIniFromKey }  from '../utils';
+import { IniHelper } from '../../src/shared/helpers/ini.helper';
+import { makeIniFromKey } from '../utils';
 
 const validateIni = ValidateCommand['validateIni'];
 
@@ -13,7 +11,7 @@ describe('ValidateCommand.runInternal', () =>
   // Disable console.log
   beforeEach(() =>
   {
-    console.log = (_) => {};
+    console.log = (_) => { };
   });
 
   const reference = IniHelper.loadFile('./test/fixtures/reference.ini');
@@ -110,13 +108,13 @@ describe('ValidateCommand.runInternal', () =>
   });
 
   it('should validate value with double hash', () =>
-    {
-      const referenceData = makeIniFromKey(reference, 'good_double_hash');
-      const sourceData = makeIniFromKey(source, 'good_double_hash');
+  {
+    const referenceData = makeIniFromKey(reference, 'good_double_hash');
+    const sourceData = makeIniFromKey(source, 'good_double_hash');
 
-      const result = validateIni(referenceData, sourceData);
-      assert.ok(result, 'double hash in value should be escaped');
-    });
+    const result = validateIni(referenceData, sourceData);
+    assert.ok(result, 'double hash in value should be escaped');
+  });
 
   it('should validate value with hash escaped', () =>
   {
@@ -197,5 +195,107 @@ describe('ValidateCommand.runInternal', () =>
 
     const result = validateIni(referenceData, sourceData);
     assert.ok(!result, 'bad extra placeholder should not be valid');
+  });
+});
+
+describe('ValidateCommand internal methods', () =>
+{
+  let consoleLogStub: sinon.SinonStub;
+  let consoleErrorStub: sinon.SinonStub;
+
+  beforeEach(() =>
+  {
+    consoleLogStub = sinon.stub(console, 'log');
+    consoleErrorStub = sinon.stub(console, 'error');
+  });
+
+  afterEach(() =>
+  {
+    consoleLogStub.restore();
+    consoleErrorStub.restore();
+  });
+
+  describe('validateOptions', () =>
+  {
+    it('should validate GitHub options correctly', () =>
+    {
+      const options = {
+        referenceType: 'github' as const,
+        githubBranch: 'main',
+        githubRepository: 'user/repo',
+        githubFilePath: 'path/to/file.ini',
+        ci: false
+      };
+
+      const result = ValidateCommand['validateOptions'](options);
+
+      assert.deepStrictEqual(result, options);
+    });
+
+    it('should validate local options correctly', () =>
+    {
+      const options = {
+        referenceType: 'local' as const,
+        localPath: 'path/to/file.ini',
+        ci: false
+      };
+
+      const result = ValidateCommand['validateOptions'](options);
+
+      assert.deepStrictEqual(result, options);
+    });
+  });
+
+  describe('getFile', () =>
+  {
+    it('should get file from GitHub', async () =>
+    {
+      // Mock the fetch function
+      const originalFetch = global.fetch;
+      global.fetch = sinon.stub().resolves({
+        ok: true,
+        text: () => Promise.resolve('[section]\nkey1=value1')
+      } as Response);
+
+      try
+      {
+        const options = {
+          referenceType: 'github' as const,
+          githubBranch: 'main',
+          githubRepository: 'user/repo',
+          githubFilePath: 'path/to/file.ini',
+          ci: false
+        };
+
+        const result = await ValidateCommand['getFile'](options);
+
+        assert.ok(result);
+        assert.ok(result.content);
+      } finally
+      {
+        global.fetch = originalFetch;
+      }
+    });
+
+    it('should handle GitHub fetch error', async () =>
+    {
+      // Mock the fetch function to simulate an error
+      const originalFetch = global.fetch;
+      global.fetch = sinon.stub().rejects(new Error('Network error'));
+
+      const options = {
+        referenceType: 'github' as const,
+        githubBranch: 'main',
+        githubRepository: 'user/repo',
+        githubFilePath: 'path/to/file.ini',
+        ci: false
+      };
+
+      await assert.rejects(
+        async () => ValidateCommand['getFile'](options),
+        new Error('Network error')
+      );
+      global.fetch = originalFetch;
+    });
   });
 });

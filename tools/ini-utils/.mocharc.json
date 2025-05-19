@@ -1,7 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/mocharc",
-  "extension": ["ts"],
+  "extension": [
+    "ts"
+  ],
   "spec": "test/**/*.spec.ts",
   "recursive": true,
-  "timeout": 9999999
+  "timeout": 500
 }
