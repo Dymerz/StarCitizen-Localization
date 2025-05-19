@@ -70,6 +70,14 @@ jobs:
         echo "Current version: $CURRENT_VERSION"
         echo "new_version=v$CURRENT_VERSION" >> $GITHUB_OUTPUT
 
+    - name: Upload package.json
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: actions/upload-artifact@v4
+      with:
+        name: package-json
+        path: tools/ini-utils/package*.json
+        retention-days: 1
+
     - name: Create package tarball
       working-directory: tools/ini-utils
       run: npm pack
@@ -97,6 +105,12 @@ jobs:
         node-version: 22
         registry-url: 'https://npm.pkg.github.com'
         scope: '@dymerz'
+
+    - name: Download updated package.json
+      uses: actions/download-artifact@v4
+      with:
+        name: package-json
+        path: tools/ini-utils/
 
     - name: Download package artifact
       uses: actions/download-artifact@v4
