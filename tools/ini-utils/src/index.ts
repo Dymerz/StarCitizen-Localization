@@ -4,6 +4,25 @@ import { version } from '../package.json';
 import { MergeCommand } from './commands/merge.command';
 import { ValidateCommand } from './commands/validate.command';
 
+function parseSource(value: string, previous: string): string
+{
+  const validSources = ['remote', 'local'];
+
+  // If previous is defined, it should be one of the valid sources
+  if (previous && !validSources.includes(previous))
+    throw new Error(`Invalid source type: ${previous}. Expected "remote" or "local".`);
+
+  // If value is not provided, throw an error
+  if (!value)
+    throw new Error('Source type is required. Expected "remote" or "local".');
+
+  // If value is provided, it should be one of the valid sources
+  if (!validSources.includes(value))
+    throw new Error(`Invalid source type: ${value}. Expected "remote" or "local".`);
+  return value;
+}
+
+
 program
   .name('ini-utils')
   .description('A utility for working with Star Citizen INI localization files')
@@ -15,9 +34,14 @@ program
   .action(MergeCommand.run);
 
 program
-  .command('validate <source> [files...]')
-  .option('--ci', 'Run in CI mode')
-  .description('Check if all entries from reference file are present in other files')
+  .command('validate')
+  .argument('<files...>', 'Files to validate')
+  .description('Check if all entries in files are present and valid in the source file')
+  .option('--ci', 'Run in CI mode', false)
+  .option('--source <source>', 'Source type for reference file: "remote" or "local"', parseSource, 'remote')
+  .option('--remote-branch <branch>', 'Remote branch to use as reference (main, ptu, etc.)', 'main')
+  .option('--remote-repository <repository>', 'Remote repository path', 'Dymerz/StarCitizen-Localization')
+  .option('--local-reference <path>', 'Path to local reference file when using local source')
   .action(ValidateCommand.run);
 
 program.parse();
