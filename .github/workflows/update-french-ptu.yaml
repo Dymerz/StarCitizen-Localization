@@ -22,14 +22,13 @@ jobs:
         fetch-depth: 1
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: 22
 
     - name: Install dependencies
-      uses: chill-viking/npm-ci@v1.2.0
-      with:
-        working_directory: tools/ini-utils
+      working-directory: tools/ini-utils
+      run: npm ci
 
     - name: Build ini-utils
       working-directory: tools/ini-utils
