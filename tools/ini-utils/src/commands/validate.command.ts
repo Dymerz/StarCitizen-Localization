@@ -2,41 +2,45 @@ import { IniHelper } from '../shared/helpers/ini.helper';
 import { IniEntry } from '../shared/libs/ini-entry';
 import { Ini } from '../shared/types/ini.type';
 
-export type ValidateCommandOptions = {
+export type ValidateCommandOptionsLocal = {
   /** Indicates whether the command is running in CI environment. */
-  ci: boolean;
+  // ci: boolean;
 
-  /** The source type for the reference file, either 'remote' or 'local'. */
-  source: 'remote' | 'local';
+  /** The source type for the reference file, either 'github' or 'local'. */
+  referenceType: 'local';
 
-  /** The branch of the remote repository to use as reference. */
-  remoteBranch: string;
-
-  /** The remote repository path, used when source is 'remote'. */
-  remoteRepository: string;
-
-  /** The path to the local reference file, used when source is 'local'. */
-  localReference?: string;
-} & {
-  /** The source type for the reference file, either 'remote' or 'local'. */
-  source: 'local';
-
-  /** The path to the local reference file, used when source is 'local'. */
-  localReference: string;
+  /** The path to the local reference file, used when referenceType is 'local'. */
+  localPath: string;
 };
+
+export type ValidateCommandOptionsGithub = {
+  /** Indicates whether the command is running in CI environment. */
+  // ci: boolean;
+
+  /** The source type for the reference file, either 'github' or 'local'. */
+  referenceType: 'github';
+
+  /** The branch of the GitHub repository to use as reference. */
+  githubBranch: string;
+
+  /** The GitHub repository path, used when referenceType is 'github'. */
+  githubRepository: string;
+
+  /** The path to the file within the GitHub repository, used when referenceType is 'github'. */
+  githubFilePath: string;
+};
+
+export type ValidateCommandOptions = { ci: boolean; } & (ValidateCommandOptionsGithub | ValidateCommandOptionsLocal);
 
 export class ValidateCommand
 {
-  public static async run(files: string[], options: ValidateCommandOptions): Promise<void>
+  public static async run(files: string[], options: Partial<ValidateCommandOptions>): Promise<void>
   {
-
     // Validate options
-    ValidateCommand.validateOptions(options);
+    const validatedOptions = ValidateCommand.validateOptions(options);
 
     // Load files
-
-    console.log(`Loading reference file...`);
-    const referenceData = await ValidateCommand.getFile(options);
+    const referenceData = await ValidateCommand.getFile(validatedOptions);
 
     console.log(`Files to validate: ${files.length}`);
     console.log('Validating INI files...');
@@ -76,12 +80,32 @@ export class ValidateCommand
    * @param options - The options provided to the command.
    * @throws {Error} If the options are invalid.
    */
-  private static validateOptions(options: ValidateCommandOptions): void
+  private static validateOptions(options: Partial<ValidateCommandOptions>): ValidateCommandOptions
   {
-    if (options.source === 'local' && !options.localReference)
+    if (options.ci === undefined)
     {
-      throw new Error('Local reference file path is required when using local source');
+      options.ci = false; // Default to false if not provided
     }
+
+    if (options.referenceType === 'local')
+    {
+      if (!options.localPath)
+        throw new Error('Local reference file path is required when using local source');
+    }
+
+    else if (options.referenceType === 'github')
+    {
+      if (!options.githubRepository)
+        throw new Error('GitHub repository path is required when using GitHub source');
+
+      if (!options.githubBranch)
+        throw new Error('GitHub branch is required when using GitHub source');
+
+      if (!options.githubFilePath)
+        throw new Error('GitHub file path is required when using GitHub source');
+    }
+
+    return options as ValidateCommandOptions;
   }
 
   private static validateIni(referenceData: Ini, fileData: Ini): boolean
@@ -116,16 +140,16 @@ export class ValidateCommand
    */
   private static async getFile(options: ValidateCommandOptions): Promise<Ini>
   {
-    if (options.source === 'local')
+    if (options.referenceType === 'local')
     {
-      return ValidateCommand.getFileFromPath(options.localReference);
+      return ValidateCommand.getFileFromPath(options.localPath);
     }
     else
     {
       return await ValidateCommand.getFileFromRepository(
-        options.remoteRepository,
-        options.remoteBranch,
-        'data/Localization/french_(france)/global.ini'
+        options.githubRepository,
+        options.githubBranch,
+        options.githubFilePath
       );
     }
   }
@@ -143,9 +167,9 @@ export class ValidateCommand
   }
 
   /**
-   * Fetches an Ini file from a remote repository.
+   * Fetches an Ini file from a GitHub repository.
    *
-   * @param repositoryUrl - The URL of the remote repository
+   * @param repositoryUrl - The URL of the GitHub repository
    * @param branch - The branch of the repository to fetch the file from
    * @param filePath - The path to the file within the repository
    * @returns A Promise resolving to an Ini object containing the file content

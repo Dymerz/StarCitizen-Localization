@@ -6,19 +6,19 @@ import { ValidateCommand } from './commands/validate.command';
 
 function parseSource(value: string, previous: string): string
 {
-  const validSources = ['remote', 'local'];
+  const validSources = ['github', 'local'];
 
   // If previous is defined, it should be one of the valid sources
   if (previous && !validSources.includes(previous))
-    throw new Error(`Invalid source type: ${previous}. Expected "remote" or "local".`);
+    throw new Error(`Invalid source type: ${previous}. Expected "github" or "local".`);
 
   // If value is not provided, throw an error
   if (!value)
-    throw new Error('Source type is required. Expected "remote" or "local".');
+    throw new Error('Source type is required. Expected "github" or "local".');
 
   // If value is provided, it should be one of the valid sources
   if (!validSources.includes(value))
-    throw new Error(`Invalid source type: ${value}. Expected "remote" or "local".`);
+    throw new Error(`Invalid source type: ${value}. Expected "github" or "local".`);
   return value;
 }
 
@@ -38,10 +38,11 @@ program
   .argument('<files...>', 'Files to validate')
   .description('Check if all entries in files are present and valid in the source file')
   .option('--ci', 'Run in CI mode', false)
-  .option('--source <source>', 'Source type for reference file: "remote" or "local"', parseSource, 'remote')
-  .option('--remote-branch <branch>', 'Remote branch to use as reference (main, ptu, etc.)', 'main')
-  .option('--remote-repository <repository>', 'Remote repository path', 'Dymerz/StarCitizen-Localization')
-  .option('--local-reference <path>', 'Path to local reference file when using local source')
+  .option('--reference-type <type>', 'Type of reference: "github" or "local"', 'github')
+  .option('--github-branch <branch>', 'GitHub branch to use as reference (main, ptu, etc.)', 'main')
+  .option('--github-repository <repository>', 'GitHub repository path', 'Dymerz/StarCitizen-Localization')
+  .option('--github-file-path <path>', 'Path to file within repository', 'data/Localization/english/global.ini')
+  .option('--local-path <path>', 'Path to local reference file')
   .action(ValidateCommand.run);
 
 program.parse();
