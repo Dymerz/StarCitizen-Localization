@@ -1,6 +1,7 @@
 import { strict as assert } from 'assert';
 import { afterEach, beforeEach, describe, it } from 'mocha';
 import * as sinon from 'sinon';
+import { IniEntry } from '../../../src/shared/libs/ini-entry';
 import { CIOutputStrategy } from '../../../src/shared/strategies/ci-output-strategy';
 import { StandardOutputStrategy } from '../../../src/shared/strategies/standard-output-strategy';
 
@@ -94,6 +95,32 @@ describe('Output Strategies', () =>
 
       assert.ok(consoleLogStub.calledWith('::endgroup::'));
       assert.ok(consoleLogStub.calledWith('::error::Validation failed with 7 errors in 2 files'));
+    });
+
+    it('should log begin file validation', () =>
+    {
+      strategy.beginFileValidation('test.ini');
+
+      assert.ok(consoleLogStub.calledWith('Validating: test.ini'));
+    });
+
+    it('should report invalid entries with error annotations', () =>
+    {
+      const entry = new IniEntry('test_key', 'reference value', 'source value');
+      entry['addError']('key-missing', 'Error 1');
+      entry['addError']('key-missing', 'Error 2');
+
+      strategy.reportInvalidEntry(entry);
+
+      assert.ok(consoleLogStub.calledWith('::error title=test_key::Error 1'));
+      assert.ok(consoleLogStub.calledWith('::error title=test_key::Error 2'));
+    });
+
+    it('should log reference file loading', () =>
+    {
+      strategy.logReferenceFileLoading('test/reference.ini');
+
+      assert.ok(consoleLogStub.calledWith('Loading reference file: test/reference.ini'));
     });
   });
 });

@@ -48,7 +48,7 @@ describe('ValidateCommand.run', () =>
     assert.ok(consoleLogStub.calledWith('File "file1.ini" is invalid 🔥'), 'Expected invalid file log message not found');
   });
 
-  it('should exit with code 1 in CI mode when files are invalid', async () =>
+  it('should exit with code 1 in failOnExit mode when files are invalid', async () =>
   {
     loadFileStub.onFirstCall().returns({ content: { key1: 'valid placeholder ~name(parameter)' } });
     loadFileStub.onSecondCall().returns({ content: { key1: 'missing placeholder' } });
@@ -56,7 +56,8 @@ describe('ValidateCommand.run', () =>
     const processExitStub = sinon.stub(process, 'exit');
 
     await ValidateCommand.run(['file1.ini'], {
-      ci: true,
+      ci: false,
+      failOnError: true,
       referenceType: 'local',
       localPath: 'reference.ini'
     });

@@ -81,12 +81,13 @@ npx @dymerz/starcitizen-ini-utils validate <files...> [options]
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `--reference-type <type>` | Type of reference: "github", "local", or "url" | "github" |
-| `--github-branch <branch>` | GitHub branch to use | "main" |
+| `--reference-type <type>` | Type of reference: "github" or "local" | "github" |
+| `--github-branch <branch>` | GitHub branch to use as reference (main, ptu, etc.) | "main" |
 | `--github-repository <repo>` | GitHub repository path | "Dymerz/StarCitizen-Localization" |
 | `--github-file-path <path>` | Path to file within repository | "data/Localization/english/global.ini" |
 | `--local-path <path>` | Path to local reference file | (required when reference-type is "local") |
-| `--ci` | Run in CI mode with GitHub Actions annotations and exit code | false |
+| `--ci` | Run in CI mode with machine-readable output format and GitHub Actions annotations | false |
+| `--fail-on-error` | Exit with code 1 when validation errors are found | false |
 
 #### CI Mode Features
 
@@ -113,9 +114,14 @@ npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/german_(germa
 
 # Run in CI mode with GitHub Actions annotations
 npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/**/global.ini \
-  --reference-type local --local-path ../../data/Localization/english/global.ini --ci
   --reference-type local \
-  --local-path ../../data/Localization/english/global.ini
+  --local-path ../../data/Localization/english/global.ini \
+  --ci
+
+# Run validation and exit with error code if validation fails
+npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/french_(france)/global.ini \
+  --fail-on-error
+```
 
 ### Command: `merge`
 
@@ -156,7 +162,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-[ISC License](LICENSE)
+[MIT License](LICENSE)
 
 ---
 Developed and maintained by [Dymerz](https://github.com/Dymerz)
