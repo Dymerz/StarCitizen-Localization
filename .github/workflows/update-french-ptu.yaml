@@ -32,7 +32,7 @@ jobs:
         mv global.ini "$GITHUB_WORKSPACE/data/Localization/french_(france)/global.ini"
 
     - name: Validate "traduction.circuspes.fr" file
-      run: npx @dymerz/starcitizen-ini-utils validate --reference-type local --local-path '.\data\Localization\english\global.ini' "$GITHUB_WORKSPACE/data/Localization/french_(france)/global.ini"
+      run: npx @dymerz/starcitizen-ini-utils validate --reference-type local --local-path "$GITHUB_WORKSPACE/data/Localization/english/global.ini" "$GITHUB_WORKSPACE/data/Localization/french_(france)/global.ini"
 
     - name: Create Pull Request
       if: github.ref == 'refs/heads/ptu'
