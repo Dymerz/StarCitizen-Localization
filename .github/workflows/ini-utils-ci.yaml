@@ -145,3 +145,4 @@ jobs:
         labels: ini-utils
         add-paths: |
           tools/ini-utils/package.json
+          tools/ini-utils/package-lock.json
