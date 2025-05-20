@@ -131,7 +131,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_percent_placeholder1');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'misspelled percent placeholder should not be valid');
+    assert.ok(!result.success, 'misspelled percent placeholder should not be valid');
+    assert.equal(result.errorCount, 1, 'misspelled percent placeholder should not be valid');
   });
 
   it('should not validate missing percent placeholder', () =>
@@ -140,7 +141,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_percent_placeholder2');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'missing percent placeholder should not be valid');
+    assert.ok(!result.success, 'missing percent placeholder should not be valid');
+    assert.equal(result.errorCount, 2, 'missing percent placeholder should not be valid');
   });
 
   it('should not validate bad percent placeholder', () =>
@@ -149,7 +151,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_percent_placeholder2');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'bad percent placeholder should not be valid');
+    assert.ok(!result.success, 'bad percent placeholder should not be valid');
+    assert.equal(result.errorCount, 2, 'bad percent placeholder should not be valid');
   });
 
   it('should not validate bad multiple placeholders', () =>
@@ -158,7 +161,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_multiple_placeholder');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'bad multiple placeholders should not be valid');
+    assert.ok(!result.success, 'bad multiple placeholders should not be valid');
+    assert.equal(result.errorCount, 2, 'bad multiple placeholders should not be valid');
   });
 
   it('should not validate bad pipe placeholder', () =>
@@ -167,7 +171,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_pipe_placeholder');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'bad pipe placeholder should not be valid');
+    assert.ok(!result.success, 'bad pipe placeholder should not be valid');
+    assert.equal(result.errorCount, 1, 'bad pipe placeholder should not be valid');
   });
 
   it('should not validate bad closing placeholder', () =>
@@ -176,7 +181,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_closing_placeholder');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'bad closing placeholder should not be valid');
+    assert.ok(!result.success, 'bad closing placeholder should not be valid');
+    assert.equal(result.errorCount, 1, 'bad closing placeholder should not be valid');
   });
 
   it('should not validate bad key', () =>
@@ -185,7 +191,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'mauvaise_cle');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'bad key should not be valid');
+    assert.ok(!result.success, 'bad key should not be valid');
+    assert.equal(result.errorCount, 1, 'bad key should not be valid');
   });
 
   it('should not validate bad extra placeholder', () =>
@@ -194,7 +201,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_extra_placeholder');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'bad extra placeholder should not be valid');
+    assert.ok(!result.success, 'bad extra placeholder should not be valid');
+    assert.equal(result.errorCount, 1, 'bad extra placeholder should not be valid');
   });
 });
 

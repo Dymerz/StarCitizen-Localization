@@ -42,7 +42,7 @@ program
   .option('--github-repository <repository>', 'GitHub repository path', 'Dymerz/StarCitizen-Localization')
   .option('--github-file-path <path>', 'Path to file within repository', 'data/Localization/english/global.ini')
   .option('--local-path <path>', 'Path to local reference file')
-  .option('--ci', 'Run in CI mode', false)
+  .option('--ci', 'Run in CI mode with machine-readable output format and GitHub Actions annotations. Returns exit code 1 on validation failure.', false)
   .action(ValidateCommand.run);
 
 program.parse();
