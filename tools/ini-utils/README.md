@@ -86,7 +86,17 @@ npx @dymerz/starcitizen-ini-utils validate <files...> [options]
 | `--github-repository <repo>` | GitHub repository path | "Dymerz/StarCitizen-Localization" |
 | `--github-file-path <path>` | Path to file within repository | "data/Localization/english/global.ini" |
 | `--local-path <path>` | Path to local reference file | (required when reference-type is "local") |
-| `--ci` | Run in CI mode (outputs errors differently) | false |
+| `--ci` | Run in CI mode with GitHub Actions annotations and exit code | false |
+
+#### CI Mode Features
+
+When running with the `--ci` flag:
+
+- Uses machine-readable output format optimized for CI environments
+- Generates GitHub Actions compatible annotations (`::error::` and `::notice::`)
+- Groups output for better readability in GitHub Actions logs
+- Returns non-zero exit code (1) when validation fails
+- Provides concise error summaries at the end of execution
 
 #### Examples:
 
@@ -99,6 +109,11 @@ npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/german_(germa
 
 # Validate against local reference file
 npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/german_(germany)/global.ini \
+  --reference-type local --local-path ../../data/Localization/english/global.ini
+
+# Run in CI mode with GitHub Actions annotations
+npx @dymerz/starcitizen-ini-utils validate ../../data/Localization/**/global.ini \
+  --reference-type local --local-path ../../data/Localization/english/global.ini --ci
   --reference-type local \
   --local-path ../../data/Localization/english/global.ini
 

@@ -1,5 +1,6 @@
 import { IniHelper } from '../shared/helpers/ini.helper';
 import { IniEntry } from '../shared/libs/ini-entry';
+import { OutputStrategy, OutputStrategyFactory } from '../shared/strategies';
 import { Ini } from '../shared/types/ini.type';
 
 export type ValidateCommandOptionsLocal = {
@@ -39,38 +40,45 @@ export class ValidateCommand
     // Validate options
     const validatedOptions = ValidateCommand.validateOptions(options);
 
-    // Load files
-    const referenceData = await ValidateCommand.getFile(validatedOptions);
+    // Create the appropriate output strategy
+    const outputStrategy = OutputStrategyFactory.createStrategy(validatedOptions.ci);
 
-    console.log(`Files to validate: ${files.length}`);
-    console.log('Validating INI files...');
+    // Load files
+    const referenceData = await ValidateCommand.getFile(validatedOptions, outputStrategy);
+
+    // Initialize validation
+    outputStrategy.initValidation(files.length);
+
     let success = true;
+    let totalErrors = 0;
+    let filesWithErrors = 0;
+
     for (const file of files)
     {
       const sourceData = IniHelper.loadFile(file);
 
-      // Validate all files
-      console.log();
-      console.log('==================================================');
-      console.log(`File "${file}"...`);
-      console.log('==================================================');
-      if (!ValidateCommand.validateIni(referenceData, sourceData))
+      // Begin validation for this file
+      outputStrategy.beginFileValidation(file);
+
+      // Validate file
+      const fileResults = ValidateCommand.validateIni(referenceData, sourceData, outputStrategy);
+
+      if (!fileResults.success)
       {
         success = false;
-        console.log();
-        console.log(`File "${file}" is invalid 🔥`);
-      }
-      else
-      {
-        console.log();
-        console.log(`File "${file}" is valid ✅`);
+        filesWithErrors++;
+        totalErrors += fileResults.errorCount;
       }
 
-      console.log('==================================================');
+      // Report file validation result
+      outputStrategy.reportFileResult(file, fileResults.success, fileResults.errorCount);
     }
 
-    // Return error code if CI is enabled
-    if (options.ci && !success)
+    // Finish validation and report summary
+    outputStrategy.finishValidation(success, files.length, filesWithErrors, totalErrors);
+
+    // Return error code if validation failed and CI is enabled
+    if (validatedOptions.ci && !success)
       process.exit(1);
   }
 
@@ -108,9 +116,10 @@ export class ValidateCommand
     return options as ValidateCommandOptions;
   }
 
-  private static validateIni(referenceData: Ini, fileData: Ini): boolean
+  private static validateIni(referenceData: Ini, fileData: Ini, outputStrategy?: OutputStrategy): { success: boolean, errorCount: number; }
   {
     let success = true;
+    let errorCount = 0;
 
     const entries = Object.entries(referenceData.content)
       .map(([key, value]) => new IniEntry(key, value, fileData.content[key]));
@@ -120,36 +129,37 @@ export class ValidateCommand
       entry.validate();
       if (!entry.isValid())
       {
-        console.log(`❌ "${entry.key}" is invalid:`);
-        for (const error of entry.errors)
-          console.log(`  - ${error.message}`);
+        // Report invalid entry using strategy
+        outputStrategy?.reportInvalidEntry(entry);
 
-        console.log();
         success = false;
+        errorCount += entry.errors.length;
       }
     }
 
-    return success;
+    return { success, errorCount };
   }
 
   /**
    * Retrieves an Ini file based on the provided options.
    *
    * @param options - Command options specifying the source and reference details
+   * @param outputStrategy - The output strategy to use for logging
    * @returns A Promise resolving to an Ini object representing the file content
    */
-  private static async getFile(options: ValidateCommandOptions): Promise<Ini>
+  private static async getFile(options: ValidateCommandOptions, outputStrategy?: OutputStrategy): Promise<Ini>
   {
     if (options.referenceType === 'local')
     {
-      return ValidateCommand.getFileFromPath(options.localPath);
+      return ValidateCommand.getFileFromPath(options.localPath, outputStrategy);
     }
     else
     {
       return await ValidateCommand.getFileFromRepository(
         options.githubRepository,
         options.githubBranch,
-        options.githubFilePath
+        options.githubFilePath,
+        outputStrategy
       );
     }
   }
@@ -158,11 +168,12 @@ export class ValidateCommand
    * Loads an Ini file from a local path.
    *
    * @param filePath - The path to the local Ini file
+   * @param outputStrategy - The output strategy to use for logging
    * @returns An Ini object containing the file content
    */
-  private static getFileFromPath(filePath: string): Ini
+  private static getFileFromPath(filePath: string, outputStrategy?: OutputStrategy): Ini
   {
-    console.log(`Loading reference file: ${filePath}`);
+    outputStrategy?.logReferenceFileLoading(filePath);
     return IniHelper.loadFile(filePath);
   }
 
@@ -172,11 +183,14 @@ export class ValidateCommand
    * @param repository - The GitHub repository in the format 'owner/repo'
    * @param branch - The branch of the repository to fetch the file from
    * @param filePath - The path to the file within the repository
+   * @param outputStrategy - The output strategy to use for logging
    * @returns A Promise resolving to an Ini object containing the file content
    */
-  private static async getFileFromRepository(repository: string, branch: string, filePath: string): Promise<Ini>
+  private static async getFileFromRepository(repository: string, branch: string, filePath: string, outputStrategy?: OutputStrategy): Promise<Ini>
   {
-    console.log(`Loading reference file: ${filePath} from repository ${repository} on branch ${branch}`);
+    const source = `${filePath} from repository ${repository} on branch ${branch}`;
+    outputStrategy?.logReferenceFileLoading(source);
+
     const repositoryBaseUrl = new URL(`https://raw.githubusercontent.com/${repository}/${branch}/`);
     const resourceUrl = new URL(filePath, repositoryBaseUrl);
 
