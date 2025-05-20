@@ -104,13 +104,6 @@ jobs:
       run: |
         echo "::notice ::Version ${{ needs.build.outputs.new_version }} already exists on npm, skipping publish and PR creation"
 
-    - name: Download updated package.json
-      if: steps.version_check.outputs.version_exists != 'true'
-      uses: actions/download-artifact@v4
-      with:
-        name: package-json
-        path: tools/ini-utils/
-
     - name: Download package artifact
       if: steps.version_check.outputs.version_exists != 'true'
       uses: actions/download-artifact@v4
