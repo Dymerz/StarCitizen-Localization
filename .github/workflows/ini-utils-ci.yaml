@@ -20,6 +20,8 @@ jobs:
     steps:
     - name: Checkout current repository
       uses: actions/checkout@v4
+      with:
+        sparse-checkout: tools/ini-utils
 
     - name: Set up Node.js
       uses: actions/setup-node@v4
@@ -46,36 +48,6 @@ jobs:
       working-directory: tools/ini-utils
       run: npm run test
 
-    # Only update version on main branch
-    - name: Update version
-      id: version_update
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      working-directory: tools/ini-utils
-      run: |
-        CURRENT_VERSION=$(node -p "require('./package.json').version")
-        echo "Current version: $CURRENT_VERSION"
-        NEW_VERSION=$(npm version patch --no-git-tag-version)
-        echo "New version: $NEW_VERSION"
-        echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
-
-    # Non-main branches or PRs just get the current version
-    - name: Get current version
-      id: current_version
-      if: github.event_name != 'push' || github.ref != 'refs/heads/main'
-      working-directory: tools/ini-utils
-      run: |
-        CURRENT_VERSION=$(node -p "require('./package.json').version")
-        echo "Current version: $CURRENT_VERSION"
-        echo "new_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
-
-    - name: Upload package.json
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: actions/upload-artifact@v4
-      with:
-        name: package-json
-        path: tools/ini-utils/package*.json
-        retention-days: 1
-
     - name: Create package tarball
       working-directory: tools/ini-utils
       run: npm pack
@@ -93,25 +65,13 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      pull-requests: write
       id-token: write
 
     steps:
     - name: Checkout current repository
       uses: actions/checkout@v4
-
-    - name: Download updated package.json
-      uses: actions/download-artifact@v4
       with:
-        name: package-json
-        path: tools/ini-utils/
-
-    - name: Download package artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: ini-utils-package
-        path: ./
+        sparse-checkout: tools/ini-utils
 
     - name: Set up Node.js for npmjs
       uses: actions/setup-node@v4
@@ -121,13 +81,14 @@ jobs:
 
     - name: Check if version exists on npm
       id: version_check
+      working-directory: tools/ini-utils
       run: |
         PACKAGE_NAME="@dymerz/starcitizen-ini-utils"
-        CURRENT_VERSION="${{ needs.build.outputs.new_version }}"
+        CURRENT_VERSION=$(node -p "require('./package.json').version")
 
         echo "Checking if version $CURRENT_VERSION already exists on npm for package $PACKAGE_NAME"
 
-        PUBLISHED_VERSION=$(npm show $PACKAGE_NAME version 2>/dev/null || echo "not_found")
+        PUBLISHED_VERSION=$(npm show ${PACKAGE_NAME}@${CURRENT_VERSION} version 2>/dev/null || echo "not_found")
         echo "Published version on npm: $PUBLISHED_VERSION"
 
         if [ "$PUBLISHED_VERSION" == "$CURRENT_VERSION" ]; then
@@ -143,6 +104,20 @@ jobs:
       run: |
         echo "::notice ::Version ${{ needs.build.outputs.new_version }} already exists on npm, skipping publish and PR creation"
 
+    - name: Download updated package.json
+      if: steps.version_check.outputs.version_exists != 'true'
+      uses: actions/download-artifact@v4
+      with:
+        name: package-json
+        path: tools/ini-utils/
+
+    - name: Download package artifact
+      if: steps.version_check.outputs.version_exists != 'true'
+      uses: actions/download-artifact@v4
+      with:
+        name: ini-utils-package
+        path: ./
+
     - name: Publish to npmjs
       if: steps.version_check.outputs.version_exists != 'true'
       run: |
@@ -150,25 +125,3 @@ jobs:
         npm publish --provenance --access public *.tgz
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-    - name: Create Pull Request for version bump
-      if: steps.version_check.outputs.version_exists != 'true'
-      uses: peter-evans/create-pull-request@v7
-      with:
-        commit-message: "chore: bump ini-utils version to ${{ needs.build.outputs.new_version }}"
-        branch: automated-version-bump-ini-utils
-        delete-branch: true
-        draft: always-true
-        assignees: Dymerz
-        base: main
-        title: "chore: bump ini-utils version to ${{ needs.build.outputs.new_version }}"
-        body: |
-          This PR is automatically generated to update the version of ini-utils package after a successful publish to npmjs registry.
-
-          Version: ${{ needs.build.outputs.new_version }}
-
-          This PR was created automatically by the GitHub Actions workflow.
-        labels: ini-utils
-        add-paths: |
-          tools/ini-utils/package.json
-          tools/ini-utils/package-lock.json
