@@ -1,6 +1,6 @@
 import assert from 'assert';
 import sinon from 'sinon';
-import { ValidateCommand } from '../../src/commands/validate.command';
+import { ValidateCommand, ValidateCommandOptions } from '../../src/commands/validate.command';
 import { IniHelper } from '../../src/shared/helpers/ini.helper';
 import { makeIniFromKey } from '../utils';
 
@@ -267,12 +267,13 @@ describe('ValidateCommand internal methods', () =>
 
       try
       {
-        const options = {
+        const options: ValidateCommandOptions = {
           referenceType: 'github' as const,
           githubBranch: 'main',
           githubRepository: 'user/repo',
           githubFilePath: 'path/to/file.ini',
-          ci: false
+          ci: false,
+          failOnError: false
         };
 
         const result = await ValidateCommand['getFile'](options);
@@ -291,12 +292,13 @@ describe('ValidateCommand internal methods', () =>
       const originalFetch = global.fetch;
       global.fetch = sinon.stub().rejects(new Error('Network error'));
 
-      const options = {
+      const options: ValidateCommandOptions = {
         referenceType: 'github' as const,
         githubBranch: 'main',
         githubRepository: 'user/repo',
         githubFilePath: 'path/to/file.ini',
-        ci: false
+        ci: false,
+        failOnError: false
       };
 
       await assert.rejects(
