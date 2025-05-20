@@ -31,7 +31,13 @@ export type ValidateCommandOptionsGithub = {
   githubFilePath: string;
 };
 
-export type ValidateCommandOptions = { ci: boolean; } & (ValidateCommandOptionsGithub | ValidateCommandOptionsLocal);
+export type ValidateCommandOptions = {
+  /** Indicates whether the command is running in CI environment. */
+  ci: boolean;
+
+  /** Determines if the command should exit with a non-zero code when validation errors are found. */
+  failOnError: boolean;
+} & (ValidateCommandOptionsGithub | ValidateCommandOptionsLocal);
 
 export class ValidateCommand
 {
@@ -77,9 +83,11 @@ export class ValidateCommand
     // Finish validation and report summary
     outputStrategy.finishValidation(success, files.length, filesWithErrors, totalErrors);
 
-    // Return error code if validation failed and CI is enabled
-    if (validatedOptions.ci && !success)
+    // Exit with non-zero code if validation failed and failOnError is true
+    if (!success && validatedOptions.failOnError)
+    {
       process.exit(1);
+    }
   }
 
   /**
@@ -92,7 +100,9 @@ export class ValidateCommand
   {
     if (options.ci === undefined)
     {
-      options.ci = false; // Default to false if not provided
+    if (options.failOnError === undefined)
+    {
+      options.failOnError = false; // Default to false if not provided
     }
 
     if (options.referenceType === 'local')
