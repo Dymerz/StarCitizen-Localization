@@ -78,7 +78,7 @@ describe('Output Strategies', () =>
 
       strategy.reportFileResult('test.ini', false, 3);
 
-      assert.ok(consoleLogStub.calledWith('::warning file=test.ini::Found 3 validation errors'));
+      assert.ok(consoleLogStub.calledWith('::error file=test.ini::Found 3 validation errors'));
     });
 
     it('should format summary with appropriate annotations', () =>
@@ -93,7 +93,7 @@ describe('Output Strategies', () =>
       strategy.finishValidation(false, 5, 2, 7);
 
       assert.ok(consoleLogStub.calledWith('::endgroup::'));
-      assert.ok(consoleLogStub.calledWith('::warning::Validation failed with 7 errors in 2 files'));
+      assert.ok(consoleLogStub.calledWith('::error::Validation failed with 7 errors in 2 files'));
     });
   });
 });

@@ -20,7 +20,7 @@ export class CIOutputStrategy implements OutputStrategy
   {
     for (const error of entry.errors)
     {
-      console.log(`::warning title=${entry.key}::${error.message}`);
+      console.log(`::error title=${entry.key}::${error.message}`);
     }
   }
 
@@ -28,7 +28,7 @@ export class CIOutputStrategy implements OutputStrategy
   {
     if (!success)
     {
-      console.log(`::warning file=${filePath}::Found ${errorCount} validation errors`);
+      console.log(`::error file=${filePath}::Found ${errorCount} validation errors`);
     }
   }
 
@@ -38,7 +38,7 @@ export class CIOutputStrategy implements OutputStrategy
 
     if (!success)
     {
-      console.log(`::warning::Validation failed with ${totalErrors} errors in ${filesWithErrors} files`);
+      console.log(`::error::Validation failed with ${totalErrors} errors in ${filesWithErrors} files`);
     } else
     {
       console.log(`::notice::All ${totalFiles} files passed validation successfully`);
