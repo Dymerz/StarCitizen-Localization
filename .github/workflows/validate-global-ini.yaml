@@ -95,16 +95,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 18
-
-    - name: Install dependencies
-      uses: chill-viking/npm-ci@v1.2.0
-      with:
-        working_directory: tools/ini-utils
-
-    - name: Build ini-utils
-      working-directory: tools/ini-utils
-      run: npm run build
+        node-version: 22
 
     - name: Validate key/value pairs
-      run: node ./tools/ini-utils/dist/src/index.js validate --ci "$GITHUB_WORKSPACE/data/Localization/english/global.ini" ${{ needs.prepare.outputs.changed-files }}
+      run: npx @dymerz/starcitizen-ini-utils validate --reference-type local --local-path '$GITHUB_WORKSPACE/data/Localization/english/global.ini' ${{ needs.prepare.outputs.changed-files }}
