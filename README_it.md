@@ -135,5 +135,9 @@ Per aggiornare i file di localizzazione, segui nuovamente la guida [Installazion
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---
+## Analisi
+![Alt](https://repobeats.axiom.co/api/embed/771a52550a3333c3934d1fb5a03fffa14119471a.svg "Repobeats analytics image")
+
+---
 ## Disclaimer
 This is an unofficial Star Citizen fansite, not affiliated with the Cloud Imperium group of companies. All content on this site not authored by its host or users are property of their respective owners. Star Citizen®, Roberts Space Industries® and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC
