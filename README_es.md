@@ -162,7 +162,9 @@ Para actualizar los archivos, sigue nuevamente la [Guía de Instalación](#insta
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---
+## Analítica
+![Alt](https://repobeats.axiom.co/api/embed/771a52550a3333c3934d1fb5a03fffa14119471a.svg "Repobeats analytics image")
 
+---
 ## Descargo de Responsabilidad
-
 Este es un sitio de fans no oficial de Star Citizen, sin afiliación con el grupo de compañías Cloud Imperium. Todo el contenido no creado por los administradores o usuarios es propiedad de sus respectivos dueños. Star Citizen®, Roberts Space Industries® y Cloud Imperium® son marcas registradas de Cloud Imperium Rights LLC.

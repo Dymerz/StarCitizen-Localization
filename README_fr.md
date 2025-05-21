@@ -135,5 +135,9 @@ Pour mettre à jour les fichiers de localisation, veuillez suivre à nouveau le 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---
+## Analytique
+![Alt](https://repobeats.axiom.co/api/embed/771a52550a3333c3934d1fb5a03fffa14119471a.svg "Repobeats analytics image")
+
+---
 ## Avis de non-responsabilité
 Il s'agit d'un site de fans non officiel de Star Citizen, sans affiliation avec le groupe de sociétés Cloud Imperium. Tout le contenu de ce site qui n'a pas été rédigé par son hôte ou ses utilisateurs est la propriété de leurs propriétaires respectifs. Star Citizen®, Roberts Space Industries® et Cloud Imperium® sont des marques déposées de Cloud Imperium Rights LLC.

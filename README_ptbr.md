@@ -134,5 +134,9 @@ Para atualizar os arquivos de localização, siga novamente o [Guia de Instalaç
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---
+## Estatísticas
+![Alt](https://repobeats.axiom.co/api/embed/771a52550a3333c3934d1fb5a03fffa14119471a.svg "Repobeats analytics image")
+
+---
 ## Disclaimer
 Este é um site não oficial de fãs de Star Citizen, não afiliado ao grupo de empresas Cloud Imperium. Todo o conteúdo deste site que não seja de autoria de seu anfitrião ou de seus usuários é de propriedade de seus respectivos donos. Star Citizen®, Roberts Space Industries® e Cloud Imperium® são marcas registradas da Cloud Imperium Rights LLC
