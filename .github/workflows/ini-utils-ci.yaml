@@ -1,28 +1,44 @@
-name: Run INI Utils Tests
+name: INI Utils - Build and Publish
 
 on:
   workflow_dispatch:
   pull_request:
     paths:
       - 'tools/ini-utils/**'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/ini-utils/**'
 
 jobs:
-  test:
+  build:
+    name: Build and Test
     runs-on: ubuntu-latest
+    outputs:
+      new_version: ${{ steps.version_update.outputs.new_version }}
 
     steps:
     - name: Checkout current repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+      with:
+        sparse-checkout: tools/ini-utils
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 22
+
+    - name: Cache node modules
+      uses: actions/cache@v4
+      with:
+        path: tools/ini-utils/node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('tools/ini-utils/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
 
     - name: Install dependencies
-      uses: chill-viking/npm-ci@v1.2.0
-      with:
-        working_directory: tools/ini-utils
+      working-directory: tools/ini-utils
+      run: npm ci
 
     - name: Build ini-utils
       working-directory: tools/ini-utils
@@ -31,3 +47,74 @@ jobs:
     - name: Run tests
       working-directory: tools/ini-utils
       run: npm run test
+
+    - name: Create package tarball
+      working-directory: tools/ini-utils
+      run: npm pack
+
+    - name: Upload package artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ini-utils-package
+        path: tools/ini-utils/*.tgz
+        retention-days: 7
+
+  publish:
+    name: Publish to npmjs
+    needs: build
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+
+    steps:
+    - name: Checkout current repository
+      uses: actions/checkout@v4
+      with:
+        sparse-checkout: tools/ini-utils
+
+    - name: Set up Node.js for npmjs
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Check if version exists on npm
+      id: version_check
+      working-directory: tools/ini-utils
+      run: |
+        PACKAGE_NAME="@dymerz/starcitizen-ini-utils"
+        CURRENT_VERSION=$(node -p "require('./package.json').version")
+
+        echo "Checking if version $CURRENT_VERSION already exists on npm for package $PACKAGE_NAME"
+
+        PUBLISHED_VERSION=$(npm show ${PACKAGE_NAME}@${CURRENT_VERSION} version 2>/dev/null || echo "not_found")
+        echo "Published version on npm: $PUBLISHED_VERSION"
+
+        if [ "$PUBLISHED_VERSION" == "$CURRENT_VERSION" ]; then
+          echo "Version $CURRENT_VERSION already exists on npm, skipping publish"
+          echo "version_exists=true" >> $GITHUB_OUTPUT
+        else
+          echo "Version $CURRENT_VERSION does not exist on npm, will publish"
+          echo "version_exists=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Skip message
+      if: steps.version_check.outputs.version_exists == 'true'
+      run: |
+        echo "::notice ::Version ${{ needs.build.outputs.new_version }} already exists on npm, skipping publish and PR creation"
+
+    - name: Download package artifact
+      if: steps.version_check.outputs.version_exists != 'true'
+      uses: actions/download-artifact@v4
+      with:
+        name: ini-utils-package
+        path: ./
+
+    - name: Publish to npmjs
+      if: steps.version_check.outputs.version_exists != 'true'
+      run: |
+        echo "Publishing version ${{ needs.build.outputs.new_version }} to npmjs"
+        npm publish --provenance --access public *.tgz
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,10 +1,9 @@
 // External modules
-import assert       from 'assert';
-import os           from 'os';
-
-// External modules
-import { Ini }       from '../../../src/shared/types/ini.type';
-import sinon         from 'sinon';
+import assert  from 'assert';
+import fs      from 'fs';
+import mockFs  from 'mock-fs';
+import os      from 'os';
+import { Ini } from '../../../src/shared/types/ini.type';
 
 // Helpers
 import { IniHelper } from '../../../src/shared/helpers/ini.helper';
@@ -12,16 +11,14 @@ import { IniHelper } from '../../../src/shared/helpers/ini.helper';
 
 describe('IniHelper.writeFile', () =>
 {
-  let writeFileSyncStub: sinon.SinonStub;
-
   beforeEach(() =>
   {
-    writeFileSyncStub = sinon.stub(IniHelper, 'writeFileSync').callsFake(() => { });
+    mockFs({});
   });
 
   afterEach(() =>
   {
-    writeFileSyncStub.restore();
+    mockFs.restore();
   });
 
   it('should write the INI file with UTF-8 BOM', () =>
@@ -34,11 +31,11 @@ describe('IniHelper.writeFile', () =>
 
     IniHelper.writeFile(sampleIni);
 
-    assert.ok((writeFileSyncStub).calledOnce, 'writeFileSync should be called once');
-    assert.ok(writeFileSyncStub.calledWith(
-      'test.ini',
-      '\ufeffkey=value' + eol,
-      { encoding: 'utf-8' }
-    ), 'writeFileSync should be called with correct arguments');
+    // Read the file that was written
+    const writtenContent = fs.readFileSync('test.ini', 'utf-8');
+
+    // Check that it contains the BOM and correct content
+    assert.strictEqual(writtenContent.charCodeAt(0), 0xFEFF, 'File should start with BOM');
+    assert.strictEqual(writtenContent.slice(1), `key=value${eol}`, 'File content should be correct');
   });
 });

@@ -1,10 +1,8 @@
-// External modules
-import { ValidateCommand } from '../../src/commands/validate.command';
-import assert              from 'assert';
-
-// Helpers
-import { IniHelper }       from '../../src/shared/helpers/ini.helper';
-import { makeIniFromKey }  from '../utils';
+import assert from 'assert';
+import sinon from 'sinon';
+import { ValidateCommand, ValidateCommandOptions } from '../../src/commands/validate.command';
+import { IniHelper } from '../../src/shared/helpers/ini.helper';
+import { makeIniFromKey } from '../utils';
 
 const validateIni = ValidateCommand['validateIni'];
 
@@ -13,7 +11,7 @@ describe('ValidateCommand.runInternal', () =>
   // Disable console.log
   beforeEach(() =>
   {
-    console.log = (_) => {};
+    console.log = (_) => { };
   });
 
   const reference = IniHelper.loadFile('./test/fixtures/reference.ini');
@@ -110,13 +108,13 @@ describe('ValidateCommand.runInternal', () =>
   });
 
   it('should validate value with double hash', () =>
-    {
-      const referenceData = makeIniFromKey(reference, 'good_double_hash');
-      const sourceData = makeIniFromKey(source, 'good_double_hash');
+  {
+    const referenceData = makeIniFromKey(reference, 'good_double_hash');
+    const sourceData = makeIniFromKey(source, 'good_double_hash');
 
-      const result = validateIni(referenceData, sourceData);
-      assert.ok(result, 'double hash in value should be escaped');
-    });
+    const result = validateIni(referenceData, sourceData);
+    assert.ok(result, 'double hash in value should be escaped');
+  });
 
   it('should validate value with hash escaped', () =>
   {
@@ -133,7 +131,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_percent_placeholder1');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'misspelled percent placeholder should not be valid');
+    assert.ok(!result.success, 'misspelled percent placeholder should not be valid');
+    assert.equal(result.errorCount, 1, 'misspelled percent placeholder should not be valid');
   });
 
   it('should not validate missing percent placeholder', () =>
@@ -142,7 +141,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_percent_placeholder2');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'missing percent placeholder should not be valid');
+    assert.ok(!result.success, 'missing percent placeholder should not be valid');
+    assert.equal(result.errorCount, 2, 'missing percent placeholder should not be valid');
   });
 
   it('should not validate bad percent placeholder', () =>
@@ -151,7 +151,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_percent_placeholder2');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'bad percent placeholder should not be valid');
+    assert.ok(!result.success, 'bad percent placeholder should not be valid');
+    assert.equal(result.errorCount, 2, 'bad percent placeholder should not be valid');
   });
 
   it('should not validate bad multiple placeholders', () =>
@@ -160,7 +161,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_multiple_placeholder');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'bad multiple placeholders should not be valid');
+    assert.ok(!result.success, 'bad multiple placeholders should not be valid');
+    assert.equal(result.errorCount, 2, 'bad multiple placeholders should not be valid');
   });
 
   it('should not validate bad pipe placeholder', () =>
@@ -169,7 +171,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_pipe_placeholder');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'bad pipe placeholder should not be valid');
+    assert.ok(!result.success, 'bad pipe placeholder should not be valid');
+    assert.equal(result.errorCount, 1, 'bad pipe placeholder should not be valid');
   });
 
   it('should not validate bad closing placeholder', () =>
@@ -178,7 +181,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_closing_placeholder');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'bad closing placeholder should not be valid');
+    assert.ok(!result.success, 'bad closing placeholder should not be valid');
+    assert.equal(result.errorCount, 1, 'bad closing placeholder should not be valid');
   });
 
   it('should not validate bad key', () =>
@@ -187,7 +191,8 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'mauvaise_cle');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'bad key should not be valid');
+    assert.ok(!result.success, 'bad key should not be valid');
+    assert.equal(result.errorCount, 1, 'bad key should not be valid');
   });
 
   it('should not validate bad extra placeholder', () =>
@@ -196,6 +201,111 @@ describe('ValidateCommand.runInternal', () =>
     const sourceData = makeIniFromKey(source, 'bad_extra_placeholder');
 
     const result = validateIni(referenceData, sourceData);
-    assert.ok(!result, 'bad extra placeholder should not be valid');
+    assert.ok(!result.success, 'bad extra placeholder should not be valid');
+    assert.equal(result.errorCount, 1, 'bad extra placeholder should not be valid');
+  });
+});
+
+describe('ValidateCommand internal methods', () =>
+{
+  let consoleLogStub: sinon.SinonStub;
+  let consoleErrorStub: sinon.SinonStub;
+
+  beforeEach(() =>
+  {
+    consoleLogStub = sinon.stub(console, 'log');
+    consoleErrorStub = sinon.stub(console, 'error');
+  });
+
+  afterEach(() =>
+  {
+    consoleLogStub.restore();
+    consoleErrorStub.restore();
+  });
+
+  describe('validateOptions', () =>
+  {
+    it('should validate GitHub options correctly', () =>
+    {
+      const options = {
+        referenceType: 'github' as const,
+        githubBranch: 'main',
+        githubRepository: 'user/repo',
+        githubFilePath: 'path/to/file.ini',
+        ci: false
+      };
+
+      const result = ValidateCommand['validateOptions'](options);
+
+      assert.deepStrictEqual(result, options);
+    });
+
+    it('should validate local options correctly', () =>
+    {
+      const options = {
+        referenceType: 'local' as const,
+        localPath: 'path/to/file.ini',
+        ci: false
+      };
+
+      const result = ValidateCommand['validateOptions'](options);
+
+      assert.deepStrictEqual(result, options);
+    });
+  });
+
+  describe('getFile', () =>
+  {
+    it('should get file from GitHub', async () =>
+    {
+      // Mock the fetch function
+      const originalFetch = global.fetch;
+      global.fetch = sinon.stub().resolves({
+        ok: true,
+        text: () => Promise.resolve('[section]\nkey1=value1')
+      } as Response);
+
+      try
+      {
+        const options: ValidateCommandOptions = {
+          referenceType: 'github' as const,
+          githubBranch: 'main',
+          githubRepository: 'user/repo',
+          githubFilePath: 'path/to/file.ini',
+          ci: false,
+          failOnError: false
+        };
+
+        const result = await ValidateCommand['getFile'](options);
+
+        assert.ok(result);
+        assert.ok(result.content);
+      } finally
+      {
+        global.fetch = originalFetch;
+      }
+    });
+
+    it('should handle GitHub fetch error', async () =>
+    {
+      // Mock the fetch function to simulate an error
+      const originalFetch = global.fetch;
+      global.fetch = sinon.stub().rejects(new Error('Network error'));
+
+      const options: ValidateCommandOptions = {
+        referenceType: 'github' as const,
+        githubBranch: 'main',
+        githubRepository: 'user/repo',
+        githubFilePath: 'path/to/file.ini',
+        ci: false,
+        failOnError: false
+      };
+
+      await assert.rejects(
+        async () => ValidateCommand['getFile'](options),
+        new Error('Network error')
+      );
+      global.fetch = originalFetch;
+    });
   });
 });

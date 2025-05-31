@@ -29,7 +29,7 @@
 | Idioma                  | Suportado | Fonte |
 |--------------------------|-----------|-------|
 | Inglês                  | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Importado dos arquivos do jogo |
-| Francês - França        | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Gerado de [circuspes.fr](https://traduction.circuspes.fr) |
+| Francês - França        | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Gerado de [circuspes.fr](https://traduction.circuspes.fr) |
 | Alemão - Alemanha       | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Aqui |
 | Português - Brasil      | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Aqui |
 | Italiano - Itália       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
@@ -132,6 +132,10 @@ Para atualizar os arquivos de localização, siga novamente o [Guia de Instalaç
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+---
+## Estatísticas
+![Alt](https://repobeats.axiom.co/api/embed/771a52550a3333c3934d1fb5a03fffa14119471a.svg "Repobeats analytics image")
 
 ---
 ## Disclaimer
