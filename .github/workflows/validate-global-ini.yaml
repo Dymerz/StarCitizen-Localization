@@ -26,7 +26,7 @@ jobs:
 
     steps:
     - name: Checkout current repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0  # Fetch all history for comparing changes
 
@@ -78,7 +78,7 @@ jobs:
     if: needs.prepare.outputs.changed-files-count > 0
     steps:
     - name: Checkout current repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Validate encoding
       run: bash tools/validate-encoding.bash ${{ needs.prepare.outputs.changed-files }}
@@ -90,21 +90,12 @@ jobs:
     if: needs.prepare.outputs.changed-files-count > 0
     steps:
     - name: Checkout current repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: 18
-
-    - name: Install dependencies
-      uses: chill-viking/npm-ci@v1.2.0
-      with:
-        working_directory: tools/ini-utils
-
-    - name: Build ini-utils
-      working-directory: tools/ini-utils
-      run: npm run build
+        node-version: 22
 
     - name: Validate key/value pairs
-      run: node ./tools/ini-utils/dist/src/index.js validate --ci "$GITHUB_WORKSPACE/data/Localization/english/global.ini" ${{ needs.prepare.outputs.changed-files }}
+      run: npx @dymerz/starcitizen-ini-utils validate --ci --fail-on-error --reference-type local --local-path "$GITHUB_WORKSPACE/data/Localization/english/global.ini" ${{ needs.prepare.outputs.changed-files }}

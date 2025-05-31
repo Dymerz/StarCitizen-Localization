@@ -29,9 +29,9 @@
 | Language                 | Supported | Source |
 |--------------------------|-----------|--------|
 | English                  | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Imported from game files |
-| French - France          | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Generated from [circuspes.fr](https://traduction.circuspes.fr) |
+| French - France          | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Generated from [circuspes.fr](https://traduction.circuspes.fr) |
 | German - Germany         | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Here |
-| Portuguese - Brazil      | ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Here |
+| Portuguese - Brazil      | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Here |
 | Italian - Italy          | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spanish - Spain          | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Here |
 | Spanish - Latin America  | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
@@ -148,6 +148,10 @@ To update the localization files, please follow the [Installation Guide](#instal
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+---
+## Analytics
+![Alt](https://repobeats.axiom.co/api/embed/771a52550a3333c3934d1fb5a03fffa14119471a.svg "Repobeats analytics image")
 
 ---
 ## Disclaimer

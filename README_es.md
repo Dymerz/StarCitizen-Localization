@@ -1,7 +1,3 @@
-Aquí tienes la traducción al español:
-
----
-
 # StarCitizen-Localization 🌎
 
 [![Discord](https://img.shields.io/discord/1185135396112322620?logo=discord\&label=discord)](https://discord.gg/Gbvz9fTmZU)
@@ -10,25 +6,25 @@ Aquí tienes la traducción al español:
 
 **Versiones:**
 
-* [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README.md)
-* [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README.md)
+- [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README.md)
+- [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README.md)
 
 **Idiomas:**
 
-* 🇬🇧 [Instrucciones en Inglés](README.md).
-* 🇫🇷 [Instructions en Français](README_fr.md).
-* 🇩🇪 [Anleitung auf Deutsch](README_de.md).
-* 🇪🇸 [Instrucciones en Español](README_es.md).
-* 🇮🇹 [Istruzioni in Italiano](README_it.md).
-* 🇧🇷 [Instruções em Português](README_ptbr.md).
+- 🇬🇧 [Instructions in English.](README.md).
+- 🇫🇷 [Instruction en Français](README_fr.md).
+- 🇩🇪 [Anleitung auf Deutsch](README_de.md).
+- 🇪🇸 [Instrucciones en Español](README_es.md).
+- 🇮🇹 [Istruzioni in Italiano](README_it.md).
+- 🇧🇷 [Instrução em Português](README_ptbr.md).
 
 **Tabla de Contenido:**
 
-* [Idiomas Soportados](#supported-languages)
-* [Guía de Instalación](#installation-guide)
-* [Actualización de Archivos de Localización](#contributing)
-* [Contribuir](#contributing)
-* [Descargo de Responsabilidad](#Disclaimer)
+- [Idiomas Soportados](#supported-languages)
+- [Guía de Instalación](#installation-guide)
+- [Actualización de Archivos de Localización](#contributing)
+- [Contribuir](#contributing)
+- [Descargo de Responsabilidad](#Disclaimer)
 
 ---
 
@@ -36,18 +32,18 @@ Aquí tienes la traducción al español:
 
 | Idioma                  | Soporte                                                            | Fuente                                                                                                                              |
 | ----------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Inglés                  | ![4.1.1-PTU](https://img.shields.io/badge/4.1.1-LIVE-brightgreen)   | Importado de archivos del juego                                                                                                     |
-| Francés (Francia)       | ![4.1.0-LIVE](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr)                                                                      |
-| Alemán (Alemania)       | ![4.1.1-PTU](https://img.shields.io/badge/4.1.1-LIVE-brightgreen)   | Aquí                                                                                                                                |
-| Portugués (Brasil)      | ![4.1.1-PTU](https://img.shields.io/badge/4.1.1-PTU-brightgreen)   | Aquí                                                                                                                                |
-| Italiano (Italia)       | ![3.24.1-LIVE](https://img.shields.io/badge/3.24.1-LIVE-yellow)    | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-| Español (España)        | ![3.23.1a-LIVE](https://img.shields.io/badge/3.23.1a-LIVE-orange)  | Aquí                                                                                                                                |
-| Español (Latinoamérica) | ![x.xx.x-LIVE](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
-| Chino (Simplificado)    | ![x.xx.x-LIVE](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
-| Chino (Tradicional)     | ![x.xx.x-LIVE](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
-| Japonés (Japón)         | ![x.xx.x-LIVE](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
-| Coreano (Corea del Sur) | ![x.xx.x-LIVE](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
-| Polaco (Polonia)        | ![x.xx.x-LIVE](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
+| Inglés                  | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen)   | Importado de archivos del juego                                                                                                     |
+| Francés (Francia)       | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr)                                                                      |
+| Alemán (Alemania)       | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen)   | Aquí                                                                                                                                |
+| Portugués (Brasil)      | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen)   | Aquí                                                                                                                                |
+| Italiano (Italia)       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow)    | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Español (España)        | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange)  | Aquí                                                                                                                                |
+| Español (Latinoamérica) | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
+| Chino (Simplificado)    | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
+| Chino (Tradicional)     | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
+| Japonés (Japón)         | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
+| Coreano (Corea del Sur) | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
+| Polaco (Polonia)        | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución
 
 ---
 
@@ -75,15 +71,15 @@ powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercont
 4. Inicia el juego y disfruta la traducción.
 
 > **Nota:** Si ves un error de política de ejecución:
-> * Abre la carpeta donde está el script **install_localization.ps1**, haz clic derecho en un espacio vacío y selecciona **Abrir en PowerShell**.
-> * Ejecuta el siguiente comando:
+> - Abre la carpeta donde está el script **install_localization.ps1**, haz clic derecho en un espacio vacío y selecciona **Abrir en PowerShell**.
+> - Ejecuta el siguiente comando:
 >   ```powershell
 >   PowerShell -ExecutionPolicy Bypass -File "./install_localization.ps1"
 >   ```
 
 > **Opción Alternativa:** Usa el script [install_localization.cmd](https://github.com/Dymerz/StarCitizen-Localization/releases/latest/download/install_localization.cmd):
-> * Asegúrate de que exista una carpeta `data` en tu directorio del juego (ej. `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`).
-> * Coloca **install_localization.cmd** en la carpeta `data` y haz doble clic para ejecutarlo.
+> - Asegúrate de que exista una carpeta `data` en tu directorio del juego (ej. `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\data\`).
+> - Coloca **install_localization.cmd** en la carpeta `data` y haz doble clic para ejecutarlo.
 
 ---
 
@@ -166,7 +162,9 @@ Para actualizar los archivos, sigue nuevamente la [Guía de Instalación](#insta
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---
+## Analítica
+![Alt](https://repobeats.axiom.co/api/embed/771a52550a3333c3934d1fb5a03fffa14119471a.svg "Repobeats analytics image")
 
+---
 ## Descargo de Responsabilidad
-
 Este es un sitio de fans no oficial de Star Citizen, sin afiliación con el grupo de compañías Cloud Imperium. Todo el contenido no creado por los administradores o usuarios es propiedad de sus respectivos dueños. Star Citizen®, Roberts Space Industries® y Cloud Imperium® son marcas registradas de Cloud Imperium Rights LLC.

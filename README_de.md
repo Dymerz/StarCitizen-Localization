@@ -29,9 +29,9 @@
 | Sprache                 | Unterstützt | Quelle |
 |--------------------------|-------------|--------|
 | Englisch                | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Aus Spieldateien importiert |
-| Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/4.1.0-LIVE-brightgreen) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) |
+| Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) |
 | Deutsch - Deutschland   | ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Hier |
-| Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.1.1-PTU-brightgreen) | Hier |
+| Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.1.1-LIVE-brightgreen) | Hier |
 | Italienisch - Italien   | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spanisch - Spanien      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Hier |
 | Spanisch - Lateinamerika| ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Warten auf Beitrag |
@@ -131,6 +131,10 @@ Um die Lokalisierungsdateien zu aktualisieren, folgen Sie bitte erneut der [Inst
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+---
+## Statistik
+![Alt](https://repobeats.axiom.co/api/embed/771a52550a3333c3934d1fb5a03fffa14119471a.svg "Repobeats analytics image")
 
 ---
 ## Haftungsausschluss

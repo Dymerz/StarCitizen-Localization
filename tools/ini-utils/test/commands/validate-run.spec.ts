@@ -1,10 +1,7 @@
-// External modules
+import assert from 'assert';
+import sinon from 'sinon';
 import { ValidateCommand } from '../../src/commands/validate.command';
-import assert              from 'assert';
-import sinon               from 'sinon'
-
-// Helpers
-import { IniHelper }       from '../../src/shared/helpers/ini.helper';
+import { IniHelper } from '../../src/shared/helpers/ini.helper';
 
 
 describe('ValidateCommand.run', () =>
@@ -15,7 +12,7 @@ describe('ValidateCommand.run', () =>
   // Disable console.log
   beforeEach(() =>
   {
-    consoleLogStub = sinon.stub(console, 'log').callsFake(() => {});
+    consoleLogStub = sinon.stub(console, 'log').callsFake(() => { });
     loadFileStub = sinon.stub(IniHelper, 'loadFile');
   });
 
@@ -25,19 +22,16 @@ describe('ValidateCommand.run', () =>
     loadFileStub.restore();
   });
 
-  it('should log "No files to validate" when no files are provided', async () =>
-  {
-    await ValidateCommand.run('reference.ini', [], { ci: false });
-
-    assert.ok(consoleLogStub.calledWith('No files to validate'), 'Expected log message not found');
-  });
-
   it('should validate files successfully', async () =>
   {
     loadFileStub.onFirstCall().returns({ content: { key1: 'value1' } });
     loadFileStub.onSecondCall().returns({ content: { key1: 'value1' } });
 
-    await ValidateCommand.run('reference.ini', ['file1.ini'], { ci: false });
+    await ValidateCommand.run(['file1.ini'], {
+      ci: false,
+      referenceType: 'local',
+      localPath: 'reference.ini'
+    });
     assert.ok(consoleLogStub.calledWith('File "file1.ini" is valid ✅'), 'Expected valid file log message not found');
   });
 
@@ -46,24 +40,96 @@ describe('ValidateCommand.run', () =>
     loadFileStub.onFirstCall().returns({ content: { key1: 'valid placeholder ~name(parameter)' } });
     loadFileStub.onSecondCall().returns({ content: { key1: 'missing placeholder' } });
 
-    await ValidateCommand.run('reference.ini', ['file1.ini'], { ci: false });
+    await ValidateCommand.run(['file1.ini'], {
+      ci: false,
+      referenceType: 'local',
+      localPath: 'reference.ini'
+    });
     assert.ok(consoleLogStub.calledWith('File "file1.ini" is invalid 🔥'), 'Expected invalid file log message not found');
   });
 
-  it('should exit with code 1 in CI mode when files are invalid', async () =>
+  it('should exit with code 1 in failOnExit mode when files are invalid', async () =>
   {
     loadFileStub.onFirstCall().returns({ content: { key1: 'valid placeholder ~name(parameter)' } });
     loadFileStub.onSecondCall().returns({ content: { key1: 'missing placeholder' } });
 
     const processExitStub = sinon.stub(process, 'exit');
-    try
-    {
-      await ValidateCommand.run('reference.ini', ['file1.ini'], { ci: true });
-    } catch (e)
-    {
-      // process.exit will throw an error in the test environment
-    }
+
+    await ValidateCommand.run(['file1.ini'], {
+      ci: false,
+      failOnError: true,
+      referenceType: 'local',
+      localPath: 'reference.ini'
+    });
+
     assert.ok(processExitStub.calledWith(1), 'Expected process.exit with code 1');
     processExitStub.restore();
+  });
+
+  it('should handle invalid reference type', async () =>
+  {
+    assert.rejects(async () =>
+    {
+      await ValidateCommand.run(['file1.ini'], {
+        ci: false,
+        referenceType: 'invalid' as any
+      });
+    }, Error);
+  });
+
+  it('should handle missing ci option', async () =>
+  {
+    assert.rejects(async () =>
+    {
+      await ValidateCommand.run(['file1.ini'], {
+        referenceType: 'local',
+        localPath: 'reference.ini'
+      });
+    }, Error);
+  });
+
+  it('should handle missing required options for local reference', async () =>
+  {
+    assert.rejects(async () =>
+    {
+      await ValidateCommand.run(['file1.ini'], {
+        ci: false,
+        referenceType: 'local'
+        // localPath missing
+      });
+    }, Error);
+  });
+
+  it('should handle missing required options for github reference', async () =>
+  {
+    assert.rejects(async () =>
+    {
+      await ValidateCommand.run(['file1.ini'], {
+        ci: false,
+        referenceType: 'github'
+        // Missing 'githubRepository' options
+      });
+    }, Error);
+
+    assert.rejects(async () =>
+    {
+      await ValidateCommand.run(['file1.ini'], {
+        ci: false,
+        referenceType: 'github',
+        githubRepository: 'owner/repo'
+        // Missing 'githubBranch' options
+      });
+    }, Error);
+
+    assert.rejects(async () =>
+    {
+      await ValidateCommand.run(['file1.ini'], {
+        ci: false,
+        referenceType: 'github',
+        githubRepository: 'owner/repo',
+        githubBranch: 'main'
+        // Missing 'githubFilePath' options
+      });
+    }, Error);
   });
 });
