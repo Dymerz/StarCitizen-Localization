@@ -18,9 +18,19 @@ export class CIOutputStrategy implements OutputStrategy
 
   reportInvalidEntry(entry: IniEntry, filePath: string): void
   {
+    if (entry.errors.length !== 0)
+    {
+      console.log(`::group::${entry.key} in ${filePath}`);
+    }
+
     for (const error of entry.errors)
     {
       console.log(`::error file=${filePath}::"${entry.key}" is invalid: ${error.message}`);
+    }
+
+    if (entry.errors.length !== 0)
+    {
+      console.log(`::endgroup::`);
     }
   }
 
