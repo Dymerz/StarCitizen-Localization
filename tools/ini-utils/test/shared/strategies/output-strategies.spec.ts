@@ -112,8 +112,8 @@ describe('Output Strategies', () =>
 
       strategy.reportInvalidEntry(entry, 'test.ini');
 
-      assert.ok(consoleLogStub.calledWith('::error title=test_key::Error 1'));
-      assert.ok(consoleLogStub.calledWith('::error title=test_key::Error 2'));
+      assert.ok(consoleLogStub.calledWith('::error file=test.ini::"test_key" is invalid: Error 1'));
+      assert.ok(consoleLogStub.calledWith('::error file=test.ini::"test_key" is invalid: Error 2'));
     });
 
     it('should log reference file loading', () =>
