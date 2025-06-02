@@ -21,7 +21,7 @@ export interface OutputStrategy
    * Report an invalid entry
    * @param entry The INI entry that failed validation
    */
-  reportInvalidEntry(entry: IniEntry): void;
+  reportInvalidEntry(entry: IniEntry, filePath: string): void;
 
   /**
    * Report validation result for a file

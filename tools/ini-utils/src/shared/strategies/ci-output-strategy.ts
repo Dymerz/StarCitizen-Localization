@@ -16,11 +16,11 @@ export class CIOutputStrategy implements OutputStrategy
     console.log(`Validating: ${filePath}`);
   }
 
-  reportInvalidEntry(entry: IniEntry): void
+  reportInvalidEntry(entry: IniEntry, filePath: string): void
   {
     for (const error of entry.errors)
     {
-      console.log(`::error title=${entry.key}::${error.message}`);
+      console.log(`::error file=${filePath}::"${entry.key}" is invalid: ${error.message}`);
     }
   }
 
