@@ -140,7 +140,7 @@ export class ValidateCommand
       if (!entry.isValid())
       {
         // Report invalid entry using strategy
-        outputStrategy?.reportInvalidEntry(entry);
+        outputStrategy?.reportInvalidEntry(entry, fileData.path);
 
         success = false;
         errorCount += entry.errors.length;
