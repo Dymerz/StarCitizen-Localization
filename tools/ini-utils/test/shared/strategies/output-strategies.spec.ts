@@ -110,7 +110,7 @@ describe('Output Strategies', () =>
       entry['addError']('key-missing', 'Error 1');
       entry['addError']('key-missing', 'Error 2');
 
-      strategy.reportInvalidEntry(entry);
+      strategy.reportInvalidEntry(entry, 'test.ini');
 
       assert.ok(consoleLogStub.calledWith('::error title=test_key::Error 1'));
       assert.ok(consoleLogStub.calledWith('::error title=test_key::Error 2'));
