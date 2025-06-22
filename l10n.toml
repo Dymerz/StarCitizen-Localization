@@ -1,7 +1,6 @@
 basepath = "data/Localization"
 
 locales = [
-  "english",
   "french_(france)",
   "german_(germany)",
   "italian_(italy)",
