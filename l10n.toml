@@ -12,7 +12,7 @@ locales = [
 l = "{l10n_base}/{locale}"
 
 [[paths]]
-reference = "english/*.ini"
+reference = "english/global.ini"
 l10n = "{l}/*.ini"
 
 [[excludes]]
