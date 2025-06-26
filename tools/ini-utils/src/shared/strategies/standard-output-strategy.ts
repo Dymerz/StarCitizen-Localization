@@ -19,7 +19,7 @@ export class StandardOutputStrategy implements OutputStrategy
     console.log(`File "${filePath}"...`);
   }
 
-  reportInvalidEntry(entry: IniEntry): void
+  reportInvalidEntry(entry: IniEntry, _filePath: string): void
   {
     console.log(`❌ "${entry.key}" is invalid:`);
     for (const error of entry.errors)

@@ -1,6 +1,6 @@
 {
   "name": "@dymerz/starcitizen-ini-utils",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A utility tool for working with Star Citizen INI localization files",
   "main": "dist/src/index.js",
   "bin": {
