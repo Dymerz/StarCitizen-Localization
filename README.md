@@ -31,7 +31,7 @@
 | English                  | ![Static Badge](https://img.shields.io/badge/4.2.1-PTU-brightgreen) | Imported from game files |
 | French - France          | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Generated from [circuspes.fr](https://traduction.circuspes.fr) |
 | German - Germany         | ![Static Badge](https://img.shields.io/badge/4.2.1-PTU-brightgreen) | Here |
-| Portuguese - Brazil      | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Here |
+| Portuguese - Brazil      | ![Static Badge](https://img.shields.io/badge/4.2.1-PTU-brightgreen) | Here |
 | Italian - Italy          | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spanish - Spain          | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Here |
 | Spanish - Latin America  | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
