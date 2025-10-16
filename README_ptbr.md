@@ -28,10 +28,10 @@
 
 | Idioma                  | Suportado | Fonte |
 |--------------------------|-----------|-------|
-| Inglês                  | ![Static Badge](https://img.shields.io/badge/4.3.1-LIVE-brightgreen) | Importado dos arquivos do jogo |
+| Inglês                  | ![Static Badge](https://img.shields.io/badge/4.3.2-LIVE-brightgreen) | Importado dos arquivos do jogo |
 | Francês - França        | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Gerado de [circuspes.fr](https://traduction.circuspes.fr) |
 | Alemão - Alemanha       | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Aqui |
-| Português - Brasil      | ![Static Badge](https://img.shields.io/badge/4.3.1-LIVE-brightgreen) | Aqui |
+| Português - Brasil      | ![Static Badge](https://img.shields.io/badge/4.3.2-LIVE-brightgreen) | Aqui |
 | Italiano - Itália       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Espanhol - Espanha      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Aqui |
 | Espanhol - América Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
