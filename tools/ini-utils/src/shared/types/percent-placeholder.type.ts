@@ -1,3 +1,3 @@
-export type PercentPlaceholder = {
+export type PercentPlaceholderType = {
   name: string;
 }

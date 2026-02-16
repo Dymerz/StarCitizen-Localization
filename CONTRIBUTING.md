@@ -12,3 +12,7 @@
 2. Create a new branch
 3. Make your changes
 4. Commit your changes
+
+## How to validate your language file
+
+see [ini-utils](tools/ini-utils/README.md) for more information.

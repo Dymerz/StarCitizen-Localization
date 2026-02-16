@@ -1,267 +1,219 @@
-// Interfaces
-import { Ini }                from '../shared/types/ini.type';
-import { PercentPlaceholder } from '../shared/types/percent-placeholder.type';
-import { TildPlaceholder }    from '../shared/types/tild-placeholder.type';
+import { IniHelper } from '../shared/helpers/ini.helper';
+import { IniEntry } from '../shared/libs/ini-entry';
+import { OutputStrategy, OutputStrategyFactory } from '../shared/strategies';
+import { Ini } from '../shared/types/ini.type';
 
-// Helpers
-import { IniHelper }          from '../shared/helpers/ini.helper';
-import { StringHelper }       from '../shared/helpers/string.helper';
+export type ValidateCommandOptionsLocal = {
+  /** The source type for the reference file, either 'github' or 'local'. */
+  referenceType: 'local';
 
+  /** The path to the local reference file, used when referenceType is 'local'. */
+  localPath: string;
+};
+
+export type ValidateCommandOptionsGithub = {
+  /** The source type for the reference file, either 'github' or 'local'. */
+  referenceType: 'github';
+
+  /** The branch of the GitHub repository to use as reference. */
+  githubBranch: string;
+
+  /** The GitHub repository path, used when referenceType is 'github'. */
+  githubRepository: string;
+
+  /** The path to the file within the GitHub repository, used when referenceType is 'github'. */
+  githubFilePath: string;
+};
+
+export type ValidateCommandOptions = {
+  /** Indicates whether the command is running in CI environment. */
+  ci: boolean;
+
+  /** Determines if the command should exit with a non-zero code when validation errors are found. */
+  failOnError: boolean;
+} & (ValidateCommandOptionsGithub | ValidateCommandOptionsLocal);
 
 export class ValidateCommand
 {
-	public static async run(source : string, files  : string[], options: { ci: boolean})
+  public static async run(files: string[], options: Partial<ValidateCommandOptions>): Promise<void>
   {
-    console.log('Validating INI files...');
+    // Validate options
+    const validatedOptions = ValidateCommand.validateOptions(options);
 
-		// Load files
-		const referenceData = IniHelper.loadFile(source);
-    console.log(`Reference file: ${referenceData.path}`);
+    // Create the appropriate output strategy
+    const outputStrategy = OutputStrategyFactory.createStrategy(validatedOptions.ci);
 
-    const iniFiles = files
-      .filter(file => IniHelper.exists(file))
-      .map(filePath => IniHelper.loadFile(filePath));
-    console.log(`Files to validate: ${iniFiles.length}`);
+    // Load files
+    const referenceData = await ValidateCommand.getFile(validatedOptions, outputStrategy);
 
-    if(files.length === 0)
-    {
-      console.log('No files to validate');
-      return;
-    }
+    // Initialize validation
+    outputStrategy.initValidation(files.length);
 
     let success = true;
+    let totalErrors = 0;
+    let filesWithErrors = 0;
 
-    // Validate all files
-    for (const file of iniFiles)
+    for (const file of files)
     {
-      console.log();
-      console.log('==================================================');
-      console.log(`File "${file.path}"...`);
-      console.log('==================================================');
-      const isValid = ValidateCommand.validateIni(referenceData, file);
-      if (!isValid)
+      const sourceData = IniHelper.loadFile(file);
+
+      // Begin validation for this file
+      outputStrategy.beginFileValidation(file);
+
+      // Validate file
+      const fileResults = ValidateCommand.validateIni(referenceData, sourceData, outputStrategy);
+
+      if (!fileResults.success)
       {
         success = false;
-        console.log();
-        console.log(`File "${file.path}" is invalid`);
+        filesWithErrors++;
+        totalErrors += fileResults.errorCount;
       }
 
-      console.log('==================================================');
+      // Report file validation result
+      outputStrategy.reportFileResult(file, fileResults.success, fileResults.errorCount);
     }
 
-    // Return error code if CI is enabled
-    if(options.ci && !success) process.exit(1);
-	}
+    // Finish validation and report summary
+    outputStrategy.finishValidation(success, files.length, filesWithErrors, totalErrors);
 
-  private static validateIni(referenceData: Ini, fileData: Ini): boolean
+    // Exit with non-zero code if validation failed and failOnError is true
+    if (!success && validatedOptions.failOnError)
+    {
+      process.exit(1);
+    }
+  }
+
+  /**
+   * Validates the options provided to the command.
+   * Throws an error if any required option is missing or invalid.
+   * @param options - The options provided to the command.
+   * @throws {Error} If the options are invalid.
+   */
+  private static validateOptions(options: Partial<ValidateCommandOptions>): ValidateCommandOptions
+  {
+    if (options.ci === undefined)
+    {
+      // Check if running in CI environment
+      const isCI = process.env.CI === 'true' || process.env.CI === '1' || undefined;
+
+      options.ci = isCI ?? false; // Default to false if not provided
+    }
+
+    if (options.failOnError === undefined)
+    {
+      options.failOnError = false; // Default to false if not provided
+    }
+
+    if (options.referenceType === 'local')
+    {
+      if (!options.localPath)
+        throw new Error('Local reference file path is required when using local source');
+    }
+
+    else if (options.referenceType === 'github')
+    {
+      if (!options.githubRepository)
+        throw new Error('GitHub repository path is required when using GitHub source');
+
+      if (!options.githubBranch)
+        throw new Error('GitHub branch is required when using GitHub source');
+
+      if (!options.githubFilePath)
+        throw new Error('GitHub file path is required when using GitHub source');
+    }
+
+    return options as ValidateCommandOptions;
+  }
+
+  private static validateIni(referenceData: Ini, fileData: Ini, outputStrategy?: OutputStrategy): { success: boolean, errorCount: number; }
   {
     let success = true;
+    let errorCount = 0;
 
-    // NOTE Check if all keys from reference are present in source
+    const entries = Object.entries(referenceData.content)
+      .map(([key, value]) => new IniEntry(key, value, fileData.content[key]));
+
+    for (const entry of entries)
     {
-      console.log('Validating keys...');
-
-      const result = ValidateCommand.checkMissingKeys(referenceData, fileData);
-      if (!result)
+      entry.validate();
+      if (!entry.isValid())
       {
-        console.log('  => 🔥 One or more keys are missing in source file');
+        // Report invalid entry using strategy
+        outputStrategy?.reportInvalidEntry(entry, fileData.path);
+
         success = false;
+        errorCount += entry.errors.length;
       }
-      else
-        console.log('  => ✅ All keys are present in the file');
     }
 
-    console.log();
-
-    // NOTE Check if all variable placeholders are present in source
-    {
-      console.log('Validating "~name(parameter)" placeholders...');
-
-      const result = ValidateCommand.validateTildPlaceholders(referenceData, fileData);
-      if (!result)
-      {
-        console.log('  => 🔥 One or more placeholders are missing in source file');
-        success = false;
-      }
-      else
-        console.log('  => ✅ All placeholders are present in source file');
-    }
-
-    console.log();
-
-    // NOTE Check if all variable placeholders are present in source
-    {
-      console.log('Validating "%name" placeholders...');
-
-      const result = ValidateCommand.validatePercentPlaceholders(referenceData, fileData);
-      if (!result)
-      {
-        console.log('  => 🔥 One or more placeholders are missing in source file');
-        success = false;
-      }
-      else
-        console.log('  => ✅ All placeholders are present in source file');
-    }
-
-    return success;
+    return { success, errorCount };
   }
 
   /**
-   * Check if all entries from reference are present in source
-   * @param referenceData
-   * @param sourceData
-   * @returns
+   * Retrieves an Ini file based on the provided options.
+   *
+   * @param options - Command options specifying the source and reference details
+   * @param outputStrategy - The output strategy to use for logging
+   * @returns A Promise resolving to an Ini object representing the file content
    */
-  private static checkMissingKeys(referenceData: Ini, sourceData: Ini): boolean
+  private static async getFile(options: ValidateCommandOptions, outputStrategy?: OutputStrategy): Promise<Ini>
   {
-    const referenceKeys = Object.keys(referenceData.content);
-    const sourceKeys    = Object.keys(sourceData.content);
-
-    // Check if all keys from reference are present in source
-    const missingKeys = referenceKeys.filter(key => !sourceKeys.includes(key));
-    if (missingKeys.length > 0)
+    if (options.referenceType === 'local')
     {
-      for (const key of missingKeys)
-        console.log(`  - Unable to find key "${key}"`);
-      return false;
+      return ValidateCommand.getFileFromPath(options.localPath, outputStrategy);
     }
-
-    return true;
+    else
+    {
+      return await ValidateCommand.getFileFromRepository(
+        options.githubRepository,
+        options.githubBranch,
+        options.githubFilePath,
+        outputStrategy
+      );
+    }
   }
 
   /**
-   * Check if all "~name(parameter)" placeholders from reference are present in source
-   * @param referenceData
-   * @param sourceData
-   * @returns
+   * Loads an Ini file from a local path.
+   *
+   * @param filePath - The path to the local Ini file
+   * @param outputStrategy - The output strategy to use for logging
+   * @returns An Ini object containing the file content
    */
-  private static validateTildPlaceholders(referenceData: Ini, sourceData: Ini): boolean
+  private static getFileFromPath(filePath: string, outputStrategy?: OutputStrategy): Ini
   {
-    const placeholderRegex = /(~(?<name>\w+)\((?<parameter>.*?)\))/g; // match ~name(parameter)
-    let isValid = true;
-
-    const referencePlaceholders = new Map<string, TildPlaceholder[]>();
-
-    // Find all placeholders in reference file
-    for (const [key, value] of Object.entries(referenceData.content))
-    {
-      if(value === undefined)
-        continue;
-
-      const matches = StringHelper.getAllMatchesGroups<TildPlaceholder>(value, placeholderRegex);
-
-      // Check if placeholders of this key is valid
-      for (const match of matches)
-      {
-        if(!ValidateCommand.isValidTildPlaceholder(match))
-        {
-          console.log(`  - Invalid placeholder "${match.name}(${match.parameter})" in "${key}"`);
-          isValid = false;
-          continue;
-        }
-      }
-
-      referencePlaceholders.set(key, matches);
-    }
-
-    // Check if all placeholders are present in source file
-    for (const key of referencePlaceholders.keys())
-    {
-      const placeholders = referencePlaceholders.get(key);
-      const sourceValue = sourceData.content[key]
-
-      if (sourceValue === undefined)
-        continue;
-
-      if (placeholders === undefined)
-        continue;
-
-      // check key type
-      if(typeof sourceValue !== 'string')
-      {
-        console.log(`  - Key "${key}" is not a string`);
-        isValid = false;
-        continue;
-      }
-
-      // Check if value contains all placeholders
-      for (const placeholder of placeholders)
-      {
-        const toSearch = `~${placeholder.name.toLocaleLowerCase()}(${placeholder.parameter.toLocaleLowerCase()})`;
-        if (sourceValue.toLocaleLowerCase().indexOf(toSearch) === -1)
-        {
-          console.log(`  - Unable to find placeholder "~${placeholder.name}(${placeholder.parameter})" in "${key}"`);
-          isValid = false;
-        }
-      }
-    }
-
-    return isValid;
+    outputStrategy?.logReferenceFileLoading(filePath);
+    return IniHelper.loadFile(filePath);
   }
 
   /**
-   * Check if all "%name" placeholders from reference are present in source
-   * @param referenceData
-   * @param sourceData
-   * @returns
+   * Fetches an Ini file from a GitHub repository.
+   *
+   * @param repository - The GitHub repository in the format 'owner/repo'
+   * @param branch - The branch of the repository to fetch the file from
+   * @param filePath - The path to the file within the repository
+   * @param outputStrategy - The output strategy to use for logging
+   * @returns A Promise resolving to an Ini object containing the file content
    */
-  private static validatePercentPlaceholders(referenceData: Ini, sourceData: Ini): boolean
+  private static async getFileFromRepository(repository: string, branch: string, filePath: string, outputStrategy?: OutputStrategy): Promise<Ini>
   {
-    const placeholderRegex = /%(?<name>\w+)/g; // match %name
-    let isValid = true;
+    const source = `${filePath} from repository ${repository} on branch ${branch}`;
+    outputStrategy?.logReferenceFileLoading(source);
 
-    const referencePlaceholders = new Map<string, PercentPlaceholder[]>();
+    const repositoryBaseUrl = new URL(`https://raw.githubusercontent.com/${repository}/${branch}/`);
+    const resourceUrl = new URL(filePath, repositoryBaseUrl);
 
-    // Find all placeholders in reference file
-    for (const [key, value] of Object.entries(referenceData.content))
+    const response = await fetch(resourceUrl.toString());
+    if (!response.ok)
     {
-      if(value === undefined)
-        continue;
-
-      const matches = StringHelper.getAllMatchesGroups<PercentPlaceholder>(value, placeholderRegex);
-      referencePlaceholders.set(key, matches);
+      console.error(`Failed to fetch file from ${resourceUrl.toString()}: ${response.statusText}`);
+      throw new Error(`Failed to fetch file from ${resourceUrl.toString()}`);
     }
-
-
-    // Check if all placeholders are present in source file
-    for (const key of referencePlaceholders.keys())
-    {
-      const placeholders = referencePlaceholders.get(key);
-      const sourceValue = sourceData.content[key];
-
-      if(placeholders === undefined)
-        continue;
-
-      if(sourceValue === undefined)
-        continue;
-
-      // Check if values from reference are present in source
-      for (const placeholder of placeholders)
-      {
-        const toSearch = `%${placeholder.name}`;
-        if (sourceValue.indexOf(toSearch) === -1)
-        {
-          console.log(`  - Unable to find placeholder "%${placeholder.name}" in "${key}"`);
-          isValid = false;
-        }
-      }
-    }
-
-    return isValid;
-  }
-
-  /**
-   * Check if placeholder is valid
-   * @param key The key of the entry
-   * @param match The match result
-   * @returns
-   */
-  private static isValidTildPlaceholder(placeholder: TildPlaceholder): boolean
-  {
-    const parameter = placeholder.parameter;
-
-    // Check if parameter contains opening parenthesis, which means that it is not a valid placeholder
-    const badTokens = ['(', ')', '~', ']', '\\n'];
-    return !badTokens.some(token => parameter.indexOf(token) !== -1)
+    const content = await response.text();
+    return {
+      path: resourceUrl.toString(),
+      content: IniHelper.parse(content)
+    };
   }
 }

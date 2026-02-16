@@ -9,9 +9,6 @@ Write-Debug Start
 $global:LOCALES = $null
 
 function Get-Locales() {
-  # $global:LOCALES = Get-Content -Path "./install_localization.i18n.json" -Raw | ConvertFrom-Json
-  # return
-
   try {
     $raw = [Text.Encoding]::UTF8.GetString((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/main/tools/install_localization.i18n.json").RawContentStream.ToArray())
     $global:LOCALES = $raw | ConvertFrom-Json
@@ -20,7 +17,7 @@ function Get-Locales() {
     Write-Host "Unable to get the locales file from GitHub" -ForegroundColor Red
     Write-Host "If the problem persists, please report the bug here:" -ForegroundColor Red
     Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
-    exit 0
+    return
   }
 }
 
@@ -31,12 +28,22 @@ function Get-Translate {
   )
   $locales = $global:LOCALES
 
+  # If locales is null (file failed to load), return the key
+  if ($null -eq $locales) {
+    return $Key
+  }
+
   $userCulture = (Get-Culture).TwoLetterISOLanguageName
   if (-not $localesPSobject.Properties.name -match $userCulture) {
     $userCulture = 'en'
   }
 
   $userLocales = $locales.$userCulture
+
+  # If userLocales is null, return the key
+  if ($null -eq $userLocales) {
+    return $Key
+  }
 
   try {
     $keyParts = $Key -split '\.'
@@ -45,6 +52,11 @@ function Get-Translate {
     # Get the value from the key
     foreach ($Part in $keyParts) {
       $value = $value.$Part
+
+      # If the value becomes null during key path navigation, return the key
+      if ($null -eq $value) {
+        return $Key
+      }
     }
 
     # Replace the variables in the string
@@ -56,7 +68,8 @@ function Get-Translate {
     return $value
   }
   catch {
-    return "KEY NOT FOUND: $Key"
+    # Return the key itself as fallback instead of an error message
+    return $Key
   }
 }
 
@@ -107,59 +120,80 @@ Function Find-RSILauncherFolder() {
 
 <#
   .SYNOPSIS
-    Try to guess the game folder from the "RSI Launcher" logs, the default installation path or the "RSI Launcher" shortcut
+    Try to guess the game folder from the "RSI Launcher" logs, the default installation path, or the "RSI Launcher" shortcut
 #>
 Function Find-StarCitizenFolder() {
-  # Try to find the game folder from the "RSI Launcher" logs
-  $path = Join-Path $env:APPDATA "\rsilauncher\logs\log.log"
-  if (Test-Path -Path $path -PathType Leaf) {
-    $content = Get-Content -Path $path -Raw
-    $contentFixed = "[$content]" | Out-String # add missing '[' and ']' characters
-    $contentFixed = $contentFixed -replace ',(\s*\])', '$1' # fix ending comma in object
-    $contentFixed = $contentFixed -replace ',(\s*\})', '$1' # fix ending comma in array
-    $fixedJson = $contentFixed | ConvertFrom-Json
+    # Try to find the game folder from the "RSI Launcher" logs using the new regex method (RSI Launcher 2.0)
+    $logPath = Join-Path $env:APPDATA "\rsilauncher\logs\log.log"
+    if (Test-Path -Path $logPath -PathType Leaf) {
+        $logContent = Get-Content -Path $logPath -Raw
 
-    # get all "INSTALLER@INSTALL" events
-    $events = $fixedJson | Where-Object { $_.'[browser][info] '.event -eq 'INSTALLER@INSTALL' }
+        # Regex pattern to match the line where the game is launched
+        $regexPattern = "Installing Star Citizen (.*?) at ([^`")]+)"
 
-    # get the "libraryFolder" property
-    $libraryFolders = $events | ForEach-Object { $_.'[browser][info] '.data.gameInformation.libraryFolder }
+        # Try to find the path using the regular expression
+        $pathMatches = [regex]::Matches($logContent, $regexPattern)
 
-    # get the last "libraryFolder" property as it is the most recent
-    $lastLibraryFolder = $libraryFolders[-1]
-
-    if (Test-Path -Path $lastLibraryFolder -PathType Container) {
-      Write-Debug "Found the game folder from the 'RSI Launcher' logs: $lastLibraryFolder"
-      return "$lastLibraryFolder\StarCitizen"
+        if ($pathMatches.Count -gt 0) {
+            $lastMatch = $pathMatches[$pathMatches.Count - 1]
+            $starCitizenPath = $lastMatch.Groups[2].Value
+            if (Test-Path -Path $starCitizenPath -PathType Container) {
+                Write-Debug "Found the game folder from the log file using regex: $starCitizenPath"
+                return $starCitizenPath
+            }
+        }
     }
-  }
 
-  # Try to find the game folder from the default installation path
-  $path = "C:\Program Files\Roberts Space Industries\StarCitizen"
-  if (Test-Path -Path "$path\LIVE\StarCitizen_Launcher.exe" -PathType Leaf) {
-    Write-Debug "Found the game folder from the default installation path: $path"
-    return $path
-  }
+    # Existing method: Try to find the game folder from the "RSI Launcher" logs with JSON parsing
+    $jsonLogPath = Join-Path $env:APPDATA "\rsilauncher\logs\log.log"
+    if (Test-Path -Path $jsonLogPath -PathType Leaf) {
+        $content = Get-Content -Path $jsonLogPath -Raw
+        $contentFixed = "[$content]" | Out-String # add missing '[' and ']' characters
+        $contentFixed = $contentFixed -replace ',(\s*\])', '$1' # fix ending comma in object
+        $contentFixed = $contentFixed -replace ',(\s*\})', '$1' # fix ending comma in array
+        $fixedJson = $contentFixed | ConvertFrom-Json
 
-  # Try to find the game folder from the "RSI Launcher" shortcut
-  $path = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Roberts Space Industries\RSI Launcher.lnk"
-  if (Test-Path -Path $path -PathType Leaf) {
-    $wshShell = New-Object -ComObject WScript.Shell
-    $shortcut = $wshShell.CreateShortcut($path)
-    $targetPath = $shortcut.TargetPath
+        # get all "INSTALLER@INSTALL" events
+        $events = $fixedJson | Where-Object { $_.'[browser][info] '.event -eq 'INSTALLER@INSTALL' }
 
-    # get resolve the "Roberts Space Industries" grand parent folder
-    $rsiLauncherPath = Split-Path -Path $targetPath -Parent
-    $rsiPath = Split-Path -Path $rsiLauncherPath -Parent
+        # get the "libraryFolder" property
+        $libraryFolders = $events | ForEach-Object { $_.'[browser][info] '.data.gameInformation.libraryFolder }
 
-    if (Test-Path -Path "$rsiPath\StarCitizen\LIVE\StarCitizen_Launcher.exe" -PathType Leaf) {
-      Write-Debug "Found the game folder from the 'RSI Launcher' shortcut: $rsiPath"
-      return "$rsiPath\StarCitizen"
+        # get the last "libraryFolder" property as it is the most recent
+        $lastLibraryFolder = $libraryFolders[-1]
+
+        if (Test-Path -Path $lastLibraryFolder -PathType Container) {
+            Write-Debug "Found the game folder from the 'RSI Launcher' logs: $lastLibraryFolder"
+            return "$lastLibraryFolder\StarCitizen"
+        }
     }
-  }
 
-  Write-Warning "Unable to find the game folder"
-  return $null
+    # Fallback 1: Try to find the game folder from the default installation path
+    $defaultPath = "C:\Program Files\Roberts Space Industries\StarCitizen"
+    if (Test-Path -Path "$defaultPath\LIVE\StarCitizen_Launcher.exe" -PathType Leaf) {
+        Write-Debug "Found the game folder from the default installation path: $defaultPath"
+        return $defaultPath
+    }
+
+    # Fallback 2: Try to find the game folder from the "RSI Launcher" shortcut
+    $shortcutPath = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Roberts Space Industries\RSI Launcher.lnk"
+    if (Test-Path -Path $shortcutPath -PathType Leaf) {
+        $wshShell = New-Object -ComObject WScript.Shell
+        $shortcut = $wshShell.CreateShortcut($shortcutPath)
+        $targetPath = $shortcut.TargetPath
+
+        # get resolve the "Roberts Space Industries" grand parent folder
+        $rsiLauncherPath = Split-Path -Path $targetPath -Parent
+        $rsiPath = Split-Path -Path $rsiLauncherPath -Parent
+
+        if (Test-Path -Path "$rsiPath\StarCitizen\LIVE\StarCitizen_Launcher.exe" -PathType Leaf) {
+            Write-Debug "Found the game folder from the 'RSI Launcher' shortcut: $rsiPath"
+            return "$rsiPath\StarCitizen"
+        }
+    }
+
+    Write-Warning "Unable to find the game folder"
+    return $null
 }
 
 <#
@@ -451,7 +485,7 @@ if ($findStarCitizenFolder) {
   }
 
   $choice = New-Menu -title  (Get-Translate "SELECT_GAME_VERSION") $menuItems
-  if ($null -eq $choice) { exit 0 }
+  if ($null -eq $choice) { return }
 
   $result = $environments[$choice]
   $gameFolder = "$findStarCitizenFolder\$result"
@@ -471,6 +505,12 @@ else {
   $gameFolder = Split-Path -Path $selectedFile -Parent
 }
 
+# Check if the selected folder is not "LIVE", if so, change the branch to "ptu"
+$branch = "main"
+if ($gameFolder -notlike "*LIVE*") {
+  $branch = "ptu"
+}
+
 $language = Select-LanguageMenu
 
 Write-Host ""
@@ -478,10 +518,11 @@ Write-Host (Get-Translate "OVERVIEW") -ForegroundColor Yellow
 Write-Host (Get-Translate "GAME_FOLDER" $gameFolder) -ForegroundColor Yellow
 if ($null -eq $language) { Write-Host (Get-Translate "REMOVE_LANGUAGE") -ForegroundColor Yellow }
 else                     { Write-Host (Get-Translate "INSTALL_LANGUAGE" $language) -ForegroundColor Yellow }
+Write-Host (Get-Translate "BRANCH" $branch) -ForegroundColor Yellow
 Write-Host ""
 
 $continue = New-YesNoMenu -message (Get-Translate "CONTINUE_PROMPT")
-if (-not $continue) { exit 0 }
+if (-not $continue) { return }
 
 if ($null -eq $language) {
   Write-Host (Get-Translate "REMOVE_FILES") -ForegroundColor Yellow
@@ -490,18 +531,18 @@ if ($null -eq $language) {
   Write-Host ""
   Write-Host (Get-Translate "UNINSTALL_COMPLETE") -ForegroundColor Green
   Read-Host (Get-Translate "EXIT_PROMPT")
-  exit 0
+  return
 }
 
 Write-Host (Get-Translate "DOWNLOAD_FILES") -ForegroundColor Yellow
 
-$success = Invoke-DownloadLanguage -rootFolder $gameFolder -language $language -branch "main"
+$success = Invoke-DownloadLanguage -rootFolder $gameFolder -language $language -branch $branch
 if (-not $success) {
   Write-Host (Get-Translate "ERRORS.LANGUAGE_DOWNLOAD_FAILED") -ForegroundColor Red
   Write-Host (Get-Translate "ERRORS.INSTALL_ERROR") -ForegroundColor Red
   Write-Host (Get-Translate "ERRORS.REPORT_BUG") -ForegroundColor Red
   Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
-  exit 0
+  return
 }
 
 Write-Host (Get-Translate "CONFIGURE_GAME") -ForegroundColor Yellow
@@ -513,7 +554,7 @@ if (-not $success) {
   Write-Host (Get-Translate "ERRORS.USER_CFG_UPDATE_ERROR") -ForegroundColor Red
   Write-Host (Get-Translate "ERRORS.REPORT_BUG") -ForegroundColor Red
   Write-Host "https://github.com/Dymerz/StarCitizen-Localization/issues/new" -ForegroundColor Red
-  exit 0
+  return
 }
 
 Write-Host ""

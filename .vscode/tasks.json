@@ -1,0 +1,40 @@
+{
+  "tasks": [
+    {
+      "label": "bump: patch",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/tools/ini-utils"
+      },
+      "command": "npm",
+      "args": [
+        "version",
+        "patch"
+      ],
+    },
+    {
+      "label": "bump: minor",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/tools/ini-utils"
+      },
+      "command": "npm",
+      "args": [
+        "version",
+        "minor"
+      ],
+    },
+    {
+      "label": "bump: major",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/tools/ini-utils"
+      },
+      "command": "npm",
+      "args": [
+        "version",
+        "major"
+      ],
+    }
+  ]
+}
