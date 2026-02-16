@@ -35,6 +35,7 @@
 | Portuguese - Brazil      | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Here |
 | Italian - Italy          | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spanish - Spain          | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Here |
+| Turkish - Turkey         | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Here |
 | Spanish - Latin America  | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
 | Chinese - Simplified     | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
 | Chinese - Traditional    | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
@@ -94,6 +95,7 @@ powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercont
 | Portuguese - Brazil       | `g_language = portuguese_(brazil)` |
 | Italian - Italy           | `g_language = italian_(italy)` |
 | Spanish - Spain           | `g_language = spanish_(spain)` |
+| Turkish - Turkey          | `g_language = turkish_(turkey)` |
 | Spanish - Latin America   | `g_language = spanish_(latin_america)` |
 | Chinese - Simplified      | `g_language = chinese_(simplified)` |
 | Chinese - Traditional     | `g_language = chinese_(traditional)` |

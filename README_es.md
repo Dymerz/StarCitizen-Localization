@@ -39,6 +39,7 @@
 | Portugués (Brasil)      | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen)   | Aquí                                                                                                                                |
 | Italiano (Italia)       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow)    | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Español (España)        | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange)  | Aquí                                                                                                                                |
+| Turco (Turquía)         | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Aquí                                                                                                                                |
 | Español (Latinoamérica) | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
 | Chino (Simplificado)    | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
 | Chino (Tradicional)     | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
@@ -99,6 +100,7 @@ powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercont
 | Portugués (Brasil)      | `g_language = portuguese_(brazil)`     |
 | Italiano (Italia)       | `g_language = italian_(italy)`         |
 | Español (España)        | `g_language = spanish_(spain)`         |
+| Turco (Turquía)         | `g_language = turkish_(turkey)`        |
 | Español (Latinoamérica) | `g_language = spanish_(latin_america)` |
 | Chino (Simplificado)    | `g_language = chinese_(simplified)`    |
 | Chino (Tradicional)     | `g_language = chinese_(traditional)`   |
