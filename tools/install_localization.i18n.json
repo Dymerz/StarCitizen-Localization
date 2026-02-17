@@ -302,8 +302,7 @@
       "LANGUAGE_DOWNLOAD_FAILED": "Error en la descarga del idioma",
       "LANGUAGE_NOT_AVAILABLE"  : "Tal vez el idioma aún no esté disponible. Puedes verificar el estado de las traducciones aquí:"
     }
-  }
-,
+  },
   "tr": {
     "DESCRIPTION"        : "Açıklama: Star Citizen için yerelleştirme dosyalarını yükleyin",
     "FOUND_FOLDER"       : "Oyun klasörü bulundu: $0",
