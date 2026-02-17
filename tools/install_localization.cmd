@@ -14,6 +14,7 @@ set "lang_list[9]=polish_(poland)"
 set "lang_list[10]=portuguese_(brazil)"
 set "lang_list[11]=spanish_(latin_america)"
 set "lang_list[12]=spanish_(spain)"
+set "lang_list[13]=turkish_(turkey)"
 
 :: Check the directory
 set BATCH_PATH=%~dp0
@@ -41,12 +42,13 @@ echo 9. Polish - Poland
 echo 10. Portuguese - Brazil
 echo 11. Spanish - Latin America
 echo 12. Spanish - Spain
+echo 13. Turkish - Turkey
 
 echo Enter the number of the language you want to select.
 :LanguageInput
 set /p lang_choice="Language number: "
 if not defined lang_list[%lang_choice%] (
-    echo Invalid choice. Please enter a number from 1 to 13.
+    echo Invalid choice. Please enter a number from 1 to 14.
     goto LanguageInput
 )
 set "language=!lang_list[%lang_choice%]!"

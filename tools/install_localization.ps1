@@ -334,6 +334,7 @@ Function Select-LanguageMenu() {
     "portuguese_(brazil)"
     "spanish_(latin_america)"
     "spanish_(spain)"
+    "turkish_(turkey)"
   )
 
   $result = New-Menu -title "Select the language to install" -menuItems $lang_list

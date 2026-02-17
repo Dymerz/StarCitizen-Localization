@@ -303,4 +303,55 @@
       "LANGUAGE_NOT_AVAILABLE"  : "Tal vez el idioma aún no esté disponible. Puedes verificar el estado de las traducciones aquí:"
     }
   }
+,
+  "tr": {
+    "DESCRIPTION"        : "Açıklama: Star Citizen için yerelleştirme dosyalarını yükleyin",
+    "FOUND_FOLDER"       : "Oyun klasörü bulundu: $0",
+    "GET_VERSIONS"       : "Mevcut oyun sürümleri alınıyor...",
+    "SELECT_GAME_VERSION": "Kullanmak istediğiniz oyun sürümünü seçin",
+    "SELECT_EXE"         : "Oyun klasöründen StarCitizen_Launcher.exe dosyasını seçin",
+    "SELECT_VERSION"     : "Kullanılacak oyun sürümünü seçin",
+    "OVERVIEW"           : "Özet:",
+    "GAME_FOLDER"        : "  - Oyun klasörü: $0",
+    "BRANCH"             : "  - Dal: $0",
+    "REMOVE_LANGUAGE"    : "  - Dil dosyalarını kaldır",
+    "INSTALL_LANGUAGE"   : "  - $0 dilini yükle",
+    "CONTINUE_PROMPT"    : "Devam etmek istiyor musunuz?",
+    "DOWNLOAD_FILES"     : "Dil dosyaları indiriliyor...",
+    "REMOVE_FILES"       : "Dil dosyaları kaldırılıyor...",
+    "UNINSTALL_COMPLETE" : "Kaldırma tamamlandı",
+    "EXIT_PROMPT"        : "Çıkmak için Enter tuşuna basın",
+    "CONFIGURE_GAME"     : "Oyun yapılandırılıyor...",
+    "INSTALL_COMPLETE"   : "Yükleme tamamlandı",
+    "ENJOY_GAME"         : "Artık Star Citizen'ı \"$0\" dilinde oynayabilirsiniz",
+    "ENTER_TO_CONTINUE"  : "Devam etmek için Enter tuşuna basın",
+    "REMOVE"             : "Kaldır",
+    "INTERACTIVE_MENU"   : {
+      "HINT"     : "Hareket etmek için okları (↑ ve ↓) kullanın, onaylamak için 'Enter', çıkmak için 'ESC' tuşuna basın",
+      "EXITING"  : "Esc tuşuna bastınız, çıkılıyor...",
+      "SELECTION": "$0 seçildi"
+    },
+    "YES_NO_MENU": {
+      "TITLE": "Devam etmek istiyor musunuz",
+      "YES"  : {
+        "SHORT": "Evet",
+        "LONG" : "Evet: devam et"
+      },
+      "NO"   : {
+        "SHORT": "Hayır",
+        "LONG" : "Hayır: çık"
+      }
+    },
+    "ERRORS": {
+      "NO_GAME_FOLDER_SELECTED" : "Oyun klasörü seçilirken bir hata oluştu.",
+      "REPORT_BUG"              : "Bunun bir hata olduğunu düşünüyorsanız, lütfen buradan bildirin:",
+      "INSTALL_ERROR"           : "Dil dosyaları yüklenirken bir hata oluştu.",
+      "USER_CFG_UPDATE_FAILED"  : "user.cfg güncellemesi başarısız oldu",
+      "USER_CFG_UPDATE_ERROR"   : "user.cfg dosyası güncellenirken bir hata oluştu.",
+      "MENU_INVALID_BUTTON"     : "Geçersiz tuş! Tekrar deneyin...",
+      "LANGUAGE_NOT_EXIST"      : "\"$0\" dili mevcut değil.",
+      "LANGUAGE_DOWNLOAD_FAILED": "Dil indirme başarısız oldu",
+      "LANGUAGE_NOT_AVAILABLE"  : "Dil henüz mevcut olmayabilir, çevirilerin durumunu buradan kontrol edebilirsiniz:"
+    }
+  }
 }
