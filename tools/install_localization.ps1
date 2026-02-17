@@ -147,6 +147,7 @@ Function Find-StarCitizenFolder() {
     # Existing method: Try to find the game folder from the "RSI Launcher" logs with JSON parsing
     $jsonLogPath = Join-Path $env:APPDATA "\rsilauncher\logs\log.log"
     if (Test-Path -Path $jsonLogPath -PathType Leaf) {
+      try {
         $content = Get-Content -Path $jsonLogPath -Raw
         $contentFixed = "[$content]" | Out-String # add missing '[' and ']' characters
         $contentFixed = $contentFixed -replace ',(\s*\])', '$1' # fix ending comma in object
@@ -154,18 +155,28 @@ Function Find-StarCitizenFolder() {
         $fixedJson = $contentFixed | ConvertFrom-Json
 
         # get all "INSTALLER@INSTALL" events
-        $events = $fixedJson | Where-Object { $_.'[browser][info] '.event -eq 'INSTALLER@INSTALL' }
+        $events = @($fixedJson | Where-Object { $_.'[browser][info] '.event -eq 'INSTALLER@INSTALL' })
 
-        # get the "libraryFolder" property
-        $libraryFolders = $events | ForEach-Object { $_.'[browser][info] '.data.gameInformation.libraryFolder }
+        if ($events.Count -gt 0) {
+          # get the "libraryFolder" property
+          $libraryFolders = @(
+            $events |
+            ForEach-Object { $_.'[browser][info] '.data.gameInformation.libraryFolder } |
+            Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
+          )
 
-        # get the last "libraryFolder" property as it is the most recent
-        $lastLibraryFolder = $libraryFolders[-1]
+          # get the last "libraryFolder" property as it is the most recent
+          $lastLibraryFolder = $libraryFolders | Select-Object -Last 1
 
-        if (Test-Path -Path $lastLibraryFolder -PathType Container) {
+          if (-not [string]::IsNullOrWhiteSpace($lastLibraryFolder) -and (Test-Path -Path $lastLibraryFolder -PathType Container)) {
             Write-Debug "Found the game folder from the 'RSI Launcher' logs: $lastLibraryFolder"
             return "$lastLibraryFolder\StarCitizen"
+          }
         }
+      }
+      catch {
+        Write-Debug "Unable to parse RSI Launcher JSON logs: $($_.Exception.Message)"
+      }
     }
 
     # Fallback 1: Try to find the game folder from the default installation path
