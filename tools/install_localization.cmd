@@ -22,7 +22,7 @@ set BATCH_PATH=%BATCH_PATH:~0,-1%
 echo Checking directory...
 echo %BATCH_PATH% | findstr /I /C:"\StarCitizen\LIVE\data" >nul || echo %BATCH_PATH% | findstr /I /C:"\StarCitizen\PTU\data" >nul
 if errorlevel 1 (
-    echo This script must be executed from the "\StarCitizen\[LIVE or PTU]\data" folder.
+    echo This script must be executed from the "\StarCitizen\[LIVE or PTU\]\data" folder.
     pause
     exit /b
 )
@@ -48,7 +48,7 @@ echo Enter the number of the language you want to select.
 :LanguageInput
 set /p lang_choice="Language number: "
 if not defined lang_list[%lang_choice%] (
-    echo Invalid choice. Please enter a number from 1 to 14.
+    echo Invalid choice. Please enter a number from 1 to 13.
     goto LanguageInput
 )
 set "language=!lang_list[%lang_choice%]!"
@@ -65,7 +65,7 @@ set "install_language=!language!"
 if "!language!"=="turkish_(turkey)" (
     set "download_language=turkish_(turkey)"
     set "install_language=german_(germany)"
-    echo Note: Turkish is installed via the german_(germany) folder ^(game engine limitation^).
+    echo Note: Turkish is installed via the german_^(germany^) folder ^(game engine limitation^).
 )
 
 :: Create language folder
