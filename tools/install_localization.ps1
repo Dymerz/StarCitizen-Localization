@@ -128,25 +128,46 @@ Function Find-StarCitizenFolder() {
     if (Test-Path -Path $logPath -PathType Leaf) {
         $logContent = Get-Content -Path $logPath -Raw
 
-        # Regex pattern to match the line where the game is launched
-        $regexPattern = "Installing Star Citizen (.*?) at ([^`")]+)"
+    # Regex patterns to match launcher log lines where the game path is present
+    $regexPatterns = @(
+      'Launching Star Citizen\s+.*?\s+from\s+\(([^)]+)\)',
+      'Installing Star Citizen\s+.*?\s+at\s+([^"\r\n]+?)(?:\s+\(|"|$)'
+    )
 
-        # Try to find the path using the regular expression
-        $pathMatches = [regex]::Matches($logContent, $regexPattern)
+    foreach ($regexPattern in $regexPatterns) {
+      # Try to find the path using the regular expression
+      $pathMatches = [regex]::Matches($logContent, $regexPattern)
 
-        if ($pathMatches.Count -gt 0) {
-            $lastMatch = $pathMatches[$pathMatches.Count - 1]
-            $starCitizenPath = $lastMatch.Groups[2].Value
-            if (Test-Path -Path $starCitizenPath -PathType Container) {
-                Write-Debug "Found the game folder from the log file using regex: $starCitizenPath"
-                return $starCitizenPath
-            }
+      if ($pathMatches.Count -gt 0) {
+        $lastMatch = $pathMatches[$pathMatches.Count - 1]
+        $detectedPath = $lastMatch.Groups[1].Value
+        $detectedPath = $detectedPath.Trim()
+
+        # The launcher log is JSON-like and can contain escaped backslashes (e.g. C:\\Games\\StarCitizen)
+        if ($detectedPath.Contains('\\')) {
+          $detectedPath = $detectedPath.Replace('\\', '\')
         }
+
+        if (Test-Path -Path $detectedPath -PathType Container) {
+          # If the detected path points to an environment folder (LIVE/PTU/...), return the StarCitizen root folder
+          $starCitizenPath = $detectedPath
+          if (Test-Path -Path "$starCitizenPath\StarCitizen_Launcher.exe" -PathType Leaf) {
+            $starCitizenPath = Split-Path -Path $starCitizenPath -Parent
+          }
+
+          if (Test-Path -Path $starCitizenPath -PathType Container) {
+            Write-Debug "Found the game folder from the log file using regex: $starCitizenPath"
+            return $starCitizenPath
+          }
+        }
+      }
+    }
     }
 
     # Existing method: Try to find the game folder from the "RSI Launcher" logs with JSON parsing
     $jsonLogPath = Join-Path $env:APPDATA "\rsilauncher\logs\log.log"
     if (Test-Path -Path $jsonLogPath -PathType Leaf) {
+      try {
         $content = Get-Content -Path $jsonLogPath -Raw
         $contentFixed = "[$content]" | Out-String # add missing '[' and ']' characters
         $contentFixed = $contentFixed -replace ',(\s*\])', '$1' # fix ending comma in object
@@ -154,18 +175,28 @@ Function Find-StarCitizenFolder() {
         $fixedJson = $contentFixed | ConvertFrom-Json
 
         # get all "INSTALLER@INSTALL" events
-        $events = $fixedJson | Where-Object { $_.'[browser][info] '.event -eq 'INSTALLER@INSTALL' }
+        $events = @($fixedJson | Where-Object { $_.'[browser][info] '.event -eq 'INSTALLER@INSTALL' })
 
-        # get the "libraryFolder" property
-        $libraryFolders = $events | ForEach-Object { $_.'[browser][info] '.data.gameInformation.libraryFolder }
+        if ($events.Count -gt 0) {
+          # get the "libraryFolder" property
+          $libraryFolders = @(
+            $events |
+            ForEach-Object { $_.'[browser][info] '.data.gameInformation.libraryFolder } |
+            Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
+          )
 
-        # get the last "libraryFolder" property as it is the most recent
-        $lastLibraryFolder = $libraryFolders[-1]
+          # get the last "libraryFolder" property as it is the most recent
+          $lastLibraryFolder = $libraryFolders | Select-Object -Last 1
 
-        if (Test-Path -Path $lastLibraryFolder -PathType Container) {
+          if (-not [string]::IsNullOrWhiteSpace($lastLibraryFolder) -and (Test-Path -Path $lastLibraryFolder -PathType Container)) {
             Write-Debug "Found the game folder from the 'RSI Launcher' logs: $lastLibraryFolder"
             return "$lastLibraryFolder\StarCitizen"
+          }
         }
+      }
+      catch {
+        Write-Debug "Unable to parse RSI Launcher JSON logs: $($_.Exception.Message)"
+      }
     }
 
     # Fallback 1: Try to find the game folder from the default installation path
