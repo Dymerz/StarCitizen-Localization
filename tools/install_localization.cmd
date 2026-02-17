@@ -59,8 +59,17 @@ if "!language!"=="english" (
     goto RemoveLanguage
 )
 
+:: Turkish workaround: download from turkish_(turkey) but install to german_(germany)
+set "download_language=!language!"
+set "install_language=!language!"
+if "!language!"=="turkish_(turkey)" (
+    set "download_language=turkish_(turkey)"
+    set "install_language=german_(germany)"
+    echo Note: Turkish is installed via the german_(germany) folder ^(game engine limitation^).
+)
+
 :: Create language folder
-IF NOT EXIST ".\Localization\!language!" mkdir .\Localization\!language!
+IF NOT EXIST ".\Localization\!install_language!" mkdir .\Localization\!install_language!
 
 :: Set branch on repository
 set "reference=main"
@@ -71,21 +80,21 @@ if errorlevel 0 (
 
 :: Download language file
 echo.
-echo Downloading language file for !language!...
-curl -L -s -o "global.ini" "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/!reference!/data/Localization/!language!/global.ini"
+echo Downloading language file for !download_language!...
+curl -L -s -o "global.ini" "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/!reference!/data/Localization/!download_language!/global.ini"
 if not exist "global.ini" (
-    echo The language "!language!" does not exist. Check the status of translations at: 
+    echo The language "!download_language!" does not exist. Check the status of translations at: 
     echo https://github.com/Dymerz/StarCitizen-Localization#supported-languages
     pause
     exit /b
 )
-move /y global.ini ".\Localization\!language!\global.ini" > nul
+move /y global.ini ".\Localization\!install_language!\global.ini" > nul
 
 :: Update user.cfg
 echo Updating user.cfg...
 if exist user.cfg.new del /F user.cfg.new
 
-set "language_line=g_language = !language!"
+set "language_line=g_language = !install_language!"
 set "language_line_audio=g_languageAudio = english"
 
 if not exist "../user.cfg" (

@@ -537,7 +537,27 @@ if ($null -eq $language) {
 
 Write-Host (Get-Translate "DOWNLOAD_FILES") -ForegroundColor Yellow
 
-$success = Invoke-DownloadLanguage -rootFolder $gameFolder -language $language -branch $branch
+# Turkish workaround: download from turkish_(turkey) but install to german_(germany)
+$downloadLanguage = $language
+$installLanguage = $language
+if ($language -eq "turkish_(turkey)") {
+  $downloadLanguage = "turkish_(turkey)"
+  $installLanguage = "german_(germany)"
+  Write-Host "Note: Turkish is installed via the german_(germany) folder (game engine limitation)." -ForegroundColor Cyan
+}
+
+$success = Invoke-DownloadLanguage -rootFolder $gameFolder -language $downloadLanguage -branch $branch
+# If Turkish, move the file from turkish_(turkey) to german_(germany)
+if ($success -and $language -eq "turkish_(turkey)") {
+  $srcPath = "$gameFolder\data\Localization\turkish_(turkey)\global.ini"
+  $dstDir = "$gameFolder\data\Localization\german_(germany)"
+  if (-not (Test-Path -Path $dstDir -PathType Container)) {
+    New-Item -ItemType Directory -Path $dstDir | Out-Null
+  }
+  Copy-Item -Path $srcPath -Destination "$dstDir\global.ini" -Force
+  Remove-Item -Path "$gameFolder\data\Localization\turkish_(turkey)" -Recurse -Force
+}
+
 if (-not $success) {
   Write-Host (Get-Translate "ERRORS.LANGUAGE_DOWNLOAD_FAILED") -ForegroundColor Red
   Write-Host (Get-Translate "ERRORS.INSTALL_ERROR") -ForegroundColor Red
@@ -549,7 +569,7 @@ if (-not $success) {
 Write-Host (Get-Translate "CONFIGURE_GAME") -ForegroundColor Yellow
 Start-Sleep -s 2
 
-$success = Set-UserCfg -rootFolder $gameFolder -language $language
+$success = Set-UserCfg -rootFolder $gameFolder -language $installLanguage
 if (-not $success) {
   Write-Host (Get-Translate "ERRORS.USER_CFG_UPDATE_FAILED") -ForegroundColor Red
   Write-Host (Get-Translate "ERRORS.USER_CFG_UPDATE_ERROR") -ForegroundColor Red
