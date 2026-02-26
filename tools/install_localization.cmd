@@ -65,7 +65,7 @@ set "install_language=!language!"
 if "!language!"=="turkish_(turkey)" (
     set "download_language=turkish_(turkey)"
     set "install_language=german_(germany)"
-    echo Note: Turkish is installed via the german_(germany) folder ^(game engine limitation^).
+    echo Note: Turkish is installed via the german_^(germany^) folder ^(game engine limitation^).
 )
 
 :: Create language folder
