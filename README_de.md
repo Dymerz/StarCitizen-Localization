@@ -15,6 +15,7 @@
 - 🇪🇸 [Instrucciones en Español](README_es.md).
 - 🇮🇹 [Istruzioni in Italiano](README_it.md).
 - 🇧🇷 [Instrução em Português](README_ptbr.md).
+- 🇹🇷 [Türkçe Talimatlar](README_tr.md).
 
 **Inhaltsverzeichnis:**
 - [Unterstützte Sprachen](#unterstützte-sprachen)
@@ -34,6 +35,7 @@
 | Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Hier |
 | Italienisch - Italien   | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spanisch - Spanien      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Hier |
+| Türkisch - Türkei       | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Hier |
 | Spanisch - Lateinamerika| ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Warten auf Beitrag |
 | Chinesisch - Vereinfacht| ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Warten auf Beitrag |
 | Chinesisch - Traditionell| ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Warten auf Beitrag |
