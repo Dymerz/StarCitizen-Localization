@@ -48,7 +48,7 @@ echo Enter the number of the language you want to select.
 :LanguageInput
 set /p lang_choice="Language number: "
 if not defined lang_list[%lang_choice%] (
-    echo Invalid choice. Please enter a number from 1 to 13.
+    echo Invalid choice. Please enter a number from 1 to 14.
     goto LanguageInput
 )
 set "language=!lang_list[%lang_choice%]!"
