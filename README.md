@@ -29,7 +29,7 @@
 
 | Language                 | Supported | Source |
 |--------------------------|-----------|--------|
-| English                  | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Imported from game files |
+| English                  | ![Static Badge](https://img.shields.io/badge/4.7.0-PTU-brightgreen) | Imported from game files |
 | French - France          | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Generated from [circuspes.fr](https://traduction.circuspes.fr) |
 | German - Germany         | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Here |
 | Portuguese - Brazil      | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Here |
@@ -95,7 +95,7 @@ powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercont
 | Portuguese - Brazil       | `g_language = portuguese_(brazil)` |
 | Italian - Italy           | `g_language = italian_(italy)` |
 | Spanish - Spain           | `g_language = spanish_(spain)` |
-| Turkish - Turkey          | `g_language = turkish_(turkey)` |
+| Turkish - Turkey          | `g_language = german_(germany)` |
 | Spanish - Latin America   | `g_language = spanish_(latin_america)` |
 | Chinese - Simplified      | `g_language = chinese_(simplified)` |
 | Chinese - Traditional     | `g_language = chinese_(traditional)` |

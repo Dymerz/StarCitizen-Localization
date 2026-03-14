@@ -30,7 +30,7 @@
 
 | Langue                  | Pris en charge | Source |
 |--------------------------|----------------|--------|
-| Anglais                 | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Importé des fichiers du jeu |
+| Anglais                 | ![Static Badge](https://img.shields.io/badge/4.7.0-PTU-brightgreen) | Importé des fichiers du jeu |
 | Français - France       | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Généré depuis [circuspes.fr](https://traduction.circuspes.fr) |
 | Allemand - Allemagne    | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Ici |
 | Portugais - Brésil      | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Ici |
