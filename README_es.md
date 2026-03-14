@@ -33,7 +33,7 @@
 
 | Idioma                  | Soporte                                                            | Fuente                                                                                                                              |
 | ----------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Inglés                  | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen)   | Importado de archivos del juego                                                                                                     |
+| Inglés                  | ![Static Badge](https://img.shields.io/badge/4.7.0-PTU-brightgreen)   | Importado de archivos del juego                                                                                                     |
 | Francés - Francia       | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) |
 | Alemán (Alemania)       | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow)   | Aquí                                                                                                                                |
 | Portugués (Brasil)      | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen)   | Aquí                                                                                                                                |
@@ -100,7 +100,7 @@ powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercont
 | Portugués (Brasil)      | `g_language = portuguese_(brazil)`     |
 | Italiano (Italia)       | `g_language = italian_(italy)`         |
 | Español (España)        | `g_language = spanish_(spain)`         |
-| Turco (Turquía)         | `g_language = turkish_(turkey)`        |
+| Turco (Turquía)         | `g_language = german_(germany)`        |
 | Español (Latinoamérica) | `g_language = spanish_(latin_america)` |
 | Chino (Simplificado)    | `g_language = chinese_(simplified)`    |
 | Chino (Tradicional)     | `g_language = chinese_(traditional)`   |
