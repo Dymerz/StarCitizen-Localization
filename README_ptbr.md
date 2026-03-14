@@ -15,6 +15,7 @@
 - 🇪🇸 [Instrucciones en Español](README_es.md).
 - 🇮🇹 [Istruzioni in Italiano](README_it.md).
 - 🇧🇷 [Instrução em Português](README_ptbr.md).
+- 🇹🇷 [Türkçe Talimatlar](README_tr.md).
 
 **Table of Contents:**
 - [Supported Languages](#supported-languages)
@@ -28,12 +29,13 @@
 
 | Idioma                  | Suportado | Fonte |
 |--------------------------|-----------|-------|
-| Inglês                  | ![Static Badge](https://img.shields.io/badge/4.2.1-PTU-brightgreen) | Importado dos arquivos do jogo |
-| Francês - França        | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Gerado de [circuspes.fr](https://traduction.circuspes.fr) |
-| Alemão - Alemanha       | ![Static Badge](https://img.shields.io/badge/4.2.1-PTU-brightgreen) | Aqui |
-| Português - Brasil      | ![Static Badge](https://img.shields.io/badge/4.2.1-PTU-brightgreen) | Aqui |
+| Inglês                  | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Importado dos arquivos do jogo |
+| Francês - França        | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Gerado de [circuspes.fr](https://traduction.circuspes.fr) |
+| Alemão - Alemanha       | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Aqui |
+| Português - Brasil      | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Aqui |
 | Italiano - Itália       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Espanhol - Espanha      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Aqui |
+| Turco - Turquia         | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Aqui |
 | Espanhol - América Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
 | Chinês - Simplificado   | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
 | Chinês - Tradicional    | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
