@@ -33,7 +33,7 @@
 | Inglese                 | ![Static Badge](https://img.shields.io/badge/4.7.0-LIVE-brightgreen) | Importato dai file di gioco |
 | Francese - Francia      | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Generato da [circuspes.fr](https://traduction.circuspes.fr) |
 | Tedesco - Germania      | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Qui |
-| Portoghese - Brasile    | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Qui |
+| Portoghese - Brasile    | ![Static Badge](https://img.shields.io/badge/4.7.0-LIVE-brightgreen) | Qui |
 | Italiano - Italia       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spagnolo - Spagna       | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Qui |
 | Turco - Turchia         | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Qui |
