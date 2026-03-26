@@ -29,10 +29,10 @@
 
 | Dil                      | Durum | Kaynak |
 |--------------------------|-------|--------|
-| Ingilizce                | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Oyun dosyalarindan içe aktarildi |
-| Fransizca - Fransa       | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | [circuspes.fr](https://traduction.circuspes.fr) üzerinden olusturuldu |
-| Almanca - Almanya        | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Burada |
-| Portekizce - Brezilya    | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Burada |
+| Ingilizce                | ![Static Badge](https://img.shields.io/badge/4.7.0-LIVE-brightgreen) | Oyun dosyalarindan içe aktarildi |
+| Fransizca - Fransa       | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | [circuspes.fr](https://traduction.circuspes.fr) üzerinden olusturuldu |
+| Almanca - Almanya        | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Burada |
+| Portekizce - Brezilya    | ![Static Badge](https://img.shields.io/badge/4.7.0-LIVE-brightgreen | Burada |
 | Italyanca - Italya       | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) ve [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Ispanyolca - Ispanya     | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Burada |
 | Türkçe - Türkiye         | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Burada |

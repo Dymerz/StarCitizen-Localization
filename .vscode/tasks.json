@@ -1,6 +1,48 @@
 {
   "tasks": [
     {
+      "label": "Validate German files",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/tools/ini-utils"
+      },
+      "command": "npm",
+      "args": [
+        "run",
+        "start:validate",
+        "--github-branch=${input:github-branch}",
+        "'../../data/Localization/german_(germany)/global.ini'"
+      ],
+    },
+    {
+      "label": "Validate French files",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/tools/ini-utils"
+      },
+      "command": "npm",
+      "args": [
+        "run",
+        "start:validate",
+        "--github-branch=${input:github-branch}",
+        "'../../data/Localization/french_(france)/global.ini'"
+      ],
+    },
+    {
+      "label": "Validate Portuguese files",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/tools/ini-utils"
+      },
+      "command": "npm",
+      "args": [
+        "run",
+        "start:validate",
+        "--github-branch=${input:github-branch}",
+        "'../../data/Localization/portuguese_(brazil)/global.ini'"
+      ],
+    },
+    {
       "label": "bump: patch",
       "type": "shell",
       "options": {
@@ -35,6 +77,14 @@
         "version",
         "major"
       ],
+    }
+  ],
+  "inputs": [
+    {
+      "id": "github-branch",
+      "description": "GitHub Branch:",
+      "default": "main",
+      "type": "promptString"
     }
   ]
 }

@@ -29,10 +29,10 @@
 
 | Sprache                 | Unterstützt | Quelle |
 |--------------------------|-------------|--------|
-| Englisch                | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Aus Spieldateien importiert |
-| Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) |
-| Deutsch - Deutschland   | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Hier |
-| Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Hier |
+| Englisch                | ![Static Badge](https://img.shields.io/badge/4.7.0-LIVE-brightgreen) | Aus Spieldateien importiert |
+| Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) |
+| Deutsch - Deutschland   | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Hier |
+| Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.7.0-LIVE-brightgreen) | Hier |
 | Italienisch - Italien   | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spanisch - Spanien      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Hier |
 | Türkisch - Türkei       | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Hier |
