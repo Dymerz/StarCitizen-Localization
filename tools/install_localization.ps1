@@ -10,7 +10,8 @@ $global:LOCALES = $null
 
 function Get-Locales() {
   try {
-    $raw = [Text.Encoding]::UTF8.GetString((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/main/tools/install_localization.i18n.json").RawContentStream.ToArray())
+    # $raw = [Text.Encoding]::UTF8.GetString((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/main/tools/install_localization.i18n.json").RawContentStream.ToArray())
+    $raw = Get-Content -Path "./install_localization.i18n.json" -Raw
     $global:LOCALES = $raw | ConvertFrom-Json
   }
   catch {
@@ -338,16 +339,22 @@ function New-YesNoMenu {
     [string]$message = (Get-Translate "YES_NO_MENU.TITLE")
   )
 
-  $yes = New-Object System.Management.Automation.Host.ChoiceDescription ('&' + (Get-Translate "YES_NO_MENU.YES.SHORT")), (Get-Translate "YES_NO_MENU.YES.SHORT")
-  $no = New-Object System.Management.Automation.Host.ChoiceDescription ('&' + (Get-Translate "YES_NO_MENU.NO.SHORT")), (Get-Translate "YES_NO_MENU.NO.SHORT")
-  $options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
+  $yesLabel = Get-Translate "YES_NO_MENU.YES.SHORT"
+  $noLabel = Get-Translate "YES_NO_MENU.NO.SHORT"
+  $menuItems = [System.Collections.Generic.List[string]]::new()
+  $menuItems.Add($yesLabel)
+  $menuItems.Add($noLabel)
 
-  $result = $host.ui.PromptForChoice("", $message, $options, 0)
+  $result = New-Menu -title $message -menuItems $menuItems
 
-  switch ($result) {
-    0 { return $true }
-    1 { return $false }
+  if ($result -eq $yesLabel) {
+    return $true
   }
+  elseif ($result -eq $noLabel) {
+    return $false
+  }
+
+  return $null
 }
 
 <#
