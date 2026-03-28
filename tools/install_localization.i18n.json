@@ -10,7 +10,7 @@
 		"GAME_FOLDER": "  - Game folder: $0",
 		"BRANCH": "  - Branch: $0",
 		"REMOVE_LANGUAGE": "  - Remove the language files",
-		"INSTALL_LANGUAGE": "  - Install the language $0",
+		"INSTALL_LANGUAGE": "  - Install the language: $0",
 		"CONTINUE_PROMPT": "Do you want to continue?",
 		"DOWNLOAD_FILES": "Downloading the language files...",
 		"REMOVE_FILES": "Removing the language files...",
@@ -22,12 +22,12 @@
 		"ENTER_TO_CONTINUE": "Press Enter to continue",
 		"REMOVE": "Remove",
 		"INTERACTIVE_MENU": {
-			"HINT": "Use arrows (↑ and ↓) to move then, 'Enter' to validate, 'ESC' to Exit",
+			"HINT": "Use arrows (↑ and ↓) to move, 'Enter' to validate, 'ESC' to exit",
 			"EXITING": "You pressed Esc, exiting...",
 			"SELECTION": "You selected $0"
 		},
 		"YES_NO_MENU": {
-			"TITLE": "Vuoi continuare?",
+			"TITLE": "Do you want to continue?",
 			"YES": {
 				"SHORT": "Yes",
 				"LONG": "Yes: continue"
@@ -60,7 +60,7 @@
 		"GAME_FOLDER": "  - Dossier du jeu : $0",
 		"BRANCH": "  - Branche : $0",
 		"REMOVE_LANGUAGE": "  - Supprimer les fichiers de langue",
-		"INSTALL_LANGUAGE": "  - Installer la langue $0",
+		"INSTALL_LANGUAGE": "  - Installer la langue : $0",
 		"CONTINUE_PROMPT": "Voulez-vous continuer ?",
 		"DOWNLOAD_FILES": "Téléchargement des fichiers de langue...",
 		"REMOVE_FILES": "Suppression des fichiers de langue...",
@@ -110,7 +110,7 @@
 		"GAME_FOLDER": "  - Spieleordner: $0",
 		"BRANCH": "  - Branch: $0",
 		"REMOVE_LANGUAGE": "  - Entfernen Sie die Sprachdateien",
-		"INSTALL_LANGUAGE": "  - Installieren Sie die Sprache $0",
+		"INSTALL_LANGUAGE": "  - Installieren Sie die Sprache: $0",
 		"CONTINUE_PROMPT": "Möchten Sie fortfahren?",
 		"DOWNLOAD_FILES": "Laden der Sprachdateien...",
 		"REMOVE_FILES": "Entfernen der Sprachdateien...",
@@ -151,7 +151,7 @@
 	},
 	"it": {
 		"DESCRIPTION": "Descrizione: Installa i file di localizzazione per Star Citizen",
-		"FOUND_FOLDER": "Trova la cartella di gioco: $0",
+		"FOUND_FOLDER": "Cartella di gioco trovata: $0",
 		"GET_VERSIONS": "Ottenimento delle versioni disponibili del gioco...",
 		"SELECT_GAME_VERSION": "Seleziona la versione del gioco da utilizzare",
 		"SELECT_EXE": "Seleziona StarCitizen_Launcher.exe nella cartella di gioco",
@@ -160,7 +160,7 @@
 		"GAME_FOLDER": "  - Cartella di gioco: $0",
 		"BRANCH": "  - Branch: $0",
 		"REMOVE_LANGUAGE": "  - Rimuovi i file di lingua",
-		"INSTALL_LANGUAGE": "  - Installa la lingua $0",
+		"INSTALL_LANGUAGE": "  - Installa la lingua: $0",
 		"CONTINUE_PROMPT": "Vuoi continuare?",
 		"DOWNLOAD_FILES": "Download dei file di lingua in corso...",
 		"REMOVE_FILES": "Rimozione dei file di lingua...",
@@ -171,17 +171,13 @@
 		"ENJOY_GAME": "Ora puoi goderti Star Citizen in \"$0\"",
 		"ENTER_TO_CONTINUE": "Premi Invio per uscire",
 		"REMOVE": "Rimuovi",
-		"LANGUAGE_NOT_EXIST": "La lingua \"$0\" non esiste.",
-		"EXITING": "Hai premuto Esc, uscita...",
-		"SELECTION": "Hai selezionato $0",
-		"YES_NO_TITLE": "Vuoi continuare",
 		"INTERACTIVE_MENU": {
 			"HINT": "Usa le frecce (↑ e ↓) per muoverti, 'Invio' per confermare, 'ESC' per uscire",
 			"EXITING": "Hai premuto Esc, in uscita...",
 			"SELECTION": "Hai selezionato $0"
 		},
 		"YES_NO_MENU": {
-			"TITLE": "¿Desea continuar",
+			"TITLE": "Vuoi continuare?",
 			"YES": {
 				"SHORT": "Sì",
 				"LONG": "Sì: continua"
@@ -214,7 +210,7 @@
 		"GAME_FOLDER": "  - Pasta do jogo: $0",
 		"BRANCH": "  - Branch: $0",
 		"REMOVE_LANGUAGE": "  - Remover os arquivos de idioma",
-		"INSTALL_LANGUAGE": "  - Instalar o idioma $0",
+		"INSTALL_LANGUAGE": "  - Instalar o idioma: $0",
 		"CONTINUE_PROMPT": "Deseja continuar?",
 		"DOWNLOAD_FILES": "Baixando os arquivos de idioma...",
 		"REMOVE_FILES": "Removendo os arquivos de idioma...",
@@ -257,28 +253,28 @@
 		"DESCRIPTION": "Descripción: Instale los archivos de localización para Star Citizen",
 		"FOUND_FOLDER": "Se encontró la carpeta del juego: $0",
 		"GET_VERSIONS": "Obteniendo las versiones disponibles del juego...",
-		"SELECT_GAME_VERSION": "Selecciona la versión del juego que deseas usar",
+		"SELECT_GAME_VERSION": "Seleccione la versión del juego que desea usar",
 		"SELECT_EXE": "Seleccione StarCitizen_Launcher.exe en la carpeta del juego",
 		"SELECT_VERSION": "Seleccione la versión del juego a utilizar",
 		"OVERVIEW": "Resumen:",
 		"GAME_FOLDER": "  - Carpeta del juego: $0",
 		"BRANCH": "  - Rama: $0",
 		"REMOVE_LANGUAGE": "  - Eliminar los archivos de idioma",
-		"INSTALL_LANGUAGE": "  - Instalar el idioma $0",
+		"INSTALL_LANGUAGE": "  - Instalar el idioma: $0",
 		"CONTINUE_PROMPT": "¿Desea continuar?",
 		"DOWNLOAD_FILES": "Descargando los archivos de idioma...",
 		"REMOVE_FILES": "Eliminando los archivos de idioma...",
 		"UNINSTALL_COMPLETE": "Desinstalación completada",
-		"EXIT_PROMPT": "Presiona Enter para salir",
+		"EXIT_PROMPT": "Presione Enter para salir",
 		"CONFIGURE_GAME": "Configurando el juego...",
 		"INSTALL_COMPLETE": "Instalación completada",
-		"ENJOY_GAME": "Ahora puedes disfrutar de Star Citizen en \"$0\"",
-		"ENTER_TO_CONTINUE": "Presiona Enter para salir",
+		"ENJOY_GAME": "Ahora puede disfrutar de Star Citizen en \"$0\"",
+		"ENTER_TO_CONTINUE": "Presione Enter para salir",
 		"REMOVE": "Eliminar",
 		"INTERACTIVE_MENU": {
-			"HINT": "Usa las flechas (↑ y ↓) para moverte, 'Enter' para validar, 'ESC' para salir",
-			"EXITING": "Presionaste Esc, saliendo...",
-			"SELECTION": "Seleccionaste $0"
+			"HINT": "Use las flechas (↑ y ↓) para moverse, 'Enter' para validar, 'ESC' para salir",
+			"EXITING": "Presionó Esc, saliendo...",
+			"SELECTION": "Seleccionó $0"
 		},
 		"YES_NO_MENU": {
 			"TITLE": "¿Desea continuar",
@@ -297,10 +293,10 @@
 			"INSTALL_ERROR": "Se produjo un error al instalar los archivos de idioma.",
 			"USER_CFG_UPDATE_FAILED": "Error al actualizar 'user.cfg'",
 			"USER_CFG_UPDATE_ERROR": "Se produjo un error al actualizar el archivo 'user.cfg'.",
-			"MENU_INVALID_BUTTON": "¡Botón no válido! Inténtalo de nuevo...",
+			"MENU_INVALID_BUTTON": "¡Botón no válido! Inténtelo de nuevo...",
 			"LANGUAGE_NOT_EXIST": "El idioma \"$0\" no existe.",
 			"LANGUAGE_DOWNLOAD_FAILED": "Error en la descarga del idioma",
-			"LANGUAGE_NOT_AVAILABLE": "Tal vez el idioma aún no esté disponible. Puedes verificar el estado de las traducciones aquí:"
+			"LANGUAGE_NOT_AVAILABLE": "Tal vez el idioma aún no esté disponible. Puede verificar el estado de las traducciones aquí:"
 		}
 	},
 	"tr": {
@@ -331,7 +327,7 @@
 			"SELECTION": "$0 seçildi"
 		},
 		"YES_NO_MENU": {
-			"TITLE": "Devam etmek istiyor musunuz",
+			"TITLE": "Devam etmek istiyor musunuz?",
 			"YES": {
 				"SHORT": "Evet",
 				"LONG": "Evet: devam et"
