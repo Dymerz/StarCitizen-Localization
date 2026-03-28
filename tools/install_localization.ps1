@@ -123,10 +123,10 @@ Function Find-RSILauncherFolder() {
     Try to guess the game folder from the "RSI Launcher" logs, the default installation path, or the "RSI Launcher" shortcut
 #>
 Function Find-StarCitizenFolder() {
-    # Try to find the game folder from the "RSI Launcher" logs using the new regex method (RSI Launcher 2.0)
-    $logPath = Join-Path $env:APPDATA "\rsilauncher\logs\log.log"
-    if (Test-Path -Path $logPath -PathType Leaf) {
-        $logContent = Get-Content -Path $logPath -Raw
+  # Try to find the game folder from the "RSI Launcher" logs using the new regex method (RSI Launcher 2.0)
+  $logPath = Join-Path $env:APPDATA "\rsilauncher\logs\log.log"
+  if (Test-Path -Path $logPath -PathType Leaf) {
+    $logContent = Get-Content -Path $logPath -Raw
 
     # Regex patterns to match launcher log lines where the game path is present
     $regexPatterns = @(
@@ -162,69 +162,69 @@ Function Find-StarCitizenFolder() {
         }
       }
     }
-    }
+  }
 
-    # Existing method: Try to find the game folder from the "RSI Launcher" logs with JSON parsing
-    $jsonLogPath = Join-Path $env:APPDATA "\rsilauncher\logs\log.log"
-    if (Test-Path -Path $jsonLogPath -PathType Leaf) {
-      try {
-        $content = Get-Content -Path $jsonLogPath -Raw
-        $contentFixed = "[$content]" | Out-String # add missing '[' and ']' characters
-        $contentFixed = $contentFixed -replace ',(\s*\])', '$1' # fix ending comma in object
-        $contentFixed = $contentFixed -replace ',(\s*\})', '$1' # fix ending comma in array
-        $fixedJson = $contentFixed | ConvertFrom-Json
+  # Existing method: Try to find the game folder from the "RSI Launcher" logs with JSON parsing
+  $jsonLogPath = Join-Path $env:APPDATA "\rsilauncher\logs\log.log"
+  if (Test-Path -Path $jsonLogPath -PathType Leaf) {
+    try {
+      $content = Get-Content -Path $jsonLogPath -Raw
+      $contentFixed = "[$content]" | Out-String # add missing '[' and ']' characters
+      $contentFixed = $contentFixed -replace ',(\s*\])', '$1' # fix ending comma in object
+      $contentFixed = $contentFixed -replace ',(\s*\})', '$1' # fix ending comma in array
+      $fixedJson = $contentFixed | ConvertFrom-Json
 
-        # get all "INSTALLER@INSTALL" events
-        $events = @($fixedJson | Where-Object { $_.'[browser][info] '.event -eq 'INSTALLER@INSTALL' })
+      # get all "INSTALLER@INSTALL" events
+      $events = @($fixedJson | Where-Object { $_.'[browser][info] '.event -eq 'INSTALLER@INSTALL' })
 
-        if ($events.Count -gt 0) {
-          # get the "libraryFolder" property
-          $libraryFolders = @(
-            $events |
-            ForEach-Object { $_.'[browser][info] '.data.gameInformation.libraryFolder } |
-            Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
-          )
+      if ($events.Count -gt 0) {
+        # get the "libraryFolder" property
+        $libraryFolders = @(
+          $events |
+          ForEach-Object { $_.'[browser][info] '.data.gameInformation.libraryFolder } |
+          Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
+        )
 
-          # get the last "libraryFolder" property as it is the most recent
-          $lastLibraryFolder = $libraryFolders | Select-Object -Last 1
+        # get the last "libraryFolder" property as it is the most recent
+        $lastLibraryFolder = $libraryFolders | Select-Object -Last 1
 
-          if (-not [string]::IsNullOrWhiteSpace($lastLibraryFolder) -and (Test-Path -Path $lastLibraryFolder -PathType Container)) {
-            Write-Debug "Found the game folder from the 'RSI Launcher' logs: $lastLibraryFolder"
-            return "$lastLibraryFolder\StarCitizen"
-          }
+        if (-not [string]::IsNullOrWhiteSpace($lastLibraryFolder) -and (Test-Path -Path $lastLibraryFolder -PathType Container)) {
+          Write-Debug "Found the game folder from the 'RSI Launcher' logs: $lastLibraryFolder"
+          return "$lastLibraryFolder\StarCitizen"
         }
       }
-      catch {
-        Write-Debug "Unable to parse RSI Launcher JSON logs: $($_.Exception.Message)"
-      }
     }
-
-    # Fallback 1: Try to find the game folder from the default installation path
-    $defaultPath = "C:\Program Files\Roberts Space Industries\StarCitizen"
-    if (Test-Path -Path "$defaultPath\LIVE\StarCitizen_Launcher.exe" -PathType Leaf) {
-        Write-Debug "Found the game folder from the default installation path: $defaultPath"
-        return $defaultPath
+    catch {
+      Write-Debug "Unable to parse RSI Launcher JSON logs: $($_.Exception.Message)"
     }
+  }
 
-    # Fallback 2: Try to find the game folder from the "RSI Launcher" shortcut
-    $shortcutPath = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Roberts Space Industries\RSI Launcher.lnk"
-    if (Test-Path -Path $shortcutPath -PathType Leaf) {
-        $wshShell = New-Object -ComObject WScript.Shell
-        $shortcut = $wshShell.CreateShortcut($shortcutPath)
-        $targetPath = $shortcut.TargetPath
+  # Fallback 1: Try to find the game folder from the default installation path
+  $defaultPath = "C:\Program Files\Roberts Space Industries\StarCitizen"
+  if (Test-Path -Path "$defaultPath\LIVE\StarCitizen_Launcher.exe" -PathType Leaf) {
+    Write-Debug "Found the game folder from the default installation path: $defaultPath"
+    return $defaultPath
+  }
 
-        # get resolve the "Roberts Space Industries" grand parent folder
-        $rsiLauncherPath = Split-Path -Path $targetPath -Parent
-        $rsiPath = Split-Path -Path $rsiLauncherPath -Parent
+  # Fallback 2: Try to find the game folder from the "RSI Launcher" shortcut
+  $shortcutPath = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Roberts Space Industries\RSI Launcher.lnk"
+  if (Test-Path -Path $shortcutPath -PathType Leaf) {
+    $wshShell = New-Object -ComObject WScript.Shell
+    $shortcut = $wshShell.CreateShortcut($shortcutPath)
+    $targetPath = $shortcut.TargetPath
 
-        if (Test-Path -Path "$rsiPath\StarCitizen\LIVE\StarCitizen_Launcher.exe" -PathType Leaf) {
-            Write-Debug "Found the game folder from the 'RSI Launcher' shortcut: $rsiPath"
-            return "$rsiPath\StarCitizen"
-        }
+    # get resolve the "Roberts Space Industries" grand parent folder
+    $rsiLauncherPath = Split-Path -Path $targetPath -Parent
+    $rsiPath = Split-Path -Path $rsiLauncherPath -Parent
+
+    if (Test-Path -Path "$rsiPath\StarCitizen\LIVE\StarCitizen_Launcher.exe" -PathType Leaf) {
+      Write-Debug "Found the game folder from the 'RSI Launcher' shortcut: $rsiPath"
+      return "$rsiPath\StarCitizen"
     }
+  }
 
-    Write-Warning "Unable to find the game folder"
-    return $null
+  Write-Warning "Unable to find the game folder"
+  return $null
 }
 
 <#
@@ -338,17 +338,22 @@ function New-YesNoMenu {
     [string]$message = (Get-Translate "YES_NO_MENU.TITLE")
   )
 
-  $yes = New-Object System.Management.Automation.Host.ChoiceDescription ('&' + (Get-Translate "YES_NO_MENU.YES.SHORT")), (Get-Translate "YES_NO_MENU.YES.SHORT")
-  $no = New-Object System.Management.Automation.Host.ChoiceDescription ('&' + (Get-Translate "YES_NO_MENU.NO.SHORT")), (Get-Translate "YES_NO_MENU.NO.SHORT")
-  $options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
+  $yesLabel = Get-Translate "YES_NO_MENU.YES.SHORT"
+  $noLabel = Get-Translate "YES_NO_MENU.NO.SHORT"
+  $menuItems = [System.Collections.Generic.List[string]]::new()
+  $menuItems.Add($yesLabel)
+  $menuItems.Add($noLabel)
 
-  $result = $host.ui.PromptForChoice("", $message, $options, 0)
+  $result = New-Menu -title $message -menuItems $menuItems
 
-  switch ($result)
-  {
-    0 { return $true }
-    1 { return $false }
+  if ($result -eq $yesLabel) {
+    return $true
   }
+  elseif ($result -eq $noLabel) {
+    return $false
+  }
+
+  return $null
 }
 
 <#
@@ -549,7 +554,7 @@ Write-Host ""
 Write-Host (Get-Translate "OVERVIEW") -ForegroundColor Yellow
 Write-Host (Get-Translate "GAME_FOLDER" $gameFolder) -ForegroundColor Yellow
 if ($null -eq $language) { Write-Host (Get-Translate "REMOVE_LANGUAGE") -ForegroundColor Yellow }
-else                     { Write-Host (Get-Translate "INSTALL_LANGUAGE" $language) -ForegroundColor Yellow }
+else { Write-Host (Get-Translate "INSTALL_LANGUAGE" $language) -ForegroundColor Yellow }
 Write-Host (Get-Translate "BRANCH" $branch) -ForegroundColor Yellow
 Write-Host ""
 
