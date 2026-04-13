@@ -30,10 +30,10 @@
 
 | Langue                  | Pris en charge | Source |
 |--------------------------|----------------|--------|
-| Anglais                 | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Importé des fichiers du jeu |
-| Français - France       | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Généré depuis [circuspes.fr](https://traduction.circuspes.fr) |
-| Allemand - Allemagne    | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-yellow) | Ici |
-| Portugais - Brésil      | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-brightgreen) | Ici |
+| Anglais                 | ![Static Badge](https://img.shields.io/badge/4.7.1-LIVE-brightgreen) | Importé des fichiers du jeu |
+| Français - France       | ![Static Badge](https://img.shields.io/badge/4.7.0-LIVE-brightgreen) | Généré depuis [circuspes.fr](https://traduction.circuspes.fr) |
+| Allemand - Allemagne    | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Ici |
+| Portugais - Brésil      | ![Static Badge](https://img.shields.io/badge/4.7.1-LIVE-brightgreen) | Ici |
 | Italien - Italie        | ![Static Badge](https://img.shields.io/badge/3.24.1-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) et [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Espagnol - Espagne      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Ici |
 | Turc - Turquie          | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Ici |

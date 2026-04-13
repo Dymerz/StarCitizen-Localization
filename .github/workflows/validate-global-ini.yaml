@@ -95,7 +95,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 22
+        node-version: 24
 
     - name: Validate key/value pairs
       run: npx @dymerz/starcitizen-ini-utils validate --ci --fail-on-error --reference-type local --local-path "$GITHUB_WORKSPACE/data/Localization/english/global.ini" ${{ needs.prepare.outputs.changed-files }}
