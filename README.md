@@ -34,7 +34,6 @@
 | German - Germany         | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Here |
 | Portuguese - Brazil      | ![Static Badge](https://img.shields.io/badge/4.7.1-LIVE-brightgreen) | Here |
 | Italian - Italy          | ![Static Badge](https://img.shields.io/badge/4.7.1-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
-
 | Spanish - Spain          | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Here |
 | Turkish - Turkey         | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Here |
 | Spanish - Latin America  | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
