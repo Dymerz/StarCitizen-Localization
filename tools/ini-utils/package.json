@@ -28,24 +28,24 @@
     "url": "https://github.com/Dymerz/StarCitizen-Localization.git"
   },
   "dependencies": {
-    "commander": "^14.0.0",
+    "commander": "^14.0.3",
     "ini": "^5.0.0"
   },
   "devDependencies": {
     "@types/ini": "^4.1.1",
     "@types/mocha": "^10.0.10",
     "@types/mock-fs": "^4.13.4",
-    "@types/node": "^22.15.19",
+    "@types/node": "^24.12.0",
     "@types/sinon": "^17.0.4",
     "codecov": "^3.8.3",
-    "mocha": "^11.4.0",
+    "mocha": "^11.7.5",
     "mock-fs": "^5.5.0",
-    "nodemon": "^3.1.10",
+    "nodemon": "^3.1.14",
     "nyc": "^17.1.0",
     "sinon": "^20.0.0",
     "ts-mocha": "^11.1.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=18.0.0"

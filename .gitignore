@@ -3,3 +3,4 @@
 /tools/ini-utils/dist
 **/.nyc_output
 **/coverage
+data/Localization/english/global.ini
