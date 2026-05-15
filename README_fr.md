@@ -30,8 +30,8 @@
 
 | Langue                  | Pris en charge | Source |
 |--------------------------|----------------|--------|
-| Anglais                 | ![Static Badge](https://img.shields.io/badge/4.7.2-LIVE-brightgreen) | Importé des fichiers du jeu |
-| Français - France       | ![Static Badge](https://img.shields.io/badge/4.7.0-LIVE-brightgreen) | Généré depuis [circuspes.fr](https://traduction.circuspes.fr) |
+| Anglais                 | ![Static Badge](https://img.shields.io/badge/4.8.0-PTU-brightgreen) | Importé des fichiers du jeu |
+| Français - France       | ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen) | Généré depuis [circuspes.fr](https://traduction.circuspes.fr) |
 | Allemand - Allemagne    | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Ici |
 | Portugais - Brésil      | ![Static Badge](https://img.shields.io/badge/4.7.2-LIVE-brightgreen) | Ici |
 | Italien - Italie        | ![Static Badge](https://img.shields.io/badge/4.7.2-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) et [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
