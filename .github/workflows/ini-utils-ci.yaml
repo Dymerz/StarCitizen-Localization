@@ -19,17 +19,17 @@ jobs:
 
     steps:
     - name: Checkout current repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         sparse-checkout: tools/ini-utils
 
     - name: Set up Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version: 24
 
     - name: Cache node modules
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: tools/ini-utils/node_modules
         key: ${{ runner.os }}-node-${{ hashFiles('tools/ini-utils/package-lock.json') }}
@@ -53,7 +53,7 @@ jobs:
       run: npm pack
 
     - name: Upload package artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ini-utils-package
         path: tools/ini-utils/*.tgz
@@ -69,12 +69,12 @@ jobs:
 
     steps:
     - name: Checkout current repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         sparse-checkout: tools/ini-utils
 
     - name: Set up Node.js for npmjs
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version: 24
         registry-url: 'https://registry.npmjs.org'
@@ -106,7 +106,7 @@ jobs:
 
     - name: Download package artifact
       if: steps.version_check.outputs.version_exists != 'true'
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v8
       with:
         name: ini-utils-package
         path: ./
