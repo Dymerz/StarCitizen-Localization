@@ -16,10 +16,10 @@ jobs:
 
     steps:
     - name: Checkout current repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Set up Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version: 24
 
@@ -33,7 +33,7 @@ jobs:
 
     - name: Create Pull Request
       if: github.ref == 'refs/heads/main'
-      uses: peter-evans/create-pull-request@v7
+      uses: peter-evans/create-pull-request@v8
       with:
         add-paths: data/Localization/french_(france)/global.ini
         commit-message: Update French localization 🇫🇷
