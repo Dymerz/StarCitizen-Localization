@@ -1,4 +1,4 @@
-# StarCitizen-Localization 🌎
+# StarCitizen-Localization 🌎<!-- omit in toc -->
 
 [![Discord](https://img.shields.io/discord/1185135396112322620?logo=discord&label=discord)](https://discord.gg/Gbvz9fTmZU)
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
@@ -18,12 +18,17 @@
 - 🇹🇷 [Türkçe Talimatlar](README_tr.md).
 
 **Tabella dei contenuti:**
-- [Lingue supportate](#lingue-supportate)
+- [Lingue Supportate](#lingue-supportate)
 - [Installazione](#installazione)
-- [Aggiornare i file di localizzazione](#aggiornamenti)
-- [Come contribuire alla localizzazione](#contribuire)
-- [Contributori](#contributors)
-- [Disclaimer](#Disclaimer)
+  - [Metodo di Installazione Più Semplice (PowerShell)](#metodo-di-installazione-più-semplice-powershell)
+  - [Installazione Automatica (Alternativa)](#installazione-automatica-alternativa)
+  - [Installazione Manuale](#installazione-manuale)
+    - [Esempio di file `user.cfg`:](#esempio-di-file-usercfg)
+- [Aggiornamenti](#aggiornamenti)
+- [Contribuire](#contribuire)
+- [Contributori](#contributori)
+- [Analisi](#analisi)
+- [Disclaimer](#disclaimer)
 
 ---
 ## Lingue Supportate
@@ -34,7 +39,7 @@
 | Francese - Francia      | ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen) | Generato da [circuspes.fr](https://traduction.circuspes.fr) |
 | Tedesco - Germania      | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Qui |
 | Portoghese - Brasile    | ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen) | Qui |
-| Italiano - Italia       | ![Static Badge](https://img.shields.io/badge/4.7.2-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Italiano - Italia       | ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spagnolo - Spagna       | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Qui |
 | Turco - Turchia         | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Qui |
 | Spagnolo - America Latina | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | In attesa di contributo |
