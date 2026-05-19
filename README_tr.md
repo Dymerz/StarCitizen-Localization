@@ -1,4 +1,4 @@
-# StarCitizen-Localization 🌍
+# StarCitizen-Localization 🌍<!-- omit in toc -->
 
 [![Discord](https://img.shields.io/discord/1185135396112322620?logo=discord&label=discord)](https://discord.gg/Gbvz9fTmZU)
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
@@ -20,6 +20,10 @@
 **Içindekiler:**
 - [Desteklenen Diller](#desteklenen-diller)
 - [Kurulum Rehberi](#kurulum-rehberi)
+  - [En Kolay Kurulum Yöntemi (PowerShell)](#en-kolay-kurulum-yöntemi-powershell)
+  - [Otomatik Kurulum (Alternatif)](#otomatik-kurulum-alternatif)
+  - [Manuel Kurulum](#manuel-kurulum)
+    - [Diger Diller Için Yapilandirma](#diger-diller-için-yapilandirma)
 - [Yerellestirme Dosyalarini Güncelleme](#yerellestirme-dosyalarini-güncelleme)
 - [Katkida Bulunma](#katkida-bulunma)
 - [Sorumluluk Reddi](#sorumluluk-reddi)
@@ -33,7 +37,7 @@
 | Fransizca - Fransa       | ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen) | [circuspes.fr](https://traduction.circuspes.fr) üzerinden olusturuldu |
 | Almanca - Almanya        | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Burada |
 | Portekizce - Brezilya    | ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen | Burada |
-| Italyanca - Italya       | ![Static Badge](https://img.shields.io/badge/4.7.2-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) ve [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Italyanca - Italya       | ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) ve [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Ispanyolca - Ispanya     | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Burada |
 | Türkçe - Türkiye         | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Burada |
 | Ispanyolca - Latin Amerika| ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Katki bekleniyor |

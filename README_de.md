@@ -1,4 +1,4 @@
-# StarCitizen-Übersetzung 🌎
+# StarCitizen-Übersetzung 🌎<!-- omit in toc -->
 
 [![Discord](https://img.shields.io/discord/1185135396112322620?logo=discord&label=discord)](https://discord.gg/Gbvz9fTmZU)
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
@@ -20,8 +20,14 @@
 **Inhaltsverzeichnis:**
 - [Unterstützte Sprachen](#unterstützte-sprachen)
 - [Installationsanleitung](#installationsanleitung)
+  - [Einfachste Installationsmethode (PowerShell)](#einfachste-installationsmethode-powershell)
+  - [Automatische Installation (Alternative)](#automatische-installation-alternative)
+  - [Manuelle Installation](#manuelle-installation)
+    - [Beispiel `user.cfg` Datei:](#beispiel-usercfg-datei)
 - [Aktualisieren der Lokalisierungsdateien](#aktualisieren-der-lokalisierungsdateien)
 - [Beitragen](#beitragen)
+- [Mitwirkende](#mitwirkende)
+- [Statistik](#statistik)
 - [Haftungsausschluss](#haftungsausschluss)
 
 ---
@@ -33,7 +39,7 @@
 | Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) |
 | Deutsch - Deutschland   | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Hier |
 | Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen) | Hier |
-| Italienisch - Italien   | ![Static Badge](https://img.shields.io/badge/4.7.2-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Italienisch - Italien   | ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spanisch - Spanien      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Hier |
 | Türkisch - Türkei       | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Hier |
 | Spanisch - Lateinamerika| ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Warten auf Beitrag |

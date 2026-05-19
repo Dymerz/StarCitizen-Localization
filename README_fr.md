@@ -1,4 +1,4 @@
-# StarCitizen-Localization 🌎
+# StarCitizen-Localization 🌎<!-- omit in toc -->
 
 [![Discord](https://img.shields.io/discord/1185135396112322620?logo=discord&label=discord)](https://discord.gg/Gbvz9fTmZU)
 ![GitHub all releases](https://img.shields.io/github/downloads/Dymerz/StarCitizen-Localization/total)
@@ -19,11 +19,17 @@
 
 
 **Table des matières :**
-1. [Langues Prises en Charge](#langues-prises-en-charge)
-2. [Guide d'Installation](#guide-dinstallation)
-3. [Mise à Jour des Fichiers de Localisation](#mise-à-jour-des-fichiers-de-localisation)
-4. [Contribuer](#contribuer)
-5. [Avis de non-responsabilité](#avis-de-non-responsabilité)
+- [Langues Prises en Charge](#langues-prises-en-charge)
+- [Guide d'Installation](#guide-dinstallation)
+  - [Méthode d'Installation la Plus Simple (PowerShell)](#méthode-dinstallation-la-plus-simple-powershell)
+  - [Installation Automatique (Alternative)](#installation-automatique-alternative)
+  - [Installation manuelle](#installation-manuelle)
+    - [Exemple de fichier `user.cfg` :](#exemple-de-fichier-usercfg-)
+- [Mise à Jour des Fichiers de Localisation](#mise-à-jour-des-fichiers-de-localisation)
+- [Contribuer](#contribuer)
+- [Contributeurs](#contributeurs)
+- [Analytique](#analytique)
+- [Avis de non-responsabilité](#avis-de-non-responsabilité)
 
 ---
 ## Langues Prises en Charge
@@ -34,7 +40,7 @@
 | Français - France       | ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen) | Généré depuis [circuspes.fr](https://traduction.circuspes.fr) |
 | Allemand - Allemagne    | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Ici |
 | Portugais - Brésil      | ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen) | Ici |
-| Italien - Italie        | ![Static Badge](https://img.shields.io/badge/4.7.2-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) et [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Italien - Italie        | ![Static Badge](https://img.shields.io/badge/4.8.0-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) et [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Espagnol - Espagne      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Ici |
 | Turc - Turquie          | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Ici |
 | Espagnol - Amérique latine | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | En attente de contribution |
