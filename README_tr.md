@@ -33,7 +33,7 @@
 
 | Dil                      | Durum | Kaynak |
 |--------------------------|-------|--------|
-| Ingilizce                | ![Static Badge](https://img.shields.io/badge/4.8.3-LIVE-brightgreen) | Oyun dosyalarindan içe aktarildi |
+| Ingilizce                | ![Static Badge](https://img.shields.io/badge/4.9.0-PTU-brightgreen) | Oyun dosyalarindan içe aktarildi |
 | Fransizca - Fransa       | ![Static Badge](https://img.shields.io/badge/4.8.1-LIVE-brightgreen) | [circuspes.fr](https://traduction.circuspes.fr) üzerinden olusturuldu |
 | Almanca - Almanya        | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Burada |
 | Portekizce - Brezilya    | ![Static Badge](https://img.shields.io/badge/4.8.3-LIVE-brightgreen | Burada |
