@@ -35,7 +35,7 @@
 
 | Sprache                 | Unterstützt | Quelle |
 |--------------------------|-------------|--------|
-| Englisch                | ![Static Badge](https://img.shields.io/badge/4.8.3-LIVE-brightgreen) | Aus Spieldateien importiert |
+| Englisch                | ![Static Badge](https://img.shields.io/badge/4.9.0-PTU-brightgreen) | Aus Spieldateien importiert |
 | Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/4.8.1-LIVE-brightgreen) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) |
 | Deutsch - Deutschland   | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Hier |
 | Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.8.3-LIVE-brightgreen) | Hier |
