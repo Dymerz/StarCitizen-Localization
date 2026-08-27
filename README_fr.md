@@ -40,7 +40,7 @@
 | Français - France       | ![Static Badge](https://img.shields.io/badge/4.9.0-LIVE-yellow) | Généré depuis [circuspes.fr](https://traduction.circuspes.fr) |
 | Allemand - Allemagne    | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Ici |
 | Portugais - Brésil      | ![Static Badge](https://img.shields.io/badge/4.10.0-LIVE-brightgreen) | Ici |
-| Italien - Italie        | ![Static Badge](https://img.shields.io/badge/4.9.0-LIVE-yellow) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) et [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
+| Italien - Italie        | ![Static Badge](https://img.shields.io/badge/4.10.0-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) et [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Espagnol - Espagne      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Ici |
 | Turc - Turquie          | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Ici |
 | Espagnol - Amérique latine | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | En attente de contribution |
