@@ -40,7 +40,7 @@
 | Idioma                  | Soporte                                                            | Fuente                                                                                                                              |
 | ----------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
 | Inglés                  | ![Static Badge](https://img.shields.io/badge/4.10.0-LIVE-brightgreen)   | Importado de archivos del juego                                                                                                     |
-| Francés - Francia       | ![Static Badge](https://img.shields.io/badge/4.9.0-LIVE-yellow) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) |
+| Francés - Francia       | ![Static Badge](https://img.shields.io/badge/4.10.0-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) |
 | Alemán (Alemania)       | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange)   | Aquí                                                                                                                                |
 | Portugués (Brasil)      | ![Static Badge](https://img.shields.io/badge/4.10.0-LIVE-brightgreen)   | Aquí                                                                                                                                |
 | Italiano (Italia)       | ![Static Badge](https://img.shields.io/badge/4.10.0-LIVE-brightgreen)    | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
