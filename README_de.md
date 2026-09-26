@@ -36,7 +36,7 @@
 | Sprache                 | Unterstützt | Quelle |
 |--------------------------|-------------|--------|
 | Englisch                | ![Static Badge](https://img.shields.io/badge/4.10.1LIVE-brightgreen) | Aus Spieldateien importiert |
-| Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/4.10.0-LIVE-yellow) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) |
+| Französisch - Frankreich | ![Static Badge](https://img.shields.io/badge/4.10.1-LIVE-brightgreen) | Generiert von [circuspes.fr](https://traduction.circuspes.fr) |
 | Deutsch - Deutschland   | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Hier |
 | Portugiesisch - Brasilien| ![Static Badge](https://img.shields.io/badge/4.10.1-LIVE-brightgreen) | Hier |
 | Italienisch - Italien   | ![Static Badge](https://img.shields.io/badge/4.10.1-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) und [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |

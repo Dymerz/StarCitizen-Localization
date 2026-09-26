@@ -34,7 +34,7 @@
 | Dil                      | Durum | Kaynak |
 |--------------------------|-------|--------|
 | Ingilizce                | ![Static Badge](https://img.shields.io/badge/4.10.1-LIVE-brightgreen) | Oyun dosyalarindan içe aktarildi |
-| Fransizca - Fransa       | ![Static Badge](https://img.shields.io/badge/4.10.0-LIVE-yellow) | [circuspes.fr](https://traduction.circuspes.fr) üzerinden olusturuldu |
+| Fransizca - Fransa       | ![Static Badge](https://img.shields.io/badge/4.10.1-LIVE-brightgreen) | [circuspes.fr](https://traduction.circuspes.fr) üzerinden olusturuldu |
 | Almanca - Almanya        | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Burada |
 | Portekizce - Brezilya    | ![Static Badge](https://img.shields.io/badge/4.10.1-LIVE-brightgreen | Burada |
 | Italyanca - Italya       | ![Static Badge](https://img.shields.io/badge/4.10.1-LIVE-brightgreen) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) ve [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
