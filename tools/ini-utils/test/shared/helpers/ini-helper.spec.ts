@@ -8,6 +8,18 @@ import { Ini } from '../../../src/shared/types/ini.type';
 // Helpers
 import { IniHelper } from '../../../src/shared/helpers/ini.helper';
 
+describe('IniHelper.parse', () =>
+{
+  it('should ignore entries without a valid string value', () =>
+  {
+    const parsed = IniHelper.parse('valid=value\nmalformed entry\nempty=\n');
+
+    assert.deepStrictEqual(parsed, {
+      valid: 'value',
+      empty: ''
+    });
+  });
+});
 
 describe('IniHelper.writeFile', () =>
 {
