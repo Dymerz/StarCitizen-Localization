@@ -24,7 +24,11 @@ export class IniHelper
   public static parse(content: string): Record<string, string | undefined>
   {
     const contentEscaped = IniHelper.escapeValues(content);
-    return ini.parse(contentEscaped);
+    const parsed = ini.parse(contentEscaped);
+
+    return Object.fromEntries(
+      Object.entries(parsed).filter(([, value]) => typeof value === 'string' || value === undefined)
+    );
   }
 
   /**
