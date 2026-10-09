@@ -26,6 +26,15 @@ describe('ValidateCommand.runInternal', () =>
     assert.ok(result, 'ignore commented key should be valid');
   });
 
+  it('should validate entries despite malformed reference lines', () =>
+  {
+    const referenceData = makeIniFromKey(reference, 'malformed_reference_entry');
+    const sourceData = makeIniFromKey(source, 'malformed_reference_entry');
+
+    const result = validateIni(referenceData, sourceData);
+    assert.ok(result, 'malformed reference lines should be ignored');
+  });
+
   it('should validate percent placeholder', () =>
   {
     const referenceData = makeIniFromKey(reference, 'good_percent_placeholder');
