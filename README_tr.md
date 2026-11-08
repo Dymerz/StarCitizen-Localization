@@ -16,6 +16,7 @@
 - 🇮🇹 [Istruzioni in Italiano](README_it.md).
 - 🇧🇷 [Instrução em Português](README_ptbr.md).
 - 🇹🇷 [Türkçe Talimatlar](README_tr.md).
+- 🇰🇷 [한국어 설명서](README_ko.md).
 
 **Içindekiler:**
 - [Desteklenen Diller](#desteklenen-diller)
@@ -44,7 +45,7 @@
 | Çince - Basitlestirilmis | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Katki bekleniyor |
 | Çince - Geleneksel       | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Katki bekleniyor |
 | Japonca - Japonya         | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Katki bekleniyor |
-| Korece - Güney Kore       | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Katki bekleniyor |
+| Korece - Güney Kore       | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Burada |
 | Lehçe - Polonya           | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Katki bekleniyor |
 
 ---
