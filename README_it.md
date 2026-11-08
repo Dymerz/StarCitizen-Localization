@@ -16,6 +16,7 @@
 - 🇮🇹 [Istruzioni in Italiano](README_it.md).
 - 🇧🇷 [Instrução em Português](README_ptbr.md).
 - 🇹🇷 [Türkçe Talimatlar](README_tr.md).
+- 🇰🇷 [한국어 설명서](README_ko.md).
 
 **Tabella dei contenuti:**
 - [Lingue Supportate](#lingue-supportate)
@@ -46,7 +47,7 @@
 | Cinese - Semplificato   | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | In attesa di contributo |
 | Cinese - Tradizionale   | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | In attesa di contributo |
 | Giapponese - Giappone   | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | In attesa di contributo |
-| Coreano - Corea del Sud | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | In attesa di contributo |
+| Coreano - Corea del Sud | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Qui |
 | Polacco - Polonia       | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | In attesa di contributo |
 
 ---
