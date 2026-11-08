@@ -5,6 +5,23 @@
 1. Crea una cartella in `data/Localization` con il nome della lingua che desideri aggiungere, ad esempio `italian_(italy)`.
 2. Copia la cartella `english` e rinominala nella lingua che vuoi tradurre.
 3. Traduci le stringhe nel file `global.ini`.
+4. Crea un README tradotto per la tua lingua:
+   1. Copia `README.md` e rinomina la copia in `README_<codice>.md`, usando un codice breve della lingua, ad esempio `README_fr.md`, `README_de.md` o `README_ptbr.md`.
+   2. Traduci il contenuto nella tua lingua.
+   3. Nella sezione **Versions**, fai puntare i link `LIVE` e `PTU` al tuo nuovo file, ad esempio:
+      ```markdown
+      - [LIVE](https://github.com/Dymerz/StarCitizen-Localization/blob/main/README_fr.md)
+      - [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_fr.md)
+      ```
+5. Aggiungi il link al tuo nuovo README in **tutti** i file README (`README.md`, `README_fr.md`, `README_de.md`, ...), compreso il tuo. Aggiungi una riga alla fine dell'elenco **Languages**, seguendo il formato esistente: la bandiera del paese, poi il testo del link scritto nella tua lingua.
+   ```markdown
+   - 🇬🇧 [Instructions in English.](README.md).
+   - 🇫🇷 [Instruction en Français](README_fr.md).
+   ...
+   - 🇹🇷 [Türkçe Talimatlar](README_tr.md).
+   - 🇵🇱 [Instrukcje po polsku](README_pl.md).
+   ```
+   Mantieni l'elenco nello stesso ordine in tutti i README.
 
 ## Come contribuire
 
