@@ -9,13 +9,13 @@
 - [PTU](https://github.com/Dymerz/StarCitizen-Localization/blob/ptu/README_tr.md)
 
 **Diller:**
-- 🇬🇧 [Instructions in English.](README.md)
-- 🇫🇷 [Instruction en Français](README_fr.md)
-- 🇩🇪 [Anleitung auf Deutsch](README_de.md)
-- 🇪🇸 [Instrucciones en Español](README_es.md)
-- 🇮🇹 [Istruzioni in Italiano](README_it.md)
-- 🇧🇷 [Instrução em Português](README_ptbr.md)
-- 🇹🇷 [Türkçe Talimatlar](README_tr.md)
+- 🇬🇧 [Instructions in English.](README.md).
+- 🇫🇷 [Instruction en Français](README_fr.md).
+- 🇩🇪 [Anleitung auf Deutsch](README_de.md).
+- 🇪🇸 [Instrucciones en Español](README_es.md).
+- 🇮🇹 [Istruzioni in Italiano](README_it.md).
+- 🇧🇷 [Instrução em Português](README_ptbr.md).
+- 🇹🇷 [Türkçe Talimatlar](README_tr.md).
 
 **Içindekiler:**
 - [Desteklenen Diller](#desteklenen-diller)
