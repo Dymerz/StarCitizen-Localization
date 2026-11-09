@@ -1,7 +1,8 @@
 name: Release localization patch
 
-# Publishes an immutable patch release (live-X.Y.Z-rN) whenever translations change on main,
-# so `releases/latest/download/...` always serves the newest files.
+# Drafts a patch release (live-X.Y.Z-rN) whenever translations change on main. Once you
+# publish the draft, `releases/latest/download/...` serves the new files. Further merges
+# before publishing update the same pending draft.
 
 on:
   push:
@@ -71,19 +72,6 @@ jobs:
           fi
         fi
 
-        # Release notes: list of updated languages
-        {
-          echo "notes<<EOF"
-          echo "Localization patch for **${base#live-}** (revision of \`$base\`)."
-          echo
-          echo "### Updated languages"
-          echo "$changed" | sed -nE 's#^data/Localization/([^/]+)/global\.ini$#- \1#p'
-          echo
-          echo "**Full diff**: https://github.com/${{ github.repository }}/compare/$prev...$tag"
-          echo "EOF"
-        } >> "$GITHUB_OUTPUT"
-
-        echo "prev=$prev" >> "$GITHUB_OUTPUT"
         echo "tag=$tag"   >> "$GITHUB_OUTPUT"
         echo "skip=$skip" >> "$GITHUB_OUTPUT"
 
@@ -91,16 +79,35 @@ jobs:
       if: steps.ver.outputs.skip != 'true'
       uses: ./.github/actions/package-localization
 
-    # The tag is created by the release itself. Tags created with GITHUB_TOKEN do not
-    # trigger other workflows, so build.yaml will not run a second time for it.
-    - name: Release
+    # Drafts do not create the git tag until published, so a second patch merged before
+    # publishing computes the same -rN. Replace that pending draft so it accumulates all
+    # changes since the last published tag instead of keeping stale files.
+    - name: Remove pending draft for this tag
+      if: steps.ver.outputs.skip != 'true'
+      env:
+        GH_TOKEN: ${{ github.token }}
+        TAG: ${{ steps.ver.outputs.tag }}
+      run: |
+        is_draft=$(gh release view "$TAG" --repo "${{ github.repository }}" --json isDraft -q .isDraft 2>/dev/null || echo "none")
+        if [ "$is_draft" = "true" ]; then
+          echo "Deleting pending draft $TAG to recreate it with the latest files"
+          gh release delete "$TAG" --repo "${{ github.repository }}" --yes
+        elif [ "$is_draft" = "false" ]; then
+          echo "::error::Release $TAG is already published, refusing to modify it."
+          exit 1
+        fi
+
+    # The tag is only created when the draft is published. build.yaml ignores *-r* tags,
+    # so publishing does not re-run it on this release.
+    - name: Release (draft)
       if: steps.ver.outputs.skip != 'true'
       uses: softprops/action-gh-release@v3
       with:
         tag_name: ${{ steps.ver.outputs.tag }}
         target_commitish: ${{ github.sha }}
         name: ${{ steps.ver.outputs.tag }}
-        body: ${{ steps.ver.outputs.notes }}
+        generate_release_notes: true
+        draft: true
         make_latest: true
         files: |
           data/*.zip
