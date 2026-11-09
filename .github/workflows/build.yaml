@@ -3,6 +3,9 @@ on:
   push:
     tags:
     - '*'
+    # Patch revisions (live-X.Y.Z-rN) are drafted by release-patch.yaml. Publishing that
+    # draft pushes the tag, which must not re-run this workflow (it would revert it to draft).
+    - '!*-r*'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,8 +27,10 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v3
       with:
+        make_latest: true
+        draft: true
+        generate_release_notes: true
         files: |
           data/*.zip
           tools/*.cmd
           tools/*.ps1
-        draft: true
