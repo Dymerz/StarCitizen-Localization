@@ -1,0 +1,19 @@
+name: Package localization
+description: Builds Localization.zip (all locales) and one zip per locale in ./data
+
+runs:
+  using: composite
+  steps:
+  - name: Zip all locales
+    shell: bash
+    working-directory: ./data
+    run: zip -r Localization.zip . -i "Localization/*"
+
+  - name: Zip each locale
+    shell: bash
+    working-directory: ./data
+    run: |
+      find Localization/ -name '*.ini' -print0 | while IFS= read -r -d '' file; do
+        foldername=$(basename "$(dirname "$file")")
+        zip -j "$foldername.zip" "$file"
+      done
