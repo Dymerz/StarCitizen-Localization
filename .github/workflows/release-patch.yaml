@@ -1,0 +1,108 @@
+name: Release localization patch
+
+# Publishes an immutable patch release (live-X.Y.Z-rN) whenever translations change on main,
+# so `releases/latest/download/...` always serves the newest files.
+
+on:
+  push:
+    branches: [main]
+    paths:
+    - 'data/Localization/**'
+
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Release even if english/global.ini changed or nothing changed since the last tag'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-patch
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Release patch
+    if: github.repository == 'Dymerz/StarCitizen-Localization'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+      with:
+        fetch-depth: 0
+        fetch-tags: true
+
+    - name: Compute next revision
+      id: ver
+      env:
+        FORCE: ${{ inputs.force || 'false' }}
+      run: |
+        # Nearest live-* tag reachable from HEAD (the release currently being patched)
+        prev=$(git describe --tags --abbrev=0 --match 'live-*' HEAD 2>/dev/null || true)
+        if [ -z "$prev" ]; then
+          echo "::error::No live-* tag found, push a live-X.Y.Z tag first."
+          exit 1
+        fi
+
+        base=${prev%-r*}
+
+        # Highest existing revision for this base (tags may exist on other commits)
+        last_rev=$(git tag -l "$base-r*" | sed -E "s/^.*-r([0-9]+)$/\1/" | grep -E '^[0-9]+$' | sort -n | tail -1)
+        tag="$base-r$(( ${last_rev:-0} + 1 ))"
+
+        changed=$(git diff --name-only "$prev" HEAD -- 'data/Localization/*/global.ini')
+
+        echo "Previous tag: $prev"
+        echo "Next tag:     $tag"
+        echo "Changed files:"; echo "${changed:-  (none)}"
+
+        skip=false
+        if [ "$FORCE" != "true" ]; then
+          if [ -z "$changed" ]; then
+            echo "::notice::No localization changes since $prev, nothing to release."
+            skip=true
+          elif echo "$changed" | grep -q '^data/Localization/english/global.ini$'; then
+            echo "::warning::english/global.ini changed since $prev: this looks like a new game version. Push a live-X.Y.Z tag instead (or re-run manually with 'force')."
+            skip=true
+          fi
+        fi
+
+        # Release notes: list of updated languages
+        {
+          echo "notes<<EOF"
+          echo "Localization patch for **${base#live-}** (revision of \`$base\`)."
+          echo
+          echo "### Updated languages"
+          echo "$changed" | sed -nE 's#^data/Localization/([^/]+)/global\.ini$#- \1#p'
+          echo
+          echo "**Full diff**: https://github.com/${{ github.repository }}/compare/$prev...$tag"
+          echo "EOF"
+        } >> "$GITHUB_OUTPUT"
+
+        echo "prev=$prev" >> "$GITHUB_OUTPUT"
+        echo "tag=$tag"   >> "$GITHUB_OUTPUT"
+        echo "skip=$skip" >> "$GITHUB_OUTPUT"
+
+    - name: Package localization
+      if: steps.ver.outputs.skip != 'true'
+      uses: ./.github/actions/package-localization
+
+    # The tag is created by the release itself. Tags created with GITHUB_TOKEN do not
+    # trigger other workflows, so build.yaml will not run a second time for it.
+    - name: Release
+      if: steps.ver.outputs.skip != 'true'
+      uses: softprops/action-gh-release@v3
+      with:
+        tag_name: ${{ steps.ver.outputs.tag }}
+        target_commitish: ${{ github.sha }}
+        name: ${{ steps.ver.outputs.tag }}
+        body: ${{ steps.ver.outputs.notes }}
+        make_latest: true
+        files: |
+          data/*.zip
+          tools/*.cmd
+          tools/*.ps1

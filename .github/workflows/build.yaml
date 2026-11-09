@@ -18,19 +18,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v6
 
-    - name: Zip all locales
-      working-directory: ./data
-      run: zip -r Localization.zip . -i "Localization/*"
-
-    - name: Zip each locales
-      working-directory: ./data
-      run: |
-        for file in $(find Localization/ -name '*.ini'); do
-            dir=$(dirname "$file")
-            filename=$(basename "$file")
-            foldername=$(basename "$dir")
-            zip -j "$foldername.zip" "$file"
-        done
+    - name: Package localization
+      uses: ./.github/actions/package-localization
 
     - name: Release
       uses: softprops/action-gh-release@v3
@@ -40,4 +29,3 @@ jobs:
           tools/*.cmd
           tools/*.ps1
         draft: true
-
