@@ -34,7 +34,7 @@ function Get-Translate {
   }
 
   $userCulture = (Get-Culture).TwoLetterISOLanguageName
-  if (-not $localesPSobject.Properties.name -match $userCulture) {
+  if ($locales.PSObject.Properties.Name -notcontains $userCulture) {
     $userCulture = 'en'
   }
 
@@ -367,8 +367,8 @@ Function Select-LanguageMenu() {
     "french_(france)"
     "german_(germany)"
     "italian_(italy)"
+    "korean_(south_korea)"
     "portuguese_(brazil)"
-    "spanish_(latin_america)"
     "spanish_(spain)"
     "turkish_(turkey)"
   )
@@ -436,7 +436,7 @@ Function Set-UserCfg($rootFolder, $language) {
   }
 
   # Save the 'user.cfg' file
-  Set-Content -Path "$gameFolder\user.cfg" -Value $userCfgContent
+  Set-Content -Path "$rootFolder\user.cfg" -Value $userCfgContent
   return $true
 }
 

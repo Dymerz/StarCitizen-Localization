@@ -2,19 +2,14 @@
 setlocal enabledelayedexpansion
 
 :: Define the languages
-set "lang_list[1]=chinese_(simplified)"
-set "lang_list[2]=chinese_(traditional)"
-set "lang_list[3]=english"
-set "lang_list[4]=french_(france)"
-set "lang_list[5]=german_(germany)"
-set "lang_list[6]=italian_(italy)"
-set "lang_list[7]=japanese_(japan)"
-set "lang_list[8]=korean_(south_korea)"
-set "lang_list[9]=polish_(poland)"
-set "lang_list[10]=portuguese_(brazil)"
-set "lang_list[11]=spanish_(latin_america)"
-set "lang_list[12]=spanish_(spain)"
-set "lang_list[13]=turkish_(turkey)"
+set "lang_list[1]=english"
+set "lang_list[2]=french_(france)"
+set "lang_list[3]=german_(germany)"
+set "lang_list[4]=italian_(italy)"
+set "lang_list[5]=korean_(south_korea)"
+set "lang_list[6]=portuguese_(brazil)"
+set "lang_list[7]=spanish_(spain)"
+set "lang_list[8]=turkish_(turkey)"
 
 :: Check the directory
 set BATCH_PATH=%~dp0
@@ -30,25 +25,20 @@ if errorlevel 1 (
 :: Display language options
 echo.
 echo Select the language you want to install:
-echo 1. Chinese - Simplified
-echo 2. Chinese - Traditional
-echo 3. English / Remove "g_language"
-echo 4. French - France
-echo 5. German - Germany
-echo 6. Italian - Italy
-echo 7. Japanese - Japan
-echo 8. Korean - South Korea
-echo 9. Polish - Poland
-echo 10. Portuguese - Brazil
-echo 11. Spanish - Latin America
-echo 12. Spanish - Spain
-echo 13. Turkish - Turkey
+echo 1. English / Remove "g_language"
+echo 2. French - France
+echo 3. German - Germany
+echo 4. Italian - Italy
+echo 5. Korean - South Korea
+echo 6. Portuguese - Brazil
+echo 7. Spanish - Spain
+echo 8. Turkish - Turkey
 
 echo Enter the number of the language you want to select.
 :LanguageInput
 set /p lang_choice="Language number: "
 if not defined lang_list[%lang_choice%] (
-    echo Invalid choice. Please enter a number from 1 to 14.
+    echo Invalid choice. Please enter a number from 1 to 8.
     goto LanguageInput
 )
 set "language=!lang_list[%lang_choice%]!"
@@ -74,14 +64,18 @@ IF NOT EXIST ".\Localization\!install_language!" mkdir .\Localization\!install_l
 :: Set branch on repository
 set "reference=main"
 echo %BATCH_PATH% | findstr /I /C:"\StarCitizen\PTU\data" >nul
-if errorlevel 0 (
+if not errorlevel 1 (
 	set "reference=ptu"
 )
 
 :: Download language file
 echo.
 echo Downloading language file for !download_language!...
-curl -L -s -o "global.ini" "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/!reference!/data/Localization/!download_language!/global.ini"
+if exist "global.ini" del /F "global.ini"
+curl -f -L -s -o "global.ini" "https://raw.githubusercontent.com/Dymerz/StarCitizen-Localization/!reference!/data/Localization/!download_language!/global.ini"
+if errorlevel 1 (
+    if exist "global.ini" del /F "global.ini"
+)
 if not exist "global.ini" (
     echo The language "!download_language!" does not exist. Check the status of translations at: 
     echo https://github.com/Dymerz/StarCitizen-Localization#supported-languages
