@@ -34,10 +34,10 @@
 
 | Dil                      | Durum | Kaynak |
 |--------------------------|-------|--------|
-| Ingilizce                | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Oyun dosyalarindan içe aktarildi |
-| Fransizca - Fransa       | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | [circuspes.fr](https://traduction.circuspes.fr) üzerinden olusturuldu |
+| Ingilizce                | ![Static Badge](https://img.shields.io/badge/4.10.3-LIVE-brightgreen) | Oyun dosyalarindan içe aktarildi |
+| Fransizca - Fransa       | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-orange) | [circuspes.fr](https://traduction.circuspes.fr) üzerinden olusturuldu |
 | Almanca - Almanya        | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Burada |
-| Portekizce - Brezilya    | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen | Burada |
+| Portekizce - Brezilya    | ![Static Badge](https://img.shields.io/badge/4.10.3-LIVE-brightgreen | Burada |
 | Italyanca - Italya       | ![Static Badge](https://img.shields.io/badge/4.10.1-LIVE-orange) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) ve [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Ispanyolca - Ispanya     | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Burada |
 | Türkçe - Türkiye         | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Burada |
@@ -45,7 +45,7 @@
 | Çince - Basitlestirilmis | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Katki bekleniyor |
 | Çince - Geleneksel       | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Katki bekleniyor |
 | Japonca - Japonya         | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Katki bekleniyor |
-| Korece - Güney Kore       | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Burada |
+| Korece - Güney Kore       | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-orange) | Burada |
 | Lehçe - Polonya           | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Katki bekleniyor |
 
 ---

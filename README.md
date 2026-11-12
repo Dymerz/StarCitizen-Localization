@@ -36,10 +36,10 @@
 
 | Language                 | Supported | Source |
 |--------------------------|-----------|--------|
-| English                  | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Imported from game files |
-| French - France          | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Generated from [circuspes.fr](https://traduction.circuspes.fr) |
+| English                  | ![Static Badge](https://img.shields.io/badge/4.10.3-LIVE-brightgreen) | Imported from game files |
+| French - France          | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-orange) | Generated from [circuspes.fr](https://traduction.circuspes.fr) |
 | German - Germany         | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Here |
-| Portuguese - Brazil      | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Here |
+| Portuguese - Brazil      | ![Static Badge](https://img.shields.io/badge/4.10.3-LIVE-brightgreen) | Here |
 | Italian - Italy          | ![Static Badge](https://img.shields.io/badge/4.10.1-LIVE-orange) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) and [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Spanish - Spain          | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Here |
 | Turkish - Turkey         | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Here |
@@ -47,7 +47,7 @@
 | Chinese - Simplified     | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
 | Chinese - Traditional    | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
 | Japanese - Japan         | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
-| Korean - South Korea     | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Here |
+| Korean - South Korea     | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-orange) | Here |
 | Polish - Poland          | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Awaiting contribution |
 
 ---

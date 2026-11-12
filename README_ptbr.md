@@ -30,10 +30,10 @@
 
 | Idioma                  | Suportado | Fonte |
 |--------------------------|-----------|-------|
-| Inglês                  | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Importado dos arquivos do jogo |
-| Francês - França        | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Gerado de [circuspes.fr](https://traduction.circuspes.fr) |
+| Inglês                  | ![Static Badge](https://img.shields.io/badge/4.10.3-LIVE-brightgreen) | Importado dos arquivos do jogo |
+| Francês - França        | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-orange) | Gerado de [circuspes.fr](https://traduction.circuspes.fr) |
 | Alemão - Alemanha       | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange) | Aqui |
-| Português - Brasil      | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Aqui |
+| Português - Brasil      | ![Static Badge](https://img.shields.io/badge/4.10.3-LIVE-brightgreen) | Aqui |
 | Italiano - Itália       | ![Static Badge](https://img.shields.io/badge/4.10.1-LIVE-orange) | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) e [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Espanhol - Espanha      | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange) | Aqui |
 | Turco - Turquia         | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Aqui |
@@ -41,7 +41,7 @@
 | Chinês - Simplificado   | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
 | Chinês - Tradicional    | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
 | Japonês - Japão         | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
-| Coreano - Coreia do Sul | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Aqui |
+| Coreano - Coreia do Sul | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-orange) | Aqui |
 | Polonês - Polônia       | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred) | Aguardando contribuição |
 
 ---
