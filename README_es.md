@@ -40,10 +40,10 @@
 
 | Idioma                  | Soporte                                                            | Fuente                                                                                                                              |
 | ----------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Inglés                  | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen)   | Importado de archivos del juego                                                                                                     |
-| Francés - Francia       | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) |
+| Inglés                  | ![Static Badge](https://img.shields.io/badge/4.10.3-LIVE-brightgreen)   | Importado de archivos del juego                                                                                                     |
+| Francés - Francia       | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-orange) | Generado desde [circuspes.fr](https://traduction.circuspes.fr) |
 | Alemán (Alemania)       | ![Static Badge](https://img.shields.io/badge/4.2.0-LIVE-orange)   | Aquí                                                                                                                                |
-| Portugués (Brasil)      | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen)   | Aquí                                                                                                                                |
+| Portugués (Brasil)      | ![Static Badge](https://img.shields.io/badge/4.10.3-LIVE-brightgreen)   | Aquí                                                                                                                                |
 | Italiano (Italia)       | ![Static Badge](https://img.shields.io/badge/4.10.1-LIVE-orange)    | [GattoMatto](https://robertsspaceindustries.com/citizens/GattoMatto) y [MrRevo](https://robertsspaceindustries.com/citizens/MrRevo) |
 | Español (España)        | ![Static Badge](https://img.shields.io/badge/3.23.1a-LIVE-orange)  | Aquí                                                                                                                                |
 | Turco (Turquía)         | ![Static Badge](https://img.shields.io/badge/4.6.0-LIVE-yellow) | Aquí                                                                                                                                |
@@ -51,7 +51,7 @@
 | Chino (Simplificado)    | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
 | Chino (Tradicional)     | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
 | Japonés (Japón)         | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución                                                                                                              |
-| Coreano (Corea del Sur) | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-brightgreen)   | Aquí |
+| Coreano (Corea del Sur) | ![Static Badge](https://img.shields.io/badge/4.10.2-LIVE-orange)   | Aquí |
 | Polaco (Polonia)        | ![Static Badge](https://img.shields.io/badge/x.xx.x-LIVE-darkred)   | Esperando contribución
 
 ---
