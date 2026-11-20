@@ -11,16 +11,22 @@ set "lang_list[6]=portuguese_(brazil)"
 set "lang_list[7]=spanish_(spain)"
 set "lang_list[8]=turkish_(turkey)"
 
-:: Check the directory
-set BATCH_PATH=%~dp0
-set BATCH_PATH=%BATCH_PATH:~0,-1%
+:: Check the directory: accept the script's own folder (double-click) or the current folder (terminal),
+:: then work from it since every path below is relative.
 echo Checking directory...
-echo %BATCH_PATH% | findstr /I /C:"\StarCitizen\LIVE\data" >nul || echo %BATCH_PATH% | findstr /I /C:"\StarCitizen\PTU\data" >nul
+set "BATCH_PATH=%~dp0"
+set "BATCH_PATH=%BATCH_PATH:~0,-1%"
+call :IsDataFolder "%BATCH_PATH%"
+if errorlevel 1 (
+    set "BATCH_PATH=%CD%"
+    call :IsDataFolder "%CD%"
+)
 if errorlevel 1 (
     echo This script must be executed from the "\StarCitizen\[LIVE or PTU]\data" folder.
     pause
     exit /b
 )
+cd /d "%BATCH_PATH%"
 
 :: Detect the environment and the installed game version
 set "environment=LIVE"
@@ -149,6 +155,11 @@ move /y user.cfg.new ..\user.cfg > nul
 echo g_language entry has been removed.
 echo You can now enjoy Star Citizen in english!
 pause
+goto :eof
+
+:: Set errorlevel 0 if the given path ends with \StarCitizen\LIVE\data or \StarCitizen\PTU\data
+:IsDataFolder
+echo %~1\| findstr /I /R /C:"\\StarCitizen\\LIVE\\data\\$" /C:"\\StarCitizen\\PTU\\data\\$" >nul
 goto :eof
 
 :: Get the installed game version (e.g. 4.10.3) into "game_version".
