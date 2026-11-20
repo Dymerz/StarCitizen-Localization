@@ -473,10 +473,45 @@ Function Clear-Language($rootFolder) {
 
 <#
   .SYNOPSIS
-    Get the game version from the "build_manifest.id" file
+    Get the installed game version (e.g. 4.10.3)
+  .DESCRIPTION
+    "build_manifest.id" only holds the major branch (e.g. "sc-alpha-4.10.0") and an internal
+    build number, so the patch version is resolved by matching the manifest change number
+    against the RSI Launcher log, then the game log. Falls back to the manifest branch.
 #>
 Function Get-GameVersion($gamePath, $environment) {
-  $buildManifest = Get-Content -Path "$gamePath\$environment\build_manifest.id" | ConvertFrom-Json
+  $buildManifest = $null
+  try {
+    $buildManifest = Get-Content -Path "$gamePath\$environment\build_manifest.id" -Raw -ErrorAction Stop | ConvertFrom-Json
+  }
+  catch {
+    return "unknown"
+  }
+
+  $changeNum = $buildManifest.Data.RequestedP4ChangeNum
+  if ($changeNum) {
+    $escaped = [regex]::Escape($changeNum)
+
+    # RSI Launcher log: "Installing Star Citizen LIVE 4.10.3-live.13220821 at ..."
+    $launcherLogs = Get-ChildItem -Path "$env:APPDATA\rsilauncher\logs" -Filter "*.log" -ErrorAction SilentlyContinue |
+      Sort-Object LastWriteTime -Descending
+    foreach ($log in $launcherLogs) {
+      $match = Select-String -Path $log.FullName -Pattern "(\d+\.\d+\.\d+)-[\w]+\.$escaped\b" -ErrorAction SilentlyContinue |
+        Select-Object -Last 1
+      if ($match) { return $match.Matches[0].Groups[1].Value }
+    }
+
+    # Game log (only written when the game runs): "Branch: sc-alpha-4.10.2" + "build_version[12913470]"
+    $gameLog = "$gamePath\$environment\Game.log"
+    if (Test-Path -Path $gameLog -PathType Leaf) {
+      $head = Get-Content -Path $gameLog -TotalCount 200 -ErrorAction SilentlyContinue
+      if ($head -match "build_version\[$escaped\]") {
+        $branchLine = $head | Where-Object { $_ -match 'Branch:\s*\S*?(\d+\.\d+\.\d+)' } | Select-Object -First 1
+        if ($branchLine -and $branchLine -match 'Branch:\s*\S*?(\d+\.\d+\.\d+)') { return $Matches[1] }
+      }
+    }
+  }
+
   return $buildManifest.Data.Branch
 }
 
